@@ -193,13 +193,12 @@ opt_in_rules:
 # 対象のファイル・フォルダ
 # デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
 included:
-  - CurrencyConversion
+  - UhooiPicBook
 
 # 対象外のファイル・フォルダ
-# CocoaPodsでインストールしたライブラリは対象外とする
 excluded:
   - Pods
-  - CurrencyConversion/Generated
+  - UhooiPicBook/Generated
 
 line_length:
   warning: 300
