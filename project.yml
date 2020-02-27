@@ -6,6 +6,11 @@ options:
     iOS: 13.0
   carthageExecutablePath: mint run Carthage/Carthage carthage
 
+settings:
+  configs:
+    debug:
+      DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+
 targets:
   UhooiPicBook:
     type: application
@@ -71,6 +76,11 @@ targets:
 
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
+    postBuildScripts:
+      - script: ${PODS_ROOT}/FirebaseCrashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
 
   UhooiPicBookTests:
     type: bundle.unit-test

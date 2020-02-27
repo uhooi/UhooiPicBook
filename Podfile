@@ -8,6 +8,7 @@ target 'UhooiPicBook' do
   # Pods for UhooiPicBook
   pod 'R.swift'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
   target 'UhooiPicBookTests' do
     inherit! :search_paths
