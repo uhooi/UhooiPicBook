@@ -1,0 +1,122 @@
+name: UhooiPicBook
+
+options:
+  bundleIdPrefix: com.theuhooi
+  deploymentTarget:
+    iOS: 13.0
+  carthageExecutablePath: mint run Carthage/Carthage carthage
+
+targets:
+  UhooiPicBook:
+    type: application
+    platform: iOS
+    sources:
+      - UhooiPicBook
+      - path: "UhooiPicBook/Generated/MockResults.swift"
+        optional: true
+        type: file
+      - path: "UhooiPicBook/Generated/R.generated.swift"
+        optional: true
+        type: file
+    settings:
+      base:
+        DEVELOPMENT_TEAM: 47E56DYP3N
+        INFOPLIST_FILE: UhooiPicBook/Info.plist
+    # dependencies:
+    preBuildScripts:
+      - script: |
+                "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
+        name: Generate Resources with R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
+      - script: |
+                if which mint >/dev/null; then
+                  rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+                  mint run mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+                else
+                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
+                fi
+        name: Generate Mocks with Mockolo
+        outputFiles:
+          - $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+    postCompileScripts:
+      - script: |
+                if which mint >/dev/null; then
+                  mint run swiftlint swiftlint autocorrect --format
+                  mint run swiftlint swiftlint
+                else
+                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
+                fi
+        name: Run SwiftLint
+      - script: |
+                if ! which mint >/dev/null; then
+                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
+                  exit 0
+                fi
+
+                git_path=/usr/local/bin/git
+                files=$($git_path diff --diff-filter=d --name-only -- "*.swift" "*.h" "*.m")
+                if (test -z $files) || (test ${#files[@]} -eq 0); then
+                  echo "no files changed."
+                  exit 0
+                fi
+
+                options=""
+                for file in $files
+                do
+                  options="$options $SRCROOT/$file"
+                done
+
+                mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+        name: Run SpellChecker
+
+  UhooiPicBookTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - UhooiPicBookTests
+    settings:
+      base:
+        INFOPLIST_FILE: UhooiPicBookTests/Info.plist
+    dependencies:
+      - target: UhooiPicBook
+
+  UhooiPicBookUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - UhooiPicBookUITests
+    settings:
+      base:
+        INFOPLIST_FILE: UhooiPicBookUITests/Info.plist
+    dependencies:
+      - target: UhooiPicBook
+
+schemes:
+  UhooiPicBook:
+    build:
+      targets:
+        UhooiPicBook: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - UhooiPicBook
+      targets:
+        - name: UhooiPicBookTests
+          parallelizable: true
+          randomExecutionOrder: true
+        - name: UhooiPicBookUITests
+          parallelizable: true
+          randomExecutionOrder: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+

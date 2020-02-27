@@ -1,0 +1,12 @@
+whiteList:
+  # Common
+  - codable
+  - lhs
+  - rhs
+  - dto
+  - interactor
+  - swiftlint
+
+  # Uhooi
+  - uhooi
+
