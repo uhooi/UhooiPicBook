@@ -25,7 +25,7 @@ jobs:
 
     # Xcodeの一覧出力
     - name: Show Xcode list
-      run: ls /Applications | grep xcode
+      run: ls /Applications | grep 'Xcode'
 
     # Xcodeのバージョン出力
     - name: Show Xcode version
