@@ -1,8 +1,8 @@
 # UhooiPicBook
 
-Uhooi's character book.
+[![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook/actions?query=workflow%3ACI)
 
-![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)
+Uhooi's character book.
 
 ## Configuration
 
