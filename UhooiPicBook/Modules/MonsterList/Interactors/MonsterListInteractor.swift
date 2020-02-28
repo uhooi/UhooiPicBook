@@ -21,11 +21,14 @@ final class MonsterListInteractor {
 
     weak var presenter: MonsterListInteractorOutput!
 
+    private let monstersRepository: MonstersRepository
+
     // MARK: Computed Instance Properties
 
     // MARK: Initializer
 
-    init() {
+    init(monstersRepository: MonstersRepository) {
+        self.monstersRepository = monstersRepository
     }
 
     // MARK: Other Private Methods
@@ -35,7 +38,11 @@ final class MonsterListInteractor {
 extension MonsterListInteractor: MonsterListInteractorInput {
 
     func fetchMonsters() {
-        // TODO:
+        self.monstersRepository.loadMonsters(success: { monsters in
+            self.presenter.monstersFetched(monsters: monsters)
+        }, failure: { _ in
+            // TODO:
+        })
     }
 
 }

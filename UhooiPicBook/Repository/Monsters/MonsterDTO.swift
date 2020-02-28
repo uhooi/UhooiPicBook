@@ -1,13 +1,13 @@
 //
-//  MonsterEntity.swift
+//  MonsterDTO.swift
 //  UhooiPicBook
 //
 //  Created by uhooi on 2020/02/28.
 //
 
-import UIKit
+import Foundation
 
-struct MonsterEntity: Equatable {
+struct MonsterDTO {
     let iconURL: URL
     let name: String
     let description: String

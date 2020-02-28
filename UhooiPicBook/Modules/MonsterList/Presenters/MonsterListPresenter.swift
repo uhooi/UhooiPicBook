@@ -14,7 +14,7 @@ protocol MonsterListEventHandler: AnyObject {
 
 /// @mockable
 protocol MonsterListInteractorOutput: AnyObject {
-    //    func monstersFetched(monsters: [MonsterDTO])
+    func monstersFetched(monsters: [MonsterDTO])
 }
 
 final class MonsterListPresenter {
@@ -50,4 +50,13 @@ extension MonsterListPresenter: MonsterListEventHandler {
 }
 
 extension MonsterListPresenter: MonsterListInteractorOutput {
+
+    func monstersFetched(monsters: [MonsterDTO]) {
+        let monsterEntities = monsters.map { convertDTOToEntity(dto: $0) }
+        self.view.showMonsters(monsters: monsterEntities)
+    }
+
+    private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
+        MonsterEntity(iconURL: dto.iconURL, name: dto.name, description: dto.description)
+    }
 }

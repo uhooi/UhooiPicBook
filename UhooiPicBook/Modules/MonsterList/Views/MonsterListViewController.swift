@@ -10,7 +10,7 @@ import UIKit
 
 /// @mockable
 protocol MonsterListUserInterface: AnyObject {
-    //    func showMonsters(monsters: [MonsterEntity])
+    func showMonsters(monsters: [MonsterEntity])
 }
 
 final class MonsterListViewController: UIViewController {
@@ -29,7 +29,7 @@ final class MonsterListViewController: UIViewController {
 
     @IBOutlet private weak var monstersTableView: UITableView! {
         willSet {
-            // TODO:
+            newValue.register(R.nib.monsterTableViewCell)
         }
     }
 
@@ -38,16 +38,12 @@ final class MonsterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureView()
         self.presenter.viewDidLoad()
     }
 
     // MARK: IBActions
 
     // MARK: Other Private Methods
-
-    private func configureView() {
-    }
 
 }
 
@@ -63,7 +59,7 @@ extension MonsterListViewController: UITableViewDataSource {
         }
 
         let monster = self.monsters[indexPath.row]
-        cell.setup(icon: monster.icon, name: monster.name)
+        cell.setup(icon: UIImage(), name: monster.name)
 
         return cell
     }
@@ -75,4 +71,10 @@ extension MonsterListViewController: UITableViewDelegate {
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
+
+    func showMonsters(monsters: [MonsterEntity]) {
+        self.monsters = monsters
+        self.monstersTableView.reloadData()
+    }
+
 }
