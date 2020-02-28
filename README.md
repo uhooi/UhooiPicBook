@@ -27,3 +27,7 @@ $ cd UhooiPicBook
 
 3. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
+
+## Development
+
+Run `make help` .
