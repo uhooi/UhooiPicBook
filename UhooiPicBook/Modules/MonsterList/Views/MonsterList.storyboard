@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VO7-ZU-5oB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monster List View Controller-->
+        <scene sceneID="tU6-vw-UeP">
+            <objects>
+                <viewController id="VO7-ZU-5oB" customClass="MonsterListViewController" customModule="UhooiPicBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbz-wc-vx5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j6B-xy-BDF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VO7-ZU-5oB" id="12z-ww-Q5r"/>
+                                    <outlet property="delegate" destination="VO7-ZU-5oB" id="yQf-ar-dtB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j6B-xy-BDF" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="8fk-WO-XY3"/>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="trailing" secondItem="j6B-xy-BDF" secondAttribute="trailing" id="cqr-km-9kk"/>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="j6B-xy-BDF" secondAttribute="bottom" id="dU2-Ep-a6P"/>
+                            <constraint firstItem="j6B-xy-BDF" firstAttribute="leading" secondItem="QCB-zG-Slj" secondAttribute="leading" id="rVL-XD-lFv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QCB-zG-Slj"/>
+                    </view>
+                    <connections>
+                        <outlet property="monstersTableView" destination="j6B-xy-BDF" id="Zsu-jJ-I3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Um6-RH-5QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="153"/>
+        </scene>
+    </scenes>
+</document>
