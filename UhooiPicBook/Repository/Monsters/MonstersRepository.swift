@@ -47,11 +47,13 @@ extension MonstersFirebaseClient: MonstersRepository {
                     })
                 }
             }
-            queue.addOperation(operation)
 
             let operation2 = BlockOperation {
                 success(monsters)
             }
+            operation2.addDependency(operation)
+
+            queue.addOperation(operation)
             queue.addOperation(operation2)
 
         }, withCancel: { error in
