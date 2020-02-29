@@ -59,7 +59,7 @@ extension MonsterListViewController: UITableViewDataSource {
         }
 
         let monster = self.monsters[indexPath.row]
-        cell.setup(icon: UIImage(), name: monster.name)
+        cell.setup(icon: monster.icon, name: monster.name)
 
         return cell
     }

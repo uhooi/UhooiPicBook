@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 struct MonsterDTO {
-    let iconURL: URL
+    let icon: UIImage
     let name: String
     let description: String
 }

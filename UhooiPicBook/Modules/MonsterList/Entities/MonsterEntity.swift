@@ -5,10 +5,11 @@
 //  Created by uhooi on 2020/02/28.
 //
 
-import UIKit
+import Foundation
+import UIKit.UIImage
 
 struct MonsterEntity: Equatable {
-    let iconURL: URL
+    let icon: UIImage
     let name: String
     let description: String
 }
