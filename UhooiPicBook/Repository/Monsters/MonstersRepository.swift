@@ -62,10 +62,12 @@ extension MonstersFirebaseClient: MonstersRepository {
     }
 
     private func loadIcon(name: String, success: @escaping (UIImage) -> Void, failure: @escaping (Error) -> Void) {
+        var isFinish = false
         let iconRef = self.storageRef.child("public").child("icons").child("\(name).png")
         iconRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 failure(error)
+                isFinish = true
                 return
             }
 
@@ -74,8 +76,10 @@ extension MonstersFirebaseClient: MonstersRepository {
             }
 
             success(icon)
+            isFinish = true
             return
         }
+        while !isFinish {}
     }
 
 }
