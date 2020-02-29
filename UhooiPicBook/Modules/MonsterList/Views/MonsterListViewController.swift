@@ -27,9 +27,9 @@ final class MonsterListViewController: UIViewController {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var monstersTableView: UITableView! {
+    @IBOutlet private weak var monstersCollectionView: UICollectionView! {
         willSet {
-            newValue.register(R.nib.monsterTableViewCell)
+            newValue.register(R.nib.monsterCollectionViewCell)
         }
     }
 
@@ -47,15 +47,15 @@ final class MonsterListViewController: UIViewController {
 
 }
 
-extension MonsterListViewController: UITableViewDataSource {
+extension MonsterListViewController: UICollectionViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.monsters.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.monstersTableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.monsterTableViewCell, for: indexPath) else {
-            fatalError("Fail to load MonsterTableViewCell.")
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = self.monstersCollectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.monsterCollectionViewCell, for: indexPath) else {
+            fatalError("Fail to load MonsterCollectionViewCell.")
         }
 
         let monster = self.monsters[indexPath.row]
@@ -66,10 +66,18 @@ extension MonsterListViewController: UITableViewDataSource {
 
 }
 
-extension MonsterListViewController: UITableViewDelegate {
+extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        MonsterTableViewCell.defaultHeight
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: self.view.frame.width - 8.0 * 2, height: 84.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        8.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        8.0
     }
 
 }
@@ -79,7 +87,7 @@ extension MonsterListViewController: MonsterListUserInterface {
     func showMonsters(monsters: [MonsterEntity]) {
         self.monsters = monsters
         DispatchQueue.main.async {
-            self.monstersTableView.reloadData()
+            self.monstersCollectionView.reloadData()
         }
     }
 
