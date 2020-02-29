@@ -20,6 +20,7 @@
                         <rect key="frame" x="8" y="8" width="68" height="68"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="iGz-f5-Wgc" secondAttribute="height" multiplier="1:1" id="mas-bw-niw"/>
+                            <constraint firstAttribute="height" constant="68" id="sie-iA-irj"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uhooi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-iF-1Pu">
@@ -32,11 +33,10 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="vOX-iF-1Pu" secondAttribute="trailing" constant="8" id="DBP-Ey-zGY"/>
+                <constraint firstItem="iGz-f5-Wgc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="NtU-o6-qXc"/>
                 <constraint firstItem="iGz-f5-Wgc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="arn-q1-8cF"/>
                 <constraint firstAttribute="bottom" secondItem="vOX-iF-1Pu" secondAttribute="bottom" constant="8" id="fvO-2q-CpE"/>
-                <constraint firstItem="iGz-f5-Wgc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="kIm-rt-Wcd"/>
                 <constraint firstItem="vOX-iF-1Pu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="rIx-NK-z3g"/>
-                <constraint firstAttribute="bottom" secondItem="iGz-f5-Wgc" secondAttribute="bottom" constant="8" id="uKp-Db-ycm"/>
                 <constraint firstItem="vOX-iF-1Pu" firstAttribute="leading" secondItem="iGz-f5-Wgc" secondAttribute="trailing" constant="16" id="xcn-cu-2cJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
