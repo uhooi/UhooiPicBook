@@ -67,7 +67,11 @@ extension MonsterListViewController: UITableViewDataSource {
 }
 
 extension MonsterListViewController: UITableViewDelegate {
-    // TODO:
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        MonsterTableViewCell.defaultHeight
+    }
+
 }
 
 extension MonsterListViewController: MonsterListUserInterface {

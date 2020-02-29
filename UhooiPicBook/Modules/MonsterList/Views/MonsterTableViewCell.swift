@@ -9,6 +9,10 @@ import UIKit
 
 final class MonsterTableViewCell: UITableViewCell {
 
+    // MARK: Stored Type Properties
+
+    static let defaultHeight: CGFloat = 64.0
+
     // MARK: IBOutlets
 
     @IBOutlet private weak var iconImageView: UIImageView!
