@@ -74,7 +74,9 @@ extension MonsterListViewController: MonsterListUserInterface {
 
     func showMonsters(monsters: [MonsterEntity]) {
         self.monsters = monsters
-        self.monstersTableView.reloadData()
+        DispatchQueue.main.async {
+            self.monstersTableView.reloadData()
+        }
     }
 
 }

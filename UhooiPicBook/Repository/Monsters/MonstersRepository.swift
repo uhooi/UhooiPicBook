@@ -25,21 +25,35 @@ extension MonstersFirebaseClient: MonstersRepository {
         monstersRef.observeSingleEvent(of: .value, with: { snapshot in
             var monsters: [MonsterDTO] = []
             let value = snapshot.value as? [String: Any]
-            for (_, val) in value ?? [:] {
-                guard let monster = val as? [String: Any],
-                    let name = monster["name"] as? String,
-                    let description = monster["description"] as? String else {
-                        continue
-                }
 
-                self.loadIcon(name: name, success: { icon in
-                    monsters.append(MonsterDTO(icon: icon, name: name, description: description))
-                }, failure: { error in
-                    failure(error)
-                    return
-                })
+            let queue = OperationQueue()
+            queue.name = "LoadingMonstersQueue"
+            queue.qualityOfService = .default
+            queue.maxConcurrentOperationCount = 1
+
+            let operation = BlockOperation {
+                for (_, val) in value ?? [:] {
+                    guard let monster = val as? [String: Any],
+                        let name = monster["name"] as? String,
+                        let description = monster["description"] as? String else {
+                            continue
+                    }
+
+                    self.loadIcon(name: name, success: { icon in
+                        monsters.append(MonsterDTO(icon: icon, name: name, description: description))
+                    }, failure: { error in
+                        failure(error)
+                        return
+                    })
+                }
             }
-            success(monsters)
+            queue.addOperation(operation)
+
+            let operation2 = BlockOperation {
+                success(monsters)
+            }
+            queue.addOperation(operation2)
+
         }, withCancel: { error in
             failure(error)
         })
