@@ -10,64 +10,61 @@ import FirebaseStorage
 
 /// @mockable
 protocol MonstersRepository: AnyObject {
-    func loadMonsters(success: @escaping ([MonsterDTO]) -> Void, failure: @escaping (Error) -> Void)
+    func loadMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
 }
 
 final class MonstersFirebaseClient {
-    let databaseRef = Database.database().reference()
-    let storageRef = Storage.storage().reference()
+    private let databaseRef = Database.database().reference()
+    private let storageRef = Storage.storage().reference()
 }
 
 extension MonstersFirebaseClient: MonstersRepository {
 
-    func loadMonsters(success: @escaping ([MonsterDTO]) -> Void, failure: @escaping (Error) -> Void) {
+    func loadMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
+        let group = DispatchGroup()
+        group.enter()
+
+        var monsters: [MonsterDTO] = []
+        var someError: Error?
+
         let monstersRef = databaseRef.child("public").child("monsters")
         monstersRef.observeSingleEvent(of: .value, with: { snapshot in
-            var monsters: [MonsterDTO] = []
             let value = snapshot.value as? [String: Any]
+            for (_, val) in value ?? [:] {
+                guard let monster = val as? [String: Any],
+                    let name = monster["name"] as? String,
+                    let description = monster["description"] as? String else {
+                        continue
+                }
 
-            let queue = OperationQueue()
-            queue.name = "LoadingMonstersQueue"
-            queue.qualityOfService = .default
-            queue.maxConcurrentOperationCount = 1
-
-            let operation = BlockOperation {
-                for (_, val) in value ?? [:] {
-                    guard let monster = val as? [String: Any],
-                        let name = monster["name"] as? String,
-                        let description = monster["description"] as? String else {
-                            continue
-                    }
-
-                    self.loadIcon(name: name, success: { icon in
+                group.enter()
+                self.loadIcon(name: name) { result in
+                    switch result {
+                    case let .success(icon):
                         monsters.append(MonsterDTO(icon: icon, name: name, description: description))
-                    }, failure: { error in
-                        failure(error)
-                        return
-                    })
+                    case let .failure(error):
+                        someError = error
+                    }
+                    group.leave()
                 }
             }
 
-            let operation2 = BlockOperation {
-                success(monsters)
-            }
-            operation2.addDependency(operation)
-
-            queue.addOperation(operation)
-            queue.addOperation(operation2)
-
+            group.leave()
         }, withCancel: { error in
-            failure(error)
+            someError = error
+            group.leave()
         })
+
+        group.notify(queue: .global()) {
+            completion(someError.map(Result.failure) ?? .success(monsters))
+        }
     }
 
-    private func loadIcon(name: String, success: @escaping (UIImage) -> Void, failure: @escaping (Error) -> Void) {
-        var isFinish = false
+    private func loadIcon(name: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
         let iconRef = self.storageRef.child("public").child("icons").child("\(name).png")
         iconRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
-                failure(error)
-                isFinish = true
+                completion(.failure(error))
                 return
             }
 
@@ -75,11 +72,8 @@ extension MonstersFirebaseClient: MonstersRepository {
                 fatalError("Fail to load icon.")
             }
 
-            success(icon)
-            isFinish = true
-            return
+            completion(.success(icon))
         }
-        while !isFinish {}
     }
 
 }

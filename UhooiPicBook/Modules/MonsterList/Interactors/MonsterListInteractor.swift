@@ -38,11 +38,15 @@ final class MonsterListInteractor {
 extension MonsterListInteractor: MonsterListInteractorInput {
 
     func fetchMonsters() {
-        self.monstersRepository.loadMonsters(success: { monsters in
-            self.presenter.monstersFetched(monsters: monsters)
-        }, failure: { _ in
-            // TODO:
-        })
+        self.monstersRepository.loadMonsters { result in
+            switch result {
+            case let .success(monsters):
+                self.presenter.monstersFetched(monsters: monsters)
+            case let .failure(error):
+                // TODO:
+                break
+            }
+        }
     }
 
 }
