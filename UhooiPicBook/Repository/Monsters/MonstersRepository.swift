@@ -5,7 +5,7 @@
 //  Created by uhooi on 2020/02/28.
 //
 
-import FirebaseDatabase
+import Firebase
 import FirebaseStorage
 
 /// @mockable
@@ -14,7 +14,7 @@ protocol MonstersRepository: AnyObject {
 }
 
 final class MonstersFirebaseClient {
-    private let databaseRef = Database.database().reference()
+    private let firestore = Firestore.firestore()
     private let storageRef = Storage.storage().reference()
 }
 
@@ -27,34 +27,38 @@ extension MonstersFirebaseClient: MonstersRepository {
         var monsters: [MonsterDTO] = []
         var someError: Error?
 
-        let monstersRef = databaseRef.child("public").child("monsters")
-        monstersRef.observeSingleEvent(of: .value, with: { snapshot in
-            let value = snapshot.value as? [String: Any]
-            for (_, val) in value ?? [:] {
-                guard let monster = val as? [String: Any],
-                    let name = monster["name"] as? String,
-                    let description = monster["description"] as? String,
-                    let order = monster["order"] as? Int else {
-                        continue
+        let monstersRef = self.firestore.collection("monsters")
+        monstersRef.getDocuments { querySnapshot, error in
+            if let error = error {
+                someError = error
+            } else {
+                guard let querySnapshot = querySnapshot else {
+                    fatalError("Fail to cast `querySnapshot` .")
                 }
 
-                group.enter()
-                self.loadIcon(name: name) { result in
-                    switch result {
-                    case let .success(icon):
-                        monsters.append(MonsterDTO(icon: icon, name: name, description: description, order: order))
-                    case let .failure(error):
-                        someError = error
+                for document in querySnapshot.documents.filter({ $0.exists }) {
+                    let monster = document.data()
+                    guard let name = monster["name"] as? String,
+                        let description = monster["description"] as? String,
+                        let order = monster["order"] as? Int else {
+                            continue
                     }
-                    group.leave()
+
+                    group.enter()
+                    self.loadIcon(name: name) { result in
+                        switch result {
+                        case let .success(icon):
+                            monsters.append(MonsterDTO(icon: icon, name: name, description: description, order: order))
+                        case let .failure(error):
+                            someError = error
+                        }
+                        group.leave()
+                    }
                 }
             }
 
             group.leave()
-        }, withCancel: { error in
-            someError = error
-            group.leave()
-        })
+        }
 
         group.notify(queue: .global()) {
             completion(someError.map(Result.failure) ?? .success(monsters))

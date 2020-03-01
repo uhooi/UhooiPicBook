@@ -7,10 +7,12 @@ target 'UhooiPicBook' do
 
   # Pods for UhooiPicBook
   pod 'R.swift'
+  pod 'Firebase/Core'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Performance'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
 
   target 'UhooiPicBookTests' do
