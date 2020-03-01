@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VO7-ZU-5oB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monster List View Controller-->
+        <scene sceneID="tU6-vw-UeP">
+            <objects>
+                <viewController id="VO7-ZU-5oB" customClass="MonsterListViewController" customModule="UhooiPicBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbz-wc-vx5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="X1i-TJ-Jmb">
+                                <rect key="frame" x="0.0" y="39" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vfg-v7-CM0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9gg-wx-hF0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VO7-ZU-5oB" id="aQc-df-Ubz"/>
+                                    <outlet property="delegate" destination="VO7-ZU-5oB" id="Xqj-V9-sis"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vfg-v7-CM0" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="MWn-HM-N0v"/>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="Vfg-v7-CM0" secondAttribute="bottom" id="McV-8m-EFQ"/>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="trailing" secondItem="Vfg-v7-CM0" secondAttribute="trailing" id="Vwd-tZ-vYz"/>
+                            <constraint firstItem="Vfg-v7-CM0" firstAttribute="leading" secondItem="QCB-zG-Slj" secondAttribute="leading" id="bP4-VP-oKJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QCB-zG-Slj"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="X1i-TJ-Jmb" id="ckf-Hk-Dm0"/>
+                        <outlet property="monstersCollectionView" destination="Vfg-v7-CM0" id="zQI-5l-EMX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Um6-RH-5QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="153"/>
+        </scene>
+    </scenes>
+</document>
