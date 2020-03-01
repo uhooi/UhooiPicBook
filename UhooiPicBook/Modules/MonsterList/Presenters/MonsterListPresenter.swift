@@ -44,6 +44,7 @@ final class MonsterListPresenter {
 extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
+        self.view.startIndicator()
         self.interactor.fetchMonsters()
     }
 
@@ -54,6 +55,7 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
     func monstersFetched(monsters: [MonsterDTO]) {
         let monsterEntities = monsters.map { convertDTOToEntity(dto: $0) }
         self.view.showMonsters(monsters: monsterEntities)
+        self.view.stopIndicator()
     }
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {

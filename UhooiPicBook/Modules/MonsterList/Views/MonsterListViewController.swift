@@ -11,6 +11,8 @@ import UIKit
 /// @mockable
 protocol MonsterListUserInterface: AnyObject {
     func showMonsters(monsters: [MonsterEntity])
+    func startIndicator()
+    func stopIndicator()
 }
 
 final class MonsterListViewController: UIViewController {
@@ -32,6 +34,8 @@ final class MonsterListViewController: UIViewController {
             newValue.register(R.nib.monsterCollectionViewCell)
         }
     }
+
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     // MARK: View Life-Cycle Methods
 
@@ -94,6 +98,17 @@ extension MonsterListViewController: MonsterListUserInterface {
         self.monsters = monsters
         DispatchQueue.main.async {
             self.monstersCollectionView.reloadData()
+        }
+    }
+
+    func startIndicator() {
+        self.view.bringSubviewToFront(self.activityIndicatorView)
+        self.activityIndicatorView.startAnimating()
+    }
+
+    func stopIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicatorView.stopAnimating()
         }
     }
 
