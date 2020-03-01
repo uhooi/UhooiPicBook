@@ -43,7 +43,7 @@ extension MonsterListInteractor: MonsterListInteractorInput {
             case let .success(monsters):
                 self.presenter.monstersFetched(monsters: monsters)
             case let .failure(error):
-                // TODO:
+                // TODO: エラーハンドリング
                 break
             }
         }

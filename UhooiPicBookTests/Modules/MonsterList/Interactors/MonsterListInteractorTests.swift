@@ -30,6 +30,32 @@ final class MonsterListInteractorTests: XCTestCase {
     // MARK: - Test Methods
 
     // MARK: MonsterListInteractorInput
+    
+    // MARK: fetchMonsters()
+    
+    func test_fetchMonsters_success() {
+        let monsterDTOs: [MonsterDTO] = []
+        self.monstersRepositoryMock.loadMonstersHandler = { result in
+            result(.success(monsterDTOs))
+        }
+        
+        self.interactor.fetchMonsters()
+        
+        XCTAssertEqual(self.presenterMock.monstersFetchedCallCount, 1)
+    }
+    
+    func test_fetchMonsters_failure() {
+        enum TestError: Error {
+            case test
+        }
+        self.monstersRepositoryMock.loadMonstersHandler = { result in
+            result(.failure(TestError.test))
+        }
+        
+        self.interactor.fetchMonsters()
+        
+        XCTAssertEqual(self.presenterMock.monstersFetchedCallCount, 0)
+    }
 
     // MARK: - Other Private Methods
 
