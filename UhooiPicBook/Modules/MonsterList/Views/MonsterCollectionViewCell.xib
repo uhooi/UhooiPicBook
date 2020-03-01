@@ -46,7 +46,7 @@
                     <real key="value" value="6"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                    <size key="value" width="1" height="10"/>
+                    <size key="value" width="1" height="1"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                     <real key="value" value="6"/>
