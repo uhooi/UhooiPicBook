@@ -69,7 +69,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
 extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: self.view.frame.width - 8.0 * 2, height: 84.0)
+        CGSize(width: self.monstersCollectionView.frame.width - 8.0 * 2, height: 84.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
