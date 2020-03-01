@@ -41,6 +41,12 @@ final class MonsterListViewController: UIViewController {
         self.presenter.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     // MARK: IBActions
 
     // MARK: Other Private Methods
