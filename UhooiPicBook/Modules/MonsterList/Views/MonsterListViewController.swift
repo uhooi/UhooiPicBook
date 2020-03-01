@@ -69,7 +69,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
         }
 
         let monster = self.monsters[indexPath.row]
-        cell.setup(icon: monster.icon, name: monster.name)
+        cell.setup(icon: monster.icon, name: monster.name, elevation: 1.0)
 
         return cell
     }
