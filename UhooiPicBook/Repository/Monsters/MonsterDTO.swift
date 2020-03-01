@@ -12,4 +12,5 @@ struct MonsterDTO {
     let icon: UIImage
     let name: String
     let description: String
+    let order: Int
 }

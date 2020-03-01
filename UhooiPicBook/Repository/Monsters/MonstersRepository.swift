@@ -33,7 +33,8 @@ extension MonstersFirebaseClient: MonstersRepository {
             for (_, val) in value ?? [:] {
                 guard let monster = val as? [String: Any],
                     let name = monster["name"] as? String,
-                    let description = monster["description"] as? String else {
+                    let description = monster["description"] as? String,
+                    let order = monster["order"] as? Int else {
                         continue
                 }
 
@@ -41,7 +42,7 @@ extension MonstersFirebaseClient: MonstersRepository {
                 self.loadIcon(name: name) { result in
                     switch result {
                     case let .success(icon):
-                        monsters.append(MonsterDTO(icon: icon, name: name, description: description))
+                        monsters.append(MonsterDTO(icon: icon, name: name, description: description, order: order))
                     case let .failure(error):
                         someError = error
                     }

@@ -53,7 +53,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
 extension MonsterListPresenter: MonsterListInteractorOutput {
 
     func monstersFetched(monsters: [MonsterDTO]) {
-        let monsterEntities = monsters.map { convertDTOToEntity(dto: $0) }
+        let monsterEntities = monsters.sorted { $0.order < $1.order } .map { convertDTOToEntity(dto: $0) }
         self.view.showMonsters(monsters: monsterEntities)
         self.view.stopIndicator()
     }
