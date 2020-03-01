@@ -25,6 +25,7 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
     // MARK: Other Internal Methods
 
     func setup(icon: UIImage, name: String) {
+        self.elevate(elevation: 1.0)
         self.iconImageView.image = icon
         self.nameLabel.text = name
     }
