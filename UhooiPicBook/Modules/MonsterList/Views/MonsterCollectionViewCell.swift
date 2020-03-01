@@ -21,13 +21,14 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var baseView: BaseView!
 
     // MARK: Other Internal Methods
 
-    func setup(icon: UIImage, name: String) {
-        self.elevate(elevation: 1.0)
+    func setup(icon: UIImage, name: String, elevation: Double) {
         self.iconImageView.image = icon
         self.nameLabel.text = name
+        self.baseView.elevate(elevation: elevation)
     }
 
 }

@@ -59,6 +59,7 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="baseView" destination="WpK-MP-NUF" id="Gob-Lj-off"/>
                 <outlet property="iconImageView" destination="iGz-f5-Wgc" id="fl1-nA-xwV"/>
                 <outlet property="nameLabel" destination="vOX-iF-1Pu" id="4eI-cY-Sar"/>
             </connections>
