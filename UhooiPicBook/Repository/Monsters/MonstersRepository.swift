@@ -6,7 +6,6 @@
 //
 
 import Firebase
-import FirebaseStorage
 
 /// @mockable
 protocol MonstersRepository: AnyObject {
@@ -15,7 +14,6 @@ protocol MonstersRepository: AnyObject {
 
 final class MonstersFirebaseClient {
     private let firestore = Firestore.firestore()
-    private let storageRef = Storage.storage().reference()
 }
 
 extension MonstersFirebaseClient: MonstersRepository {
@@ -40,20 +38,12 @@ extension MonstersFirebaseClient: MonstersRepository {
                     let monster = document.data()
                     guard let name = monster["name"] as? String,
                         let description = monster["description"] as? String,
+                        let iconUrlString = monster["icon_url"] as? String,
                         let order = monster["order"] as? Int else {
                             continue
                     }
 
-                    group.enter()
-                    self.loadIcon(name: name) { result in
-                        switch result {
-                        case let .success(icon):
-                            monsters.append(MonsterDTO(icon: icon, name: name, description: description, order: order))
-                        case let .failure(error):
-                            someError = error
-                        }
-                        group.leave()
-                    }
+                    monsters.append(MonsterDTO(name: name, description: description, iconUrlString: iconUrlString, order: order))
                 }
             }
 
@@ -62,22 +52,6 @@ extension MonstersFirebaseClient: MonstersRepository {
 
         group.notify(queue: .global()) {
             completion(someError.map(Result.failure) ?? .success(monsters))
-        }
-    }
-
-    private func loadIcon(name: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        let iconRef = self.storageRef.child("public").child("icons").child("\(name).png")
-        iconRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            guard let data = data, let icon = UIImage(data: data) else {
-                fatalError("Fail to load icon.")
-            }
-
-            completion(.success(icon))
         }
     }
 
