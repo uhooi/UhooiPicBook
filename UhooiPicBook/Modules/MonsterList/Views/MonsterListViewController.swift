@@ -22,6 +22,7 @@ final class MonsterListViewController: UIViewController {
     // MARK: Stored Instance Properties
 
     var presenter: MonsterListEventHandler!
+    var imageCacheManager: ImageCacheManagerProtocol!
 
     private var monsters: [MonsterEntity] = []
 
@@ -70,7 +71,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
 
         let monster = self.monsters[indexPath.row]
 
-        UIImage.cacheImage(imageUrl: monster.iconUrl) { result in
+        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
             switch result {
             case let .success(icon):
                 DispatchQueue.main.async {

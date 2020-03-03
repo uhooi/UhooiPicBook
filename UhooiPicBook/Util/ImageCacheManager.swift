@@ -1,5 +1,5 @@
 //
-//  UIImage+Cache.swift
+//  ImageCacheManager.swift
 //  UhooiPicBook
 //
 //  Created by uhooi on 2020/03/03.
@@ -7,12 +7,17 @@
 
 import UIKit
 
-extension UIImage {
+/// @mockable
+protocol ImageCacheManagerProtocol: AnyObject {
+    func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
+}
+
+final class ImageCacheManager: ImageCacheManagerProtocol {
 
     static let imageCache = NSCache<AnyObject, AnyObject>()
 
-    static func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        if let imageFromCache = UIImage.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
+    func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
             completion(.success(imageFromCache))
             return
         }
@@ -32,7 +37,7 @@ extension UIImage {
                 }
 
                 imageToCache = image
-                UIImage.imageCache.setObject(imageToCache, forKey: imageUrl as AnyObject)
+                ImageCacheManager.imageCache.setObject(imageToCache, forKey: imageUrl as AnyObject)
             }
 
             group.leave()
