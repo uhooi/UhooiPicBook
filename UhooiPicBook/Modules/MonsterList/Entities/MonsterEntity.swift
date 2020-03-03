@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import UIKit.UIImage
 
 struct MonsterEntity: Equatable {
-    let icon: UIImage
     let name: String
     let description: String
+    let iconUrl: URL
 }

@@ -8,6 +8,7 @@ whiteList:
   - swiftlint
 
   # Uhooi
+  - theuhooi
   - uhooi
   - ayausa
   - chibird

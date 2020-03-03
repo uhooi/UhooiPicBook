@@ -59,6 +59,11 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
     }
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
-        MonsterEntity(icon: dto.icon, name: dto.name, description: dto.description)
+        guard let iconUrl = URL(string: dto.iconUrlString) else {
+            fatalError("") // TODO: エラーハンドリング
+        }
+
+        return MonsterEntity(name: dto.name, description: dto.description, iconUrl: iconUrl)
     }
+
 }

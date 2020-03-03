@@ -12,8 +12,6 @@ target 'UhooiPicBook' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Performance'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
-  pod 'Firebase/Storage'
 
   target 'UhooiPicBookTests' do
     inherit! :search_paths

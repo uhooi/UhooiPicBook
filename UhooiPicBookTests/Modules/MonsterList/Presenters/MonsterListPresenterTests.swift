@@ -49,9 +49,10 @@ final class MonsterListPresenterTests: XCTestCase {
         let monsterDTOs: [MonsterDTO] = []
         self.viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].icon, monsterDTOs[index].icon)
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
                 XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
             }
         }
         
@@ -62,15 +63,16 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_monstersFetched_three() {
-        let uhooiDTO = MonsterDTO(icon: UIImage(), name: "uhooi", description: "uhooi's description", order: 1)
-        let ayausaDTO = MonsterDTO(icon: UIImage(), name: "ayausa", description: "ayausa's description", order: 2)
-        let chibirdDTO = MonsterDTO(icon: UIImage(), name: "chibird", description: "chibird's description", order: 3)
+        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", iconUrlString: "https://theuhooi.com/uhooi", order: 1)
+        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", iconUrlString: "https://theuhooi.com/ayausa", order: 2)
+        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", iconUrlString: "https://theuhooi.com/chibird", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         self.viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].icon, monsterDTOs[index].icon)
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
                 XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
             }
         }
         

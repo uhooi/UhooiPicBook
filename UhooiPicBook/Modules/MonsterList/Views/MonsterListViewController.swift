@@ -22,6 +22,7 @@ final class MonsterListViewController: UIViewController {
     // MARK: Stored Instance Properties
 
     var presenter: MonsterListEventHandler!
+    var imageCacheManager: ImageCacheManagerProtocol!
 
     private var monsters: [MonsterEntity] = []
 
@@ -69,7 +70,18 @@ extension MonsterListViewController: UICollectionViewDataSource {
         }
 
         let monster = self.monsters[indexPath.row]
-        cell.setup(icon: monster.icon, name: monster.name, elevation: 1.0)
+
+        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
+            switch result {
+            case let .success(icon):
+                DispatchQueue.main.async {
+                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
+                }
+            case let .failure(error):
+                // TODO: エラーハンドリング
+                print(error)
+            }
+        }
 
         return cell
     }
@@ -102,8 +114,10 @@ extension MonsterListViewController: MonsterListUserInterface {
     }
 
     func startIndicator() {
-        self.view.bringSubviewToFront(self.activityIndicatorView)
-        self.activityIndicatorView.startAnimating()
+        DispatchQueue.main.async {
+            self.view.bringSubviewToFront(self.activityIndicatorView)
+            self.activityIndicatorView.startAnimating()
+        }
     }
 
     func stopIndicator() {

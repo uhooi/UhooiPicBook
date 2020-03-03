@@ -19,15 +19,19 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var baseView: BaseView!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel! {
+        willSet {
+            newValue.text = nil
+        }
+    }
 
     // MARK: Other Internal Methods
 
-    func setup(icon: UIImage, name: String, elevation: Double) {
-        self.iconImageView.image = icon
+    func setup(name: String, icon: UIImage, elevation: Double) {
         self.nameLabel.text = name
+        self.iconImageView.image = icon
         self.baseView.elevate(elevation: elevation)
     }
 

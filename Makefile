@@ -26,9 +26,17 @@ install-mint: # Install Mint dependencies
 install-cocoapods: # Install CocoaPods dependencies and generate workspace
 	bundle exec pod install
 
+.PHONY: update-cocoapods
+update-cocoapods: # Update CocoaPods dependencies and generate workspace
+	bundle exec pod update
+
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
 	mint run carthage carthage bootstrap --platform iOS --cache-builds
+
+.PHONY: update-carthage
+update-carthage: # Update Carthage dependencies
+	mint run carthage carthage update --platform iOS
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
