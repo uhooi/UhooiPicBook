@@ -10,6 +10,7 @@ import Foundation
 
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad()
+    func didSelectMonster(monster: MonsterEntity)
 }
 
 /// @mockable
@@ -46,6 +47,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
     func viewDidLoad() {
         self.view.startIndicator()
         self.interactor.fetchMonsters()
+    }
+
+    func didSelectMonster(monster: MonsterEntity) {
+        self.router.showMonsterDetail(monster: monster)
     }
 
 }

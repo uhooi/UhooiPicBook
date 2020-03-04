@@ -10,6 +10,7 @@ import UIKit
 
 /// @mockable
 protocol MonsterListRouterInput: AnyObject {
+    func showMonsterDetail(monster: MonsterEntity)
 }
 
 final class MonsterListRouter {
@@ -46,4 +47,10 @@ final class MonsterListRouter {
 }
 
 extension MonsterListRouter: MonsterListRouterInput {
+
+    func showMonsterDetail(monster: MonsterEntity) {
+        let vc = MonsterDetailRouter.assembleModule(monster: monster)
+        self.viewController.present(vc, animated: true)
+    }
+
 }

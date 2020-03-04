@@ -104,6 +104,14 @@ extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
+extension MonsterListViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter.didSelectMonster(monster: self.monsters[indexPath.row])
+    }
+
+}
+
 extension MonsterListViewController: MonsterListUserInterface {
 
     func showMonsters(monsters: [MonsterEntity]) {

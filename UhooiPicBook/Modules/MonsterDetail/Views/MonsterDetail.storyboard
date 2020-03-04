@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Q3-Cj-FlN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monster Detail View Controller-->
+        <scene sceneID="3jR-ti-cnL">
+            <objects>
+                <viewController id="5Q3-Cj-FlN" customClass="MonsterDetailViewController" customModule="UhooiPicBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O9a-4I-Xuy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kK5-qm-5jP">
+                                <rect key="frame" x="87" y="100" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Cgk-S2-sjc"/>
+                                    <constraint firstAttribute="width" secondItem="kK5-qm-5jP" secondAttribute="height" multiplier="1:1" id="Gx1-55-GuC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrU-1E-Ghb">
+                                <rect key="frame" x="77" y="479" width="260" height="41"/>
+                                <string key="text">ゆかいな　みどりの　せいぶつ。
+わるそうに　みえるが　むがい。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uhooi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-yP-Z4b">
+                                <rect key="frame" x="160" y="372" width="94" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RrU-1E-Ghb" firstAttribute="centerX" secondItem="gYV-yP-Z4b" secondAttribute="centerX" id="Lkj-fV-XR9"/>
+                            <constraint firstItem="kK5-qm-5jP" firstAttribute="top" secondItem="JCE-kT-TIJ" secondAttribute="top" constant="56" id="YFm-W3-xaJ"/>
+                            <constraint firstItem="gYV-yP-Z4b" firstAttribute="top" secondItem="kK5-qm-5jP" secondAttribute="bottom" constant="32" id="fXy-Bv-6Zh"/>
+                            <constraint firstItem="RrU-1E-Ghb" firstAttribute="top" secondItem="gYV-yP-Z4b" secondAttribute="bottom" constant="64" id="sGk-6Y-y6W"/>
+                            <constraint firstItem="kK5-qm-5jP" firstAttribute="centerX" secondItem="O9a-4I-Xuy" secondAttribute="centerX" id="uum-we-H03"/>
+                            <constraint firstItem="gYV-yP-Z4b" firstAttribute="centerX" secondItem="kK5-qm-5jP" secondAttribute="centerX" id="yDh-cP-NRB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JCE-kT-TIJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="RrU-1E-Ghb" id="Pyv-ld-O2b"/>
+                        <outlet property="iconImageView" destination="kK5-qm-5jP" id="xRQ-Zi-qas"/>
+                        <outlet property="nameLabel" destination="gYV-yP-Z4b" id="v3f-Da-qi9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P19-2S-dsw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="117"/>
+        </scene>
+    </scenes>
+</document>
