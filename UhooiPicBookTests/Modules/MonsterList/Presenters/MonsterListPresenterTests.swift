@@ -91,6 +91,31 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
         XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
     }
+    
+    func test_monsterFetched_newLine() {
+        typealias TestCase = (line: UInt, description: String, expect: String)
+        let testCases: [TestCase] = [
+            (#line, "",              ""            ),
+            (#line, "¥¥n",           "¥¥n"         ),
+            (#line, "\n",            "\n"          ),
+            (#line, "\\n",           "\n"          ),
+            // (#line, "\\\n",          "\\n"         ),
+            (#line, "\\n\\n",        "\n\n"        ),
+            (#line, "test\\nuhooi",  "test\nuhooi" ),
+        ]
+        
+        for (line, description, expect) in testCases {
+            reset()
+            self.viewMock.showMonstersHandler = { monsterEntities in
+                XCTAssertEqual(monsterEntities[0].description, expect, line: line)
+            }
+            let monsterDTO = MonsterDTO(name: "monster's name", description: description, iconUrlString: "https://theuhooi.com/monster", order: 1)
+
+            self.presenter.monstersFetched(monsters: [monsterDTO])
+            
+            XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
+        }
+    }
 
     // MARK: - Other Private Methods
 
