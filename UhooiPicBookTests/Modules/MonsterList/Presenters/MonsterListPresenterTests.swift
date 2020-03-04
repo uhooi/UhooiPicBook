@@ -40,6 +40,16 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
     }
+    
+    // MARK: didSelectMonster
+    
+    func test_didSelectMonster() {
+        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", iconUrl: URL(string: "https://theuhooi.com/uhooi")!)
+
+        self.presenter.didSelectMonster(monster: uhooiEntity)
+        
+        XCTAssertEqual(self.routerMock.showMonsterDetailCallCount, 1)
+    }
 
     // MARK: MonsterListInteractorOutput
     
