@@ -68,7 +68,9 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
             fatalError("") // TODO: エラーハンドリング
         }
 
-        return MonsterEntity(name: dto.name, description: dto.description, iconUrl: iconUrl)
+        return MonsterEntity(name: dto.name,
+                             description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
+                             iconUrl: iconUrl)
     }
 
 }
