@@ -54,7 +54,9 @@ final class MonsterDetailViewController: UIViewController {
         self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
             switch result {
             case let .success(icon):
-                self.iconImageView.image = icon
+                DispatchQueue.main.async {
+                    self.iconImageView.image = icon
+                }
             case let .failure(error):
                 // TODO: エラーハンドリング
                 print(error)
