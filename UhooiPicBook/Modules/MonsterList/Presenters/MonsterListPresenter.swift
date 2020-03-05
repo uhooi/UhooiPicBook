@@ -10,6 +10,7 @@ import Foundation
 
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad()
+    func didSelectMonster(monster: MonsterEntity)
 }
 
 /// @mockable
@@ -48,6 +49,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
         self.interactor.fetchMonsters()
     }
 
+    func didSelectMonster(monster: MonsterEntity) {
+        self.router.showMonsterDetail(monster: monster)
+    }
+
 }
 
 extension MonsterListPresenter: MonsterListInteractorOutput {
@@ -63,7 +68,9 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
             fatalError("") // TODO: エラーハンドリング
         }
 
-        return MonsterEntity(name: dto.name, description: dto.description, iconUrl: iconUrl)
+        return MonsterEntity(name: dto.name,
+                             description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
+                             iconUrl: iconUrl)
     }
 
 }
