@@ -20,7 +20,8 @@ extension UIView: NeumorphismView {
 
         let shadowViews = neumorphismShadowViews(color: backgroundColor, dist: dist, blur: blur)
         shadowViews.forEach {
-            parent.insertSubview($0, belowSubview: self)
+            self.addSubview($0)
+            self.sendSubviewToBack($0)
         }
     }
 
