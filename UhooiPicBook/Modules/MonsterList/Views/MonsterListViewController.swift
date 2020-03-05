@@ -75,7 +75,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
             switch result {
             case let .success(icon):
                 DispatchQueue.main.async {
-                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
+                    cell.setup(name: monster.name, icon: icon)
                 }
             case let .failure(error):
                 // TODO: エラーハンドリング

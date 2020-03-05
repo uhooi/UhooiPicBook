@@ -29,10 +29,10 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
 
     // MARK: Other Internal Methods
 
-    func setup(name: String, icon: UIImage, elevation: Double) {
+    func setup(name: String, icon: UIImage) {
         self.nameLabel.text = name
         self.iconImageView.image = icon
-        self.baseView.elevate(elevation: elevation)
+        self.baseView.addNeumorphismShadow(with: self)
     }
 
 }
