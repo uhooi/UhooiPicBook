@@ -27,9 +27,21 @@ final class MonsterDetailViewController: UIViewController {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var iconImageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView! {
+        willSet {
+            newValue.image = nil
+        }
+    }
+    @IBOutlet private weak var nameLabel: UILabel! {
+        willSet {
+            newValue.text = nil
+        }
+    }
+    @IBOutlet private weak var descriptionLabel: UILabel! {
+        willSet {
+            newValue.text = nil
+        }
+    }
 
     // MARK: View Life-Cycle Methods
 
