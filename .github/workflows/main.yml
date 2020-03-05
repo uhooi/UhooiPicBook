@@ -42,9 +42,7 @@ jobs:
 
     # Bundlerで管理しているライブラリのインストール
     - name: Bundle install
-      run: |
-        bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
+      run: make install-bundler
 
     # Mintのインストール
     - name: Install Mint
@@ -70,20 +68,9 @@ jobs:
 
     # Carthageで管理しているライブラリのインストール
     - name: Install Carthage frameworks
-      run: |
-        mint run carthage carthage bootstrap --platform iOS --cache-builds
-        echo '*** Resolved dependencies:'
-        cat 'Cartfile.resolved'
+      run: make install-carthage
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # ライセンス表示の生成
-    - name: Generate licenses with LicensePlist
-      run: mint run LicensePlist license-plist --output-path UhooiPicBook/Settings.bundle --github-token ${{ secrets.GITHUB_TOKEN }}
-
-    # プロジェクトファイルの生成
-    - name: Generate Xcode project with XcodeGen
-      run: mint run xcodegen xcodegen generate
 
     # CocoaPodsで管理しているライブラリのキャッシュ復元
     - name: Cache Pods
@@ -94,30 +81,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pods-
 
-    # CocoaPodsで管理しているライブラリのインストール
-    - name: Pod install
-      run: bundle exec pod install
+    # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
+    - name: Generate licenses, Xcode project, And Pod install
+      run: make generate-licenses
 
     # ビルド
     - name: Xcode build
-      run: set -o pipefail &&
-        xcodebuild
-        -sdk iphonesimulator
-        -configuration Debug
-        -workspace UhooiPicBook.xcworkspace
-        -scheme UhooiPicBook
-        build
-        | bundle exec xcpretty
+      run: make build-debug
 
     # 単体テストの実行
     - name: Xcode test
-      run: set -o pipefail &&
-        xcodebuild
-        -sdk iphonesimulator
-        -configuration Debug
-        -workspace UhooiPicBook.xcworkspace
-        -scheme UhooiPicBook
-        -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max'
-        -skip-testing:UhooiPicBookUITests
-        clean test
-        | bundle exec xcpretty
+      run: make test
+
