@@ -33,6 +33,11 @@ install-bundler: # Install Bundler dependencies
 	bundle config path vendor/bundle
 	bundle install --jobs 4 --retry 3
 
+.PHONY: update-bundler
+update-bundler: # Update Bundler dependencies
+	bundle config path vendor/bundle
+	bundle update --jobs 4 --retry 3
+
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
 	mint bootstrap
