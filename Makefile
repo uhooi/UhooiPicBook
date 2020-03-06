@@ -121,3 +121,7 @@ xcodebuild \
 clean test \
 | bundle exec xcpretty
 
+.PHONY: distribute-testflight
+distribute-testflight: # Distribute to TestFlight
+	bundle exec fastlane beta
+
