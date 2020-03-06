@@ -18,7 +18,11 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    build_app(workspace: "UhooiPicBook.xcworkspace", scheme: "UhooiPicBook")
+    build_app(
+      workspace: "UhooiPicBook.xcworkspace",
+      scheme: "UhooiPicBook",
+      xcargs: "-allowProvisioningUpdates"
+    )
     upload_to_testflight
   end
 end
