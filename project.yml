@@ -82,12 +82,6 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/Protobuf.framework
         embed: false
-      # - bundle: Carthage/Build/iOS/gRPC-C++.framework/Resources/gRPCCertificates-Cpp.bundle
-      #   embed: false
-      # - sdk: libc++.tbd
-      # - sdk: libsqlite3.tbd
-      # - sdk: CoreTelephony.framework
-      # - sdk: StoreKit.framework
     preBuildScripts:
       - script: |
                 "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
