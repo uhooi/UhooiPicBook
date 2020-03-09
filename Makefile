@@ -122,6 +122,10 @@ xcodebuild \
 clean test \
 | bundle exec xcpretty
 
+.PHONY: show-devices
+show-devices: # Show devices
+	instruments -s devices
+
 .PHONY: distribute-testflight
 distribute-testflight: # Distribute to TestFlight
 	bundle exec fastlane beta
