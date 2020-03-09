@@ -6,8 +6,9 @@ UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
-TEST_DEVICE := iPhone 11 Pro Max
-TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE}'
+TEST_DEVICE ?= iPhone 11 Pro Max
+TEST_OS ?= 13.3
+TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 
 SDK := iphoneos
 CONFIGURATION := Release
@@ -109,7 +110,7 @@ build \
 | bundle exec xcpretty
 
 .PHONY: test
-test: # Xcode test
+test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 	set -o pipefail && \
 xcodebuild \
 -sdk ${TEST_SDK} \
