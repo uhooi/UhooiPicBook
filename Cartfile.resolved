@@ -1,0 +1,4 @@
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" "6.18.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" "6.18.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" "6.18.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" "6.18.0"
