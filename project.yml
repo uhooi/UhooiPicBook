@@ -131,7 +131,7 @@ targets:
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
-      - path: Scripts/FirebaseCrashlytics/run
+      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
