@@ -131,10 +131,10 @@ targets:
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
-      # - script: Carthage/Build/iOS/FirebaseCrashlytics/run
-      #   name: Run Firebase Crashlytics
-      #   inputFiles:
-      #     - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+      - path: Scripts/FirebaseCrashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
 
   UhooiPicBookTests:
     type: bundle.unit-test
