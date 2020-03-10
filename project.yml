@@ -27,7 +27,61 @@ targets:
       base:
         DEVELOPMENT_TEAM: 47E56DYP3N
         INFOPLIST_FILE: UhooiPicBook/Info.plist
-    # dependencies:
+        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+    dependencies:
+      - framework: Carthage/Build/iOS/Firebase.framework
+        embed: false
+        link: false
+      - framework: Carthage/Build/iOS/abseil.framework
+        embed: false
+      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseABTesting.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebasePerformance.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleDataTransportCCTSupport.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleUtilities.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-C++.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-Core.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
+        embed: false
+      - framework: Carthage/Build/iOS/leveldb-library.framework
+        embed: false
+      - framework: Carthage/Build/iOS/nanopb.framework
+        embed: false
+      - framework: Carthage/Build/iOS/PromisesObjC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/Protobuf.framework
+        embed: false
     preBuildScripts:
       - script: |
                 "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
@@ -77,7 +131,7 @@ targets:
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
-      - script: ${PODS_ROOT}/FirebaseCrashlytics/run
+      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
