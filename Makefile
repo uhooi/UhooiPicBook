@@ -12,6 +12,15 @@ TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}
 
 SDK := iphoneos
 CONFIGURATION := Release
+ARCHIVE_PATH := ./build/${PRODUCT_NAME}.xcarchive
+EXPORT_PATH := ./output/${SDK}/${CONFIGURATION}
+
+DEVELOPMENT_TEAM := 47E56DYP3N
+PRODUCT_BUNDLE_IDENTIFIER := com.theuhooi.UhooiPicBook
+ADHOC_PROVISIONING_PROFILE_SPECIFIER := UhooiPicBook_AdHoc
+ADHOC_EXPORT_OPTIONS_PATH := ./ExportOptions/ExportOptionsAdHoc.plist
+APPSTORE_PROVISIONING_PROFILE_SPECIFIER := UhooiPicBook_AppStore
+APPSTORE_EXPORT_OPTIONS_PATH := ./ExportOptions/ExportOptionsAppStore.plist
 
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
@@ -88,7 +97,7 @@ generate-xcodeproj: # Generate project with XcodeGen
 
 .PHONY: open
 open: # Open workspace in Xcode
-	open ./${PRODUCT_NAME}.xcworkspace
+	open ./${WORKSPACE_NAME}
 
 .PHONY: clean
 clean: # Delete cache
@@ -126,7 +135,56 @@ clean test \
 show-devices: # Show devices
 	instruments -s devices
 
-.PHONY: distribute-testflight
-distribute-testflight: # Distribute to TestFlight
-	bundle exec fastlane beta
+.PHONY: generate-ipa-adhoc
+generate-ipa-adhoc: # Generate IPA file for Ad Hoc
+	$(MAKE) archive-adhoc
+	$(MAKE) export-archive-adhoc
+
+.PHONY: archive-adhoc
+archive-adhoc:
+	$(MAKE) archive PROVISIONING_PROFILE_SPECIFIER=${ADHOC_PROVISIONING_PROFILE_SPECIFIER}
+
+.PHONY: export-archive-adhoc
+export-archive-adhoc:
+	$(MAKE) export-archive EXPORT_OPTIONS_PATH=${ADHOC_EXPORT_OPTIONS_PATH}
+
+.PHONY: generate-ipa-appstore
+generate-ipa-appstore: # Generate IPA file for App Store
+	$(MAKE) archive-appstore
+	$(MAKE) export-archive-appstore
+
+.PHONY: archive-appstore
+archive-appstore:
+	$(MAKE) archive PROVISIONING_PROFILE_SPECIFIER=${APPSTORE_PROVISIONING_PROFILE_SPECIFIER}
+
+.PHONY: export-archive-appstore
+export-archive-appstore:
+	$(MAKE) export-archive EXPORT_OPTIONS_PATH=${APPSTORE_EXPORT_OPTIONS_PATH}
+
+.PHONY: archive
+archive:
+	set -o pipefail && \
+xcodebuild \
+-sdk ${SDK} \
+-configuration ${CONFIGURATION} \
+-workspace ${WORKSPACE_NAME} \
+-scheme ${SCHEME_NAME} \
+-archivePath ${ARCHIVE_PATH} \
+CODE_SIGN_STYLE=Manual \
+CODE_SIGN_IDENTITY="iPhone Distribution" \
+PROVISIONING_PROFILE_SPECIFIER=${PROVISIONING_PROFILE_SPECIFIER} \
+DEVELOPMENT_TEAM=${DEVELOPMENT_TEAM} \
+PRODUCT_BUNDLE_IDENTIFIER=${PRODUCT_BUNDLE_IDENTIFIER} \
+clean archive \
+| bundle exec xcpretty
+
+.PHONY: export-archive
+export-archive:
+	set -o pipefail && \
+xcodebuild \
+-exportArchive \
+-archivePath ${ARCHIVE_PATH} \
+-exportPath ${EXPORT_PATH} \
+-exportOptionsPlist ${EXPORT_OPTIONS_PATH} \
+| bundle exec xcpretty
 
