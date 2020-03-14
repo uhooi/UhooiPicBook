@@ -108,3 +108,5 @@ com.mono0926.LicensePlist.plist
 *.p12
 *.mobileprovision
 
+output/
+
