@@ -11,4 +11,5 @@ struct MonsterEntity: Equatable {
     let name: String
     let description: String
     let iconUrl: URL
+    let dancingUrl: URL
 }

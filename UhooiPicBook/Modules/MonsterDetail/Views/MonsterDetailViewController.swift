@@ -32,6 +32,11 @@ final class MonsterDetailViewController: UIViewController {
             newValue.image = nil
         }
     }
+    @IBOutlet private weak var dancingImageView: UIImageView! {
+        willSet {
+            newValue.image = nil
+        }
+    }
     @IBOutlet private weak var nameLabel: UILabel! {
         willSet {
             newValue.text = nil
@@ -68,7 +73,18 @@ final class MonsterDetailViewController: UIViewController {
                 print(error)
             }
         }
-
+        self.dancingImageView.image = UIImage.gifImage(with: monster.dancingUrl)!
+        //        self.imageCacheManager.cacheImage(imageUrl: monster.dancingUrl) { result in
+        //            switch result {
+        //            case let .success(dancing):
+        //                DispatchQueue.main.async {
+        //                    self.dancingImageView.image = dancing
+        //                }
+        //            case let .failure(error):
+        //                // TODO: エラーハンドリング
+        //                print(error)
+        //            }
+        //        }
         self.nameLabel.text = monster.name
         self.descriptionLabel.text = monster.description
     }

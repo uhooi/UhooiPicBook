@@ -67,10 +67,13 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
             fatalError("") // TODO: エラーハンドリング
         }
+        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
+            fatalError("") // TODO: エラーハンドリング
+        }
 
         return MonsterEntity(name: dto.name,
                              description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-                             iconUrl: iconUrl)
+                             iconUrl: iconUrl, dancingUrl: dancingUrl)
     }
 
 }
