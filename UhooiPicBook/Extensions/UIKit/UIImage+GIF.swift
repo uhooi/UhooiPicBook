@@ -62,7 +62,8 @@ extension UIImage {
 
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
         let gifProperties: CFDictionary = unsafeBitCast(
-            CFDictionaryGetValue(cfProperties, Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()),
+            CFDictionaryGetValue(cfProperties,
+                                 Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()),
             to: CFDictionary.self)
 
         var delayObject: AnyObject = unsafeBitCast(
@@ -71,15 +72,13 @@ extension UIImage {
             to: AnyObject.self)
 
         if delayObject.doubleValue == 0 {
-            delayObject = unsafeBitCast(CFDictionaryGetValue(gifProperties,
-                                                             Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self)
+            delayObject = unsafeBitCast(
+                CFDictionaryGetValue(gifProperties,
+                                     Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()),
+                to: AnyObject.self)
         }
 
         delay = delayObject as! Double // swiftlint:disable:this force_cast
-
-        if delay < 0.1 {
-            delay = 0.1
-        }
 
         return delay
     }
