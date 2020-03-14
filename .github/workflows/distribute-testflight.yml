@@ -1,0 +1,90 @@
+name: "Distribute to TestFlight"
+
+on:
+  push:
+    branches:
+      # - master
+      - releases/**
+      # - develop
+      # - feature/**
+  # pull_request:
+    # branches:
+      # - develop
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
+      MINT_PATH: mint/lib
+      MINT_LINK_PATH: mint/bin
+
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v1
+
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
+
+    # Xcodeのバージョン出力
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # Bundlerで管理しているライブラリのキャッシュ復元
+    - name: Cache Gems
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+
+    # Bundlerで管理しているライブラリのインストール
+    - name: Bundle install
+      run: make install-bundler
+
+    # Mintのインストール
+    - name: Install Mint
+      run: brew install mint
+
+    # Mintで管理しているライブラリのキャッシュ復元
+    - name: Cache Mint packages
+      uses: actions/cache@v1
+      with:
+        path: mint
+        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        restore-keys: |
+          ${{ runner.os }}-mint-
+
+    # Carthageで管理しているライブラリのキャッシュ復元
+    - name: Cache Carthage packages
+      uses: actions/cache@v1
+      with:
+        path: Carthage
+        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-carthage-
+
+    # Carthageで管理しているライブラリのインストール
+    - name: Install Carthage frameworks
+      run: make install-carthage
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # CocoaPodsで管理しているライブラリのキャッシュ復元
+    - name: Cache Pods
+      uses: actions/cache@v1
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+
+    # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
+    - name: Generate licenses, Xcode project, And Pod install
+      run: make generate-licenses
+
+    # TestFlightへ配布
+    - name: Distribute to TestFlight
+      run: make distribute-testflight
