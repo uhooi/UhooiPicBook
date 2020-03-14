@@ -148,8 +148,8 @@ archive-adhoc:
 export-archive-adhoc:
 	$(MAKE) export-archive EXPORT_OPTIONS_PATH=${ADHOC_EXPORT_OPTIONS_PATH}
 
-.PHONY: generate-ipa-appstore
-generate-ipa-appstore: # Generate IPA file for App Store
+.PHONY: distribute-testflight
+generate-ipa-appstore: # Distribute to TestFlight
 	$(MAKE) archive-appstore
 	$(MAKE) export-archive-appstore
 
