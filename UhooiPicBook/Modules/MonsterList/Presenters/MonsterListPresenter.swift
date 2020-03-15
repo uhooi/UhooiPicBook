@@ -73,7 +73,8 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
 
         return MonsterEntity(name: dto.name,
                              description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-                             iconUrl: iconUrl, dancingUrl: dancingUrl)
+                             iconUrl: iconUrl,
+                             dancingUrl: dancingUrl)
     }
 
 }
