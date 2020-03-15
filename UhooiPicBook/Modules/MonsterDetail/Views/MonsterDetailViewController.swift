@@ -73,18 +73,7 @@ final class MonsterDetailViewController: UIViewController {
                 print(error)
             }
         }
-        self.dancingImageView.image = UIImage.gifImage(with: monster.dancingUrl)!
-        //        self.imageCacheManager.cacheImage(imageUrl: monster.dancingUrl) { result in
-        //            switch result {
-        //            case let .success(dancing):
-        //                DispatchQueue.main.async {
-        //                    self.dancingImageView.image = dancing
-        //                }
-        //            case let .failure(error):
-        //                // TODO: エラーハンドリング
-        //                print(error)
-        //            }
-        //        }
+        self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
         self.nameLabel.text = monster.name
         self.descriptionLabel.text = monster.description
     }
