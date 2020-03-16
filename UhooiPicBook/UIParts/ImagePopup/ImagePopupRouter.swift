@@ -11,13 +11,7 @@ final class ImagePopupRouter {
 
     // MARK: Stored Instance Properties
 
-    private unowned let viewController: ImagePopupViewController
-
     // MARK: Initializers
-
-    private init(viewController: ImagePopupViewController) {
-        self.viewController = viewController
-    }
 
     // MARK: Type Methods
 
