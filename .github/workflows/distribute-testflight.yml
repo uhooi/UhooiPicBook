@@ -1,12 +1,12 @@
-name: CI
+name: "Distribute to TestFlight"
 
 on:
   push:
     branches:
-      - master
+      # - master
       - releases/**
-      - develop
-      - feature/**
+      # - develop
+      # - feature/**
   # pull_request:
     # branches:
       # - develop
@@ -85,15 +85,6 @@ jobs:
     - name: Generate licenses, Xcode project, And Pod install
       run: make generate-licenses
 
-    # ビルド
-    - name: Xcode build
-      run: make build-debug
-
-    # 端末の一覧出力
-    - name: Show devices
-      run: make show-devices
-
-    # 単体テストの実行
-    - name: Xcode test
-      run: make test
-
+    # TestFlightへ配布
+    - name: Distribute to TestFlight
+      run: make distribute-testflight

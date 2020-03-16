@@ -103,3 +103,10 @@ com.mono0926.LicensePlist.plist
 
 # GoogleService-Info.plist
 
+*.cer
+*.certSigningRequest
+*.p12
+*.mobileprovision
+
+output/
+

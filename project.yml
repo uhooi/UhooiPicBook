@@ -26,6 +26,8 @@ targets:
     settings:
       base:
         DEVELOPMENT_TEAM: 47E56DYP3N
+        CURRENT_PROJECT_VERSION: 2
+        MARKETING_VERSION: 0.1.0
         INFOPLIST_FILE: UhooiPicBook/Info.plist
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
     dependencies:
