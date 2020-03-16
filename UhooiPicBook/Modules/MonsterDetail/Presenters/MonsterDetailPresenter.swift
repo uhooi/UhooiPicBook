@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 protocol MonsterDetailEventHandler: AnyObject {
     func viewDidLoad()
+    func didTapDancingImageView(dancingImage: UIImage?)
 }
 
 /// @mockable
@@ -43,6 +45,13 @@ final class MonsterDetailPresenter {
 extension MonsterDetailPresenter: MonsterDetailEventHandler {
 
     func viewDidLoad() {
+    }
+
+    func didTapDancingImageView(dancingImage: UIImage?) {
+        guard let dancingImage = dancingImage else {
+            return
+        }
+        self.router.popupDancingImage(dancingImage)
     }
 
 }

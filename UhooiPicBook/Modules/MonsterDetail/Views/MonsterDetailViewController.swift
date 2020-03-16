@@ -35,6 +35,7 @@ final class MonsterDetailViewController: UIViewController {
     @IBOutlet private weak var dancingImageView: UIImageView! {
         willSet {
             newValue.image = nil
+            newValue.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapDancingImageView(_:))))
         }
     }
     @IBOutlet private weak var nameLabel: UILabel! {
@@ -57,9 +58,20 @@ final class MonsterDetailViewController: UIViewController {
         self.presenter.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     // MARK: IBActions
 
     // MARK: Other Private Methods
+
+    @objc
+    private func didTapDancingImageView(_ sender: UITapGestureRecognizer) {
+        self.presenter.didTapDancingImageView(dancingImage: self.dancingImageView.image)
+    }
 
     private func configureView() {
         self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in

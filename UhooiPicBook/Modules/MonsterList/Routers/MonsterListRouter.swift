@@ -50,7 +50,7 @@ extension MonsterListRouter: MonsterListRouterInput {
 
     func showMonsterDetail(monster: MonsterEntity) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
-        self.viewController.present(vc, animated: true)
+        self.viewController.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

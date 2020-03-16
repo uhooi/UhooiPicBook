@@ -36,8 +36,20 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     func test_viewDidLoad() {
         self.presenter.viewDidLoad()
-
-        // TODO: Assert
+    }
+    
+    // MARK: didTapDancingImageView()
+    
+    func test_didTapDancingImageView_notNil() {
+        self.presenter.didTapDancingImageView(dancingImage: UIImage())
+        
+        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 1)
+    }
+    
+    func test_didTapDancingImageView_nil() {
+        self.presenter.didTapDancingImageView(dancingImage: nil)
+        
+        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 0)
     }
 
     // MARK: MonsterDetailInteractorOutput
