@@ -44,7 +44,7 @@ final class MonsterListPresenterTests: XCTestCase {
     // MARK: didSelectMonster
     
     func test_didSelectMonster() {
-        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", iconUrl: URL(string: "https://theuhooi.com/uhooi")!)
+        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
 
         self.presenter.didSelectMonster(monster: uhooiEntity)
         
@@ -73,9 +73,9 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_monstersFetched_three() {
-        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", iconUrlString: "https://theuhooi.com/uhooi", order: 1)
-        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", iconUrlString: "https://theuhooi.com/ayausa", order: 2)
-        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", iconUrlString: "https://theuhooi.com/chibird", order: 3)
+        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
+        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
+        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         self.viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
@@ -109,7 +109,7 @@ final class MonsterListPresenterTests: XCTestCase {
             self.viewMock.showMonstersHandler = { monsterEntities in
                 XCTAssertEqual(monsterEntities[0].description, expect, line: line)
             }
-            let monsterDTO = MonsterDTO(name: "monster's name", description: description, iconUrlString: "https://theuhooi.com/monster", order: 1)
+            let monsterDTO = MonsterDTO(name: "monster's name", description: description, iconUrlString: "https://theuhooi.com/monster", dancingUrlString: "https://theuhooi.com/monster-dancing", order: 1)
 
             self.presenter.monstersFetched(monsters: [monsterDTO])
             

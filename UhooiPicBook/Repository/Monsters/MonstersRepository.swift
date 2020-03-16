@@ -39,11 +39,12 @@ extension MonstersFirebaseClient: MonstersRepository {
                     guard let name = monster["name"] as? String,
                         let description = monster["description"] as? String,
                         let iconUrlString = monster["icon_url"] as? String,
+                        let dancingUrlString = monster["dancing_url"] as? String,
                         let order = monster["order"] as? Int else {
                             continue
                     }
 
-                    monsters.append(MonsterDTO(name: name, description: description, iconUrlString: iconUrlString, order: order))
+                    monsters.append(MonsterDTO(name: name, description: description, iconUrlString: iconUrlString, dancingUrlString: dancingUrlString, order: order))
                 }
             }
 

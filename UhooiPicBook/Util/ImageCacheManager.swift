@@ -10,6 +10,7 @@ import UIKit
 /// @mockable
 protocol ImageCacheManagerProtocol: AnyObject {
     func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
+    func cacheGIFImage(imageUrl: URL) -> UIImage?
 }
 
 final class ImageCacheManager: ImageCacheManagerProtocol {
@@ -46,6 +47,20 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
         group.notify(queue: .global()) {
             completion(someError.map(Result.failure) ?? .success(imageToCache))
         }
+    }
+
+    func cacheGIFImage(imageUrl: URL) -> UIImage? {
+        if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
+            return imageFromCache
+        }
+
+        guard let imageToCache = UIImage.gifImage(with: imageUrl) else {
+            return nil
+        }
+
+        ImageCacheManager.imageCache.setObject(imageToCache, forKey: imageUrl as AnyObject)
+
+        return imageToCache
     }
 
 }
