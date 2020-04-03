@@ -8,8 +8,9 @@ Uhooi's character book.
 
 - Xcode: 11.3.1
 - Swift: 5.1.3
-- Bundler: 2.0.2
-- Mint: 0.13.0
+- Ruby: 2.7.0-preview1
+- Bundler: 2.1.4
+- Mint: 0.14.1
 - Architecture: VIPER
 - UI implementation: Storyboard + XIB
 - Branching model: Git-flow
