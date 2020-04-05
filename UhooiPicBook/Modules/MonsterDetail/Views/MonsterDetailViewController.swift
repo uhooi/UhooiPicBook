@@ -58,12 +58,6 @@ final class MonsterDetailViewController: UIViewController {
         self.presenter.viewDidLoad()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
     // MARK: IBActions
 
     // MARK: Other Private Methods
@@ -88,6 +82,7 @@ final class MonsterDetailViewController: UIViewController {
         self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
         self.nameLabel.text = monster.name
         self.descriptionLabel.text = monster.description
+        self.navigationController?.navigationBar.barTintColor = .init(hex: monster.baseColorCode)
     }
 
 }

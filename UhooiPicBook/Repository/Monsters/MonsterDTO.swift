@@ -10,6 +10,7 @@ import Foundation
 struct MonsterDTO {
     let name: String
     let description: String
+    let baseColorCode: String
     let iconUrlString: String
     let dancingUrlString: String
     let order: Int

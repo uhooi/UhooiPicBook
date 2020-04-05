@@ -10,6 +10,7 @@ import Foundation
 struct MonsterEntity: Equatable {
     let name: String
     let description: String
+    let baseColorCode: String
     let iconUrl: URL
     let dancingUrl: URL
 }
