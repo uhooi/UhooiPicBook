@@ -8,7 +8,7 @@ Uhooi's character book.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|TBD|TBD|TBD|
+|![MonsterList](./Screenshots/MonsterList.png)|![MonsterDetail](./Screenshots/MonsterDetail.png)|![ImagePopup](./Screenshots/ImagePopup.png)|
 
 ## Demo
 
