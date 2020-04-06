@@ -6,7 +6,9 @@ Uhooi's character book.
 
 ## Screenshots
 
-TBD
+|MonsterList|MonsterDetail|ImagePopup|
+|:--|:--|:--|
+|TBD|TBD|TBD|
 
 ## Demo
 
