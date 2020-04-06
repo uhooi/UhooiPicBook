@@ -4,14 +4,23 @@
 
 Uhooi's character book.
 
-## Configuration
+## Screenshots
+
+TBD
+
+## Demo
+
+TBD
+
+## Environment
 
 - Xcode: 11.3.1
 - Swift: 5.1.3
-- Ruby: 2.7.0-preview1
 - Bundler: 2.1.4
 - Mint: 0.14.1
-- Architecture: VIPER
+
+## Configuration
+
 - UI implementation: Storyboard + XIB
 - Branching model: Git-flow
 
@@ -32,3 +41,7 @@ After setup is complete, Workspace automatically opens in Xcode.
 ## Development
 
 Run `make help` .
+
+## Architecture
+
+VIPER
