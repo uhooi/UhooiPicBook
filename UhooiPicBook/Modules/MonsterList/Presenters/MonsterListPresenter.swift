@@ -16,7 +16,6 @@ protocol MonsterListEventHandler: AnyObject {
 
 /// @mockable
 protocol MonsterListInteractorOutput: AnyObject {
-    func monstersFetched(monsters: [MonsterDTO])
 }
 
 final class MonsterListPresenter {
@@ -47,7 +46,17 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
         self.view.startIndicator()
-        self.interactor.fetchMonsters()
+        self.interactor.fetchMonsters { result in
+            switch result {
+            case let .success(monsters):
+                let monsterEntities = self.convertDTOsToEntities(dtos: monsters)
+                self.view.showMonsters(monsters: monsterEntities)
+                self.view.stopIndicator()
+            case let .failure(error):
+                // TODO: エラーハンドリング
+                break
+            }
+        }
     }
 
     func didSelectMonster(monster: MonsterEntity) {
@@ -55,18 +64,21 @@ extension MonsterListPresenter: MonsterListEventHandler {
     }
 
     func refreshMonsterList() {
-        self.interactor.fetchMonsters()
+        self.interactor.fetchMonsters { result in
+            switch result {
+            case let .success(monsters):
+                let monsterEntities = self.convertDTOsToEntities(dtos: monsters)
+                self.view.showMonsters(monsters: monsterEntities)
+                self.view.endRefreshing()
+            case let .failure(error):
+                // TODO: エラーハンドリング
+                break
+            }
+        }
     }
 
-}
-
-extension MonsterListPresenter: MonsterListInteractorOutput {
-
-    func monstersFetched(monsters: [MonsterDTO]) {
-        let monsterEntities = monsters.sorted { $0.order < $1.order } .map { convertDTOToEntity(dto: $0) }
-        self.view.showMonsters(monsters: monsterEntities)
-        self.view.stopIndicator()
-        self.view.endRefreshing()
+    private func convertDTOsToEntities(dtos: [MonsterDTO]) -> [MonsterEntity] {
+        dtos.sorted { $0.order < $1.order } .map { convertDTOToEntity(dto: $0) }
     }
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
@@ -84,4 +96,7 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
                              dancingUrl: dancingUrl)
     }
 
+}
+
+extension MonsterListPresenter: MonsterListInteractorOutput {
 }

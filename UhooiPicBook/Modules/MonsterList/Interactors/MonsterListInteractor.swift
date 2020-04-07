@@ -10,7 +10,7 @@ import Foundation
 
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
-    func fetchMonsters()
+    func fetchMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
 }
 
 final class MonsterListInteractor {
@@ -37,14 +37,13 @@ final class MonsterListInteractor {
 
 extension MonsterListInteractor: MonsterListInteractorInput {
 
-    func fetchMonsters() {
+    func fetchMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
         self.monstersRepository.loadMonsters { result in
             switch result {
             case let .success(monsters):
-                self.presenter.monstersFetched(monsters: monsters)
+                completion(.success(monsters))
             case let .failure(error):
-                // TODO: エラーハンドリング
-                break
+                completion(.failure(error))
             }
         }
     }
