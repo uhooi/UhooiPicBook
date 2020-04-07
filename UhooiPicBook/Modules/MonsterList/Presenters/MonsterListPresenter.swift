@@ -11,6 +11,7 @@ import Foundation
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad()
     func didSelectMonster(monster: MonsterEntity)
+    func refreshMonsterList()
 }
 
 /// @mockable
@@ -53,6 +54,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
         self.router.showMonsterDetail(monster: monster)
     }
 
+    func refreshMonsterList() {
+        self.interactor.fetchMonsters()
+    }
+
 }
 
 extension MonsterListPresenter: MonsterListInteractorOutput {
@@ -61,6 +66,7 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
         let monsterEntities = monsters.sorted { $0.order < $1.order } .map { convertDTOToEntity(dto: $0) }
         self.view.showMonsters(monsters: monsterEntities)
         self.view.stopIndicator()
+        self.view.endRefreshing()
     }
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {

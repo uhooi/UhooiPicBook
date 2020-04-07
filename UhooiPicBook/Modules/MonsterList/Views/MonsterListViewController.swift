@@ -13,6 +13,7 @@ protocol MonsterListUserInterface: AnyObject {
     func showMonsters(monsters: [MonsterEntity])
     func startIndicator()
     func stopIndicator()
+    func endRefreshing()
 }
 
 final class MonsterListViewController: UIViewController {
@@ -25,6 +26,11 @@ final class MonsterListViewController: UIViewController {
     var imageCacheManager: ImageCacheManagerProtocol!
 
     private var monsters: [MonsterEntity] = []
+    private let monstersRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshMonsterList(_:)), for: .valueChanged)
+        return refreshControl
+    }()
 
     // MARK: Computed Instance Properties
 
@@ -33,6 +39,7 @@ final class MonsterListViewController: UIViewController {
     @IBOutlet private weak var monstersCollectionView: UICollectionView! {
         willSet {
             newValue.register(R.nib.monsterCollectionViewCell)
+            newValue.refreshControl = self.monstersRefreshControl
         }
     }
 
@@ -56,6 +63,11 @@ final class MonsterListViewController: UIViewController {
     // MARK: IBActions
 
     // MARK: Other Private Methods
+
+    @objc
+    private func refreshMonsterList(_ sender: UIRefreshControl) {
+        self.presenter.refreshMonsterList()
+    }
 
 }
 
@@ -132,6 +144,12 @@ extension MonsterListViewController: MonsterListUserInterface {
     func stopIndicator() {
         DispatchQueue.main.async {
             self.activityIndicatorView.stopAnimating()
+        }
+    }
+
+    func endRefreshing() {
+        DispatchQueue.main.async {
+            self.monstersRefreshControl.endRefreshing()
         }
     }
 
