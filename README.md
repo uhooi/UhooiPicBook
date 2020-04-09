@@ -1,8 +1,8 @@
-# UhooiPicBook
+# UhooiPicBook-iOS
 
 [![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook/actions?query=workflow%3ACI)
 
-Uhooi's character book.
+Uhooi's character book for iOS.
 
 ## Screenshots
 
