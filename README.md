@@ -1,14 +1,16 @@
 # UhooiPicBook-iOS
 
-[![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook/actions?query=workflow%3ACI)
+![Logo](./Docs/Logo.png)
 
 Uhooi's character book for iOS.
+
+[![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook/actions?query=workflow%3ACI)
 
 ## Screenshots
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|![MonsterList](./Screenshots/MonsterList.png)|![MonsterDetail](./Screenshots/MonsterDetail.png)|![ImagePopup](./Screenshots/ImagePopup.png)|
+|![MonsterList](./Docs/Screenshots/MonsterList.png)|![MonsterDetail](./Docs/Screenshots/MonsterDetail.png)|![ImagePopup](./Docs/Screenshots/ImagePopup.png)|
 
 ## Demo
 
