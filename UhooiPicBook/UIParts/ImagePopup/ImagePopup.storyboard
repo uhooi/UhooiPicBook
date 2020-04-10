@@ -25,6 +25,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbe-KO-F4O">
                                 <rect key="frame" x="362" y="52" width="44" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="imagePopup_close_button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="THN-06-4fW"/>
                                     <constraint firstAttribute="width" secondItem="Vbe-KO-F4O" secondAttribute="height" multiplier="1:1" id="mo6-3t-8Cf"/>
@@ -38,6 +39,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="ImagePopupBackground"/>
+                        <accessibility key="accessibilityConfiguration" identifier="imagePopup"/>
                         <constraints>
                             <constraint firstItem="Vbe-KO-F4O" firstAttribute="top" secondItem="MyL-5w-hRC" secondAttribute="top" constant="8" id="BAn-EF-awU"/>
                             <constraint firstItem="kPs-bF-1gK" firstAttribute="centerY" secondItem="O6b-Sr-cYz" secondAttribute="centerY" id="Kdw-J0-1m8"/>
@@ -58,7 +60,7 @@
     <resources>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
         <namedColor name="ImagePopupBackground">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -38,6 +38,7 @@
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E51-5s-9vp">
                                 <rect key="frame" x="283" y="392" width="44" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="monsterDetail_dancing_image"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="28x-I2-C7A"/>
                                     <constraint firstAttribute="width" secondItem="E51-5s-9vp" secondAttribute="height" multiplier="1:1" id="ON7-kH-cTM"/>
@@ -45,6 +46,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="monsterDetail"/>
                         <constraints>
                             <constraint firstItem="E51-5s-9vp" firstAttribute="trailing" secondItem="kK5-qm-5jP" secondAttribute="trailing" id="E8p-xc-D3l"/>
                             <constraint firstItem="RrU-1E-Ghb" firstAttribute="centerX" secondItem="gYV-yP-Z4b" secondAttribute="centerX" id="Lkj-fV-XR9"/>
