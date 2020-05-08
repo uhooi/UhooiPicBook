@@ -36,6 +36,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="monsterList"/>
                         <constraints>
                             <constraint firstItem="Vfg-v7-CM0" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="MWn-HM-N0v"/>
                             <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="Vfg-v7-CM0" secondAttribute="bottom" id="McV-8m-EFQ"/>
