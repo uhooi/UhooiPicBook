@@ -8,6 +8,7 @@ target 'UhooiPicBook' do
   # Pods for UhooiPicBook
   pod 'R.swift'
   pod 'Gedatsu', configuration: %w(Debug)
+  pod 'SwiftPrettyPrint', configuration: %w(Debug)
 
   target 'UhooiPicBookTests' do
     inherit! :search_paths
