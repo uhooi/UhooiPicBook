@@ -1,20 +1,24 @@
 PODS:
+  - Gedatsu (0.0.7)
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
 
 DEPENDENCIES:
+  - Gedatsu
   - R.swift
 
 SPEC REPOS:
   trunk:
+    - Gedatsu
     - R.swift
     - R.swift.Library
 
 SPEC CHECKSUMS:
+  Gedatsu: 9b721389f5857f954451d1072287ada5ced48b83
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
 
-PODFILE CHECKSUM: c60b1eb0673ce9d0f92e6bd0faf1c8cea06eae50
+PODFILE CHECKSUM: 7620bc7f048833e6885c55a735e3b0ff58ecd5d6
 
 COCOAPODS: 1.9.1
