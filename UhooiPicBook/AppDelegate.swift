@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-#if DEBUG
+#if canImport(Gedatsu)
 import Gedatsu
 #endif
 
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // swiftlint:disable:next discouraged_optional_collection
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if DEBUG
+        #if canImport(Gedatsu)
         Gedatsu.open()
         #endif
         FirebaseApp.configure()

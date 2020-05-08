@@ -6,6 +6,7 @@ whiteList:
   - dto
   - interactor
   - swiftlint
+  - gedatsu
 
   # Uhooi
   - theuhooi
