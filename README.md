@@ -18,21 +18,25 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 TBD
 
-## Environment
+## Development
+
+You can develop UhooiPicBook-iOS.
+
+### Environment
 
 - Xcode: 11.3.1
 - Swift: 5.1.3
 - Bundler: 2.1.4
 - Mint: 0.14.1
 
-## Configuration
+### Configuration
 
 - UI implementation: Storyboard + XIB
 - Architecture: VIPER
 - UITesting architecture: Page Object Pattern
 - Branching model: Git-flow
 
-## Setup
+### Setup
 
 1. Clone the project.
 
@@ -46,7 +50,7 @@ $ cd UhooiPicBook
 3. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
 
-## Development
+### Help
 
 Run `make help` .
 
