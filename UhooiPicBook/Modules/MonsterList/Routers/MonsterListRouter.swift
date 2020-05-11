@@ -31,7 +31,7 @@ final class MonsterListRouter {
         guard let view = R.storyboard.monsterList.instantiateInitialViewController() else {
             fatalError("Fail to load MonsterListViewController from Storyboard.")
         }
-        let interactor = MonsterListInteractor(monstersRepository: MonstersFirebaseClient())
+        let interactor = MonsterListInteractor(monstersRepository: MonstersFirebaseClient(), spotlightRepository: SpotlightClient())
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
