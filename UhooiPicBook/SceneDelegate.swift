@@ -6,6 +6,7 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
+import CoreSpotlight
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -24,6 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+
+        if let userActivity = connectionOptions.userActivities.first {
+            // Spotlightなどからアプリが開かれた場合は中身をチェックして処理する
+            self.executeUserActivity(userActivity)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -54,4 +60,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+}
+
+// MARK: - UserActivity
+extension SceneDelegate {
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        self.executeUserActivity(userActivity)
+    }
+
+    private func executeUserActivity(_ userActivity: NSUserActivity) {
+        switch userActivity.activityType {
+        case CSSearchableItemActionType:
+            self.executeSpotlightActivity(userActivity)
+        default:
+            return
+        }
+    }
+
+    private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+            let data = UserDefaults.standard.value(forKey: userDefaultsKey) as? Data,
+            let monster = try? decoder.decode(MonsterEntity.self, from: data) else {
+                return
+        }
+
+        let vc = MonsterDetailRouter.assembleModule(monster: monster)
+        (self.window?.rootViewController as? UINavigationController)?.pushViewController(vc, animated: true)
+    }
 }
