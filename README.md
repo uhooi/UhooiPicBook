@@ -6,7 +6,7 @@
 
 ![Logo](./Docs/Logo.png)
 
-Uhooi's character book for iOS.
+UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 ## Screenshots
 
