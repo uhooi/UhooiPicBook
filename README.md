@@ -28,6 +28,8 @@ TBD
 ## Configuration
 
 - UI implementation: Storyboard + XIB
+- Architecture: VIPER
+- UITesting architecture: Page Object Pattern
 - Branching model: Git-flow
 
 ## Setup
@@ -66,7 +68,3 @@ test                                       Xcode test
 update-carthage                            Update Carthage dependencies
 update-cocoapods                           Update CocoaPods dependencies and generate workspace
 ```
-
-## Architecture
-
-VIPER
