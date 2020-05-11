@@ -38,14 +38,14 @@ You can develop UhooiPicBook-iOS.
 
 ### Setup
 
-1. Clone the project.
+1. Install [Bundler](https://github.com/rubygems/bundler) and [Mint](https://github.com/yonaskolb/Mint) .
+
+2. Clone the project.
 
 ```
 $ git clone https://github.com/uhooi/UhooiPicBook.git
 $ cd UhooiPicBook
 ```
-
-2. Install [Bundler](https://github.com/rubygems/bundler) and [Mint](https://github.com/yonaskolb/Mint) .
 
 3. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
