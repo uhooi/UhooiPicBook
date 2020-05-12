@@ -23,7 +23,6 @@ final class MonsterListInteractor {
     weak var presenter: MonsterListInteractorOutput!
 
     private let monstersRepository: MonstersRepository
-
     private let spotlightRepository: SpotlightRepository
 
     // MARK: Computed Instance Properties
