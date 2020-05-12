@@ -48,7 +48,7 @@ extension SpotlightClient: SpotlightRepository {
                 self.searchableIndex.indexSearchableItems([item], completionHandler: nil)
                 self.userDefaults.set(data, forKey: userDefaultsKey)
             case .failure:
-                // TODO: 必要ならハンドリングしてください
+                // No need for error handling, as there is no need to give the user feedback on save failures for Spotlight search.
                 break
             }
         }
