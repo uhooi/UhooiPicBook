@@ -12,7 +12,7 @@ final class UserDefaultsClient {
     // MARK: Stored Instance Properties
 
     private let userDefaults = UserDefaults.standard
-    
+
     // MARK: Other Internal Methods
 
     func removeAll() {

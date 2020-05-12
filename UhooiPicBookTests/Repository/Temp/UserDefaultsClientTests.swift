@@ -53,8 +53,8 @@ final class UserDefaultsClientTests: XCTestCase {
     // MARK: - Other Private Methods
     
     private func reset() {
-        userDefaults = UserDefaultsClient()
-        userDefaults.removeAll()
+        self.userDefaults = UserDefaultsClient()
+        self.userDefaults.removeAll()
     }
     
 }
