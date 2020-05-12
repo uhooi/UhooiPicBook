@@ -84,7 +84,7 @@ extension SceneDelegate {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
-            let data = UserDefaults.standard.value(forKey: userDefaultsKey) as? Data,
+            let data = UserDefaults.standard.data(forKey: userDefaultsKey),
             let monster = try? decoder.decode(MonsterEntity.self, from: data) else {
                 return
         }
