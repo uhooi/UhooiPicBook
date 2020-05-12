@@ -79,7 +79,7 @@ extension SceneDelegate {
     }
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
-        let decoder = JSONDecoder()
+        let jsonDecoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
