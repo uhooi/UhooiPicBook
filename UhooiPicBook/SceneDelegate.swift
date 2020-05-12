@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 
         if let userActivity = connectionOptions.userActivities.first {
-            self.executeUserActivity(userActivity)
+           executeUserActivity(userActivity)
         }
     }
 
