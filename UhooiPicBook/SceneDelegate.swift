@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 
         if let userActivity = connectionOptions.userActivities.first {
-           executeUserActivity(userActivity)
+            executeUserActivity(userActivity)
         }
     }
 
@@ -80,11 +80,11 @@ extension SceneDelegate {
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
         let jsonDecoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
             let data = UserDefaults.standard.data(forKey: userDefaultsKey),
-            let monster = try? decoder.decode(MonsterEntity.self, from: data) else {
+            let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
                 return
         }
 
