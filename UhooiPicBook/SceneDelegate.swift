@@ -91,7 +91,7 @@ extension SceneDelegate {
         guard let nav = self.window?.rootViewController as? UINavigationController else {
             return
         }
-        if (nav.viewControllers.last as? MonsterDetailViewController) != nil {
+        if nav.viewControllers.last is MonsterDetailViewController {
             nav.viewControllers.removeLast()
         }
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
