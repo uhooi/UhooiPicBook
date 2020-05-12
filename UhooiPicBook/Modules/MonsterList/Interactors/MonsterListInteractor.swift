@@ -23,14 +23,16 @@ final class MonsterListInteractor {
     weak var presenter: MonsterListInteractorOutput!
 
     private let monstersRepository: MonstersRepository
+    private let monstersTempRepository: MonstersTempRepository
     private let spotlightRepository: SpotlightRepository
 
     // MARK: Computed Instance Properties
 
     // MARK: Initializer
 
-    init(monstersRepository: MonstersRepository, spotlightRepository: SpotlightRepository) {
+    init(monstersRepository: MonstersRepository, monstersTempRepository: MonstersTempRepository, spotlightRepository: SpotlightRepository) {
         self.monstersRepository = monstersRepository
+        self.monstersTempRepository = monstersTempRepository
         self.spotlightRepository = spotlightRepository
     }
 
@@ -53,6 +55,9 @@ extension MonsterListInteractor: MonsterListInteractorInput {
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) {
-        self.spotlightRepository.save(monster)
+        let key = "Spotlight_\(monster.name)"
+        self.monstersTempRepository.saveMonster(monster, forKey: key)
+        self.spotlightRepository.saveMonster(monster, forKey: key)
     }
+
 }

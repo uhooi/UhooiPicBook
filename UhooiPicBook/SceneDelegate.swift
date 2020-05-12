@@ -79,22 +79,17 @@ extension SceneDelegate {
     }
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-
-        guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
-            let data = UserDefaults.standard.data(forKey: userDefaultsKey),
-            let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
+        guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+            let monster = UserDefaultsClient().loadMonster(key: key),
+            let nav = self.window?.rootViewController as? UINavigationController else {
                 return
         }
 
-        guard let nav = self.window?.rootViewController as? UINavigationController else {
-            return
-        }
         if nav.viewControllers.last is MonsterDetailViewController {
             nav.viewControllers.removeLast()
         }
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         nav.pushViewController(vc, animated: true)
     }
+
 }
