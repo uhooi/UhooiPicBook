@@ -27,7 +27,7 @@ final class UserDefaultsClientTests: XCTestCase {
     
     func test_monster() {
         var uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
-        let key = "Spotlight_\(uhooiEntity.name)"
+        let key = "spotlight_\(uhooiEntity.name)"
         
         XCTContext.runActivity(named: "Unsaved") { _ in
             XCTAssertNil(self.userDefaults.loadMonster(key: key))
