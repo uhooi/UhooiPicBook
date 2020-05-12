@@ -63,6 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 // MARK: - UserActivity
+
 extension SceneDelegate {
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
