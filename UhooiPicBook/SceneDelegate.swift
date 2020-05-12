@@ -72,7 +72,7 @@ extension SceneDelegate {
     private func executeUserActivity(_ userActivity: NSUserActivity) {
         switch userActivity.activityType {
         case CSSearchableItemActionType:
-            self.executeSpotlightActivity(userActivity)
+            executeSpotlightActivity(userActivity)
         default:
             return
         }
