@@ -8,7 +8,17 @@
 import Foundation
 
 final class UserDefaultsClient {
+
+    // MARK: Stored Instance Properties
+
     private let userDefaults = UserDefaults.standard
+    
+    // MARK: Other Internal Methods
+
+    func removeAll() {
+        self.userDefaults.dictionaryRepresentation().keys.forEach { self.userDefaults.removeObject(forKey: $0) }
+    }
+
 }
 
 extension UserDefaultsClient: MonstersTempRepository {
@@ -32,12 +42,6 @@ extension UserDefaultsClient: MonstersTempRepository {
             return
         }
         self.userDefaults.set(data, forKey: key)
-    }
-
-    // MARK: Other Internal Methods
-
-    func removeAll() {
-        self.userDefaults.dictionaryRepresentation().keys.forEach { self.userDefaults.removeObject(forKey: $0) }
     }
 
 }
