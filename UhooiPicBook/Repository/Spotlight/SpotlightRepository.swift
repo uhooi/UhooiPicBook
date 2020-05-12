@@ -46,7 +46,7 @@ extension SpotlightClient: SpotlightRepository {
                     attributeSet: attributeSet
                 )
                 self.searchableIndex.indexSearchableItems([item], completionHandler: nil)
-                self.userDefaults.setValue(data, forKey: userDefaultsKey)
+                self.userDefaults.set(data, forKey: userDefaultsKey)
             case .failure:
                 // TODO: 必要ならハンドリングしてください
                 break
