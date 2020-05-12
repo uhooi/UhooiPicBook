@@ -9,6 +9,7 @@ import CoreSpotlight
 import Foundation
 import MobileCoreServices
 
+/// @mockable
 protocol SpotlightRepository: AnyObject {
     func save(_ monster: MonsterEntity)
 }
