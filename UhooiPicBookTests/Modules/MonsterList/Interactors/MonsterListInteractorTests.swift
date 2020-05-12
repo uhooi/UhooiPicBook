@@ -15,6 +15,7 @@ final class MonsterListInteractorTests: XCTestCase {
 
     private var presenterMock: MonsterListInteractorOutputMock!
     private var monstersRepositoryMock: MonstersRepositoryMock!
+    private var spotlightRepositoryMock: SpotlightRepositoryMock!
     private var interactor: MonsterListInteractor!
 
     // MARK: TestCase Life-Cycle Methods
@@ -62,7 +63,9 @@ final class MonsterListInteractorTests: XCTestCase {
     private func reset() {
         self.presenterMock = MonsterListInteractorOutputMock()
         self.monstersRepositoryMock = MonstersRepositoryMock()
-        self.interactor = MonsterListInteractor(monstersRepository: self.monstersRepositoryMock)
+        self.spotlightRepositoryMock = SpotlightRepositoryMock()
+        self.interactor = MonsterListInteractor(monstersRepository: self.monstersRepositoryMock,
+                                                spotlightRepository: self.spotlightRepositoryMock)
         self.interactor.presenter = self.presenterMock
     }
 

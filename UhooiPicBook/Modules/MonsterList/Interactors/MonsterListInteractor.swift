@@ -11,6 +11,7 @@ import Foundation
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
     func fetchMonsters()
+    func saveSpotlight(_ monster: MonsterEntity)
 }
 
 final class MonsterListInteractor {
@@ -23,12 +24,15 @@ final class MonsterListInteractor {
 
     private let monstersRepository: MonstersRepository
 
+    private let spotlightRepository: SpotlightRepository
+
     // MARK: Computed Instance Properties
 
     // MARK: Initializer
 
-    init(monstersRepository: MonstersRepository) {
+    init(monstersRepository: MonstersRepository, spotlightRepository: SpotlightRepository) {
         self.monstersRepository = monstersRepository
+        self.spotlightRepository = spotlightRepository
     }
 
     // MARK: Other Private Methods
@@ -49,4 +53,7 @@ extension MonsterListInteractor: MonsterListInteractorInput {
         }
     }
 
+    func saveSpotlight(_ monster: MonsterEntity) {
+        self.spotlightRepository.save(monster)
+    }
 }

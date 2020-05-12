@@ -6,6 +6,7 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
+import CoreSpotlight
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -24,6 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+
+        if let userActivity = connectionOptions.userActivities.first {
+            executeUserActivity(userActivity)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -54,4 +59,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+}
+
+// MARK: - UserActivity
+
+extension SceneDelegate {
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        self.executeUserActivity(userActivity)
+    }
+
+    private func executeUserActivity(_ userActivity: NSUserActivity) {
+        switch userActivity.activityType {
+        case CSSearchableItemActionType:
+            executeSpotlightActivity(userActivity)
+        default:
+            return
+        }
+    }
+
+    private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        guard let userDefaultsKey = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+            let data = UserDefaults.standard.data(forKey: userDefaultsKey),
+            let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
+                return
+        }
+
+        guard let nav = self.window?.rootViewController as? UINavigationController else {
+            return
+        }
+        if nav.viewControllers.last is MonsterDetailViewController {
+            nav.viewControllers.removeLast()
+        }
+        let vc = MonsterDetailRouter.assembleModule(monster: monster)
+        nav.pushViewController(vc, animated: true)
+    }
 }
