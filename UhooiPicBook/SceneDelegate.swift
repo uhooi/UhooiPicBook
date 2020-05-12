@@ -27,7 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 
         if let userActivity = connectionOptions.userActivities.first {
-            // Spotlightなどからアプリが開かれた場合は中身をチェックして処理する
             self.executeUserActivity(userActivity)
         }
     }
