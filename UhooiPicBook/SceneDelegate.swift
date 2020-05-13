@@ -66,7 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        self.executeUserActivity(userActivity)
+        executeUserActivity(userActivity)
     }
 
     private func executeUserActivity(_ userActivity: NSUserActivity) {
@@ -85,8 +85,8 @@ extension SceneDelegate {
                 return
         }
 
-        nav.dismiss(animated: false, completion: nil)
-        nav.popToRootViewController(animated: true)
+        nav.dismiss(animated: false)
+        nav.popToRootViewController(animated: false)
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         nav.pushViewController(vc, animated: true)
     }
