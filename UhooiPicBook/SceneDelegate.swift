@@ -85,9 +85,7 @@ extension SceneDelegate {
                 return
         }
 
-        if nav.viewControllers.last is MonsterDetailViewController {
-            nav.viewControllers.removeLast()
-        }
+        nav.popToRootViewController(animated: true)
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         nav.pushViewController(vc, animated: true)
     }
