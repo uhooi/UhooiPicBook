@@ -15,6 +15,7 @@ final class MonsterListInteractorTests: XCTestCase {
 
     private var presenterMock: MonsterListInteractorOutputMock!
     private var monstersRepositoryMock: MonstersRepositoryMock!
+    private var monstersTempRepositoryMock: MonstersTempRepositoryMock!
     private var spotlightRepositoryMock: SpotlightRepositoryMock!
     private var interactor: MonsterListInteractor!
 
@@ -57,14 +58,27 @@ final class MonsterListInteractorTests: XCTestCase {
         
         XCTAssertEqual(self.presenterMock.monstersFetchedCallCount, 0)
     }
+    
+    // saveForSpotlight(_:)
+    
+    func test_saveForSpotlight() {
+        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
+        
+        self.interactor.saveForSpotlight(uhooiEntity)
+        
+        XCTAssertEqual(self.monstersTempRepositoryMock.saveMonsterCallCount, 1)
+        XCTAssertEqual(self.spotlightRepositoryMock.saveMonsterCallCount, 1)
+    }
 
     // MARK: - Other Private Methods
 
     private func reset() {
         self.presenterMock = MonsterListInteractorOutputMock()
         self.monstersRepositoryMock = MonstersRepositoryMock()
+        self.monstersTempRepositoryMock = MonstersTempRepositoryMock()
         self.spotlightRepositoryMock = SpotlightRepositoryMock()
         self.interactor = MonsterListInteractor(monstersRepository: self.monstersRepositoryMock,
+                                                monstersTempRepository: self.monstersTempRepositoryMock,
                                                 spotlightRepository: self.spotlightRepositoryMock)
         self.interactor.presenter = self.presenterMock
     }

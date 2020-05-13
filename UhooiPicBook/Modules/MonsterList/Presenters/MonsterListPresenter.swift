@@ -50,7 +50,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
     }
 
     func didSelectMonster(monster: MonsterEntity) {
-        self.interactor.saveSpotlight(monster)
+        self.interactor.saveForSpotlight(monster)
         self.router.showMonsterDetail(monster: monster)
     }
 
