@@ -21,7 +21,7 @@ jobs:
 
     steps:
     # チェックアウト
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     # Xcodeの一覧出力
     - name: Show Xcode list
