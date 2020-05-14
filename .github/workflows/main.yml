@@ -16,7 +16,7 @@ on:
     branches:
       - develop
     paths-ignore:
-      - Docs/**
+      - 'Docs/**'
       - README.md
       - LICENSE
       - Rambafile
