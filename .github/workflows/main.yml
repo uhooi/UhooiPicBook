@@ -6,7 +6,7 @@ on:
       - master
       - release/**
       - develop
-      - feature/**
+      # - feature/**
     paths-ignore:
       - Docs/**
       - README.md
