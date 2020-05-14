@@ -16,8 +16,8 @@ on:
     branches:
       - develop
     paths-ignore:
-      - 'Docs/**'
-      - '**/README.md'
+      - Docs/**
+      - README.md
       - LICENSE
       - Rambafile
   schedule:
