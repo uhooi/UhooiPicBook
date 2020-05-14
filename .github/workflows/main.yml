@@ -7,6 +7,11 @@ on:
       - release/**
       - develop
       - feature/**
+    paths-ignore:
+      - Docs/**
+      - README.md
+      - LICENSE
+      - Rambafile
   pull_request:
     branches:
       - develop
