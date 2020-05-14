@@ -4,24 +4,36 @@ on:
   push:
     branches:
       - master
-      - releases/**
+      # - release/**
       - develop
-      - feature/**
-  # pull_request:
-    # branches:
-      # - develop
+      # - feature/**
+    paths-ignore:
+      - Docs/**
+      - README.md
+      - LICENSE
+      - Rambafile
+  pull_request:
+    branches:
+      - develop
+    paths-ignore:
+      - Docs/**
+      - README.md
+      - LICENSE
+      - Rambafile
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
 
 jobs:
   test:
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
       MINT_PATH: mint/lib
       MINT_LINK_PATH: mint/bin
 
     steps:
     # チェックアウト
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 
     # Xcodeの一覧出力
     - name: Show Xcode list
