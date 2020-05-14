@@ -17,7 +17,7 @@ on:
       - develop
     paths-ignore:
       - 'Docs/**'
-      - README.md
+      - '**/README.md'
       - LICENSE
       - Rambafile
   schedule:
