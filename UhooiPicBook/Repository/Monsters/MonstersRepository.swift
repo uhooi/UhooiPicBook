@@ -8,7 +8,7 @@
 import Firebase
 
 /// @mockable
-protocol MonstersRepository: AnyObject {
+protocol MonstersRepository: AnyObject { // swiftlint:disable:this file_types_order
     func loadMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
 }
 

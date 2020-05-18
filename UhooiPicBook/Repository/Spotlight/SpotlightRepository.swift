@@ -10,7 +10,7 @@ import Foundation
 import MobileCoreServices
 
 /// @mockable
-protocol SpotlightRepository: AnyObject {
+protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order
     func saveMonster(_ monster: MonsterEntity, forKey key: String)
 }
 
