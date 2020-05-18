@@ -91,10 +91,9 @@ extension UIImage {
         return gcd
     }
 
-    // swiftlint:disable:next identifier_name
     private static func gcdForPair(_ a: Int, _ b: Int) -> Int {
-        var a = a // swiftlint:disable:this identifier_name
-        var b = b // swiftlint:disable:this identifier_name
+        var a = a
+        var b = b
         if a < b {
             swap(&a, &b)
         }
