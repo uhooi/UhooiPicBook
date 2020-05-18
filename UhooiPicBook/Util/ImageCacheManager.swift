@@ -34,7 +34,7 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
                 someError = error
             } else {
                 guard let data = data, let image = UIImage(data: data) else {
-                    fatalError() // TODO: エラーハンドリング
+                    fatalError("Fail to load image.") // TODO: エラーハンドリング
                 }
 
                 imageToCache = image
