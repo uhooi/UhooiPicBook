@@ -116,7 +116,3 @@ xcodebuild \
 clean test \
 | bundle exec xcpretty
 
-.PHONY: lint
-lint: # Run static analysis with SwiftLint
-	mint run swiftlint swiftlint
-
