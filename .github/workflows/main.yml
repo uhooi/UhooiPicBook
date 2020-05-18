@@ -113,7 +113,10 @@ jobs:
 
     # Mintのインストール
     - name: Install Mint
-      run: brew install mint
+      run: |
+        git clone https://github.com/yonaskolb/Mint.git
+        cd Mint
+        make
 
     # Mintで管理しているライブラリのキャッシュ復元
     - name: Cache Mint packages
