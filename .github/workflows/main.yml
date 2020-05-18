@@ -116,7 +116,8 @@ jobs:
       run: |
         git clone https://github.com/yonaskolb/Mint.git
         cd Mint
-        make
+        swift build --disable-sandbox -c release
+        cp -f .build/release/mint /usr/local/bin/mint
 
     # Mintで管理しているライブラリのキャッシュ復元
     - name: Cache Mint packages
