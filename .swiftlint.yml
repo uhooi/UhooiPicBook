@@ -206,5 +206,5 @@ line_length:
 
 identifier_name:
   min_length:
-    warning: 1 # `r` `g` `b` などを使いたいため
+    warning: 2 # `id` や `up` などを使いたいため
 
