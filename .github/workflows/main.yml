@@ -117,6 +117,7 @@ jobs:
         git clone https://github.com/yonaskolb/Mint.git
         cd Mint
         sudo make
+        cd ..
 
     # Mintで管理しているライブラリのキャッシュ復元
     - name: Cache Mint packages
