@@ -48,6 +48,7 @@ final class MonsterListPresenterTests: XCTestCase {
 
         self.presenter.didSelectMonster(monster: uhooiEntity)
         
+        XCTAssertEqual(self.interactorMock.saveForSpotlightCallCount, 1)
         XCTAssertEqual(self.routerMock.showMonsterDetailCallCount, 1)
     }
 

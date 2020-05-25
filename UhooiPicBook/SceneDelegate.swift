@@ -6,6 +6,7 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
+import CoreSpotlight
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -24,6 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+
+        if let userActivity = connectionOptions.userActivities.first {
+            executeUserActivity(userActivity)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,6 +57,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+
+}
+
+// MARK: - UserActivity
+
+extension SceneDelegate {
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        executeUserActivity(userActivity)
+    }
+
+    private func executeUserActivity(_ userActivity: NSUserActivity) {
+        switch userActivity.activityType {
+        case CSSearchableItemActionType:
+            executeSpotlightActivity(userActivity)
+        default:
+            return
+        }
+    }
+
+    private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
+        guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+            let monster = UserDefaultsClient().loadMonster(key: key),
+            let nav = self.window?.rootViewController as? UINavigationController else {
+                return
+        }
+
+        nav.dismiss(animated: false)
+        nav.popToRootViewController(animated: false)
+        let vc = MonsterDetailRouter.assembleModule(monster: monster)
+        nav.pushViewController(vc, animated: true)
     }
 
 }

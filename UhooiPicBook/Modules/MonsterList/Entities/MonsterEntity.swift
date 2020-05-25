@@ -14,3 +14,5 @@ struct MonsterEntity: Equatable {
     let iconUrl: URL
     let dancingUrl: URL
 }
+
+extension MonsterEntity: Codable {}

@@ -7,11 +7,7 @@
 
 import UIKit
 
-final class ImagePopupRouter {
-
-    // MARK: Stored Instance Properties
-
-    // MARK: Initializers
+enum ImagePopupRouter {
 
     // MARK: Type Methods
 

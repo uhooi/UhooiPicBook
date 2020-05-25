@@ -50,6 +50,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
     }
 
     func didSelectMonster(monster: MonsterEntity) {
+        self.interactor.saveForSpotlight(monster)
         self.router.showMonsterDetail(monster: monster)
     }
 
@@ -65,10 +66,10 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
-            fatalError("") // TODO: エラーハンドリング
+            fatalError("Fail to load icon.") // TODO: エラーハンドリング
         }
         guard let dancingUrl = URL(string: dto.dancingUrlString) else {
-            fatalError("") // TODO: エラーハンドリング
+            fatalError("Fail to load dancing image.") // TODO: エラーハンドリング
         }
 
         return MonsterEntity(name: dto.name,

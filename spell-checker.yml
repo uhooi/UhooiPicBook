@@ -7,10 +7,13 @@ whiteList:
   - interactor
   - swiftlint
   - gedatsu
+  - json
 
   # Uhooi
   - theuhooi
   - uhooi
+  - nuhooi
   - ayausa
   - chibird
+  - tomosuke
 
