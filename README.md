@@ -72,3 +72,10 @@ test                                       Xcode test
 update-carthage                            Update Carthage dependencies
 update-cocoapods                           Update CocoaPods dependencies and generate workspace
 ```
+
+## Contribution
+
+I would be happy if you contribute :)
+
+- [New issue](https://github.com/uhooi/UhooiPicBook/issues/new)
+- [New pull request](https://github.com/uhooi/UhooiPicBook/compare)
