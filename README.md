@@ -20,7 +20,7 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 ## Demo
 
-![Demo](./Docs/Demo/Dogo.gif)
+![Demo](./Docs/Demo/Dego.gif)
 
 ## Development
 
