@@ -12,17 +12,17 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|Spotlight|
 |:--|:--|:--|:--|
-|<img src="./Docs/Screenshots/MonsterList.png" width="414">|<img src="./Docs/Screenshots/MonsterDetail.png" width="414">|<img src="./Docs/Screenshots/ImagePopup.png" width="414">|<img src="./Docs/Screenshots/Spotlight.png" width="414">|
+|<img src="./Docs/Screenshots/MonsterList.png" width="207">|<img src="./Docs/Screenshots/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/ImagePopup.png" width="207">|<img src="./Docs/Screenshots/Spotlight.png" width="207">|
 
 ## Demo
 
 ### App
 
-<img src="./Docs/Demo/Normal.gif" width="414">
+<img src="./Docs/Demo/Normal.gif" width="207">
 
 ### Spotlight
 
-<img src="./Docs/Demo/Spotlight.gif" width="414">
+<img src="./Docs/Demo/Spotlight.gif" width="207">
 
 ## Development
 
