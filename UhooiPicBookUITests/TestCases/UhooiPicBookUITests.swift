@@ -45,7 +45,7 @@ final class UhooiPicBookUITests: XCTestCase {
         monsterDetailPage = imagePopupPage
             .tapCloseButton()
         
-        var activityPage = monsterDetailPage
+        let activityPage = monsterDetailPage
             .tapShareButton()
         
         monsterDetailPage = activityPage
