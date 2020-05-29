@@ -7,14 +7,7 @@
 
 import UIKit
 
-protocol ActivityRouterInput: AnyObject {
-    static func show(_ parent: UIViewController, text: String?, url: URL?, image: UIImage?)
-}
-
-final class ActivityRouter {
-}
-
-extension ActivityRouter: ActivityRouterInput {
+enum ActivityRouter {
 
     // MARK: Type Methods
 
