@@ -60,7 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="JCE-kT-TIJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vv0-CE-Fs9">
-                        <barButtonItem key="rightBarButtonItem" title="share" image="square.and.arrow.up" catalog="system" id="xjI-pV-5WW">
+                        <barButtonItem key="rightBarButtonItem" title="Share" image="square.and.arrow.up" catalog="system" id="xjI-pV-5WW">
                             <connections>
                                 <action selector="didTapShareButton:" destination="5Q3-Cj-FlN" id="2b1-gl-Rqc"/>
                             </connections>

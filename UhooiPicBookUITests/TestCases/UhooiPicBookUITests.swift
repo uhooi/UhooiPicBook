@@ -45,6 +45,19 @@ final class UhooiPicBookUITests: XCTestCase {
         monsterDetailPage = imagePopupPage
             .tapCloseButton()
         
+        var activityPage = monsterDetailPage
+            .tapShareButton()
+        
+        monsterDetailPage = activityPage
+            .tapCloseButton()
+
+        // FIXME: ポップオーバーの範囲外をタップするのに失敗する
+//        activityPage = monsterDetailPage
+//            .tapShareButton()
+//
+//        monsterDetailPage = activityPage
+//            .tapPopoverDismissRegion()
+        
         monsterListPage = monsterDetailPage
             .tapBackButton()
     }
