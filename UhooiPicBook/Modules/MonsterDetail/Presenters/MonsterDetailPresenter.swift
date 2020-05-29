@@ -12,6 +12,7 @@ import UIKit.UIImage
 protocol MonsterDetailEventHandler: AnyObject {
     func viewDidLoad()
     func didTapDancingImageView(dancingImage: UIImage?)
+    func didTapShareButton(name: String?, description: String?, icon: UIImage?)
 }
 
 /// @mockable
@@ -52,6 +53,14 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
             return
         }
         self.router.popupDancingImage(dancingImage)
+    }
+
+    func didTapShareButton(name: String?, description: String?, icon: UIImage?) {
+        guard let name = name, let description = description, let icon = icon else {
+            return // TODO: エラーハンドリング
+        }
+        let text = "\(name)\n\(description)\n#UhooiPicBook"
+        self.router.showActivity(text: text, icon: icon)
     }
 
 }

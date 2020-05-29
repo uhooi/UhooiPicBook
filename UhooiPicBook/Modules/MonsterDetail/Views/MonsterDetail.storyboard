@@ -59,6 +59,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JCE-kT-TIJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Vv0-CE-Fs9">
+                        <barButtonItem key="rightBarButtonItem" title="Share" image="square.and.arrow.up" catalog="system" id="xjI-pV-5WW">
+                            <connections>
+                                <action selector="didTapShareButton:" destination="5Q3-Cj-FlN" id="2b1-gl-Rqc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dancingImageView" destination="E51-5s-9vp" id="xUc-e2-ClB"/>
@@ -72,4 +79,7 @@
             <point key="canvasLocation" x="-14" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+    </resources>
 </document>
