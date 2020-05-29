@@ -30,6 +30,7 @@ targets:
         DEVELOPMENT_TEAM: 47E56DYP3N
         INFOPLIST_FILE: UhooiPicBook/Info.plist
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+        DEVELOPMENT_LANGUAGE: jp
     dependencies:
       - framework: Carthage/Build/iOS/Firebase.framework
         embed: false

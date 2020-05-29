@@ -18,6 +18,7 @@ final class MonsterDetailPage: Page {
     private var view: XCUIElement { self.app.otherElements["monsterDetail"] }
     private var dancingImage: XCUIElement { self.view.images["monsterDetail_dancing_image"] }
     private var backButton: XCUIElement { self.app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Back"] }
+    private var shareButton: XCUIElement { self.app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Share"] }
     
     // MARK: Initializers
     
@@ -38,6 +39,11 @@ final class MonsterDetailPage: Page {
     func tapBackButton() -> MonsterListPage {
         self.backButton.tap()
         return MonsterListPage(app: self.app, timeout: 1.0)
+    }
+    
+    func tapShareButton() -> ActivityPage {
+        self.shareButton.tap()
+        return ActivityPage(app: self.app, timeout: 1.0)
     }
 
 }

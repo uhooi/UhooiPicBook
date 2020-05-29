@@ -1,0 +1,23 @@
+//
+//  ActivityRouter.swift
+//  UhooiPicBook
+//
+//  Created by uhooi on 2020/05/29.
+//
+
+import UIKit
+
+enum ActivityRouter {
+
+    // MARK: Type Methods
+
+    static func show(_ parent: UIViewController, text: String?, url: URL?, image: UIImage?) {
+        if text == nil && url == nil && image == nil {
+            return // TODO: エラーハンドリング
+        }
+        let activityItems: [Any?] = [text, url, image]
+        let activityVC = UIActivityViewController(activityItems: activityItems as [Any], applicationActivities: nil)
+        parent.present(activityVC, animated: true)
+    }
+
+}
