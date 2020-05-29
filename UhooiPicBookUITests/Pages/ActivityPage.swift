@@ -17,7 +17,6 @@ final class ActivityPage: Page {
     
     private var view: XCUIElement { self.app.navigationBars["UIActivityContentView"] }
     private var closeButton: XCUIElement { self.view.buttons["Close"] }
-    private var popoverDismissRegion: XCUIElement { self.app.otherElements["PopoverDismissRegion"] }
     
     // MARK: Initializers
     
@@ -32,11 +31,6 @@ final class ActivityPage: Page {
 
     func tapCloseButton() -> MonsterDetailPage {
         self.closeButton.tap()
-        return MonsterDetailPage(app: self.app, timeout: 1.0)
-    }
-    
-    func tapPopoverDismissRegion() -> MonsterDetailPage {
-        self.popoverDismissRegion.tap() // FIXME: 失敗する
         return MonsterDetailPage(app: self.app, timeout: 1.0)
     }
 
