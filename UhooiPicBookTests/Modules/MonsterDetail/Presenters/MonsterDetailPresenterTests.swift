@@ -57,9 +57,9 @@ final class MonsterDetailPresenterTests: XCTestCase {
     func test_didTapShareButton_one_nil() {
         typealias TestCase = (name: String?, description: String?, icon: UIImage?, line: UInt)
         let testCases: [TestCase] = [
-            (nil, "概要", UIImage(), #line),
-            ("名前", nil, UIImage(), #line),
-            ("名前", "概要", nil, #line)
+            (nil, "description", UIImage(), #line),
+            ("name", nil, UIImage(), #line),
+            ("name", "description", nil, #line)
         ]
         
         for (name, description, icon, line) in testCases {
@@ -69,8 +69,8 @@ final class MonsterDetailPresenterTests: XCTestCase {
     }
     
     func test_didTapShareButton_all_notNil() {
-        let name = "名前"
-        let description = "概要"
+        let name = "name"
+        let description = "description"
         let icon = UIImage()
         self.routerMock.showActivityHandler = { text, image in
             XCTAssertEqual(text, "\(name)\n\(description)\n#UhooiPicBook")
