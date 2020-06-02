@@ -30,6 +30,12 @@ targets:
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
         DEVELOPMENT_LANGUAGE: jp
     dependencies:
+      - target: StickerPack
+        embed: true
+        codeSign: false
+        buildPhase:
+          copyFiles:
+            destination: plugins
       - framework: Carthage/Build/iOS/Firebase.framework
         embed: false
         link: false
