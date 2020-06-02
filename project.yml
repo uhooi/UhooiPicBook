@@ -159,6 +159,16 @@ targets:
     dependencies:
       - target: UhooiPicBook
 
+  StickerPack:
+    type: app-extension.messages-sticker-pack
+    platform: iOS
+    sources:
+      - StickerPack
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.StickerPack
+        INFOPLIST_FILE: StickerPack/Info.plist
+
 schemes:
   UhooiPicBook:
     build:
