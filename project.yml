@@ -187,7 +187,7 @@ targets:
         MTL_ENABLE_DEBUG_INFO: INCLUDE_SOURCE
         MTL_FAST_MATH: YES
         PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.StickerPack
-        PRODUCT_NAME: $(TARGET_NAME)
+        PRODUCT_NAME: "UhooiPicBook"
         SKIP_INSTALL: YES
 
 schemes:
