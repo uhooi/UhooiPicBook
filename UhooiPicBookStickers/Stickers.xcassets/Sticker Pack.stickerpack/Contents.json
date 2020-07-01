@@ -8,31 +8,31 @@
   },
   "stickers" : [
     {
-      "filename" : "ayausa_sticker_small.sticker"
+      "filename" : "uhooi_sticker_small.sticker"
     },
     {
-      "filename" : "burakan_sticker_small.sticker"
+      "filename" : "ayausa_sticker_small.sticker"
     },
     {
       "filename" : "chibird_sticker_small.sticker"
     },
     {
-      "filename" : "chuni_sticker_small.sticker"
-    },
-    {
       "filename" : "conycat_sticker_small.sticker"
-    },
-    {
-      "filename" : "entakun_sticker_small.sticker"
-    },
-    {
-      "filename" : "firesoul_sticker_small.sticker"
     },
     {
       "filename" : "kyuso_sticker_small.sticker"
     },
     {
-      "filename" : "mabomagi_sticker_small.sticker"
+      "filename" : "moepin_sticker_small.sticker"
+    },
+    {
+      "filename" : "entakun_sticker_small.sticker"
+    },
+    {
+      "filename" : "burakan_sticker_small.sticker"
+    },
+    {
+      "filename" : "samender_sticker_small.sticker"
     },
     {
       "filename" : "madora_sticker_small.sticker"
@@ -41,19 +41,19 @@
       "filename" : "mijara_sticker_small.sticker"
     },
     {
-      "filename" : "moepin_sticker_small.sticker"
-    },
-    {
-      "filename" : "noalf_sticker_small.sticker"
-    },
-    {
-      "filename" : "samender_sticker_small.sticker"
-    },
-    {
       "filename" : "toge-n_sticker_small.sticker"
     },
     {
-      "filename" : "uhooi_sticker_small.sticker"
+      "filename" : "firesoul_sticker_small.sticker"
+    },
+    {
+      "filename" : "mabomagi_sticker_small.sticker"
+    },
+    {
+      "filename" : "chuni_sticker_small.sticker"
+    },
+    {
+      "filename" : "noalf_sticker_small.sticker"
     }
   ]
 }
