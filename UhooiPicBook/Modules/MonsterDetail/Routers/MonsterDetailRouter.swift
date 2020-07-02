@@ -11,7 +11,7 @@ import UIKit
 /// @mockable
 protocol MonsterDetailRouterInput: AnyObject {
     func popupDancingImage(_ dancingImage: UIImage)
-    func showActivity(text: String, icon: UIImage)
+    func showActivity(_ senderView: UIView, text: String, icon: UIImage)
 }
 
 final class MonsterDetailRouter {
@@ -54,8 +54,8 @@ extension MonsterDetailRouter: MonsterDetailRouterInput {
         ImagePopupRouter.show(self.viewController, image: dancingImage)
     }
 
-    func showActivity(text: String, icon: UIImage) {
-        ActivityRouter.show(self.viewController, text: text, url: nil, image: icon)
+    func showActivity(_ senderView: UIView, text: String, icon: UIImage) {
+        ActivityRouter.show(self.viewController, sourceView: senderView, text: text, url: nil, image: icon)
     }
 
 }

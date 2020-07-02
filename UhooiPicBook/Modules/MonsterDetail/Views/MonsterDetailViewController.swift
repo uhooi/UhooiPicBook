@@ -61,7 +61,8 @@ final class MonsterDetailViewController: UIViewController {
     // MARK: IBActions
 
     @IBAction private func didTapShareButton(_ sender: UIBarButtonItem) {
-        self.presenter.didTapShareButton(name: self.nameLabel.text, description: self.descriptionLabel.text, icon: self.iconImageView.image)
+        self.presenter.didTapShareButton(sender.value(forKey: "view") as? UIView, name: self.nameLabel.text, description: self.descriptionLabel.text,
+                                         icon: self.iconImageView.image)
     }
 
     // MARK: Other Private Methods
