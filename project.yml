@@ -102,7 +102,7 @@ targets:
       - script: |
                 if which mint >/dev/null; then
                   rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-                  mint run mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+                  mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
                 else
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                 fi
