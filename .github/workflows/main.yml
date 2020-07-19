@@ -33,17 +33,6 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # FIXME: キャッシュの削除
-    - name: Clear cache
-      run: |
-        rm -rf ~/Library/Caches/com.apple.dt.Xcode/
-        rm -rf ~/Library/Developer/Xcode/DerivedData/
-        xcrun --kill-cache
-        xcrun simctl erase all
-        rm -rf ~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Caches
-        rm -rf "$(getconf DARWIN_USER_CACHE_DIR)/org.llvm.clang/ModuleCache"
-        rm -rf "$(getconf DARWIN_USER_CACHE_DIR)/org.llvm.clang.$(whoami)/ModuleCache"
-
     # Xcodeの一覧出力
     - name: Show Xcode list
       run: ls /Applications | grep 'Xcode'
