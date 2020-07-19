@@ -33,6 +33,17 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
+    # FIXME: キャッシュの削除
+    - name: Clear cache
+      run: |
+        rm -rf ~/Library/Caches/com.apple.dt.Xcode/
+        rm -rf ~/Library/Developer/Xcode/DerivedData/
+        xcrun --kill-cache
+        xcrun simctl erase all
+        rm -rf ~/Library/Developer/Xcode/iOS\ DeviceSupport/*/Symbols/System/Library/Caches
+        rm -rf "$(getconf DARWIN_USER_CACHE_DIR)/org.llvm.clang/ModuleCache"
+        rm -rf "$(getconf DARWIN_USER_CACHE_DIR)/org.llvm.clang.$(whoami)/ModuleCache"
+
     # Xcodeの一覧出力
     - name: Show Xcode list
       run: ls /Applications | grep 'Xcode'
@@ -42,13 +53,13 @@ jobs:
       run: xcodebuild -version
 
     # Bundlerで管理しているライブラリのキャッシュ復元
-    - name: Cache Gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+    # - name: Cache Gems
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: vendor/bundle
+    #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-gems-
 
     # Bundlerで管理しているライブラリのインストール
     - name: Bundle install
@@ -59,22 +70,22 @@ jobs:
       run: brew install mint
 
     # Mintで管理しているライブラリのキャッシュ復元
-    - name: Cache Mint packages
-      uses: actions/cache@v2
-      with:
-        path: mint
-        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
-        restore-keys: |
-          ${{ runner.os }}-mint-
+    # - name: Cache Mint packages
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: mint
+    #     key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-mint-
 
     # Carthageで管理しているライブラリのキャッシュ復元
-    - name: Cache Carthage packages
-      uses: actions/cache@v2
-      with:
-        path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-carthage-
+    # - name: Cache Carthage packages
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: Carthage
+    #     key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-carthage-
 
     # Carthageで管理しているライブラリのインストール
     - name: Install Carthage frameworks
@@ -83,13 +94,13 @@ jobs:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # CocoaPodsで管理しているライブラリのキャッシュ復元
-    - name: Cache Pods
-      uses: actions/cache@v2
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
+    # - name: Cache Pods
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: Pods
+    #     key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pods-
 
     # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
     - name: Generate licenses, Xcode project, And Pod install
