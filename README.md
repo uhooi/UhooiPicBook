@@ -86,8 +86,8 @@ install-mint                               Install Mint dependencies
 install-templates                          Install Generamba templates
 open                                       Open workspace in Xcode
 setup                                      Install dependencies and prepared development configuration
-update-bundler                             Update Bundler dependencies
 test                                       Xcode test
+update-bundler                             Update Bundler dependencies
 update-carthage                            Update Carthage dependencies
 update-cocoapods                           Update CocoaPods dependencies and generate workspace
 ```
