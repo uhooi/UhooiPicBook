@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-      # - release/**
       - develop
-      # - feature/**
     paths-ignore:
       - Docs/**
       - README.md
@@ -22,7 +20,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
 
 jobs:
   test:
@@ -45,12 +43,12 @@ jobs:
 
     # Bundlerで管理しているライブラリのキャッシュ復元
     - name: Cache Gems
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: vendor/bundle
-        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          ${{ runner.os }}-gem-
+          ${{ runner.os }}-gems-
 
     # Bundlerで管理しているライブラリのインストール
     - name: Bundle install
@@ -62,7 +60,7 @@ jobs:
 
     # Mintで管理しているライブラリのキャッシュ復元
     - name: Cache Mint packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: mint
         key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
@@ -71,7 +69,7 @@ jobs:
 
     # Carthageで管理しているライブラリのキャッシュ復元
     - name: Cache Carthage packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: Carthage
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
@@ -86,7 +84,7 @@ jobs:
 
     # CocoaPodsで管理しているライブラリのキャッシュ復元
     - name: Cache Pods
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}

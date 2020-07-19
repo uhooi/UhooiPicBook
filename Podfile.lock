@@ -1,8 +1,8 @@
 PODS:
-  - Gedatsu (0.0.7)
-  - R.swift (5.1.0):
-    - R.swift.Library (~> 5.1.0)
-  - R.swift.Library (5.1.0)
+  - Gedatsu (1.2.0)
+  - R.swift (5.2.2):
+    - R.swift.Library (~> 5.2.0)
+  - R.swift.Library (5.2.0)
   - SwiftPrettyPrint (1.0.0)
 
 DEPENDENCIES:
@@ -18,11 +18,11 @@ SPEC REPOS:
     - SwiftPrettyPrint
 
 SPEC CHECKSUMS:
-  Gedatsu: 9b721389f5857f954451d1072287ada5ced48b83
-  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
-  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Gedatsu: 13a21a3cbf7978f9ff671eca5715b94a4309d9a8
+  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
+  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   SwiftPrettyPrint: 02010eb68c416300eb9d0d0dccafa82b5856466a
 
 PODFILE CHECKSUM: 8736f02f2c9ee6c21a8d66b07287d51f6d13f861
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

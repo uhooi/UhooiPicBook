@@ -42,10 +42,10 @@ You can develop UhooiPicBook-iOS.
 
 ### Environment
 
-- Xcode: 11.3.1
-- Swift: 5.1.3
+- Xcode: 11.6
+- Swift: 5.2.4
 - Bundler: 2.1.4
-- Mint: 0.14.1
+- Mint: 0.14.2
 
 ### Configuration
 
@@ -86,6 +86,7 @@ install-mint                               Install Mint dependencies
 install-templates                          Install Generamba templates
 open                                       Open workspace in Xcode
 setup                                      Install dependencies and prepared development configuration
+update-bundler                             Update Bundler dependencies
 test                                       Xcode test
 update-carthage                            Update Carthage dependencies
 update-cocoapods                           Update CocoaPods dependencies and generate workspace

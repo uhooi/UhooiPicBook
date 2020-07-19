@@ -1,7 +1,7 @@
-Carthage/Carthage@0.34.0
-yonaskolb/xcodegen@2.13.1
-realm/SwiftLint@0.39.1
+Carthage/Carthage@0.35.0
+yonaskolb/xcodegen@2.16.0
+realm/SwiftLint@0.39.2
 fromkk/SpellChecker@0.0.3
-uber/mockolo@1.2.0
-mono0926/LicensePlist@2.13.0
+uber/mockolo@1.2.4
+mono0926/LicensePlist@2.16.0
 

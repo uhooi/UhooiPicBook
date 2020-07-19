@@ -100,9 +100,10 @@ targets:
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
       - script: |
+                unset SDKROOT
                 if which mint >/dev/null; then
                   rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-                  mint run mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+                  mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
                 else
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                 fi
@@ -111,6 +112,7 @@ targets:
           - $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
     postCompileScripts:
       - script: |
+                unset SDKROOT
                 if which mint >/dev/null; then
                   mint run swiftlint swiftlint autocorrect --format
                   mint run swiftlint swiftlint
@@ -119,6 +121,7 @@ targets:
                 fi
         name: Run SwiftLint
       - script: |
+                unset SDKROOT
                 if ! which mint >/dev/null; then
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                   exit 0
