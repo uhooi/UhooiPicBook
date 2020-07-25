@@ -74,22 +74,24 @@ Run `make help` .
 
 ```
 $ make help
-build-debug                                Xcode build for debug
-clean                                      Delete cache
+setup                                      Install dependencies and prepared development configuration
+install-bundler                            Install Bundler dependencies
+update-bundler                             Update Bundler dependencies
+install-mint                               Install Mint dependencies
+install-cocoapods                          Install CocoaPods dependencies and generate workspace
+update-cocoapods                           Update CocoaPods dependencies and generate workspace
+install-carthage                           Install Carthage dependencies
+update-carthage                            Update Carthage dependencies
+install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist and regenerate project
 generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project
 generate-xcodeproj                         Generate project with XcodeGen
-install-bundler                            Install Bundler dependencies
-install-carthage                           Install Carthage dependencies
-install-cocoapods                          Install CocoaPods dependencies and generate workspace
-install-mint                               Install Mint dependencies
-install-templates                          Install Generamba templates
 open                                       Open workspace in Xcode
-setup                                      Install dependencies and prepared development configuration
-test                                       Xcode test
-update-bundler                             Update Bundler dependencies
-update-carthage                            Update Carthage dependencies
-update-cocoapods                           Update CocoaPods dependencies and generate workspace
+clean                                      Delete cache
+build-debug                                Xcode build for debug
+test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
+get-coverage                               Get code coverage
+show-devices                               Show devices
 ```
 
 ## Contribution
