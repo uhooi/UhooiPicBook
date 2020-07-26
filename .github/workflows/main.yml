@@ -40,6 +40,10 @@ jobs:
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
+    
+    # Makeのバージョン出力
+    - name: Show Make version
+      run: make --version
 
     # Bundlerで管理しているライブラリのキャッシュ復元
     - name: Cache Gems
