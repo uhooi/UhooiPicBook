@@ -36,7 +36,7 @@ jobs:
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
-    
+
     # Makeのバージョン出力
     - name: Show Make version
       run: make --version
@@ -107,6 +107,9 @@ jobs:
     runs-on: macOS-latest
 
     steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
     # Xcodeの一覧出力
     - name: Show Xcode list
       run: ls /Applications | grep 'Xcode'
