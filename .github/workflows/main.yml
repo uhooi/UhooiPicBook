@@ -33,10 +33,6 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Xcodeの一覧出力
-    - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
-
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
@@ -103,11 +99,19 @@ jobs:
     - name: Xcode build
       run: make build-debug
 
-    # 端末の一覧出力
-    - name: Show devices
-      run: make show-devices
-
     # 単体テストの実行
     - name: Xcode test
       run: make test
+
+  info:
+    runs-on: macOS-latest
+
+    steps:
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
+
+    # 端末の一覧出力
+    - name: Show devices
+      run: make show-devices
 
