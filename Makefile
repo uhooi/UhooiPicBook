@@ -1,3 +1,5 @@
+# Variables
+
 PRODUCT_NAME := UhooiPicBook
 WORKSPACE_NAME := ${PRODUCT_NAME}.xcworkspace
 SCHEME_NAME := ${PRODUCT_NAME}
@@ -14,6 +16,8 @@ COVERAGE_OUTPUT := html_report
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
+
+# Targets
 
 .PHONY: help
 help:
