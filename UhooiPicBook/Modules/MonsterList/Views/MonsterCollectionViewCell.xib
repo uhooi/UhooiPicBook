@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iGz-f5-Wgc" firstAttribute="leading" secondItem="WpK-MP-NUF" secondAttribute="leading" constant="16" id="18d-aJ-lC0"/>
                             <constraint firstItem="vOX-iF-1Pu" firstAttribute="centerY" secondItem="WpK-MP-NUF" secondAttribute="centerY" id="3WZ-nq-y52"/>
