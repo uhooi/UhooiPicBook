@@ -41,9 +41,15 @@ final class MonsterListInteractorTests: XCTestCase {
             result(.success(monsterDTOs))
         }
         
-        self.interactor.fetchMonsters()
-        
-        XCTAssertEqual(self.presenterMock.monstersFetchedCallCount, 1)
+        self.interactor.fetchMonsters { result in
+            switch result {
+            case let .success(monsters):
+                XCTAssertEqual(monsters, monsterDTOs)
+            case let .failure(error):
+                XCTFail("Error: \(error)")
+            }
+            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        }
     }
     
     func test_fetchMonsters_failure() {
@@ -54,12 +60,18 @@ final class MonsterListInteractorTests: XCTestCase {
             result(.failure(TestError.test))
         }
         
-        self.interactor.fetchMonsters()
-        
-        XCTAssertEqual(self.presenterMock.monstersFetchedCallCount, 0)
+        self.interactor.fetchMonsters { result in
+            switch result {
+            case let .success(monsters):
+                XCTFail("Monsters: \(monsters)")
+            case let .failure(error):
+                XCTAssertEqual(error as! TestError, TestError.test)
+            }
+            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        }
     }
     
-    // saveForSpotlight(_:)
+    // saveForSpotlight()
     
     func test_saveForSpotlight() {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
