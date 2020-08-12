@@ -9,7 +9,7 @@ import Firebase
 
 /// @mockable
 protocol MonstersRepository: AnyObject { // swiftlint:disable:this file_types_order
-    func loadMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
+    func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
 }
 
 final class MonstersFirebaseClient {
@@ -18,7 +18,7 @@ final class MonstersFirebaseClient {
 
 extension MonstersFirebaseClient: MonstersRepository {
 
-    func loadMonsters(completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
+    func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
         let group = DispatchGroup()
         group.enter()
 

@@ -10,7 +10,7 @@ import Foundation
 
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
-    func fetchMonsters()
+    func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
     func saveForSpotlight(_ monster: MonsterEntity)
 }
 
@@ -42,16 +42,8 @@ final class MonsterListInteractor {
 
 extension MonsterListInteractor: MonsterListInteractorInput {
 
-    func fetchMonsters() {
-        self.monstersRepository.loadMonsters { result in
-            switch result {
-            case let .success(monsters):
-                self.presenter.monstersFetched(monsters: monsters)
-            case let .failure(error):
-                // TODO: エラーハンドリング
-                break
-            }
-        }
+    func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
+        self.monstersRepository.loadMonsters { completion($0) }
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) {

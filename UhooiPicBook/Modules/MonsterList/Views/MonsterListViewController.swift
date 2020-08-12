@@ -10,7 +10,7 @@ import UIKit
 
 /// @mockable
 protocol MonsterListUserInterface: AnyObject {
-    func showMonsters(monsters: [MonsterEntity])
+    func showMonsters(_ monsters: [MonsterEntity])
     func startIndicator()
     func stopIndicator()
 }
@@ -115,7 +115,7 @@ extension MonsterListViewController: UICollectionViewDelegate {
 
 extension MonsterListViewController: MonsterListUserInterface {
 
-    func showMonsters(monsters: [MonsterEntity]) {
+    func showMonsters(_ monsters: [MonsterEntity]) {
         self.monsters = monsters
         DispatchQueue.main.async {
             self.monstersCollectionView.reloadData()

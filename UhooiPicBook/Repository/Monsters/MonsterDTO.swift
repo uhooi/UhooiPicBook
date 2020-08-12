@@ -15,3 +15,5 @@ struct MonsterDTO {
     let dancingUrlString: String
     let order: Int
 }
+
+extension MonsterDTO: Equatable { }

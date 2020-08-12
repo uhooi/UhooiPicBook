@@ -4,7 +4,9 @@ options:
   bundleIdPrefix: com.theuhooi
   deploymentTarget:
     iOS: 13.0
-  carthageExecutablePath: mint run Carthage/Carthage carthage
+  developmentLanguage: ja
+  xcodeVersion: "11.6"
+  carthageExecutablePath: unset SDKROOT && mint run Carthage/Carthage carthage
 
 settings:
   configs:
