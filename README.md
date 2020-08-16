@@ -16,21 +16,21 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/MonsterList.png" width="207">|<img src="./Docs/Screenshots/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Light/ImagePopup.png" width="207">|
 
 |Activity|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/Activity.png" width="207">|<img src="./Docs/Screenshots/Spotlight.png" width="207">|TBD|
+|<img src="./Docs/Screenshots/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Light/iMessage.png" width="207">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|TBD|TBD|TBD|
+|<img src="./Docs/Screenshots/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Dark/ImagePopup.png" width="207">|
 
 |Activity|Spotlight|iMessage|
 |:--|:--|:--|
-|TBD|TBD|TBD|
+|<img src="./Docs/Screenshots/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Dark/iMessage.png" width="207">|
 
 ## Development
 
