@@ -12,19 +12,25 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 ## Screenshots
 
+### Light
+
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
 |<img src="./Docs/Screenshots/MonsterList.png" width="207">|<img src="./Docs/Screenshots/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/ImagePopup.png" width="207">|
 
-|Activity|Spotlight|
-|:--|:--|
-|<img src="./Docs/Screenshots/Activity.png" width="207">|<img src="./Docs/Screenshots/Spotlight.png" width="207">|
+|Activity|Spotlight|iMessage|
+|:--|:--|:--|
+|<img src="./Docs/Screenshots/Activity.png" width="207">|<img src="./Docs/Screenshots/Spotlight.png" width="207">|TBD|
 
-__iMessage__
+### Dark
 
-|1|2|3|4|
-|:--|:--|:--|:--|
-|<img src="./Docs/Screenshots/iMessage1.png" width="207">|<img src="./Docs/Screenshots/iMessage2.png" width="207">|<img src="./Docs/Screenshots/iMessage3.png" width="207">|<img src="./Docs/Screenshots/iMessage4.png" width="207">|
+|MonsterList|MonsterDetail|ImagePopup|
+|:--|:--|:--|
+|TBD|TBD|TBD|
+
+|Activity|Spotlight|iMessage|
+|:--|:--|:--|
+|TBD|TBD|TBD|
 
 ## Development
 
