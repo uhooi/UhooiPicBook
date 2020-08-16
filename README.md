@@ -26,16 +26,6 @@ __iMessage__
 |:--|:--|:--|:--|
 |<img src="./Docs/Screenshots/iMessage1.png" width="207">|<img src="./Docs/Screenshots/iMessage2.png" width="207">|<img src="./Docs/Screenshots/iMessage3.png" width="207">|<img src="./Docs/Screenshots/iMessage4.png" width="207">|
 
-## Demo
-
-### App
-
-<img src="./Docs/Demo/Normal.gif" width="207">
-
-### Spotlight
-
-<img src="./Docs/Demo/Spotlight.gif" width="207">
-
 ## Development
 
 You can develop UhooiPicBook-iOS.
