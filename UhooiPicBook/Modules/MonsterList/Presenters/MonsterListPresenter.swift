@@ -15,7 +15,6 @@ protocol MonsterListEventHandler: AnyObject {
 
 /// @mockable
 protocol MonsterListInteractorOutput: AnyObject {
-    func monstersFetched(monsters: [MonsterDTO])
 }
 
 final class MonsterListPresenter {
@@ -46,7 +45,19 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
         self.view.startIndicator()
-        self.interactor.fetchMonsters()
+        self.interactor.fetchMonsters { result in
+            switch result {
+            case let .success(monsters):
+                let monsterEntities = monsters
+                    .sorted { $0.order < $1.order }
+                    .map { self.convertDTOToEntity(dto: $0) }
+                self.view.showMonsters(monsterEntities)
+                self.view.stopIndicator()
+            case let .failure(error):
+                // TODO: エラーハンドリング
+                self.view.stopIndicator()
+            }
+        }
     }
 
     func didSelectMonster(monster: MonsterEntity) {
@@ -54,15 +65,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
         self.router.showMonsterDetail(monster: monster)
     }
 
-}
-
-extension MonsterListPresenter: MonsterListInteractorOutput {
-
-    func monstersFetched(monsters: [MonsterDTO]) {
-        let monsterEntities = monsters.sorted { $0.order < $1.order } .map { convertDTOToEntity(dto: $0) }
-        self.view.showMonsters(monsters: monsterEntities)
-        self.view.stopIndicator()
-    }
+    // MARK: Other Private Methods
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
@@ -79,4 +82,7 @@ extension MonsterListPresenter: MonsterListInteractorOutput {
                              dancingUrl: dancingUrl)
     }
 
+}
+
+extension MonsterListPresenter: MonsterListInteractorOutput {
 }

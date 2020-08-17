@@ -12,29 +12,25 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 ## Screenshots
 
+### Light
+
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/MonsterList.png" width="207">|<img src="./Docs/Screenshots/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Light/ImagePopup.png" width="207">|
 
-|Activity|Spotlight|
-|:--|:--|
-|<img src="./Docs/Screenshots/Activity.png" width="207">|<img src="./Docs/Screenshots/Spotlight.png" width="207">|
+|Activity|Spotlight|iMessage|
+|:--|:--|:--|
+|<img src="./Docs/Screenshots/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Light/iMessage.png" width="207">|
 
-__iMessage__
+### Dark
 
-|1|2|3|4|
-|:--|:--|:--|:--|
-|<img src="./Docs/Screenshots/iMessage1.png" width="207">|<img src="./Docs/Screenshots/iMessage2.png" width="207">|<img src="./Docs/Screenshots/iMessage3.png" width="207">|<img src="./Docs/Screenshots/iMessage4.png" width="207">|
+|MonsterList|MonsterDetail|ImagePopup|
+|:--|:--|:--|
+|<img src="./Docs/Screenshots/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Dark/ImagePopup.png" width="207">|
 
-## Demo
-
-### App
-
-<img src="./Docs/Demo/Normal.gif" width="207">
-
-### Spotlight
-
-<img src="./Docs/Demo/Spotlight.gif" width="207">
+|Activity|Spotlight|iMessage|
+|:--|:--|:--|
+|<img src="./Docs/Screenshots/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Dark/iMessage.png" width="207">|
 
 ## Development
 
@@ -42,10 +38,10 @@ You can develop UhooiPicBook-iOS.
 
 ### Environment
 
-- Xcode: 11.3.1
-- Swift: 5.1.3
+- Xcode: 11.6
+- Swift: 5.2.4
 - Bundler: 2.1.4
-- Mint: 0.14.1
+- Mint: 0.14.2
 
 ### Configuration
 
@@ -74,21 +70,24 @@ Run `make help` .
 
 ```
 $ make help
-build-debug                                Xcode build for debug
-clean                                      Delete cache
+setup                                      Install dependencies and prepared development configuration
+install-bundler                            Install Bundler dependencies
+update-bundler                             Update Bundler dependencies
+install-mint                               Install Mint dependencies
+install-cocoapods                          Install CocoaPods dependencies and generate workspace
+update-cocoapods                           Update CocoaPods dependencies and generate workspace
+install-carthage                           Install Carthage dependencies
+update-carthage                            Update Carthage dependencies
+install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist and regenerate project
 generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project
 generate-xcodeproj                         Generate project with XcodeGen
-install-bundler                            Install Bundler dependencies
-install-carthage                           Install Carthage dependencies
-install-cocoapods                          Install CocoaPods dependencies and generate workspace
-install-mint                               Install Mint dependencies
-install-templates                          Install Generamba templates
 open                                       Open workspace in Xcode
-setup                                      Install dependencies and prepared development configuration
-test                                       Xcode test
-update-carthage                            Update Carthage dependencies
-update-cocoapods                           Update CocoaPods dependencies and generate workspace
+clean                                      Delete cache
+build-debug                                Xcode build for debug
+test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
+get-coverage                               Get code coverage
+show-devices                               Show devices
 ```
 
 ## Contribution

@@ -1,24 +1,27 @@
+# Variables
+
 PRODUCT_NAME := UhooiPicBook
-SCHEME_NAME := ${PRODUCT_NAME}
 WORKSPACE_NAME := ${PRODUCT_NAME}.xcworkspace
+SCHEME_NAME := ${PRODUCT_NAME}
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 
 TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
-TEST_DEVICE := iPhone 11 Pro Max
-TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE}'
-
-SDK := iphoneos
-CONFIGURATION := Release
+TEST_DEVICE ?= iPhone 11 Pro Max
+TEST_OS ?= 13.6
+TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
+COVERAGE_OUTPUT := html_report
 
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
 
+# Targets
+
 .PHONY: help
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^#]*? #| #"}; {printf "%-42s%s\n", $$1 $$3, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":[^#]*? #| #"}; {printf "%-42s%s\n", $$1 $$3, $$2}'
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
@@ -32,6 +35,11 @@ setup: # Install dependencies and prepared development configuration
 install-bundler: # Install Bundler dependencies
 	bundle config path vendor/bundle
 	bundle install --jobs 4 --retry 3
+
+.PHONY: update-bundler
+update-bundler: # Update Bundler dependencies
+	bundle config path vendor/bundle
+	bundle update --jobs 4 --retry 3
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
@@ -82,7 +90,7 @@ generate-xcodeproj: # Generate project with XcodeGen
 
 .PHONY: open
 open: # Open workspace in Xcode
-	open ./${PRODUCT_NAME}.xcworkspace
+	open ./${WORKSPACE_NAME}
 
 .PHONY: clean
 clean: # Delete cache
@@ -104,7 +112,7 @@ build \
 | bundle exec xcpretty
 
 .PHONY: test
-test: # Xcode test
+test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 	set -o pipefail && \
 xcodebuild \
 -sdk ${TEST_SDK} \
@@ -114,5 +122,13 @@ xcodebuild \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 clean test \
-| bundle exec xcpretty
+| bundle exec xcpretty --report html
+
+.PHONY: get-coverage
+get-coverage: # Get code coverage
+	bundle exec slather coverage --html --output-directory ${COVERAGE_OUTPUT}
+
+.PHONY: show-devices
+show-devices: # Show devices
+	instruments -s devices
 

@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-      # - release/**
       - develop
-      # - feature/**
     paths-ignore:
       - Docs/**
       - README.md
@@ -22,7 +20,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
 
 jobs:
   test:
@@ -35,43 +33,43 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Xcodeの一覧出力
-    - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
-
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
 
-    # Bundlerで管理しているライブラリのキャッシュ復元
+    # Makeのバージョン出力
+    - name: Show Make version
+      run: make --version
+
+    # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: vendor/bundle
-        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          ${{ runner.os }}-gem-
+          ${{ runner.os }}-gems-
 
     # Bundlerで管理しているライブラリのインストール
-    - name: Bundle install
+    - name: Install Bundled Gems
       run: make install-bundler
 
     # Mintのインストール
     - name: Install Mint
       run: brew install mint
 
-    # Mintで管理しているライブラリのキャッシュ復元
+    # Mintで管理しているライブラリのキャッシュ
     - name: Cache Mint packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: mint
         key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
         restore-keys: |
           ${{ runner.os }}-mint-
 
-    # Carthageで管理しているライブラリのキャッシュ復元
+    # Carthageで管理しているライブラリのキャッシュ
     - name: Cache Carthage packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: Carthage
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
@@ -84,9 +82,9 @@ jobs:
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # CocoaPodsで管理しているライブラリのキャッシュ復元
+    # CocoaPodsで管理しているライブラリのキャッシュ
     - name: Cache Pods
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
@@ -94,7 +92,7 @@ jobs:
           ${{ runner.os }}-pods-
 
     # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
-    - name: Generate licenses, Xcode project, And Pod install
+    - name: Generate licenses, Xcode project, and install Pods
       run: make generate-licenses
 
     # ビルド
@@ -104,4 +102,19 @@ jobs:
     # 単体テストの実行
     - name: Xcode test
       run: make test
+
+  info:
+    runs-on: macOS-latest
+
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
+
+    # 端末の一覧出力
+    - name: Show devices
+      run: make show-devices
 
