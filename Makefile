@@ -102,8 +102,8 @@ clean: # Delete cache
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
-	set -o pipefail && \
-xcodebuild \
+	set -o pipefail \
+&& xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
@@ -113,8 +113,8 @@ build \
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
-	set -o pipefail && \
-xcodebuild \
+	set -o pipefail \
+&& xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
