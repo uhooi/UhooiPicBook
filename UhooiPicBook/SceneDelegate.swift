@@ -80,9 +80,9 @@ extension SceneDelegate {
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
         guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
-            let monster = UserDefaultsClient().loadMonster(key: key),
-            let nav = self.window?.rootViewController as? UINavigationController else {
-                return
+              let monster = UserDefaultsClient().loadMonster(key: key),
+              let nav = self.window?.rootViewController as? UINavigationController else {
+            return
         }
 
         nav.dismiss(animated: false)
