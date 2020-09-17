@@ -6,8 +6,8 @@
 //
 
 import CoreSpotlight
-import Foundation
 import MobileCoreServices
+import UIKit
 
 /// @mockable
 protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order
@@ -35,10 +35,11 @@ extension SpotlightClient: SpotlightRepository {
         self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
             switch result {
             case .success(let image):
+                let thumbnailData = image.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
                 let item = CSSearchableItem(
                     uniqueIdentifier: key,
                     domainIdentifier: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
-                    attributeSet: self.createAttributeSet(title: monster.name, contentDescription: monster.description, thumbnailData: image.pngData())
+                    attributeSet: self.createAttributeSet(title: monster.name, contentDescription: monster.description, thumbnailData: thumbnailData)
                 )
                 self.searchableIndex.indexSearchableItems([item], completionHandler: nil)
             case .failure:
@@ -49,7 +50,12 @@ extension SpotlightClient: SpotlightRepository {
     }
 
     private func createAttributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
-        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeData as String)
+        let attributeSet: CSSearchableItemAttributeSet
+        if #available(iOS 14.0, *) {
+            attributeSet = .init(contentType: .data)
+        } else {
+            attributeSet = .init(itemContentType: kUTTypeData as String)
+        }
         attributeSet.title = title
         attributeSet.contentDescription = contentDescription
         attributeSet.thumbnailData = thumbnailData
