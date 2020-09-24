@@ -73,8 +73,6 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/GoogleDataTransport.framework
         embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransportCCTSupport.framework
-        embed: false
       - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
         embed: false
       - framework: Carthage/Build/iOS/GoogleUtilities.framework
