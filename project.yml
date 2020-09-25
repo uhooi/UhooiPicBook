@@ -63,8 +63,6 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/FirebaseInstallations.framework
         embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
-        embed: false
       - framework: Carthage/Build/iOS/FirebasePerformance.framework
         embed: false
       - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
