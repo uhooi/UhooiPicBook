@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
+import FirebaseMessaging
 #if canImport(Gedatsu)
 import Gedatsu
 #endif
@@ -20,7 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if canImport(Gedatsu)
         Gedatsu.open()
         #endif
+
         FirebaseApp.configure()
+        configurePushNotifications(application: application)
+        Messaging.messaging().delegate = self
+
         return true
     }
 
@@ -38,4 +43,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // MARK: Other Private Methods
+
+    private func configurePushNotifications(application: UIApplication) {
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions
+        ) {_, _ in
+        }
+        application.registerForRemoteNotifications()
+    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([[.alert, .sound]])
+    }
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        let dataDict: [String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+    }
 }

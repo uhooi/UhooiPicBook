@@ -41,9 +41,6 @@ targets:
         buildPhase:
           copyFiles:
             destination: plugins
-      - framework: Carthage/Build/iOS/Firebase.framework
-        embed: false
-        link: false
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
