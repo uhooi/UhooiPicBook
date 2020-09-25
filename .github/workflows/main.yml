@@ -12,7 +12,7 @@ on:
       - Rambafile
   pull_request:
     branches:
-      - develop
+      - !master
     paths-ignore:
       - Docs/**
       - README.md
