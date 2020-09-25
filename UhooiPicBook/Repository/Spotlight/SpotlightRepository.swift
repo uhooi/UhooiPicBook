@@ -5,9 +5,9 @@
 //  Created by Tomosuke Okada on 2020/05/11.
 //
 
+import CoreGraphics.CGGeometry
 import CoreSpotlight
 import MobileCoreServices
-import UIKit.UIImage
 
 /// @mockable
 protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order
