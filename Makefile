@@ -55,18 +55,24 @@ update-cocoapods: # Update CocoaPods dependencies and generate workspace
 
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
+	@$(MAKE) export-carthage-config
 	mint run carthage carthage bootstrap --platform iOS --cache-builds
-	$(MAKE) show-carthage-dependencies
+	@$(MAKE) show-carthage-dependencies
 
 .PHONY: update-carthage
 update-carthage: # Update Carthage dependencies
+	@$(MAKE) export-carthage-config
 	mint run carthage carthage update --platform iOS
-	$(MAKE) show-carthage-dependencies
+	@$(MAKE) show-carthage-dependencies
 
 .PHONY: show-carthage-dependencies
 show-carthage-dependencies:
 	@echo '*** Resolved dependencies:'
 	@cat 'Cartfile.resolved'
+
+.PHONY: export-carthage-config
+export-carthage-config:
+	export XCODE_XCCONFIG_FILE=Configs/Carthage.xcconfig
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
