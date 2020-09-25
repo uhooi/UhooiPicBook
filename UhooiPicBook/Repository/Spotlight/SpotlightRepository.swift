@@ -7,7 +7,7 @@
 
 import CoreSpotlight
 import MobileCoreServices
-import UIKit
+import UIKit.UIImage
 
 /// @mockable
 protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order
