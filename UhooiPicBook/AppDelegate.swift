@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         FirebaseApp.configure()
-        configurePushNotifications(application: application)
+        configureNotifications(application: application)
         Messaging.messaging().delegate = self
 
         return true
@@ -45,13 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Other Private Methods
 
-    private func configurePushNotifications(application: UIApplication) {
-        UNUserNotificationCenter.current().delegate = self
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions
-        ) {_, _ in
-        }
+    private func configureNotifications(application: UIApplication) {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(
+            options: [.alert, .badge, .sound]
+        ) { _, _ in }
+
         application.registerForRemoteNotifications()
     }
 
