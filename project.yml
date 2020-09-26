@@ -31,6 +31,7 @@ targets:
         CURRENT_PROJECT_VERSION: 9
         DEVELOPMENT_TEAM: 47E56DYP3N
         INFOPLIST_FILE: UhooiPicBook/Info.plist
+        CODE_SIGN_ENTITLEMENTS: UhooiPicBook/UhooiPicBook.entitlements
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
         DEVELOPMENT_LANGUAGE: jp
     dependencies:
@@ -40,9 +41,6 @@ targets:
         buildPhase:
           copyFiles:
             destination: plugins
-      - framework: Carthage/Build/iOS/Firebase.framework
-        embed: false
-        link: false
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
@@ -62,6 +60,10 @@ targets:
       - framework: Carthage/Build/iOS/FirebaseFirestore.framework
         embed: false
       - framework: Carthage/Build/iOS/FirebaseInstallations.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseMessaging.framework
         embed: false
       - framework: Carthage/Build/iOS/FirebasePerformance.framework
         embed: false
