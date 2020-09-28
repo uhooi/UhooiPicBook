@@ -41,56 +41,31 @@ targets:
         buildPhase:
           copyFiles:
             destination: plugins
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseABTesting.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseMessaging.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebasePerformance.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
+      - carthage: abseil
+      - carthage: BoringSSL-GRPC
+      - carthage: FIRAnalyticsConnector
+      - carthage: FirebaseABTesting
+      - carthage: FirebaseAnalytics
+      - carthage: FirebaseCore
+      - carthage: FirebaseCoreDiagnostics
+      - carthage: FirebaseCrashlytics
+      - carthage: FirebaseFirestore
+      - carthage: FirebaseInstallations
+      - carthage: FirebaseInstanceID
+      - carthage: FirebaseMessaging
+      - carthage: FirebasePerformance
+      - carthage: FirebaseRemoteConfig
+      - carthage: GoogleAppMeasurement
+      - carthage: GoogleDataTransport
+      - carthage: GoogleToolboxForMac
+      - carthage: GoogleUtilities
+      - carthage: gRPC-C++
+      - carthage: gRPC-Core
+      - carthage: GTMSessionFetcher
+      - carthage: leveldb-library
+      - carthage: nanopb
+      - carthage: PromisesObjC
+      - carthage: Protobuf
     preBuildScripts:
       - script: |
                 "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
