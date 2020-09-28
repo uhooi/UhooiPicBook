@@ -82,18 +82,18 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad_newLine() {
-        typealias TestCase = (line: UInt, description: String, expect: String)
+        typealias TestCase = (description: String, expected: String, line: UInt)
         let testCases: [TestCase] = [
-            (#line, "",              ""            ),
-            (#line, "¥¥n",           "¥¥n"         ),
-            (#line, "\n",            "\n"          ),
-            (#line, "\\n",           "\n"          ),
-            // (#line, "\\\n",          "\\n"         ),
-            (#line, "\\n\\n",        "\n\n"        ),
-            (#line, "test\\nuhooi",  "test\nuhooi" ),
+            ("",              ""            , #line),
+            ("¥¥n",           "¥¥n"         , #line),
+            ("\n",            "\n"          , #line),
+            ("\\n",           "\n"          , #line),
+            // ("\\\n",          "\\n"         ,#line),
+            ("\\n\\n",        "\n\n"        , #line),
+            ("test\\nuhooi",  "test\nuhooi" , #line),
         ]
         
-        for (line, description, expect) in testCases {
+        for (description, expected, line) in testCases {
             reset()
             let monsterDTO = MonsterDTO(
                 name: "monster's name",
@@ -107,7 +107,7 @@ final class MonsterListPresenterTests: XCTestCase {
                 completion(.success([monsterDTO]))
             }
             self.viewMock.showMonstersHandler = { monsters in
-                XCTAssertEqual(monsters[0].description, expect, line: line)
+                XCTAssertEqual(monsters[0].description, expected, line: line)
             }
 
             self.presenter.viewDidLoad()
