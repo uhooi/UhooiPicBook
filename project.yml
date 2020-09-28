@@ -30,8 +30,8 @@ targets:
         MARKETING_VERSION: 1.1.0
         CURRENT_PROJECT_VERSION: 9
         DEVELOPMENT_TEAM: 47E56DYP3N
-        INFOPLIST_FILE: UhooiPicBook/Info.plist
-        CODE_SIGN_ENTITLEMENTS: UhooiPicBook/UhooiPicBook.entitlements
+        INFOPLIST_FILE: UhooiPicBook/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
         DEVELOPMENT_LANGUAGE: jp
     dependencies:
