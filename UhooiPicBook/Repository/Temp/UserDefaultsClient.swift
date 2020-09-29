@@ -28,8 +28,8 @@ extension UserDefaultsClient: MonstersTempRepository {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         guard let data = self.userDefaults.data(forKey: key),
-            let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
-                return nil
+              let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
+            return nil
         }
         return monster
     }

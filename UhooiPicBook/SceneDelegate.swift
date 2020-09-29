@@ -51,6 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -80,9 +81,9 @@ extension SceneDelegate {
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
         guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
-            let monster = UserDefaultsClient().loadMonster(key: key),
-            let nav = self.window?.rootViewController as? UINavigationController else {
-                return
+              let monster = UserDefaultsClient().loadMonster(key: key),
+              let nav = self.window?.rootViewController as? UINavigationController else {
+            return
         }
 
         nav.dismiss(animated: false)

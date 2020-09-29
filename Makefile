@@ -9,7 +9,7 @@ TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 11 Pro Max
-TEST_OS ?= 13.6
+TEST_OS ?= 14.0
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
 
@@ -55,18 +55,24 @@ update-cocoapods: # Update CocoaPods dependencies and generate workspace
 
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
+	@$(MAKE) export-carthage-config
 	mint run carthage carthage bootstrap --platform iOS --cache-builds
-	$(MAKE) show-carthage-dependencies
+	@$(MAKE) show-carthage-dependencies
 
 .PHONY: update-carthage
 update-carthage: # Update Carthage dependencies
+	@$(MAKE) export-carthage-config
 	mint run carthage carthage update --platform iOS
-	$(MAKE) show-carthage-dependencies
+	@$(MAKE) show-carthage-dependencies
 
 .PHONY: show-carthage-dependencies
 show-carthage-dependencies:
 	@echo '*** Resolved dependencies:'
 	@cat 'Cartfile.resolved'
+
+.PHONY: export-carthage-config
+export-carthage-config:
+	export XCODE_XCCONFIG_FILE=Configs/Carthage.xcconfig
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -102,8 +108,8 @@ clean: # Delete cache
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
-	set -o pipefail && \
-xcodebuild \
+	set -o pipefail \
+&& xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
@@ -113,8 +119,8 @@ build \
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
-	set -o pipefail && \
-xcodebuild \
+	set -o pipefail \
+&& xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
