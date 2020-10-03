@@ -20,11 +20,11 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: TestCase Life-Cycle Methods
 
-    override func setUp() {
+    override func setUpWithError() throws {
         reset()
     }
 
-    override func tearDown() {
+    override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 

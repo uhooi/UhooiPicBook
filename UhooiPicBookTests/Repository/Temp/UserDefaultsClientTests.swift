@@ -16,11 +16,11 @@ final class UserDefaultsClientTests: XCTestCase {
     
     // MARK: TestCase Life-Cycle Methods
     
-    override func setUp() {
+    override func setUpWithError() throws {
         reset()
     }
 
-    override func tearDown() {
+    override func tearDownWithError() throws {
     }
     
     // MARK: - Test Methods
