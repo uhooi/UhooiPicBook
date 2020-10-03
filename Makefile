@@ -136,5 +136,5 @@ get-coverage: # Get code coverage
 
 .PHONY: show-devices
 show-devices: # Show devices
-	instruments -s devices
+	xcrun xctrace list devices
 
