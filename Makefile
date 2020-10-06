@@ -80,7 +80,7 @@ install-templates: # Install Generamba templates
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist and regenerate project
-	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle
+	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 	$(MAKE) generate-xcodeproj
 
 .PHONY: generate-module
@@ -136,5 +136,5 @@ get-coverage: # Get code coverage
 
 .PHONY: show-devices
 show-devices: # Show devices
-	instruments -s devices
+	xcrun xctrace list devices
 
