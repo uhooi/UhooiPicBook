@@ -4,7 +4,7 @@
     "version" : 1
   },
   "properties" : {
-    "grid-size" : "regular"
+    "grid-size" : "small"
   },
   "stickers" : [
     {
@@ -54,6 +54,42 @@
     },
     {
       "filename" : "noalf_sticker_small.sticker"
+    },
+    {
+      "filename" : "renman_sticker_small.sticker"
+    },
+    {
+      "filename" : "reijin_sticker_small.sticker"
+    },
+    {
+      "filename" : "motokuma_sticker_small.sticker"
+    },
+    {
+      "filename" : "fktn_sticker_small.sticker"
+    },
+    {
+      "filename" : "rokukage_sticker_small.sticker"
+    },
+    {
+      "filename" : "marinyan_sticker_small.sticker"
+    },
+    {
+      "filename" : "meikui_sticker_small.sticker"
+    },
+    {
+      "filename" : "totokuma_sticker_small.sticker"
+    },
+    {
+      "filename" : "bannzaru_sticker_small.sticker"
+    },
+    {
+      "filename" : "tamako_sticker_small.sticker"
+    },
+    {
+      "filename" : "monkuma_sticker_small.sticker"
+    },
+    {
+      "filename" : "nopetsune_sticker_small.sticker"
     }
   ]
 }
