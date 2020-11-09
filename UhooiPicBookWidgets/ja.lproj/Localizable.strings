@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  UhooiPicBook
+
+  Created by uhooi on 2020/11/09.
+  
+*/
+
+"configurationDisplayName" = "キャラクター情報";
+"description" = "キャラクター情報を表示します。";

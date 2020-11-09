@@ -9,6 +9,10 @@ options:
   carthageExecutablePath: unset SDKROOT && mint run Carthage/Carthage carthage
 
 settings:
+  base:
+    MARKETING_VERSION: 1.2.2
+    CURRENT_PROJECT_VERSION: 12
+    DEVELOPMENT_TEAM: 47E56DYP3N
   configs:
     debug:
       DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
@@ -19,6 +23,7 @@ targets:
     platform: iOS
     sources:
       - UhooiPicBook
+      - Shared
       - path: "UhooiPicBook/Generated/MockResults.swift"
         optional: true
         type: file
@@ -27,9 +32,6 @@ targets:
         type: file
     settings:
       base:
-        MARKETING_VERSION: 1.2.2
-        CURRENT_PROJECT_VERSION: 12
-        DEVELOPMENT_TEAM: 47E56DYP3N
         INFOPLIST_FILE: UhooiPicBook/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
@@ -42,6 +44,7 @@ targets:
         buildPhase:
           copyFiles:
             destination: plugins
+      - target: UhooiPicBookWidgets
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
@@ -174,6 +177,7 @@ targets:
   UhooiPicBookStickers:
     type: app-extension.messages-sticker-pack
     platform: iOS
+    deploymentTarget: 11.0
     sources:
       - UhooiPicBookStickers
     settings:
@@ -182,21 +186,84 @@ targets:
         CLANG_ENABLE_OBJC_WEAK: YES
         CODE_SIGN_IDENTITY: "iPhone Developer"
         CODE_SIGN_STYLE: Automatic
-        CURRENT_PROJECT_VERSION: 12
         DEBUG_INFORMATION_FORMAT: dwarf
-        DEVELOPMENT_TEAM: 47E56DYP3N
         GCC_PREPROCESSOR_DEFINITIONS:
           - "DEBUG=1"
           - "$(inherited)"
         INFOPLIST_FILE: UhooiPicBookStickers/Info.plist
-        IPHONEOS_DEPLOYMENT_TARGET: 11.0
         LD_RUNPATH_SEARCH_PATHS: ""
-        MARKETING_VERSION: 1.2.2
         MTL_ENABLE_DEBUG_INFO: INCLUDE_SOURCE
         MTL_FAST_MATH: YES
         PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Stickers
         PRODUCT_NAME: "UhooiPicBookStickers"
         SKIP_INSTALL: YES
+
+  UhooiPicBookWidgets:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: 14.0
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME: WidgetBackground
+        CODE_SIGN_IDENTITY: "iPhone Developer"
+        CODE_SIGN_STYLE: Automatic
+        DEBUG_INFORMATION_FORMAT: dwarf
+        GCC_PREPROCESSOR_DEFINITIONS:
+          - "DEBUG=1"
+          - "$(inherited)"
+        INFOPLIST_FILE: UhooiPicBookWidgets/Info.plist
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
+          - "@executable_path/../../Frameworks"
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets
+        PRODUCT_NAME: "UhooiPicBookWidgets"
+        SKIP_INSTALL: YES
+    sources:
+      - UhooiPicBookWidgets
+      - Shared
+    dependencies:
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+      - framework: Carthage/Build/iOS/abseil.framework
+        embed: false
+      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleUtilities.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-C++.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-Core.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
+        embed: false
+      - framework: Carthage/Build/iOS/leveldb-library.framework
+        embed: false
+      - framework: Carthage/Build/iOS/nanopb.framework
+        embed: false
+      - framework: Carthage/Build/iOS/PromisesObjC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/Protobuf.framework
+        embed: false
 
 schemes:
   UhooiPicBook:
