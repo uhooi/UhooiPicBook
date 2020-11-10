@@ -33,14 +33,7 @@ extension MonsterWidget {
         }
         
         func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
-            let entry: Entry
-            if context.isPreview {
-                entry = .createDefault()
-            } else {
-                // TODO: Firestoreからuhooiのデータを取得する
-                entry = .createDefault()
-            }
-            completion(entry)
+            completion(.createDefault())
         }
         
         func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
