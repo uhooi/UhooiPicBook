@@ -37,6 +37,9 @@ extension MonsterWidget {
         }
         
         func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+            let group = DispatchGroup()
+            group.enter()
+            
             var entries: [Entry] = []
             
             let monstersRepository: MonstersRepository = MonstersFirebaseClient()
@@ -45,40 +48,39 @@ extension MonsterWidget {
                 case let .success(monsters):
                     let currentDate = Date()
                     var hourOffset = 0
-                    monsters
-                        .sorted { $0.order < $1.order }
-                        .forEach {
-                            let name = $0.name
-                            let description = $0.description
-                            let iconUrlString = $0.iconUrlString
-                            
-                            guard let iconUrl = URL(string: iconUrlString) else {
-                                // TODO: エラーハンドリング
-                                return
-                            }
-                            
-                            let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
-                            imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
-                                switch result {
-                                case let .success(icon):
-                                    let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-                                    let entry = Entry(date: entryDate, name: name, description: description, icon: icon)
-                                    entries.append(entry)
-                                    hourOffset += 1
-                                case let .failure(error):
-                                    // TODO: エラーハンドリング
-                                    print(error)
-                                }
+                    for monster in monsters.sorted(by: { $0.order < $1.order }) {
+                        let name = monster.name
+                        let description = monster.description
+                        let iconUrlString = monster.iconUrlString
+                        
+                        guard let iconUrl = URL(string: iconUrlString) else {
+                            continue
+                        }
+                        
+                        let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
+                        imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
+                            switch result {
+                            case let .success(icon):
+                                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+                                let entry = Entry(date: entryDate, name: name, description: description, icon: icon)
+                                entries.append(entry)
+                                hourOffset += 1
+                            case .failure(_):
+                                break
                             }
                         }
-                case let .failure(error):
-                    // TODO: エラーハンドリング
-                    print(error)
+                    }
+                case .failure(_):
+                    break
                 }
+                
+                group.leave()
             }
             
-            let timeline = Timeline(entries: entries, policy: .atEnd)
-            completion(timeline)
+            group.notify(queue: .global()) {
+                let timeline = Timeline(entries: entries, policy: .atEnd)
+                completion(timeline)
+            }
         }
     }
 }
