@@ -115,23 +115,29 @@ struct MonsterEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall:
-            VStack {
-                icon
-                Spacer(minLength: 8.0)
-                name
-            }
-            .padding()
-        case .systemMedium:
-            HStack {
+            ZStack {
+                Color(.systemBackground)
                 VStack {
                     icon
                     Spacer(minLength: 8.0)
                     name
                 }
-                Spacer(minLength: 16.0)
-                description
+                .padding()
             }
-            .padding()
+        case .systemMedium:
+            ZStack {
+                Color(.systemBackground)
+                HStack {
+                    VStack {
+                        icon
+                        Spacer(minLength: 8.0)
+                        name
+                    }
+                    Spacer(minLength: 16.0)
+                    description
+                }
+                .padding()
+            }
         case .systemLarge:
             EmptyView()
         @unknown default:
@@ -160,23 +166,22 @@ struct MonsterWidget_Previews: PreviewProvider {
     typealias Entry = MonsterWidget.Entry
     
     static var previews: some View {
+        previewWidgetsGroup
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        previewWidgetsGroup
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+    }
+    
+    static private var previewWidgetsGroup: some View {
         Group {
             MonsterEntryView(entry: .createDefault())
                 .redacted(reason: .placeholder)
             MonsterEntryView(entry: .createDefault())
+            MonsterEntryView(entry: .createDefault())
+                .environment(\.colorScheme, .dark)
             MonsterEntryView(entry: createShortEntry())
             MonsterEntryView(entry: createLongEntry())
         }
-        .previewContext(WidgetPreviewContext(family: .systemSmall))
-        
-        Group {
-            MonsterEntryView(entry: .createDefault())
-                .redacted(reason: .placeholder)
-            MonsterEntryView(entry: .createDefault())
-            MonsterEntryView(entry: createShortEntry())
-            MonsterEntryView(entry: createLongEntry())
-        }
-        .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
     
     static private func createShortEntry() -> Entry {
