@@ -19,9 +19,6 @@ final class MonstersFirebaseClient {
 extension MonstersFirebaseClient: MonstersRepository {
 
     func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
-        let group = DispatchGroup()
-        group.enter()
-
         var monsters: [MonsterDTO] = []
         var someError: Error?
 
@@ -49,10 +46,6 @@ extension MonstersFirebaseClient: MonstersRepository {
                 }
             }
 
-            group.leave()
-        }
-
-        group.notify(queue: .global()) {
             completion(someError.map(Result.failure) ?? .success(monsters))
         }
     }
