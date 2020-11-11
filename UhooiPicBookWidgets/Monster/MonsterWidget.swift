@@ -47,7 +47,7 @@ extension MonsterWidget {
                     var hourOffset = 0
                     for monster in monsters.sorted(by: { $0.order < $1.order }) {
                         let name = monster.name
-                        let description = monster.description
+                        let description = monster.description.replacingOccurrences(of: "\\n", with: "\n")
                         let iconUrlString = monster.iconUrlString
                         
                         guard let iconUrl = URL(string: iconUrlString) else {
