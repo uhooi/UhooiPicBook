@@ -239,6 +239,8 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/FirebaseFirestore.framework
         embed: false
+      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
+        embed: false
       - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
         embed: false
       - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
