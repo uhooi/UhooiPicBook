@@ -217,6 +217,7 @@ targets:
           - "$(inherited)"
           - "@executable_path/Frameworks"
           - "@executable_path/../../Frameworks"
+        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
         PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets
         PRODUCT_NAME: "UhooiPicBookWidgets"
         SKIP_INSTALL: YES
