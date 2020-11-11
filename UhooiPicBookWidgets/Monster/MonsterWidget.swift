@@ -37,9 +37,6 @@ extension MonsterWidget {
         }
         
         func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-            let group = DispatchGroup()
-            group.enter()
-            
             var entries: [Entry] = []
             
             let monstersRepository: MonstersRepository = MonstersFirebaseClient()
@@ -81,10 +78,6 @@ extension MonsterWidget {
                     break
                 }
                 
-                group.leave()
-            }
-            
-            group.notify(queue: .global()) {
                 let timeline = Timeline(entries: entries, policy: .atEnd)
                 completion(timeline)
             }
