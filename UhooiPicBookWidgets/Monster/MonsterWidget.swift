@@ -54,8 +54,8 @@ extension MonsterWidget {
                             continue
                         }
                         
-                        let imageCacheGroup = DispatchGroup()
-                        imageCacheGroup.enter()
+                        let group = DispatchGroup()
+                        group.enter()
                         
                         let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
                         imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
@@ -69,17 +69,16 @@ extension MonsterWidget {
                                 break
                             }
                             
-                            imageCacheGroup.leave()
+                            group.leave()
                         }
                         
-                        imageCacheGroup.wait()
+                        group.wait()
                     }
                 case .failure(_):
                     break
                 }
                 
-                let timeline = Timeline(entries: entries, policy: .atEnd)
-                completion(timeline)
+                completion(Timeline(entries: entries, policy: .atEnd))
             }
         }
     }
