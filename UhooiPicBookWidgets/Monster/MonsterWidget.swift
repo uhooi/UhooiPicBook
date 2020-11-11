@@ -57,6 +57,9 @@ extension MonsterWidget {
                             continue
                         }
                         
+                        let imageCacheGroup = DispatchGroup()
+                        imageCacheGroup.enter()
+                        
                         let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
                         imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
                             switch result {
@@ -68,7 +71,11 @@ extension MonsterWidget {
                             case .failure(_):
                                 break
                             }
+                            
+                            imageCacheGroup.leave()
                         }
+                        
+                        imageCacheGroup.wait()
                     }
                 case .failure(_):
                     break
