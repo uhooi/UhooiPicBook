@@ -265,6 +265,11 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/Protobuf.framework
         embed: false
+    postBuildScripts:
+      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
 
 schemes:
   UhooiPicBook:
