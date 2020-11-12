@@ -15,7 +15,7 @@ struct MonsterWidget: Widget {
     }
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "Monster", provider: Provider()) { entry in
+        StaticConfiguration(kind: "Monster", provider: Provider(monstersRepository: MonstersFirebaseClient(), imageCacheManager: ImageCacheManager())) { entry in
             MonsterEntryView(entry: entry)
         }
         .configurationDisplayName("configurationDisplayName")
@@ -28,6 +28,14 @@ extension MonsterWidget {
     struct Provider: TimelineProvider {
         typealias Entry = MonsterWidget.Entry
         
+        private let monstersRepository: MonstersRepository
+        private let imageCacheManager: ImageCacheManagerProtocol
+        
+        init(monstersRepository: MonstersRepository, imageCacheManager: ImageCacheManagerProtocol) {
+            self.monstersRepository = monstersRepository
+            self.imageCacheManager = imageCacheManager
+        }
+        
         func placeholder(in context: Context) -> Entry {
             .createDefault()
         }
@@ -39,8 +47,7 @@ extension MonsterWidget {
         func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
             var entries: [Entry] = []
             
-            let monstersRepository: MonstersRepository = MonstersFirebaseClient()
-            monstersRepository.loadMonsters { result in
+            self.monstersRepository.loadMonsters { result in
                 switch result {
                 case let .success(monsters):
                     let currentDate = Date()
@@ -57,8 +64,7 @@ extension MonsterWidget {
                         let group = DispatchGroup()
                         group.enter()
                         
-                        let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
-                        imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
+                        self.imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
                             switch result {
                             case let .success(icon):
                                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
