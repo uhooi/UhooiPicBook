@@ -1,7 +1,7 @@
 github:
   - owner: firebase
     name: firebase-ios-sdk
-    version: 6.33.0
+    version: 7.1.0
 
 rename:
   firebase-ios-sdk: Firebase
