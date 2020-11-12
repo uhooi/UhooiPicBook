@@ -28,7 +28,7 @@ extension MonstersFirebaseClient: MonstersRepository {
                 someError = error
             } else {
                 guard let querySnapshot = querySnapshot else {
-                    fatalError("Fail to cast `querySnapshot` .")
+                    fatalError("Fail to unwrap `querySnapshot` .")
                 }
 
                 for document in querySnapshot.documents.filter({ $0.exists }) {
