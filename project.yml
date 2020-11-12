@@ -11,7 +11,7 @@ options:
 settings:
   base:
     MARKETING_VERSION: 1.3.0
-    CURRENT_PROJECT_VERSION: 13
+    CURRENT_PROJECT_VERSION: 14
     DEVELOPMENT_TEAM: 47E56DYP3N
   configs:
     debug:
