@@ -237,6 +237,8 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
         embed: false
+      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
+        embed: false
       - framework: Carthage/Build/iOS/FirebaseFirestore.framework
         embed: false
       - framework: Carthage/Build/iOS/FirebaseInstallations.framework
