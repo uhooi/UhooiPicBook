@@ -8,8 +8,8 @@ UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
-TEST_DEVICE ?= iPhone 11 Pro Max
-TEST_OS ?= 14.0
+TEST_DEVICE ?= iPhone 12 Pro Max
+TEST_OS ?= 14.1
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
 
@@ -80,7 +80,7 @@ install-templates: # Install Generamba templates
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist and regenerate project
-	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --config-path LicensePlist/license_plist.yml --add-version-numbers
 	$(MAKE) generate-xcodeproj
 
 .PHONY: generate-module

@@ -16,21 +16,29 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Light/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/ImagePopup.png" width="207">|
 
 |Activity|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Light/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/iMessage.png" width="207">|
+
+|Widgets|
+|:--|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Widgets.png" width="207">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/Dark/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/ImagePopup.png" width="207">|
 
 |Activity|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/Dark/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/iMessage.png" width="207">|
+
+|Widgets|
+|:--|
+|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Widgets.png" width="207">|
 
 ## Development
 
@@ -38,7 +46,7 @@ You can develop UhooiPicBook-iOS.
 
 ### Environment
 
-- Xcode: 12.0
+- Xcode: 12.1
 - Swift: 5.3
 - Bundler: 2.1.4
 - Mint: 0.14.2
