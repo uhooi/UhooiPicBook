@@ -30,6 +30,7 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.iconImageView.image = nil
+        self.nameLabel.text = nil
     }
 
     // MARK: Other Internal Methods
