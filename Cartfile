@@ -1,7 +1,7 @@
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseProtobufBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 7.0.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" == 7.0.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" == 7.0.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json" == 7.0.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" == 7.0.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseProtobufBinary.json" == 7.0.0
 
