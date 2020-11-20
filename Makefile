@@ -98,6 +98,7 @@ build-debug: # Xcode build for debug
 -configuration ${TEST_CONFIGURATION} \
 -project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
+-destination ${TEST_DESTINATION} \
 build \
 | bundle exec xcpretty
 
