@@ -1,7 +1,7 @@
 # Variables
 
 PRODUCT_NAME := UhooiPicBook
-WORKSPACE_NAME := ${PRODUCT_NAME}.xcworkspace
+PROJECT_NAME := ${PRODUCT_NAME}.xcodeproj
 SCHEME_NAME := ${PRODUCT_NAME}
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 
@@ -9,7 +9,7 @@ TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 12 Pro Max
-TEST_OS ?= 14.1
+TEST_OS ?= 14.2
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
 
@@ -45,34 +45,20 @@ update-bundler: # Update Bundler dependencies
 install-mint: # Install Mint dependencies
 	mint bootstrap
 
-.PHONY: install-cocoapods
-install-cocoapods: # Install CocoaPods dependencies and generate workspace
-	bundle exec pod install
-
-.PHONY: update-cocoapods
-update-cocoapods: # Update CocoaPods dependencies and generate workspace
-	bundle exec pod update
-
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
-	@$(MAKE) export-carthage-config
-	mint run carthage carthage bootstrap --platform iOS --cache-builds
+	 ./Scripts/Carthage/carthage.sh bootstrap --platform iOS --cache-builds
 	@$(MAKE) show-carthage-dependencies
 
 .PHONY: update-carthage
 update-carthage: # Update Carthage dependencies
-	@$(MAKE) export-carthage-config
-	mint run carthage carthage update --platform iOS
+	./Scripts/Carthage/carthage.sh update --platform iOS
 	@$(MAKE) show-carthage-dependencies
 
 .PHONY: show-carthage-dependencies
 show-carthage-dependencies:
 	@echo '*** Resolved dependencies:'
 	@cat 'Cartfile.resolved'
-
-.PHONY: export-carthage-config
-export-carthage-config:
-	export XCODE_XCCONFIG_FILE=Configs/Carthage.xcconfig
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -91,17 +77,15 @@ generate-module: # Generate module with Generamba and regenerate project # MODUL
 .PHONY: generate-xcodeproj
 generate-xcodeproj: # Generate project with XcodeGen
 	mint run xcodegen xcodegen generate
-	$(MAKE) install-cocoapods
 	$(MAKE) open
 
 .PHONY: open
-open: # Open workspace in Xcode
-	open ./${WORKSPACE_NAME}
+open: # Open project in Xcode
+	open ./${PROJECT_NAME}
 
 .PHONY: clean
 clean: # Delete cache
 	xcodebuild clean -alltargets
-	rm -rf ./Pods
 	rm -rf ./Carthage
 	rm -rf ./vendor/bundle
 	rm -rf ./Templates
@@ -112,7 +96,7 @@ build-debug: # Xcode build for debug
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--workspace ${WORKSPACE_NAME} \
+-project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
 build \
 | bundle exec xcpretty
@@ -123,7 +107,7 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--workspace ${WORKSPACE_NAME} \
+-project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \

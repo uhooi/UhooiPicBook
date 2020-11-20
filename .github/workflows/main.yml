@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.1.app
+  DEVELOPER_DIR: /Applications/Xcode_12.2.app
 
 jobs:
   test:
@@ -84,17 +84,8 @@ jobs:
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # CocoaPodsで管理しているライブラリのキャッシュ
-    - name: Cache Pods
-      uses: actions/cache@v2
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
-
-    # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
-    - name: Generate licenses, Xcode project, and install Pods
+    # ライセンス情報の生成、プロジェクトファイルの生成
+    - name: Generate licenses, Xcode project
       run: make generate-licenses
 
     # ビルド
