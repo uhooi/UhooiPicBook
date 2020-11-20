@@ -167,6 +167,33 @@ targets:
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+      - script: |
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/abseil.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/BoringSSL-GRPC.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FIRAnalyticsConnector.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseABTesting.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseAnalytics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCore.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCoreDiagnostics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCrashlytics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseFirestore.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseInstallations.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseInstanceID.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseMessaging.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebasePerformance.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseRemoteConfig.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleAppMeasurement.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleDataTransport.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleToolboxForMac.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleUtilities.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/gRPC-C++.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/gRPC-Core.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GTMSessionFetcher.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/leveldb-library.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/nanopb.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/PromisesObjC.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/Protobuf.framework"
+        name: Remove Firebase frameworks
 
   UhooiPicBookTests:
     type: bundle.unit-test
@@ -316,10 +343,33 @@ targets:
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
-        name: Run Firebase Crashlytics
-        inputFiles:
-          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+      - script: /bin/sh ./scripts/firebasecrashlytics/run
+        name: run firebase crashlytics
+        inputfiles:
+          - $(srcroot)/$(built_products_dir)/$(infoplist_path)
+      - script: |
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/abseil.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/BoringSSL-GRPC.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FIRAnalyticsConnector.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseAnalytics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCore.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCoreDiagnostics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseCrashlytics.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseFirestore.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseInstallations.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/FirebaseRemoteConfig.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleAppMeasurement.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleDataTransport.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleToolboxForMac.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GoogleUtilities.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/gRPC-C++.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/gRPC-Core.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/GTMSessionFetcher.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/leveldb-library.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/nanopb.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/PromisesObjC.framework"
+                rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/Protobuf.framework"
+        name: Remove Firebase frameworks
 
 schemes:
   UhooiPicBook:
