@@ -43,7 +43,7 @@ update-bundler: # Update Bundler dependencies
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
-	mint bootstrap
+	mint bootstrap --overwrite
 
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
@@ -122,4 +122,3 @@ get-coverage: # Get code coverage
 .PHONY: show-devices
 show-devices: # Show devices
 	xcrun xctrace list devices
-
