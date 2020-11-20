@@ -29,7 +29,6 @@ jobs:
     env:
       MINT_PATH: mint/lib
       MINT_LINK_PATH: mint/bin
-      XCODE_XCCONFIG_FILE: Configs/Carthage.xcconfig
 
     steps:
     # チェックアウト
