@@ -343,10 +343,10 @@ targets:
                 mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
-      - script: /bin/sh ./scripts/firebasecrashlytics/run
-        name: run firebase crashlytics
-        inputfiles:
-          - $(srcroot)/$(built_products_dir)/$(infoplist_path)
+      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
       - script: |
                 rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/abseil.framework"
                 rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/BoringSSL-GRPC.framework"
