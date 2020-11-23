@@ -12,5 +12,6 @@ import SwiftUI
 struct UhooiPicBookWidgets: WidgetBundle {
     var body: some Widget {
         MonsterWidget()
+        MonsterConfigurableWidget()
     }
 }
