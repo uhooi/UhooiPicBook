@@ -18,15 +18,15 @@ settings:
       DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
 
 packages:
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift.Library
+    version: 5.3.0
   Gedatsu:
     url: https://github.com/bannzai/Gedatsu
     version: 1.2.0
   SwiftPrettyPrint:
     url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
     version: 1.0.0
-  Rswift:
-    url: https://github.com/mac-cain13/R.swift.Library
-    version: 5.3.0
 
 targets:
   UhooiPicBook:
@@ -58,6 +58,7 @@ targets:
       - target: UhooiPicBookWidgets
       - package: Rswift
       - package: Gedatsu
+      - package: SwiftPrettyPrint
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
