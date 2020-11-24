@@ -52,7 +52,7 @@ extension MonsterProvider: IntentTimelineProvider {
 
     func getTimeline(for intent: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         getEntry(monster: intent.monsterDTO()) { entry in
-            let entries = [entry].compactMap { $0 }
+            let entries = [entry ?? placeholder(in: context)]
             completion(Timeline(entries: entries, policy: .never))
         }
     }
