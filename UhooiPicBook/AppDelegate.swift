@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseMessaging
-#if canImport(Gedatsu)
+#if DEBUG
 import Gedatsu
 #endif
 
@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // swiftlint:disable:next discouraged_optional_collection
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if canImport(Gedatsu)
+        #if DEBUG
         Gedatsu.open()
         #endif
 

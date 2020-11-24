@@ -6,7 +6,7 @@ options:
     iOS: 13.0
   developmentLanguage: ja
   xcodeVersion: "12.1"
-  carthageExecutablePath: unset SDKROOT && mint run Carthage/Carthage carthage
+  carthageExecutablePath: xcrun --sdk macosx ./Scripts/Carthage/carthage.sh
 
 settings:
   base:
@@ -16,6 +16,17 @@ settings:
   configs:
     debug:
       DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+
+packages:
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift.Library
+    version: 5.3.0
+  Gedatsu:
+    url: https://github.com/bannzai/Gedatsu
+    version: 1.2.0
+  SwiftPrettyPrint:
+    url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
+    version: 1.0.0
 
 targets:
   UhooiPicBook:
@@ -45,6 +56,9 @@ targets:
           copyFiles:
             destination: plugins
       - target: UhooiPicBookWidgets
+      - package: Rswift
+      - package: Gedatsu
+      - package: SwiftPrettyPrint
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
@@ -97,17 +111,20 @@ targets:
         embed: false
     preBuildScripts:
       - script: |
-                "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
+                if which mint >/dev/null; then
+                 xcrun --sdk macosx mint run R.swift rswift generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
+                else
+                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
+                fi
         name: Generate Resources with R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
       - script: |
-                unset SDKROOT
                 if which mint >/dev/null; then
                   rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-                  mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
+                  xcrun --sdk macosx mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
                 else
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                 fi
@@ -116,16 +133,14 @@ targets:
           - $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
     postCompileScripts:
       - script: |
-                unset SDKROOT
                 if which mint >/dev/null; then
-                  mint run swiftlint swiftlint autocorrect --format
-                  mint run swiftlint swiftlint
+                  xcrun --sdk macosx mint run swiftlint swiftlint autocorrect --format
+                  xcrun --sdk macosx mint run swiftlint swiftlint
                 else
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                 fi
         name: Run SwiftLint
       - script: |
-                unset SDKROOT
                 if ! which mint >/dev/null; then
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                   exit 0
@@ -144,7 +159,7 @@ targets:
                   options="$options $SRCROOT/$file"
                 done
 
-                mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+                xcrun --sdk macosx mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
@@ -269,16 +284,14 @@ targets:
         embed: false
     postCompileScripts:
       - script: |
-                unset SDKROOT
                 if which mint >/dev/null; then
-                  mint run swiftlint swiftlint autocorrect --format
-                  mint run swiftlint swiftlint
+                  xcrun --sdk macosx mint run swiftlint swiftlint autocorrect --format
+                  xcrun --sdk macosx mint run swiftlint swiftlint
                 else
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                 fi
         name: Run SwiftLint
       - script: |
-                unset SDKROOT
                 if ! which mint >/dev/null; then
                   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
                   exit 0
@@ -297,7 +310,7 @@ targets:
                   options="$options $SRCROOT/$file"
                 done
 
-                mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+                xcrun --sdk macosx mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
         name: Run SpellChecker
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run

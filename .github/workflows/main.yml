@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.1.app
+  DEVELOPER_DIR: /Applications/Xcode_12.2.app
 
 jobs:
   test:
@@ -29,7 +29,6 @@ jobs:
     env:
       MINT_PATH: mint/lib
       MINT_LINK_PATH: mint/bin
-      XCODE_XCCONFIG_FILE: Configs/Carthage.xcconfig
 
     steps:
     # チェックアウト
@@ -84,26 +83,37 @@ jobs:
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # CocoaPodsで管理しているライブラリのキャッシュ
-    - name: Cache Pods
-      uses: actions/cache@v2
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
-
-    # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
-    - name: Generate licenses, Xcode project, and install Pods
+    # ライセンス情報の生成、プロジェクトファイルの生成
+    - name: Generate licenses and Xcode project
       run: make generate-licenses
 
     # ビルド
     - name: Xcode build
       run: make build-debug
 
+    # ビルドログのアップロード
+    - name: Upload build log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: make_build_debug.log
+        if-no-files-found: ignore
+        retention-days: 14
+
     # 単体テストの実行
     - name: Xcode test
       run: make test
+
+    # 単体テストログのアップロード
+    - name: Upload test log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: make_test.log
+        if-no-files-found: ignore
+        retention-days: 14
 
   info:
     runs-on: macOS-latest
@@ -119,4 +129,3 @@ jobs:
     # 端末の一覧出力
     - name: Show devices
       run: make show-devices
-
