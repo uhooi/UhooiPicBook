@@ -100,6 +100,7 @@ build-debug: # Xcode build for debug
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 build \
+| tee make_build_debug.log \
 | bundle exec xcpretty --color
 
 .PHONY: test
@@ -113,6 +114,7 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 clean test \
+| tee make_test.log \
 | bundle exec xcpretty --color --report html
 
 .PHONY: get-coverage
