@@ -100,7 +100,7 @@ build-debug: # Xcode build for debug
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 build \
-| bundle exec xcpretty
+| bundle exec xcpretty --color
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -113,7 +113,7 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 clean test \
-| bundle exec xcpretty --report html
+| bundle exec xcpretty --color --report html
 
 .PHONY: get-coverage
 get-coverage: # Get code coverage
