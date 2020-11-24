@@ -98,6 +98,7 @@ jobs:
       with:
         name: xcodebuild-logs
         path: make_build_debug.log
+        if-no-files-found: ignore
         retention-days: 14
 
     # 単体テストの実行
@@ -111,6 +112,7 @@ jobs:
       with:
         name: xcodebuild-logs
         path: make_test.log
+        if-no-files-found: ignore
         retention-days: 14
 
   info:
