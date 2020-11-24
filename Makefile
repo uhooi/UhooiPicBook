@@ -43,7 +43,7 @@ update-bundler: # Update Bundler dependencies
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
-	mint bootstrap --overwrite
+	mint bootstrap --overwrite y
 
 .PHONY: install-carthage
 install-carthage: # Install Carthage dependencies
