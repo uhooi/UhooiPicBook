@@ -57,6 +57,7 @@ targets:
             destination: plugins
       - target: UhooiPicBookWidgets
       - package: Rswift
+      - package: Gedatsu
       - framework: Carthage/Build/iOS/abseil.framework
         embed: false
       - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
