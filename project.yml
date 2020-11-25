@@ -6,7 +6,7 @@ options:
     iOS: 13.0
   developmentLanguage: ja
   xcodeVersion: "12.2"
-  carthageExecutablePath: xcrun --sdk macosx ./Scripts/Carthage/carthage.sh
+  carthageExecutablePath: ./Scripts/Carthage/carthage.sh
 
 settings:
   base:
