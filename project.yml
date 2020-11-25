@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: ja
-  xcodeVersion: "12.1"
+  xcodeVersion: "12."
   carthageExecutablePath: xcrun --sdk macosx ./Scripts/Carthage/carthage.sh
 
 settings:
