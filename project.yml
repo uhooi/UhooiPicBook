@@ -110,56 +110,20 @@ targets:
       - framework: Carthage/Build/iOS/Protobuf.framework
         embed: false
     preBuildScripts:
-      - script: |
-                if which mint >/dev/null; then
-                 xcrun --sdk macosx mint run R.swift rswift generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/rswift.sh
         name: Generate Resources with R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
-      - script: |
-                if which mint >/dev/null; then
-                  rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-                  xcrun --sdk macosx mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/mockolo.sh
         name: Generate Mocks with Mockolo
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
     postCompileScripts:
-      - script: |
-                if which mint >/dev/null; then
-                  xcrun --sdk macosx mint run swiftlint swiftlint autocorrect --format
-                  xcrun --sdk macosx mint run swiftlint swiftlint
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/swiftlint.sh
         name: Run SwiftLint
-      - script: |
-                if ! which mint >/dev/null; then
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                  exit 0
-                fi
-
-                git_path=/usr/local/bin/git
-                files=$($git_path diff --diff-filter=d --name-only -- "*.swift" "*.h" "*.m")
-                if (test -z $files) || (test ${#files[@]} -eq 0); then
-                  echo "no files changed."
-                  exit 0
-                fi
-
-                options=""
-                for file in $files
-                do
-                  options="$options $SRCROOT/$file"
-                done
-
-                xcrun --sdk macosx mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+      - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
@@ -283,34 +247,9 @@ targets:
       - framework: Carthage/Build/iOS/Protobuf.framework
         embed: false
     postCompileScripts:
-      - script: |
-                if which mint >/dev/null; then
-                  xcrun --sdk macosx mint run swiftlint swiftlint autocorrect --format
-                  xcrun --sdk macosx mint run swiftlint swiftlint
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/swiftlint.sh
         name: Run SwiftLint
-      - script: |
-                if ! which mint >/dev/null; then
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                  exit 0
-                fi
-
-                git_path=/usr/local/bin/git
-                files=$($git_path diff --diff-filter=d --name-only -- "*.swift" "*.h" "*.m")
-                if (test -z $files) || (test ${#files[@]} -eq 0); then
-                  echo "no files changed."
-                  exit 0
-                fi
-
-                options=""
-                for file in $files
-                do
-                  options="$options $SRCROOT/$file"
-                done
-
-                xcrun --sdk macosx mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+      - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
