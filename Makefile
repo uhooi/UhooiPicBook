@@ -85,10 +85,10 @@ open: # Open project in Xcode
 
 .PHONY: clean
 clean: # Delete cache
-	xcodebuild clean -alltargets
 	rm -rf ./Carthage
 	rm -rf ./vendor/bundle
 	rm -rf ./Templates
+	xcodebuild clean -alltargets
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
