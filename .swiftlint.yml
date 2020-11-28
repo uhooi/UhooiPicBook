@@ -197,7 +197,6 @@ included:
 
 # 対象外のファイル・フォルダ
 excluded:
-  - Pods
   - UhooiPicBook/Generated
 
 line_length:
