@@ -133,7 +133,7 @@ opt_in_rules:
   - identical_operands
   - implicit_return
   #- implicitly_unwrapped_optional # VIPERで変数を `!` で定義したいため
-  - indentation_width
+  #- indentation_width # `guard` のインデントに対応していなく、メソッドの引数でも引っかかって厳しいため
   - joined_default_parameter
   - last_where
   - legacy_multiple
