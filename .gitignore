@@ -103,5 +103,5 @@ com.mono0926.LicensePlist.plist
 
 # GoogleService-Info.plist
 
-make_*.log
+xcodebuild_*.log
 

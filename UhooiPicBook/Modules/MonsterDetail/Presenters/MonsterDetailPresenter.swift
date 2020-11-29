@@ -6,7 +6,6 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import Foundation
 import UIKit.UIImage
 
 protocol MonsterDetailEventHandler: AnyObject {
