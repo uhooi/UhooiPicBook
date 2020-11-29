@@ -97,7 +97,7 @@ jobs:
       if: failure()
       with:
         name: xcodebuild-logs
-        path: make_build_debug.log
+        path: xcodebuild_build.log
         if-no-files-found: ignore
         retention-days: 14
 
@@ -111,7 +111,7 @@ jobs:
       if: failure()
       with:
         name: xcodebuild-logs
-        path: make_test.log
+        path: xcodebuild_test.log
         if-no-files-found: ignore
         retention-days: 14
 

@@ -6,8 +6,6 @@
 //  Created by uhooi on 2020/05/12.
 //
 
-import Foundation
-
 /// @mockable
 protocol MonstersTempRepository {
     func loadMonster(key: String) -> MonsterEntity?

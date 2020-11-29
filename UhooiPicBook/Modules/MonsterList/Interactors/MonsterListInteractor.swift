@@ -6,8 +6,6 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import Foundation
-
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
     func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
