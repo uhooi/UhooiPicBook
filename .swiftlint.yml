@@ -206,9 +206,13 @@ analyzer_rules:
   - unused_import
 
 # 対象のファイル・フォルダ
-# デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
 included:
+  - Shared
   - UhooiPicBook
+  - UhooiPicBookStickers
+  - UhooiPicBookWidgets
+  #- UhooiPicBookTests
+  #- UhooiPicBookUITests
 
 # 対象外のファイル・フォルダ
 excluded:
