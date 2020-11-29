@@ -13,6 +13,9 @@ TEST_OS ?= 14.2
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
 
+XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
+XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
+
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
@@ -100,7 +103,7 @@ build-debug: # Xcode build for debug
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 build \
-| tee make_build_debug.log \
+| tee ./${XCODEBUILD_BUILD_LOG_NAME} \
 | bundle exec xcpretty --color
 
 .PHONY: test
@@ -114,8 +117,13 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 clean test \
-| tee make_test.log \
+| tee ./${XCODEBUILD_TEST_LOG_NAME} \
 | bundle exec xcpretty --color --report html
+
+.PHONY: analyze
+analyze: # Analyze with SwiftLint
+	$(MAKE) build-debug
+	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: get-coverage
 get-coverage: # Get code coverage

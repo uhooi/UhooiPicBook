@@ -248,11 +248,6 @@ targets:
         embed: false
       - framework: Carthage/Build/iOS/Protobuf.framework
         embed: false
-    postCompileScripts:
-      - path: ./Scripts/XcodeGen/swiftlint.sh
-        name: Run SwiftLint
-      - path: ./Scripts/XcodeGen/spellchecker.sh
-        name: Run SpellChecker
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics

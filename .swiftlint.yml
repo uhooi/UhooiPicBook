@@ -6,7 +6,9 @@ disabled_rules:
   #- closure_parameter_position
   #- colon
   #- comma
+  #- comment_spacing
   #- compiler_protocol_init
+  #- computed_accessors_order
   #- control_statement
   #- custom_rules
   #- cyclomatic_complexity
@@ -28,6 +30,7 @@ disabled_rules:
   #- generic_type_name
   #- identifier_name
   #- implicit_getter
+  #- inclusive_language
   #- inert_defer
   #- is_disjoint
   #- large_tuple
@@ -47,6 +50,7 @@ disabled_rules:
   #- nsobject_prefer_isequal
   #- opening_brace
   #- operator_whitespace
+  #- orphaned_doc_comment
   #- private_over_fileprivate
   #- private_unit_test
   #- protocol_property_accessors_order
@@ -81,7 +85,6 @@ disabled_rules:
   #- vertical_parameter_alignment
   #- vertical_whitespace
   #- void_return
-  #- weak_computed_property
   #- weak_delegate
   #- xctfail_message
 
@@ -100,18 +103,18 @@ opt_in_rules:
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - convenience_type
-  #- discouraged_object_literal # オブジェクトリテラルを使いたいため
+  - discouraged_object_literal
   - discouraged_optional_boolean
   - discouraged_optional_collection
   - empty_collection_literal
   - empty_count
   - empty_string
   - empty_xctest_method
-  #- expiring_todo # TODOコメントに有効期限を書かないため
+  - enum_case_associated_values_count
+  - expiring_todo
   #- explicit_acl # できる限りACLを省略したいため
   #- explicit_enum_raw_value # ローバリューを省略することもあるため
   - explicit_init
-  #- explicit_self # 関数は `self.` を付けずに呼び出したいため
   #- explicit_top_level_acl # できる限りACLを省略したいため
   #- explicit_type_interface # できる限り型推論したいため
   #- extension_access_modifier # このルールの意味を理解していないため
@@ -119,14 +122,17 @@ opt_in_rules:
   - fatal_error_message
   #- file_header # このルールの意味を理解していないため
   - file_name
+  - file_name_no_space
   - file_types_order
   - first_where
   - flatmap_over_map_reduce
   - force_unwrapping
   - function_default_parameter_at_end
+  - ibinspectable_in_extension
   - identical_operands
   - implicit_return
   #- implicitly_unwrapped_optional # VIPERで変数を `!` で定義したいため
+  #- indentation_width # `guard` のインデントに対応していなく、メソッドの引数でも引っかかって厳しいため
   - joined_default_parameter
   - last_where
   - legacy_multiple
@@ -144,19 +150,24 @@ opt_in_rules:
   #- multiline_parameters_brackets # 括弧で行を増やしたくないため
   - nimble_operator
   #- no_extension_access_modifier # エクステンションにACLを設定したいことがあるため
-  #- no_grouping_extension
+  #- no_grouping_extension # エクステンションでグルーピングしたいことがあるため
+  #- non_private_xctest_member # TODO: 未リリースのため
   - nslocalizedstring_key
   - nslocalizedstring_require_bundle
   #- number_separator # 数字を `_` で区切りたくないため
   #- object_literal # リテラルで生成したくないこともあるため
   - operator_usage_whitespace
+  - optional_enum_case_matching
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
+  #- prefer_nimble # Nimbleを使っていないため
+  - prefer_self_type_over_type_of_self
+  - prefer_zero_over_explicit_init
   #- prefixed_toplevel_constant # 定数のプリフィックスに `k` を付けたくないため
   - private_action
   - private_outlet
-  #- prohibited_interface_builder # ストーリーボードを使ってビューを生成したいため
+  #- prohibited_interface_builder # IBを使ってビューを生成したいため
   - prohibited_super_call
   - quick_discouraged_call
   - quick_discouraged_focused_test
@@ -172,8 +183,9 @@ opt_in_rules:
   #- sorted_imports # インポート文をアルファベット順以外に並び替えたいこともあるため
   - static_operator
   - strict_fileprivate
-  #- strong_iboutlet # `@IBOutlet` を `weak` で定義したいこともあるため
+  #- strong_iboutlet # `@IBOutlet` を `weak` で定義したいため
   - switch_case_on_newline
+  - test_case_accessibility
   - toggle_bool
   - trailing_closure
   - type_contents_order
@@ -181,19 +193,26 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture
   - untyped_error_in_catch
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
-  #- vertical_whitespace_between_cases # Switch文のケース間に空白行を設けたくないこともあるため
+  #- vertical_whitespace_between_cases # Switch文のケース間に空白行を設けたくないため
   #- vertical_whitespace_closing_braces # 中括弧を閉じる前に空白行を設けたいことがあるため
   #- vertical_whitespace_opening_braces # 中括弧を開く前に空白行を設けたいことがあるため
   - xct_specific_matcher
   - yoda_condition
 
+analyzer_rules:
+  #- explicit_self # 関数は `self.` を付けずに呼び出したいため
+  - unused_declaration
+  - unused_import
+
 # 対象のファイル・フォルダ
-# デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
 included:
+  - Shared
   - UhooiPicBook
+  - UhooiPicBookStickers
+  - UhooiPicBookWidgets
+  #- UhooiPicBookTests
+  #- UhooiPicBookUITests
 
 # 対象外のファイル・フォルダ
 excluded:
