@@ -115,7 +115,6 @@ opt_in_rules:
   #- explicit_acl # できる限りACLを省略したいため
   #- explicit_enum_raw_value # ローバリューを省略することもあるため
   - explicit_init
-  #- explicit_self # 関数は `self.` を付けずに呼び出したいため
   #- explicit_top_level_acl # できる限りACLを省略したいため
   #- explicit_type_interface # できる限り型推論したいため
   #- extension_access_modifier # このルールの意味を理解していないため
@@ -152,7 +151,7 @@ opt_in_rules:
   - nimble_operator
   #- no_extension_access_modifier # エクステンションにACLを設定したいことがあるため
   #- no_grouping_extension # エクステンションでグルーピングしたいことがあるため
-  - non_private_xctest_member
+  #- non_private_xctest_member # `swiftlint analyze` でルールがないと言われるため
   - nslocalizedstring_key
   - nslocalizedstring_require_bundle
   #- number_separator # 数字を `_` で区切りたくないため
@@ -194,14 +193,17 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture
   - untyped_error_in_catch
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
   #- vertical_whitespace_between_cases # Switch文のケース間に空白行を設けたくないため
   #- vertical_whitespace_closing_braces # 中括弧を閉じる前に空白行を設けたいことがあるため
   #- vertical_whitespace_opening_braces # 中括弧を開く前に空白行を設けたいことがあるため
   - xct_specific_matcher
   - yoda_condition
+
+analyzer_rules:
+  #- explicit_self # 関数は `self.` を付けずに呼び出したいため
+  - unused_declaration
+  - unused_import
 
 # 対象のファイル・フォルダ
 # デフォルトからフォルダ名を変更していない場合、プロジェクト名と同名のフォルダを指定すればいい
