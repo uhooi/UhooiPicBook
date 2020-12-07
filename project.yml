@@ -34,7 +34,9 @@ targets:
     platform: iOS
     sources:
       - UhooiPicBook
-      - Shared
+      - path: Shared
+        excludes: 
+          -  "IntentDefinition/**"
       - path: "UhooiPicBook/Generated/MockResults.swift"
         optional: true
         type: file
@@ -202,7 +204,6 @@ targets:
     sources:
       - UhooiPicBookWidgets
       - Shared
-      - UhooiPicBookWidgetsConfigurableIntent/IntentDefinition
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
