@@ -21,7 +21,6 @@ private struct MonsterProvider {
     }
 }
 
-// MARK: - Main Type
 struct MonsterConfigurableWidget: Widget {
     static var kind: String { .init(describing: self) }
 
