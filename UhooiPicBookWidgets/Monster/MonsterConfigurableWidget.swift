@@ -37,7 +37,6 @@ struct MonsterConfigurableWidget: Widget {
     }
 }
 
-// MARK: - IntentTimelineProvider
 extension MonsterProvider: IntentTimelineProvider {
     func placeholder(in context: Context) -> Entry {
         .createDefault()
