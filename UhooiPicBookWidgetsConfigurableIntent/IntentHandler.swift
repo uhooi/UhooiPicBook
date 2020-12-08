@@ -14,7 +14,7 @@ final class IntentHandler: INExtension, ConfigurationIntentHandling {
 
     override init() {
         FirebaseApp.configure()
-        repository = MonstersFirebaseClient()
+        self.repository = MonstersFirebaseClient()
         super.init()
     }
 
