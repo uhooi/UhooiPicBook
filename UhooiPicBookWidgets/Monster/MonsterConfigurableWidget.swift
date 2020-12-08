@@ -22,11 +22,9 @@ private struct MonsterProvider {
 }
 
 struct MonsterConfigurableWidget: Widget {
-    static var kind: String { .init(describing: self) }
-
     var body: some WidgetConfiguration {
         IntentConfiguration(
-            kind: Self.kind,
+            kind: "SelectMonster",
             intent: SelectMonsterIntent.self,
             provider: MonsterProvider(imageManager: ImageCacheManager()),
             content: MonsterEntryView.init
