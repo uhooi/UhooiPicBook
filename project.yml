@@ -34,9 +34,7 @@ targets:
     platform: iOS
     sources:
       - UhooiPicBook
-      - path: Shared
-        excludes: 
-          -  "IntentDefinition/**"
+      - Shared
       - path: "UhooiPicBook/Generated/MockResults.swift"
         optional: true
         type: file
@@ -352,4 +350,3 @@ schemes:
       config: Debug
     archive:
       config: Release
-
