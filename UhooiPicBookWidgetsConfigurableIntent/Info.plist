@@ -30,7 +30,7 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
-				<string>ConfigurationIntent</string>
+				<string>SelectMonsterIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

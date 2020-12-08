@@ -40,7 +40,7 @@
 				</dict>
 			</dict>
 			<key>INIntentName</key>
-			<string>Configuration</string>
+			<string>SelectMonster</string>
 			<key>INIntentParameters</key>
 			<array>
 				<dict>
@@ -98,7 +98,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Configuration</string>
+			<string>Select Monster</string>
 			<key>INIntentTitleID</key>
 			<string>4VaDj8</string>
 			<key>INIntentType</key>

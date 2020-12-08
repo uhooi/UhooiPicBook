@@ -8,7 +8,7 @@
 import Intents
 import FirebaseCore
 
-final class IntentHandler: INExtension, ConfigurationIntentHandling {
+final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
     private let repository: MonstersRepository
 
@@ -21,7 +21,7 @@ final class IntentHandler: INExtension, ConfigurationIntentHandling {
     override func handler(for intent: INIntent) -> Any { self }
 
     func provideMonsterOptionsCollection(
-        for intent: ConfigurationIntent,
+        for intent: SelectMonsterIntent,
         with completion: @escaping (INObjectCollection<INMonster>?, Error?) -> Void) {
         self.repository.loadMonsters { result in
             switch result {
