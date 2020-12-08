@@ -18,8 +18,6 @@ final class IntentHandler: INExtension, SelectMonsterIntentHandling {
         super.init()
     }
 
-    override func handler(for intent: INIntent) -> Any { self }
-
     func provideMonsterOptionsCollection(
         for intent: SelectMonsterIntent,
         with completion: @escaping (INObjectCollection<INMonster>?, Error?) -> Void) {
