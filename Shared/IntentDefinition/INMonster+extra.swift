@@ -11,7 +11,7 @@ extension INMonster {
     convenience init(monster: MonsterDTO) {
         self.init(identifier: monster.name, display: monster.name)
         self.name = monster.name
-        self.body = monster.description
+        self.body = monster.description // The `description` is a reserved word.
         self.baseColorCode = monster.baseColorCode
         self.iconUrl = URL(string: monster.iconUrlString)
         self.dancingUrlString = monster.dancingUrlString
