@@ -93,6 +93,11 @@ clean: # Delete cache
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
 
+.PHONY: analyze
+analyze: # Analyze with SwiftLint
+	$(MAKE) build-debug
+	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+
 .PHONY: build-debug
 build-debug: # Xcode build for debug
 	set -o pipefail \
@@ -119,11 +124,6 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 clean test \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
 | bundle exec xcpretty --color --report html
-
-.PHONY: analyze
-analyze: # Analyze with SwiftLint
-	$(MAKE) build-debug
-	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: get-coverage
 get-coverage: # Get code coverage
