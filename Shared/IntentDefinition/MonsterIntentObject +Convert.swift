@@ -1,5 +1,5 @@
 //
-//  INMonster+Convert.swift
+//  MonsterIntentObjectr+Convert.swift
 //  UhooiPicBookSelectIntent
 //
 //  Created by Takehito Koshimizu on 2020/11/14.
@@ -7,7 +7,7 @@
 
 import Intents
 
-extension INMonster {
+extension MonsterIntentObject {
     convenience init(monster: MonsterDTO) {
         self.init(identifier: monster.name, display: monster.name)
         self.name = monster.name
@@ -40,11 +40,11 @@ extension INMonster {
     }
 }
 
-extension Sequence where Element == INMonster {
-    static func orderedMonsters<M: Sequence>(with monsters: M) -> [INMonster] where M.Element == MonsterDTO {
+extension Sequence where Element == MonsterIntentObject {
+    static func orderedMonsters<M: Sequence>(with monsters: M) -> [MonsterIntentObject] where M.Element == MonsterDTO {
         monsters
             .lazy
             .sorted { $0.order < $1.order }
-            .map(INMonster.init)
+            .map(MonsterIntentObject.init)
     }
 }

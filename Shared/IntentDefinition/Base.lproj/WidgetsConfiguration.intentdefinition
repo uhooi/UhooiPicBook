@@ -55,7 +55,7 @@
 					<key>INIntentParameterName</key>
 					<string>monster</string>
 					<key>INIntentParameterObjectType</key>
-					<string>INMonster</string>
+					<string>MonsterIntentObject</string>
 					<key>INIntentParameterObjectTypeNamespace</key>
 					<string>uWBxEI</string>
 					<key>INIntentParameterPromptDialogs</key>
@@ -117,7 +117,7 @@
 			<key>INTypeLastPropertyTag</key>
 			<integer>108</integer>
 			<key>INTypeName</key>
-			<string>INMonster</string>
+			<string>MonsterIntentObject</string>
 			<key>INTypeProperties</key>
 			<array>
 				<dict>

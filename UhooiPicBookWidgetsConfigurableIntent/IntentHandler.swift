@@ -20,14 +20,14 @@ final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
     func provideMonsterOptionsCollection(
         for intent: SelectMonsterIntent,
-        with completion: @escaping (INObjectCollection<INMonster>?, Error?) -> Void) {
+        with completion: @escaping (INObjectCollection<MonsterIntentObject>?, Error?) -> Void) {
         self.repository.loadMonsters { result in
             switch result {
             case let .success(monsters):
-                let inMonsters = monsters
+                let monsterIntentObject = monsters
                     .sorted { $0.order < $1.order }
-                    .map(INMonster.init)
-                completion(INObjectCollection(items: inMonsters), nil)
+                    .map(MonsterIntentObject.init)
+                completion(INObjectCollection(items: monsterIntentObject), nil)
             case let .failure(error):
                 completion(nil, error)
             }
