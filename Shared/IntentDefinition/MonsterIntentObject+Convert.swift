@@ -39,12 +39,3 @@ extension MonsterIntentObject {
         )
     }
 }
-
-extension Sequence where Element == MonsterIntentObject {
-    static func orderedMonsters<M: Sequence>(with monsters: M) -> [MonsterIntentObject] where M.Element == MonsterDTO {
-        monsters
-            .lazy
-            .sorted { $0.order < $1.order }
-            .map(MonsterIntentObject.init)
-    }
-}
