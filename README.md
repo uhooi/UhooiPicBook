@@ -82,16 +82,15 @@ setup                                      Install dependencies and prepared dev
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
-install-cocoapods                          Install CocoaPods dependencies and generate workspace
-update-cocoapods                           Update CocoaPods dependencies and generate workspace
 install-carthage                           Install Carthage dependencies
 update-carthage                            Update Carthage dependencies
 install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist and regenerate project
 generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project
 generate-xcodeproj                         Generate project with XcodeGen
-open                                       Open workspace in Xcode
+open                                       Open project in Xcode
 clean                                      Delete cache
+analyze                                    Analyze with SwiftLint
 build-debug                                Xcode build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
 get-coverage                               Get code coverage
