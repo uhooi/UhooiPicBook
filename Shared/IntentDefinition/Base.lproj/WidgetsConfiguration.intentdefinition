@@ -172,7 +172,7 @@
 				</dict>
 				<dict>
 					<key>INTypePropertyDisplayName</key>
-					<string>Body</string>
+					<string>Description</string>
 					<key>INTypePropertyDisplayNameID</key>
 					<string>pZ2SDO</string>
 					<key>INTypePropertyDisplayPriority</key>
