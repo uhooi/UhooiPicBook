@@ -48,8 +48,8 @@ extension MonsterProvider: IntentTimelineProvider {
     }
 
     func getTimeline(for intent: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        getEntry(monster: intent.monster?.convertToDTO()) { entry in
-            let entries = [entry ?? placeholder(in: context)]
+        convertDTOToEntry(dto: intent.monster?.convertToDTO()) { entry in
+            let entries = [entry ?? .createDefault()]
             completion(Timeline(entries: entries, policy: .never))
         }
     }
