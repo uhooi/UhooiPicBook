@@ -19,13 +19,12 @@ extension MonsterIntentObject {
     }
 
     func convertToDTO() -> MonsterDTO? {
-        guard
-            let name = name,
-            let description = body,
-            let baseColorCode = baseColorCode,
-            let iconUrl = iconUrl,
-            let dancingUrlString = dancingUrlString,
-            let order = order
+        guard let name = name,
+              let description = body,
+              let baseColorCode = baseColorCode,
+              let iconUrl = iconUrl,
+              let dancingUrlString = dancingUrlString,
+              let order = order
         else {
             return nil
         }
