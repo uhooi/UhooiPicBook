@@ -54,15 +54,16 @@ extension MonsterProvider: IntentTimelineProvider {
         }
     }
 
-    private func getEntry(monster: MonsterDTO?, completion: @escaping (Entry?) -> Void) {
-        if let monster = monster, let url = URL(string: monster.iconUrlString) {
-            imageManager.cacheImage(imageUrl: url) { result in
-                let result = result.map { icon -> Entry in
-                    let name = monster.name
-                    let description = monster.description.replacingOccurrences(of: "\\n", with: "\n")
-                    return Entry(date: Date(), name: name, description: description, icon: icon)
-                }
-                completion(try? result.get())
+    private func convertDTOToEntry(dto: MonsterDTO?, completion: @escaping (Entry?) -> Void) {
+        if let dto = dto, let iconUrl = URL(string: dto.iconUrlString) {
+            self.imageManager.cacheImage(imageUrl: iconUrl) { result in
+                switch result {
+                case let .success(icon):
+                    let name = dto.name
+                    let description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
+                    completion(Entry(date: Date(), name: name, description: description, icon: icon))
+                case .failure:
+                    completion(nil)
             }
         } else {
             completion(nil)
