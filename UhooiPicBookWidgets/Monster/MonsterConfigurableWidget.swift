@@ -42,7 +42,7 @@ extension MonsterProvider: IntentTimelineProvider {
     }
 
     func getSnapshot(for intent: Intent, in context: Context, completion: @escaping (Entry) -> Void) {
-        getEntry(monster: intent.monster?.convertToDTO()) { entry in
+        convertDTOToEntry(dto: intent.monster?.convertToDTO()) { entry in
             completion(entry ?? placeholder(in: context))
         }
     }
@@ -64,6 +64,7 @@ extension MonsterProvider: IntentTimelineProvider {
                     completion(Entry(date: Date(), name: name, description: description, icon: icon))
                 case .failure:
                     completion(nil)
+                }
             }
         } else {
             completion(nil)
