@@ -47,7 +47,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Character</string>
+					<string>Monster</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>cR4ir7</string>
 					<key>INIntentParameterDisplayPriority</key>
