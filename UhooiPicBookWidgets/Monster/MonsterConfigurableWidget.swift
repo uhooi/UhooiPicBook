@@ -26,9 +26,10 @@ struct MonsterConfigurableWidget: Widget {
         IntentConfiguration(
             kind: "SelectMonster",
             intent: SelectMonsterIntent.self,
-            provider: MonsterProvider(imageManager: ImageCacheManager()),
-            content: MonsterEntryView.init
-        )
+            provider: MonsterProvider(imageManager: ImageCacheManager())
+        ) { entry in
+            MonsterEntryView(entry: entry)
+        }
         .configurationDisplayName("configurationDisplayName")
         .description("configurableDescription")
         .supportedFamilies([.systemSmall, .systemMedium])
