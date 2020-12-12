@@ -1,6 +1,6 @@
 //
 //  IntentHandler.swift
-//  UhooiPicBookSelectIntent
+//  UhooiPicBookWidgetsConfigurableIntent
 //
 //  Created by Takehito Koshimizu on 2020/11/14.
 //
