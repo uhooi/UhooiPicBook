@@ -111,7 +111,7 @@
 	<array>
 		<dict>
 			<key>INTypeDisplayName</key>
-			<string>Character</string>
+			<string>Monster</string>
 			<key>INTypeDisplayNameID</key>
 			<string>FHLn3U</string>
 			<key>INTypeLastPropertyTag</key>
