@@ -31,7 +31,7 @@ struct MonsterConfigurableWidget: Widget {
         )
         .configurationDisplayName("configurationDisplayName")
         .description("configurableDescription")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
