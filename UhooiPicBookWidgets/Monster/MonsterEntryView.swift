@@ -66,11 +66,13 @@ struct MonsterEntryView_Previews: PreviewProvider {
     typealias Entry = MonsterWidget.Entry
 
     static var previews: some View {
-        previewEntryViewGroup
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-        previewEntryViewGroup
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        ForEach(families.indices) { index in
+            previewEntryViewGroup
+                .previewContext(WidgetPreviewContext(family: families[index]))
+        }
     }
+
+    private static let families: [WidgetFamily] = [.systemSmall, .systemMedium]
 
     private static var previewEntryViewGroup: some View {
         Group {
