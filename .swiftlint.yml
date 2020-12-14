@@ -211,6 +211,7 @@ included:
   - UhooiPicBook
   - UhooiPicBookStickers
   - UhooiPicBookWidgets
+  - UhooiPicBookWidgetsConfigurableIntent
   #- UhooiPicBookTests
   #- UhooiPicBookUITests
 

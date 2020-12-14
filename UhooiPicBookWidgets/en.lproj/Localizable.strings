@@ -8,3 +8,5 @@
 
 "configurationDisplayName" = "Character's info";
 "description" = "See character's info. Every hour it updates to the next character's info.";
+
+"configurableDescription" = "Choose your favorite character in the \"Edit Widget\" section.";

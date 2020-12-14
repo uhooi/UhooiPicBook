@@ -58,6 +58,7 @@ targets:
           copyFiles:
             destination: plugins
       - target: UhooiPicBookWidgets
+      - target: UhooiPicBookWidgetsConfigurableIntent
       - package: Rswift
       - package: Gedatsu
       - package: SwiftPrettyPrint
@@ -254,6 +255,78 @@ targets:
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
 
+  UhooiPicBookWidgetsConfigurableIntent:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: 14.0
+    settings:
+      base:
+        CODE_SIGN_IDENTITY: "iPhone Developer"
+        CODE_SIGN_STYLE: Automatic
+        GCC_PREPROCESSOR_DEFINITIONS:
+          - "DEBUG=1"
+          - "$(inherited)"
+        INFOPLIST_FILE: UhooiPicBookWidgetsConfigurableIntent/Info.plist
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
+          - "@executable_path/../../Frameworks"
+        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets.ConfigurableIntent
+        PRODUCT_NAME: "UhooiPicBookWidgetsConfigurableIntent"
+        SKIP_INSTALL: YES
+    sources:
+      - UhooiPicBookWidgetsConfigurableIntent
+      - Shared
+    dependencies:
+      - framework: Carthage/Build/iOS/abseil.framework
+        embed: false
+      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
+        embed: false
+      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GoogleUtilities.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-C++.framework
+        embed: false
+      - framework: Carthage/Build/iOS/gRPC-Core.framework
+        embed: false
+      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
+        embed: false
+      - framework: Carthage/Build/iOS/leveldb-library.framework
+        embed: false
+      - framework: Carthage/Build/iOS/nanopb.framework
+        embed: false
+      - framework: Carthage/Build/iOS/PromisesObjC.framework
+        embed: false
+      - framework: Carthage/Build/iOS/Protobuf.framework
+        embed: false
+    postBuildScripts:
+      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+
 schemes:
   UhooiPicBook:
     build:
@@ -279,4 +352,3 @@ schemes:
       config: Debug
     archive:
       config: Release
-
