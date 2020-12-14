@@ -11,7 +11,7 @@ import Intents
 
 // TODO: `MonsterWidget` のプロバイダーもこの実装に合わせる
 private struct MonsterProvider {
-    typealias Entry = MonsterWidget.Entry // TODO: `Entry` を `MonsterWidget` から独立させる
+    typealias Entry = MonsterEntry // TODO: `Entry` を `MonsterWidget` から独立させる
     typealias Intent = SelectMonsterIntent
 
     private let imageManager: ImageCacheManagerProtocol

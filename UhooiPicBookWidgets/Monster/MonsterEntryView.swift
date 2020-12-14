@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 
 struct MonsterEntryView: View {
-    var entry: MonsterWidget.Provider.Entry
+    var entry: MonsterEntry
     @Environment(\.widgetFamily) private var family
 
     var body: some View {
@@ -63,7 +63,7 @@ struct MonsterEntryView: View {
 }
 
 struct MonsterEntryView_Previews: PreviewProvider {
-    typealias Entry = MonsterWidget.Entry
+    typealias Entry = MonsterEntry
 
     static var previews: some View {
         ForEach(families.indices) { index in

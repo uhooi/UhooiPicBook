@@ -26,7 +26,7 @@ struct MonsterWidget: Widget {
 
 extension MonsterWidget {
     struct Provider: TimelineProvider {
-        typealias Entry = MonsterWidget.Entry // swiftlint:disable:this nesting
+        typealias Entry = MonsterEntry // swiftlint:disable:this nesting
 
         private let monstersRepository: MonstersRepository
         private let imageCacheManager: ImageCacheManagerProtocol
@@ -89,24 +89,6 @@ extension MonsterWidget {
 
                 completion(Timeline(entries: entries, policy: .atEnd))
             }
-        }
-    }
-}
-
-extension MonsterWidget {
-    struct Entry: TimelineEntry {
-        let date: Date
-        let name: String
-        let description: String
-        let icon: UIImage
-
-        static func createDefault() -> Entry {
-            .init(
-                date: Date(),
-                name: "uhooi",
-                description: "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
-                icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
-            )
         }
     }
 }
