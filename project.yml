@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: ja
-  xcodeVersion: "12.2"
+  xcodeVersion: "12.3"
   carthageExecutablePath: ./Scripts/Carthage/carthage.sh
 
 settings:

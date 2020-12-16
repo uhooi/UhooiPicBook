@@ -46,8 +46,8 @@ You can develop UhooiPicBook-iOS.
 
 ### Environment
 
-- Xcode: 12.2
-- Swift: 5.3.1
+- Xcode: 12.3
+- Swift: 5.3.2
 - Bundler: 2.1.4
 - Mint: 0.16.0
 
