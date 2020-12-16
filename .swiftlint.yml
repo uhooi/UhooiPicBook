@@ -1,6 +1,5 @@
 parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/main/uhooi-base-swiftlint-config.yml
 
-# 対象のファイル・フォルダ
 included:
   - Shared
   - UhooiPicBook
@@ -10,7 +9,6 @@ included:
   #- UhooiPicBookTests
   #- UhooiPicBookUITests
 
-# 対象外のファイル・フォルダ
 excluded:
   - UhooiPicBook/Generated
 
