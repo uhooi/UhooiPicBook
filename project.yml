@@ -47,9 +47,9 @@ targets:
         CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
         DEVELOPMENT_LANGUAGE: jp
-    configs:
-      Debug:
-        OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
+      configs:
+        debug:
+          OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
     dependencies:
       - target: UhooiPicBookStickers
         embed: true
