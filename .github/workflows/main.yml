@@ -68,21 +68,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-mint-
 
-    # Carthageで管理しているライブラリのキャッシュ
-    - name: Cache Carthage packages
-      uses: actions/cache@v2
-      with:
-        path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-carthage-
-
-    # Carthageで管理しているライブラリのインストール
-    - name: Install Carthage frameworks
-      run: make install-carthage
-      env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     # ライセンス情報の生成、プロジェクトファイルの生成
     - name: Generate licenses and Xcode project
       run: make generate-licenses
