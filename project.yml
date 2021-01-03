@@ -239,6 +239,17 @@ schemes:
     build:
       targets:
         UhooiPicBook: all
+      postActions:
+        - script: rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgets.appex/Frameworks/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgets.appex/Frameworks/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgetsConfigurableIntent.appex/Frameworks/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgetsConfigurableIntent.appex/Frameworks/GoogleAppMeasurement.framework"
+          name: Remove Firebase frameworks
+          settingsTarget: UhooiPicBook
     run:
       config: Debug
     test:
