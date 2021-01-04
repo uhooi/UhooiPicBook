@@ -173,13 +173,21 @@ targets:
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
-      - package: FirebaseAnalytics
-      - package: FirebaseAppDistribution-Beta
-      - package: FirebaseCrashlytics
-      - package: FirebaseFirestore
-      - package: FirebaseInstallations
-      - package: FirebaseMessaging
-      - package: FirebaseRemoteConfig
+```suggestion
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     postBuildScripts:
       - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics
