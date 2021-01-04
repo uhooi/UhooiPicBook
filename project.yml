@@ -189,7 +189,7 @@ targets:
       - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
