@@ -64,13 +64,20 @@ targets:
       - package: Rswift
       - package: Gedatsu
       - package: SwiftPrettyPrint
-      - package: FirebaseAnalytics
-      - package: FirebaseAppDistribution-Beta
-      - package: FirebaseCrashlytics
-      - package: FirebaseFirestore
-      - package: FirebaseInstallations
-      - package: FirebaseMessaging
-      - package: FirebaseRemoteConfig
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
       - path: ./Scripts/XcodeGen/rswift.sh
         name: Generate Resources with R.swift
