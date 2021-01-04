@@ -27,27 +27,9 @@ packages:
   SwiftPrettyPrint:
     url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
     version: 1.0.0
-  FirebaseAnalytics:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseAppDistribution-Beta:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseCrashlytics:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseFirestore:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseInstallations:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseMessaging:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
-  FirebaseRemoteConfig:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 7.3.1
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 7.3.1
 
 targets:
   UhooiPicBook:
