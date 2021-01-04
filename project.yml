@@ -173,7 +173,6 @@ targets:
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
-```suggestion
       - package: Firebase
         product: FirebaseAnalytics
       - package: Firebase
