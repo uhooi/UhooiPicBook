@@ -31,7 +31,6 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) install-mint
-	$(MAKE) install-carthage
 	$(MAKE) generate-licenses
 
 .PHONY: install-bundler
@@ -47,21 +46,6 @@ update-bundler: # Update Bundler dependencies
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
 	mint bootstrap --overwrite y
-
-.PHONY: install-carthage
-install-carthage: # Install Carthage dependencies
-	 ./Scripts/Carthage/carthage.sh bootstrap --platform iOS --cache-builds
-	@$(MAKE) show-carthage-dependencies
-
-.PHONY: update-carthage
-update-carthage: # Update Carthage dependencies
-	./Scripts/Carthage/carthage.sh update --platform iOS
-	@$(MAKE) show-carthage-dependencies
-
-.PHONY: show-carthage-dependencies
-show-carthage-dependencies:
-	@echo '*** Resolved dependencies:'
-	@cat 'Cartfile.resolved'
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -88,7 +72,6 @@ open: # Open project in Xcode
 
 .PHONY: clean
 clean: # Delete cache
-	rm -rf ./Carthage
 	rm -rf ./vendor/bundle
 	rm -rf ./Templates
 	xcodebuild clean -alltargets

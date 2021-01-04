@@ -82,8 +82,6 @@ setup                                      Install dependencies and prepared dev
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
-install-carthage                           Install Carthage dependencies
-update-carthage                            Update Carthage dependencies
 install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist and regenerate project
 generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project

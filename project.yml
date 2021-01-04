@@ -6,13 +6,13 @@ options:
     iOS: 13.0
   developmentLanguage: ja
   xcodeVersion: "12.3"
-  carthageExecutablePath: ./Scripts/Carthage/carthage.sh
 
 settings:
   base:
     MARKETING_VERSION: 1.3.0
     CURRENT_PROJECT_VERSION: 14
     DEVELOPMENT_TEAM: 47E56DYP3N
+    OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
   configs:
     debug:
       DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
@@ -27,6 +27,9 @@ packages:
   SwiftPrettyPrint:
     url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
     version: 1.0.0
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    version: 7.3.1
 
 targets:
   UhooiPicBook:
@@ -46,7 +49,6 @@ targets:
         INFOPLIST_FILE: UhooiPicBook/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
         DEVELOPMENT_LANGUAGE: jp
-        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
       configs:
         debug:
           OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
@@ -62,56 +64,20 @@ targets:
       - package: Rswift
       - package: Gedatsu
       - package: SwiftPrettyPrint
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseABTesting.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseMessaging.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebasePerformance.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
       - path: ./Scripts/XcodeGen/rswift.sh
         name: Generate Resources with R.swift
@@ -129,7 +95,7 @@ targets:
       - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -207,50 +173,22 @@ targets:
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -279,50 +217,22 @@ targets:
       - UhooiPicBookWidgetsConfigurableIntent
       - Shared
     dependencies:
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -332,6 +242,15 @@ schemes:
     build:
       targets:
         UhooiPicBook: all
+      postActions:
+        - script: rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgets.appex/Frameworks" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgetsConfigurableIntent.appex/Frameworks"
+          name: Remove Firebase frameworks
+          settingsTarget: UhooiPicBook
     run:
       config: Debug
     test:
