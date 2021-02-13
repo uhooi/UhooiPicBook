@@ -105,7 +105,8 @@ com.mono0926.LicensePlist.plist
 
 xcodebuild_*.log
 
-
-
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache
+
+html_report/
+
