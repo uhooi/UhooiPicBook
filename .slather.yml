@@ -4,7 +4,7 @@ scheme: UhooiPicBook
 source_directory: UhooiPicBook
 output_directory: xml_report
 ignore:
-  - "../../../../../Library/Developer/Xcode/DerivedData/*"
+  - SourcePackages/*
   - "**/AppDelegate.swift"
   - "**/SceneDelegate.swift"
   - "**/Generated/*"

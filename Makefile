@@ -90,6 +90,7 @@ build-debug: # Xcode build for debug
 -project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
+-clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
 | bundle exec xcpretty --color
@@ -104,6 +105,7 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
+-clonedSourcePackagesDirPath './SourcePackages' \
 clean test \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
 | bundle exec xcpretty --color --report html

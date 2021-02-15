@@ -110,3 +110,5 @@ xcodebuild_*.log
 
 html_report/
 
+SourcePackages/
+
