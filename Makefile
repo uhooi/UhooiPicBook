@@ -124,3 +124,5 @@ upload-coverage: # Upload code coverage to Codecov
 
 .PHONY: show-devices
 show-devices: # Show devices
+	xcrun xctrace list devices
+
