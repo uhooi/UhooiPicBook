@@ -41,7 +41,7 @@ install-bundler: # Install Bundler dependencies
 .PHONY: update-bundler
 update-bundler: # Update Bundler dependencies
 	bundle config path vendor/bundle
-	bundle update --without=documentation --jobs 4 --retry 3
+	bundle update --jobs 4 --retry 3
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
