@@ -95,7 +95,7 @@ targets:
       - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
-      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -188,7 +188,7 @@ targets:
       - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -232,7 +232,7 @@ targets:
       - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: ${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
