@@ -36,12 +36,12 @@ setup: # Install dependencies and prepared development configuration
 .PHONY: install-bundler
 install-bundler: # Install Bundler dependencies
 	bundle config path vendor/bundle
-	bundle install --jobs 4 --retry 3
+	bundle install --without=documentation --jobs 4 --retry 3
 
 .PHONY: update-bundler
 update-bundler: # Update Bundler dependencies
 	bundle config path vendor/bundle
-	bundle update --jobs 4 --retry 3
+	bundle update --without=documentation --jobs 4 --retry 3
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
