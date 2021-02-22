@@ -108,6 +108,8 @@ xcodebuild_*.log
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache
 
+# Slather
+xml_report/
 html_report/
 
 SourcePackages/
