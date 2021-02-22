@@ -95,7 +95,9 @@ clean                                      Delete cache
 analyze                                    Analyze with SwiftLint
 build-debug                                Xcode build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
-get-coverage                               Get code coverage
+get-coverage-html                          Get code coverage for HTML
+get-coverage-cobertura                     Get code coverage for Cobertura
+upload-coverage                            Upload code coverage to Codecov
 show-devices                               Show devices
 ```
 
