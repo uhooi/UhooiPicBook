@@ -100,6 +100,29 @@ jobs:
         if-no-files-found: ignore
         retention-days: 14
 
+    # コードカバレッジをHTML形式で取得
+    - name: Get code coverage for HTML
+      run: make get-coverage-html
+
+    # テスト結果とコードカバレッジのアップロード
+    - name: Upload test results and code coverage Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: results
+        path: |
+          build/reports/**/*
+          html_report/**/*
+        if-no-files-found: warn
+        retention-days: 14
+
+    # コードカバレッジをCobertura形式で取得
+    - name: Get code coverage for Cobertura
+      run: make get-coverage-cobertura
+
+    # コードカバレッジをCodecovへアップロード
+    - name: Upload code coverage to Codecov
+      run: make upload-coverage
+
   info:
     runs-on: macOS-latest
 

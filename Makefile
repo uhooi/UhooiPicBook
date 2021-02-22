@@ -110,9 +110,17 @@ clean test \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
 | bundle exec xcpretty --color --report html
 
-.PHONY: get-coverage
-get-coverage: # Get code coverage
+.PHONY: get-coverage-html
+get-coverage-html: # Get code coverage for HTML
 	bundle exec slather coverage --html --output-directory ${COVERAGE_OUTPUT}
+
+.PHONY: get-coverage-cobertura
+get-coverage-cobertura: # Get code coverage for Cobertura
+	bundle exec slather
+
+.PHONY: upload-coverage
+upload-coverage: # Upload code coverage to Codecov
+	bash <(curl -s https://codecov.io/bash) -f xml_report/cobertura.xml -X coveragepy -X gcov -X xcode
 
 .PHONY: show-devices
 show-devices: # Show devices
