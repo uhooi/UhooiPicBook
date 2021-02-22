@@ -122,6 +122,7 @@ jobs:
     # コードカバレッジをCodecovへアップロード
     - name: Upload code coverage to Codecov
       run: make upload-coverage
+      env: ${{ secrets.CODECOV_TOKEN }}
 
   info:
     runs-on: macOS-latest
