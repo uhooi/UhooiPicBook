@@ -30,6 +30,20 @@ final class MonsterListViewController: UIViewController {
 
     // MARK: IBOutlets
 
+    @IBOutlet private weak var menuButton: UIBarButtonItem! {
+        @available(iOS 14.0, *)
+        willSet {
+            newValue.menu = UIMenu(
+                title: "",
+                children: [
+                    UIAction(title: "ライセンス") { _ in
+                        self.presenter.didTapShowLicensesButton()
+                    }
+                ]
+            )
+        }
+    }
+
     @IBOutlet private weak var monstersCollectionView: UICollectionView! {
         willSet {
             newValue.register(R.nib.monsterCollectionViewCell)

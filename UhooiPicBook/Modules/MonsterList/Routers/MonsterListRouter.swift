@@ -10,6 +10,7 @@ import UIKit
 
 /// @mockable
 protocol MonsterListRouterInput: AnyObject {
+    func showSettings()
     func showMonsterDetail(monster: MonsterEntity)
 }
 
@@ -50,6 +51,15 @@ final class MonsterListRouter {
 }
 
 extension MonsterListRouter: MonsterListRouterInput {
+
+    func showSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+              UIApplication.shared.canOpenURL(settingsUrl)
+        else {
+            fatalError("Fail to open Settings URL.")
+        }
+        UIApplication.shared.open(settingsUrl)
+    }
 
     func showMonsterDetail(monster: MonsterEntity) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
