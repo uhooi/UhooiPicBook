@@ -72,6 +72,15 @@ jobs:
     - name: Generate licenses and Xcode project
       run: make generate-licenses
 
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache SwiftPM packages
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
+
     # ビルド
     - name: Xcode build
       run: make build-debug
@@ -99,6 +108,31 @@ jobs:
         path: xcodebuild_test.log
         if-no-files-found: ignore
         retention-days: 14
+
+    # コードカバレッジをHTML形式で取得
+    - name: Get code coverage for HTML
+      run: make get-coverage-html
+
+    # テスト結果とコードカバレッジのアップロード
+    - name: Upload test results and code coverage Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: results
+        path: |
+          build/reports/**/*
+          html_report/**/*
+        if-no-files-found: warn
+        retention-days: 14
+
+    # コードカバレッジをCobertura形式で取得
+    - name: Get code coverage for Cobertura
+      run: make get-coverage-cobertura
+
+    # コードカバレッジをCodecovへアップロード
+    - name: Upload code coverage to Codecov
+      run: make upload-coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   info:
     runs-on: macOS-latest
