@@ -72,6 +72,15 @@ jobs:
     - name: Generate licenses and Xcode project
       run: make generate-licenses
 
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache SwiftPM packages
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
+
     # ビルド
     - name: Xcode build
       run: make build-debug
