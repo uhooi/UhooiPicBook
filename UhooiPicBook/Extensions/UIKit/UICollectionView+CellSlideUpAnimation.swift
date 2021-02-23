@@ -9,7 +9,7 @@ import UIKit
 
 extension UICollectionView {
 
-    func cellSlideUpAnimation() {
+    func executeCellSlideUpAnimation() {
         // 先に呼んでないとvisibleCellsが空になる
         self.layoutIfNeeded()
 
@@ -20,18 +20,19 @@ extension UICollectionView {
                 y: self.bounds.size.height
             )
         }
-
+        
         // あるべき位置にアニメーションで戻す
         self.visibleCells.enumerated().forEach { object in
-            UIView.animate(withDuration: 0.6,
-                           delay: 0.04 * Double(object.offset),
-                           usingSpringWithDamping: 1.6,
-                           initialSpringVelocity: 0,
-                           options: UIView.AnimationOptions.curveEaseIn,
-                           animations: {
-                            object.element.transform = CGAffineTransform(translationX: 0, y: 0)
-                           },
-                           completion: { _ in })
+            UIView.animate(
+                withDuration: 0.6,
+                delay: 0.04 * Double(object.offset),
+                usingSpringWithDamping: 1.6,
+                initialSpringVelocity: 0,
+                options: UIView.AnimationOptions.curveEaseIn,
+                animations: {
+                    object.element.transform = CGAffineTransform(translationX: 0, y: 0)
+                },
+                completion: nil)
         }
     }
 }
