@@ -137,6 +137,7 @@ extension MonsterListViewController: MonsterListUserInterface {
         self.monsters = monsters
         DispatchQueue.main.async {
             self.monstersCollectionView.reloadData()
+            self.monstersCollectionView.executeCellSlideUpAnimation()
         }
     }
 
