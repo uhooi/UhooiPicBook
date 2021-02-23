@@ -10,6 +10,7 @@ import Foundation
 
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad()
+    func didTapLicensesButton()
     func didSelectMonster(monster: MonsterEntity)
 }
 
@@ -58,6 +59,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
                 self.view.stopIndicator()
             }
         }
+    }
+
+    func didTapLicensesButton() {
+        self.router.showSettings()
     }
 
     func didSelectMonster(monster: MonsterEntity) {
