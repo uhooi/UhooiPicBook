@@ -137,7 +137,7 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapLicensesButton()
     
-    func test_didTapLicensesButton() throws {
+    func test_didTapLicensesButton() {
         self.presenter.didTapLicensesButton()
         
         XCTAssertEqual(self.routerMock.showSettingsCallCount, 1)
