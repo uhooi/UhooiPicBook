@@ -37,7 +37,7 @@ final class MonsterListViewController: UIViewController {
                     title: "",
                     children: [
                         UIAction(title: "ライセンス") { _ in
-                            self.presenter.didTapShowLicensesButton()
+                            self.presenter.didTapLicensesButton()
                         }
                     ]
                 )
