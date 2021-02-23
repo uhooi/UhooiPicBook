@@ -31,16 +31,20 @@ final class MonsterListViewController: UIViewController {
     // MARK: IBOutlets
 
     @IBOutlet private weak var menuButton: UIBarButtonItem! {
-        @available(iOS 14.0, *)
         willSet {
-            newValue.menu = UIMenu(
-                title: "",
-                children: [
-                    UIAction(title: "ライセンス") { _ in
-                        self.presenter.didTapShowLicensesButton()
-                    }
-                ]
-            )
+            if #available(iOS 14.0, *) {
+                newValue.menu = UIMenu(
+                    title: "",
+                    children: [
+                        UIAction(title: "ライセンス") { _ in
+                            self.presenter.didTapShowLicensesButton()
+                        }
+                    ]
+                )
+            } else {
+                newValue.isEnabled = false
+                newValue.tintColor = .clear
+            }
         }
     }
 
