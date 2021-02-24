@@ -36,6 +36,9 @@ final class MonsterListViewController: UIViewController {
                 newValue.menu = UIMenu(
                     title: "",
                     children: [
+                        UIAction(title: "プライバシーポリシー") { _ in
+                            self.presenter.didTapPrivacyPolicyButton()
+                        },
                         UIAction(title: "ライセンス") { _ in
                             self.presenter.didTapLicensesButton()
                         }

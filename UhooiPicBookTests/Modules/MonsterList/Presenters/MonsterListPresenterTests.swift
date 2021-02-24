@@ -135,14 +135,6 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
     }
     
-    // MARK: didTapLicensesButton()
-    
-    func test_didTapLicensesButton() {
-        self.presenter.didTapLicensesButton()
-        
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 1)
-    }
-    
     // MARK: didSelectMonster()
     
     func test_didSelectMonster() {
@@ -152,6 +144,24 @@ final class MonsterListPresenterTests: XCTestCase {
         
         XCTAssertEqual(self.interactorMock.saveForSpotlightCallCount, 1)
         XCTAssertEqual(self.routerMock.showMonsterDetailCallCount, 1)
+    }
+    
+    // MARK: didTapPrivacyPolicyButton()
+    
+    func test_didTapPrivacyPolicyButton() {
+        self.presenter.didTapPrivacyPolicyButton()
+        
+        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 1)
+        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
+    }
+    
+    // MARK: didTapLicensesButton()
+    
+    func test_didTapLicensesButton() {
+        self.presenter.didTapLicensesButton()
+        
+        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(self.routerMock.showSettingsCallCount, 1)
     }
 
     // MARK: MonsterListInteractorOutput

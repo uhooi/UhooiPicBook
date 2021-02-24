@@ -10,8 +10,11 @@ import UIKit
 
 /// @mockable
 protocol MonsterListRouterInput: AnyObject {
-    func showSettings()
     func showMonsterDetail(monster: MonsterEntity)
+
+    // Menu
+    func showPrivacyPolicy()
+    func showSettings()
 }
 
 final class MonsterListRouter {
@@ -52,6 +55,18 @@ final class MonsterListRouter {
 
 extension MonsterListRouter: MonsterListRouterInput {
 
+    func showMonsterDetail(monster: MonsterEntity) {
+        let vc = MonsterDetailRouter.assembleModule(monster: monster)
+        self.viewController.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func showPrivacyPolicy() {
+        guard let privacyPolicyUrl = URL(string: "https://theuhooi.com/privacy-policy/") else {
+            fatalError("Fail to Initialize privacy policy URL.")
+        }
+        UIApplication.shared.open(privacyPolicyUrl)
+    }
+
     func showSettings() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
               UIApplication.shared.canOpenURL(settingsUrl)
@@ -59,11 +74,6 @@ extension MonsterListRouter: MonsterListRouterInput {
             fatalError("Fail to open Settings URL.")
         }
         UIApplication.shared.open(settingsUrl)
-    }
-
-    func showMonsterDetail(monster: MonsterEntity) {
-        let vc = MonsterDetailRouter.assembleModule(monster: monster)
-        self.viewController.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
