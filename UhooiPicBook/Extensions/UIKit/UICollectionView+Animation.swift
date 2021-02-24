@@ -1,5 +1,5 @@
 //
-//  UICollectionView+CellSlideUpAnimation.swift
+//  UICollectionView+Animation.swift
 //  UhooiPicBook
 //
 //  Created by Tomosuke Okada on 2021/02/22.
@@ -10,18 +10,18 @@ import UIKit
 extension UICollectionView {
 
     func executeCellSlideUpAnimation() {
-        // 先に呼んでないとvisibleCellsが空になる
-        self.layoutIfNeeded()
+        // If not called first, `visibleCells` will be empty.
+        layoutIfNeeded()
 
-        // 一旦CollectionViewの下に持っていく
+        // Temporarily bring visible cells under the collection view.
         self.visibleCells.forEach {
             $0.transform = CGAffineTransform(
                 translationX: 0,
                 y: self.bounds.size.height
             )
         }
-        
-        // あるべき位置にアニメーションで戻す
+
+        // Animate it back to where it should be.
         self.visibleCells.enumerated().forEach { object in
             UIView.animate(
                 withDuration: 0.6,
@@ -32,7 +32,9 @@ extension UICollectionView {
                 animations: {
                     object.element.transform = CGAffineTransform(translationX: 0, y: 0)
                 },
-                completion: nil)
+                completion: nil
+            )
         }
     }
+
 }
