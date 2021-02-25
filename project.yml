@@ -92,6 +92,8 @@ targets:
     postCompileScripts:
       - path: ./Scripts/XcodeGen/swiftlint.sh
         name: Run SwiftLint
+      - path: ./Scripts/XcodeGen/iblinter.sh
+        name: Run IBLinter
       - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
