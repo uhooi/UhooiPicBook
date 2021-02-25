@@ -37,10 +37,13 @@ final class MonsterListViewController: UIViewController {
                     title: "",
                     children: [
                         UIAction(title: "プライバシーポリシー") { _ in
-                            self.presenter.didTapPrivacyPolicyButton()
+                            self.presenter.didTapPrivacyPolicy()
                         },
                         UIAction(title: "ライセンス") { _ in
-                            self.presenter.didTapLicensesButton()
+                            self.presenter.didTapLicenses()
+                        },
+                        UIAction(title: "このアプリについて") { _ in
+                            self.presenter.didTapThisAppInfo()
                         }
                     ]
                 )

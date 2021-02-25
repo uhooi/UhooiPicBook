@@ -15,6 +15,7 @@ protocol MonsterListRouterInput: AnyObject {
     // Menu
     func showPrivacyPolicy()
     func showSettings()
+    func showThisAppInfo()
 }
 
 final class MonsterListRouter {
@@ -74,6 +75,19 @@ extension MonsterListRouter: MonsterListRouterInput {
             fatalError("Fail to open Settings URL.")
         }
         UIApplication.shared.open(settingsUrl)
+    }
+
+    func showThisAppInfo() {
+        let title = "ウホーイ図鑑"
+        let message = """
+このアプリはオープンソースソフトウェアです。
+https://github.com/uhooi/UhooiPicBook
+
+バージョン \(Bundle.main.version) (\(Bundle.main.build))
+© 2021 THE Uhooi
+"""
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
+        self.viewController.showAlert(title: title, message: message, actions: [okAction])
     }
 
 }
