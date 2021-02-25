@@ -26,5 +26,5 @@ excluded:
   - Generated
 
 view_as_device_rule:
-  device_id: retina6_1 # iPhone XR
+  device_id: retina6_1 # iPhone 11
 
