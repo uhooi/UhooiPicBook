@@ -169,7 +169,7 @@ final class MonsterListPresenterTests: XCTestCase {
     // MARK: didTapThisAppInfo()
     
     func test_didTapThisAppInfo() {
-        self.presenter.didTapThisAppInfo()
+        self.presenter.didTapAboutThisApp()
         
         XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
         XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)

@@ -6,7 +6,7 @@
   
 */
 
-"configurationDisplayName" = "Character's info";
-"description" = "See character's info. Every hour it updates to the next character's info.";
+"Configuration display name" = "Character's info";
+"Description" = "See character's info. Every hour it updates to the next character's info.";
 
-"configurableDescription" = "Choose your favorite character in the \"Edit Widget\" section.";
+"Configurable description" = "Choose your favorite character in the \"Edit Widget\" section.";

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RKW-37-7Du">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RKW-37-7Du">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,6 +39,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="MyL-5w-hRC"/>
                         <color key="backgroundColor" name="ImagePopupBackground"/>
                         <accessibility key="accessibilityConfiguration" identifier="imagePopup"/>
                         <constraints>
@@ -46,7 +48,6 @@
                             <constraint firstItem="kPs-bF-1gK" firstAttribute="centerX" secondItem="O6b-Sr-cYz" secondAttribute="centerX" id="cXs-dK-dPZ"/>
                             <constraint firstItem="MyL-5w-hRC" firstAttribute="trailing" secondItem="Vbe-KO-F4O" secondAttribute="trailing" constant="8" id="mYD-d6-MZk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="MyL-5w-hRC"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="kPs-bF-1gK" id="BOR-qd-M5R"/>
@@ -58,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="xmark.circle" catalog="system" width="64" height="60"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="ImagePopupBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
