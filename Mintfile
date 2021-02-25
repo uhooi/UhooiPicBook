@@ -1,5 +1,6 @@
 yonaskolb/xcodegen@2.18.0
 realm/SwiftLint@0.42.0
+IBDecodable/IBLinter@0.4.25
 fromkk/SpellChecker@0.0.3
 uber/mockolo@1.2.8
 mono0926/LicensePlist@2.16.0
