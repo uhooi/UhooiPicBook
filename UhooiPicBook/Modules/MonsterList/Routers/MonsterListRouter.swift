@@ -78,7 +78,7 @@ extension MonsterListRouter: MonsterListRouterInput {
     }
 
     func showAboutThisApp() {
-        let title = "ウホーイ図鑑" // TODO: ローカライズ
+        let title = Bundle.main.displayName
         let message = """
 \(R.string.localizable.thisAppIsOpenSourceSoftware())
 \(R.string.localizable.uhooiPicBookGitHubURL())

@@ -8,7 +8,7 @@
 import XCTest
 @testable import UhooiPicBook
 
-final class BundleVersionTests: XCTestCase {
+final class BundleStringTests: XCTestCase {
 
     // MARK: TestCase Life-Cycle Methods
 
@@ -21,6 +21,24 @@ final class BundleVersionTests: XCTestCase {
 
     // MARK: - Test Methods
 
+    // MARK: displayName
+    
+    func test_bundle_displayName() {
+        guard let language = Locale.preferredLanguages.first else {
+            XCTFail("Fail to load user's preferred languages.")
+            return
+        }
+
+        var expected = ""
+        switch Locale(identifier: language).languageCode {
+        case "en":
+            expected = "UhooiPicBook"
+        default:
+            expected = "ウホーイ図鑑"
+        }
+        XCTAssertEqual(Bundle.main.displayName, expected)
+    }
+    
     // MARK: version
     
     func test_bundle_version() {
