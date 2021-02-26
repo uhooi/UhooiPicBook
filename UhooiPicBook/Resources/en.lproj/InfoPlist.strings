@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  UhooiPicBook
+
+  Created by uhooi on 2021/02/26.
+  
+*/
+
+"CFBundleDisplayName" = "UhooiPicBook";
+"NSPhotoLibraryAddUsageDescription" = "You will be able to save your photos.";

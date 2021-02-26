@@ -15,7 +15,7 @@ protocol MonsterListEventHandler: AnyObject {
     // Menu
     func didTapPrivacyPolicy()
     func didTapLicenses()
-    func didTapThisAppInfo()
+    func didTapAboutThisApp()
 }
 
 /// @mockable
@@ -73,8 +73,8 @@ extension MonsterListPresenter: MonsterListEventHandler {
         self.router.showSettings()
     }
 
-    func didTapThisAppInfo() {
-        self.router.showThisAppInfo()
+    func didTapAboutThisApp() {
+        self.router.showAboutThisApp()
     }
 
     func didSelectMonster(monster: MonsterEntity) {

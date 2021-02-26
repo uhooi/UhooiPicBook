@@ -15,7 +15,7 @@ protocol MonsterListRouterInput: AnyObject {
     // Menu
     func showPrivacyPolicy()
     func showSettings()
-    func showThisAppInfo()
+    func showAboutThisApp()
 }
 
 final class MonsterListRouter {
@@ -62,7 +62,7 @@ extension MonsterListRouter: MonsterListRouterInput {
     }
 
     func showPrivacyPolicy() {
-        guard let privacyPolicyUrl = URL(string: "https://theuhooi.com/privacy-policy/") else {
+        guard let privacyPolicyUrl = URL(string: R.string.localizable.privacyPolicyURL()) else {
             fatalError("Fail to Initialize privacy policy URL.")
         }
         UIApplication.shared.open(privacyPolicyUrl)
@@ -77,16 +77,16 @@ extension MonsterListRouter: MonsterListRouterInput {
         UIApplication.shared.open(settingsUrl)
     }
 
-    func showThisAppInfo() {
-        let title = "ウホーイ図鑑"
+    func showAboutThisApp() {
+        let title = Bundle.main.displayName
         let message = """
-このアプリはオープンソースソフトウェアです。
-https://github.com/uhooi/UhooiPicBook
+\(R.string.localizable.thisAppIsOpenSourceSoftware())
+\(R.string.localizable.uhooiPicBookGitHubURL())
 
-バージョン \(Bundle.main.version) (\(Bundle.main.build))
-© 2021 THE Uhooi
+\(R.string.localizable.version()) \(Bundle.main.version) (\(Bundle.main.build))
+\(R.string.localizable.copyright())
 """
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
+        let okAction = UIAlertAction(title: R.string.localizable.oK(), style: .default) { _ in }
         self.viewController.showAlert(title: title, message: message, actions: [okAction])
     }
 
