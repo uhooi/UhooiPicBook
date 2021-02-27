@@ -18,7 +18,6 @@ final class InAppWebBrowserViewController: UIViewController {
     var url: URL!
 
     private var progressView = UIProgressView(progressViewStyle: .bar)
-    private var loadingObservation: NSKeyValueObservation?
     private var estimatedProgressObservation: NSKeyValueObservation?
 
     // MARK: Computed Instance Properties
@@ -55,13 +54,18 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func observeWebView() {
-        self.loadingObservation = self.webView.observe(\.isLoading, options: [.new]) { webView, _ in
-            if self.webView.isLoading {
-                self.progressView.alpha = 1.0
-                self.progressView.setProgress(0.1, animated: true)
-            } else {
+        self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { webView, _ in
+            UIView.animate(
+                withDuration: 0.33,
+                animations: {
+                    self.progressView.alpha = 1.0
+                }
+            )
+            self.progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+
+            if webView.estimatedProgress >= 1.0 {
                 UIView.animate(
-                    withDuration: 0.3,
+                    withDuration: 0.33,
                     animations: {
                         self.progressView.alpha = 0.0
                     },
@@ -70,10 +74,6 @@ final class InAppWebBrowserViewController: UIViewController {
                     }
                 )
             }
-        }
-
-        self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { webView, _ in
-            self.progressView.setProgress(Float(self.webView.estimatedProgress), animated: true)
         }
     }
 
