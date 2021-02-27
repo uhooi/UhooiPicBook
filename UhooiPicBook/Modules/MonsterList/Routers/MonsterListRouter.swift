@@ -13,6 +13,7 @@ protocol MonsterListRouterInput: AnyObject {
     func showMonsterDetail(monster: MonsterEntity)
 
     // Menu
+    func showContactUs()
     func showPrivacyPolicy()
     func showSettings()
     func showAboutThisApp()
@@ -59,6 +60,13 @@ extension MonsterListRouter: MonsterListRouterInput {
     func showMonsterDetail(monster: MonsterEntity) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         self.viewController.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func showContactUs() {
+        guard let contactUsUrl = URL(string: R.string.localizable.contactUsURL()) else {
+            fatalError("Fail to Initialize contact us URL.")
+        }
+        InAppWebBrowserRouter.show(self.viewController, url: contactUsUrl)
     }
 
     func showPrivacyPolicy() {

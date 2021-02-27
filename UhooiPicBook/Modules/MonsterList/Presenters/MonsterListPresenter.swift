@@ -13,6 +13,7 @@ protocol MonsterListEventHandler: AnyObject {
     func didSelectMonster(monster: MonsterEntity)
 
     // Menu
+    func didTapContactUs()
     func didTapPrivacyPolicy()
     func didTapLicenses()
     func didTapAboutThisApp()
@@ -63,6 +64,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
                 self.view.stopIndicator()
             }
         }
+    }
+
+    func didTapContactUs() {
+        self.router.showContactUs()
     }
 
     func didTapPrivacyPolicy() {

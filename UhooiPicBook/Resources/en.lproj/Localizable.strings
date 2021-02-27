@@ -10,9 +10,13 @@
 "UhooiPicBook hashtag" = "#UhooiPicBook";
 
 // Menu
-"Licenses" = "Licenses";
+"Contact us" = "Contact us";
 "Privacy policy" = "Privacy policy";
+"Licenses" = "Licenses";
 "About this app" = "About this app";
+
+// Contact us
+"Contact us URL" = "https://forms.gle/GYM2NC48aaeEXhTh8";
 
 // Privacy policy
 "Privacy policy URL" = "https://theuhooi.com/privacy-policy/";
