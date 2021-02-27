@@ -8,6 +8,7 @@ whiteList:
   - swiftlint
   - gedatsu
   - json
+  - hashable
   - fcm
 
   # Uhooi

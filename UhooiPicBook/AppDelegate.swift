@@ -63,9 +63,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         if #available(iOS 14.0, *) {
-            completionHandler([[.banner, .list, .sound]])
+            completionHandler([.banner, .list, .sound])
         } else {
-            completionHandler([[.alert, .sound]])
+            completionHandler([.alert, .sound])
         }
     }
 
@@ -73,7 +73,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if let urlString = userInfo["url"] as? String {
+            open(urlString)
+        }
         completionHandler()
+    }
+
+    private func open(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            assertionFailure("Fail to initialize URL.")
+            return
+        }
+        UIApplication.shared.open(url)
     }
 }
 
