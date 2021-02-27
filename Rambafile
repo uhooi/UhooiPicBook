@@ -25,10 +25,6 @@ test_file_path: ./UhooiPicBookTests/Modules
 # The Xcode group path to new tests
 test_group_path: ./UhooiPicBookTests/Modules
 
-### Dependencies settings section
-podfile_path: Podfile
-cartfile_path: Cartfile
-
 ### Templates
 catalogs:
 - 'https://github.com/uhooi/generamba-catalog'
