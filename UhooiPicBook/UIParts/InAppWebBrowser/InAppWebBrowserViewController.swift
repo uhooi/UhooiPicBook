@@ -18,6 +18,8 @@ final class InAppWebBrowserViewController: UIViewController {
     var url: URL!
 
     private var progressView = UIProgressView(progressViewStyle: .bar)
+    private var loadingObservation: NSKeyValueObservation?
+    private var estimatedProgressObservation: NSKeyValueObservation?
 
     // MARK: Computed Instance Properties
 
@@ -31,36 +33,6 @@ final class InAppWebBrowserViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-    }
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let keyPath = keyPath else {
-            assertionFailure("Fail to unwrap `keyPath`.")
-            return
-        }
-
-        switch keyPath {
-        case #keyPath(WKWebView.isLoading):
-            if self.webView.isLoading {
-                self.progressView.alpha = 1.0
-                self.progressView.setProgress(0.1, animated: true)
-            } else {
-                UIView.animate(
-                    withDuration: 0.3,
-                    animations: {
-                        self.progressView.alpha = 0.0
-                    },
-                    completion: { _ in
-                        self.progressView.setProgress(0.0, animated: false)
-                    }
-                )
-            }
-        case #keyPath(WKWebView.estimatedProgress):
-            self.progressView.setProgress(Float(self.webView.estimatedProgress), animated: true)
-        default:
-            // Do nothing
-            break
-        }
     }
 
     // MARK: IBActions
@@ -78,8 +50,25 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func configureWebView() {
-        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
-        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        self.loadingObservation = self.webView.observe(\.isLoading, options: [.new]) { webView, _ in
+            if self.webView.isLoading {
+                self.progressView.alpha = 1.0
+                self.progressView.setProgress(0.1, animated: true)
+            } else {
+                UIView.animate(
+                    withDuration: 0.3,
+                    animations: {
+                        self.progressView.alpha = 0.0
+                    },
+                    completion: { _ in
+                        self.progressView.setProgress(0.0, animated: false)
+                    }
+                )
+            }
+        }
+        self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { webView, _ in
+            self.progressView.setProgress(Float(self.webView.estimatedProgress), animated: true)
+        }
 
         let request = URLRequest(url: self.url)
         self.webView.load(request)
