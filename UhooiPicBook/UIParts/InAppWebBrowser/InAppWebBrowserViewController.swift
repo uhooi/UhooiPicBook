@@ -33,6 +33,7 @@ final class InAppWebBrowserViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
+        loadWebView()
     }
 
     // MARK: IBActions
@@ -50,6 +51,10 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func configureWebView() {
+        observeWebView()
+    }
+
+    private func observeWebView() {
         self.loadingObservation = self.webView.observe(\.isLoading, options: [.new]) { webView, _ in
             if self.webView.isLoading {
                 self.progressView.alpha = 1.0
@@ -66,10 +71,13 @@ final class InAppWebBrowserViewController: UIViewController {
                 )
             }
         }
+
         self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { webView, _ in
             self.progressView.setProgress(Float(self.webView.estimatedProgress), animated: true)
         }
+    }
 
+    private func loadWebView() {
         let request = URLRequest(url: self.url)
         self.webView.load(request)
     }
