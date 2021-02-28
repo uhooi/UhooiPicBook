@@ -212,7 +212,7 @@ targets:
           - "@executable_path/Frameworks"
           - "@executable_path/../../Frameworks"
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
-        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets.ConfigurableIntent
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.WidgetsConfigurableIntent
         PRODUCT_NAME: "UhooiPicBookWidgetsConfigurableIntent"
         SKIP_INSTALL: YES
     sources:
