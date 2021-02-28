@@ -83,6 +83,7 @@ Run `make help` .
 ```
 $ make help
 setup                                      Install dependencies and prepared development configuration
+install-ruby                               Install Ruby with rbenv
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
