@@ -48,13 +48,6 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 You can develop UhooiPicBook-iOS.
 
-### Environment
-
-- Xcode: 12.3
-- Swift: 5.3.2
-- Bundler: 2.1.4
-- Mint: 0.16.0
-
 ### Configuration
 
 - UI implementation: Storyboard + XIB
@@ -64,7 +57,12 @@ You can develop UhooiPicBook-iOS.
 
 ### Setup
 
-1. Install [Bundler](https://github.com/rubygems/bundler) and [Mint](https://github.com/yonaskolb/Mint) .
+1. Install the following tools.
+
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.3
+- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
+- [Bundler](https://github.com/rubygems/bundler): 2.1.4
+- [Mint](https://github.com/yonaskolb/Mint): 0.16.0
 
 2. Clone the project.
 
