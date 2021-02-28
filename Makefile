@@ -28,10 +28,15 @@ help:
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
+	$(MAKE) install-ruby
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) install-mint
 	$(MAKE) generate-licenses
+
+.PHONY: install-ruby
+install-ruby: # Install Ruby with rbenv
+	cat .ruby-version | xargs rbenv install --skip-existing
 
 .PHONY: install-bundler
 install-bundler: # Install Bundler dependencies

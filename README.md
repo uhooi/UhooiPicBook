@@ -1,7 +1,9 @@
 # UhooiPicBook-iOS
 
+[![Release](https://img.shields.io/github/v/release/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/releases/latest)
 [![License](https://img.shields.io/github/license/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fthe_uhooi)](https://twitter.com/the_uhooi)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)](https://github.com/uhooi/UhooiPicBook)
+[![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
 |Branch|CI|Code coverage|
 |:--|:--|:--|
@@ -20,40 +22,33 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/ImagePopup_English.png" width="207">|
 
-|Activity|Spotlight|iMessage|
+|Menu opened in MonsterList|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Widgets.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Widgets_English.png" width="207">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/ImagePopup_English.png" width="207">|
 
-|Activity|Spotlight|iMessage|
+|Menu opened in MonsterList|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Widgets.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Widgets_English.png" width="207">|
 
 ## Development
 
 You can develop UhooiPicBook-iOS.
-
-### Environment
-
-- Xcode: 12.3
-- Swift: 5.3.2
-- Bundler: 2.1.4
-- Mint: 0.16.0
 
 ### Configuration
 
@@ -64,7 +59,12 @@ You can develop UhooiPicBook-iOS.
 
 ### Setup
 
-1. Install [Bundler](https://github.com/rubygems/bundler) and [Mint](https://github.com/yonaskolb/Mint) .
+1. Install the following tools.
+
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.3
+- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
+- [Bundler](https://github.com/rubygems/bundler): 2.1.4
+- [Mint](https://github.com/yonaskolb/Mint): 0.16.0
 
 2. Clone the project.
 
@@ -83,6 +83,7 @@ Run `make help` .
 ```
 $ make help
 setup                                      Install dependencies and prepared development configuration
+install-ruby                               Install Ruby with rbenv
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
