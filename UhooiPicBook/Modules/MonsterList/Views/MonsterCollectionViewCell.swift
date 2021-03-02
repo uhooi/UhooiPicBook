@@ -26,6 +26,12 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
             newValue.text = nil
         }
     }
+    // MARK: View Life-Cycle Methods
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.iconImageView.image = nil
+        self.nameLabel.text = nil
+    }
 
     // MARK: Other Internal Methods
 

@@ -17,7 +17,7 @@ final class MonstersFirebaseClient {
 }
 
 extension MonstersFirebaseClient: MonstersRepository {
-    
+
     func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
         let monstersRef = self.firestore.collection("monsters")
         monstersRef.getDocuments { querySnapshot, error in
@@ -25,11 +25,11 @@ extension MonstersFirebaseClient: MonstersRepository {
                 completion(.failure(error))
                 return
             }
-            
+
             guard let querySnapshot = querySnapshot else {
-                fatalError("Fail to unwrap `querySnapshot` .")
+                fatalError("Fail to unwrap `querySnapshot`.")
             }
-            
+
             var monsters: [MonsterDTO] = []
             for document in querySnapshot.documents.filter({ $0.exists }) {
                 let monster = document.data()
@@ -41,12 +41,12 @@ extension MonstersFirebaseClient: MonstersRepository {
                       let order = monster["order"] as? Int else {
                     continue
                 }
-                
+
                 monsters.append(MonsterDTO(name: name, description: description, baseColorCode: baseColorCode, iconUrlString: iconUrlString, dancingUrlString: dancingUrlString, order: order))
             }
-            
+
             completion(.success(monsters))
         }
     }
-    
+
 }

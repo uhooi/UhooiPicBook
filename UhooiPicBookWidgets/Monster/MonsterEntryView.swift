@@ -8,10 +8,10 @@
 import WidgetKit
 import SwiftUI
 
-struct MonsterEntryView : View {
-    var entry: MonsterWidget.Provider.Entry
+struct MonsterEntryView: View {
+    var entry: MonsterEntry
     @Environment(\.widgetFamily) private var family
-    
+
     var body: some View {
         switch family {
         case .systemSmall:
@@ -44,18 +44,18 @@ struct MonsterEntryView : View {
             EmptyView()
         }
     }
-    
+
     private var icon: some View {
         Image(uiImage: entry.icon)
             .resizable()
             .aspectRatio(contentMode: .fit)
     }
-    
+
     private var name: some View {
         Text(entry.name)
             .font(.headline)
     }
-    
+
     private var description: some View {
         Text(entry.description)
             .font(.body)
@@ -63,16 +63,18 @@ struct MonsterEntryView : View {
 }
 
 struct MonsterEntryView_Previews: PreviewProvider {
-    typealias Entry = MonsterWidget.Entry
-    
+    typealias Entry = MonsterEntry
+
     static var previews: some View {
-        previewEntryViewGroup
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-        previewEntryViewGroup
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        ForEach(families.indices) { index in
+            previewEntryViewGroup
+                .previewContext(WidgetPreviewContext(family: families[index]))
+        }
     }
-    
-    static private var previewEntryViewGroup: some View {
+
+    private static let families: [WidgetFamily] = [.systemSmall, .systemMedium]
+
+    private static var previewEntryViewGroup: some View {
         Group {
             MonsterEntryView(entry: .createDefault())
                 .redacted(reason: .placeholder)
@@ -83,22 +85,22 @@ struct MonsterEntryView_Previews: PreviewProvider {
             MonsterEntryView(entry: createLongEntry())
         }
     }
-    
-    static private func createShortEntry() -> Entry {
+
+    private static func createShortEntry() -> Entry {
         .init(
             date: Date(),
             name: "1",
             description: "1",
-            icon: UIImage(named: "Uhooi")!
+            icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
         )
     }
-    
-    static private func createLongEntry() -> Entry {
+
+    private static func createLongEntry() -> Entry {
         .init(
             date: Date(),
             name: "123456789012345678901234567890",
             description: "12345678901234567890\n12345678901234567890\n12345678901234567890",
-            icon: UIImage(named: "Uhooi")!
+            icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
         )
     }
 }

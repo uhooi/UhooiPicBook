@@ -5,17 +5,31 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: ja
-  xcodeVersion: "12.1"
-  carthageExecutablePath: unset SDKROOT && mint run Carthage/Carthage carthage
+  xcodeVersion: "12.3"
 
 settings:
   base:
-    MARKETING_VERSION: 1.3.0
-    CURRENT_PROJECT_VERSION: 14
+    MARKETING_VERSION: 1.4.0
+    CURRENT_PROJECT_VERSION: 15
     DEVELOPMENT_TEAM: 47E56DYP3N
+    OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
   configs:
     debug:
       DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+
+packages:
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift.Library
+    version: 5.3.0
+  Gedatsu:
+    url: https://github.com/bannzai/Gedatsu
+    version: 1.2.0
+  SwiftPrettyPrint:
+    url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
+    version: 1.0.0
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    version: 7.3.1
 
 targets:
   UhooiPicBook:
@@ -34,9 +48,10 @@ targets:
       base:
         INFOPLIST_FILE: UhooiPicBook/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
-        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
-        OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
         DEVELOPMENT_LANGUAGE: jp
+      configs:
+        debug:
+          OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
     dependencies:
       - target: UhooiPicBookStickers
         embed: true
@@ -45,109 +60,44 @@ targets:
           copyFiles:
             destination: plugins
       - target: UhooiPicBookWidgets
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseABTesting.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstanceID.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseMessaging.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebasePerformance.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
+      - target: UhooiPicBookWidgetsConfigurableIntent
+      - package: Rswift
+      - package: Gedatsu
+      - package: SwiftPrettyPrint
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     preBuildScripts:
-      - script: |
-                "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/$TARGET_NAME/Generated/R.generated.swift"
+      - path: ./Scripts/XcodeGen/rswift.sh
         name: Generate Resources with R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
-      - script: |
-                unset SDKROOT
-                if which mint >/dev/null; then
-                  rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-                  mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/mockolo.sh
         name: Generate Mocks with Mockolo
         outputFiles:
           - $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
     postCompileScripts:
-      - script: |
-                unset SDKROOT
-                if which mint >/dev/null; then
-                  mint run swiftlint swiftlint autocorrect --format
-                  mint run swiftlint swiftlint
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
+      - path: ./Scripts/XcodeGen/swiftlint.sh
         name: Run SwiftLint
-      - script: |
-                unset SDKROOT
-                if ! which mint >/dev/null; then
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                  exit 0
-                fi
-
-                git_path=/usr/local/bin/git
-                files=$($git_path diff --diff-filter=d --name-only -- "*.swift" "*.h" "*.m")
-                if (test -z $files) || (test ${#files[@]} -eq 0); then
-                  echo "no files changed."
-                  exit 0
-                fi
-
-                options=""
-                for file in $files
-                do
-                  options="$options $SRCROOT/$file"
-                done
-
-                mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+      - path: ./Scripts/XcodeGen/iblinter.sh
+        name: Run IBLinter
+      - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -225,82 +175,66 @@ targets:
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
-      - framework: Carthage/Build/iOS/abseil.framework
-        embed: false
-      - framework: Carthage/Build/iOS/BoringSSL-GRPC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseFirestore.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-        embed: false
-      - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleToolboxForMac.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GoogleUtilities.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-C++.framework
-        embed: false
-      - framework: Carthage/Build/iOS/gRPC-Core.framework
-        embed: false
-      - framework: Carthage/Build/iOS/GTMSessionFetcher.framework
-        embed: false
-      - framework: Carthage/Build/iOS/leveldb-library.framework
-        embed: false
-      - framework: Carthage/Build/iOS/nanopb.framework
-        embed: false
-      - framework: Carthage/Build/iOS/PromisesObjC.framework
-        embed: false
-      - framework: Carthage/Build/iOS/Protobuf.framework
-        embed: false
-    postCompileScripts:
-      - script: |
-                unset SDKROOT
-                if which mint >/dev/null; then
-                  mint run swiftlint swiftlint autocorrect --format
-                  mint run swiftlint swiftlint
-                else
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                fi
-        name: Run SwiftLint
-      - script: |
-                unset SDKROOT
-                if ! which mint >/dev/null; then
-                  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-                  exit 0
-                fi
-
-                git_path=/usr/local/bin/git
-                files=$($git_path diff --diff-filter=d --name-only -- "*.swift" "*.h" "*.m")
-                if (test -z $files) || (test ${#files[@]} -eq 0); then
-                  echo "no files changed."
-                  exit 0
-                fi
-
-                options=""
-                for file in $files
-                do
-                  options="$options $SRCROOT/$file"
-                done
-
-                mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
-        name: Run SpellChecker
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
     postBuildScripts:
-      - script: /bin/sh ./Scripts/FirebaseCrashlytics/run
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+        name: Run Firebase Crashlytics
+        inputFiles:
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+
+  UhooiPicBookWidgetsConfigurableIntent:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: 14.0
+    settings:
+      base:
+        CODE_SIGN_IDENTITY: "iPhone Developer"
+        CODE_SIGN_STYLE: Automatic
+        GCC_PREPROCESSOR_DEFINITIONS:
+          - "DEBUG=1"
+          - "$(inherited)"
+        INFOPLIST_FILE: UhooiPicBookWidgetsConfigurableIntent/Info.plist
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
+          - "@executable_path/../../Frameworks"
+        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.WidgetsConfigurableIntent
+        PRODUCT_NAME: "UhooiPicBookWidgetsConfigurableIntent"
+        SKIP_INSTALL: YES
+    sources:
+      - UhooiPicBookWidgetsConfigurableIntent
+      - Shared
+    dependencies:
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseAppDistribution-Beta
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseInstallations
+      - package: Firebase
+        product: FirebaseMessaging
+      - package: Firebase
+        product: FirebaseRemoteConfig
+    postBuildScripts:
+      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -310,6 +244,15 @@ schemes:
     build:
       targets:
         UhooiPicBook: all
+      postActions:
+        - script: rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/FirebaseAnalytics.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/GoogleAppMeasurement.framework" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgets.appex/Frameworks" &&
+                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgetsConfigurableIntent.appex/Frameworks"
+          name: Remove Firebase frameworks
+          settingsTarget: UhooiPicBook
     run:
       config: Debug
     test:
@@ -330,4 +273,3 @@ schemes:
       config: Debug
     archive:
       config: Release
-

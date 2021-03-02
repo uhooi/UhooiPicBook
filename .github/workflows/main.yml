@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.1.app
+  DEVELOPER_DIR: /Applications/Xcode_12.3.app
 
 jobs:
   test:
@@ -29,7 +29,6 @@ jobs:
     env:
       MINT_PATH: mint/lib
       MINT_LINK_PATH: mint/bin
-      XCODE_XCCONFIG_FILE: Configs/Carthage.xcconfig
 
     steps:
     # チェックアウト
@@ -69,41 +68,71 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-mint-
 
-    # Carthageで管理しているライブラリのキャッシュ
-    - name: Cache Carthage packages
-      uses: actions/cache@v2
-      with:
-        path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-carthage-
-
-    # Carthageで管理しているライブラリのインストール
-    - name: Install Carthage frameworks
-      run: make install-carthage
-      env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # CocoaPodsで管理しているライブラリのキャッシュ
-    - name: Cache Pods
-      uses: actions/cache@v2
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
-
-    # ライセンス情報の生成、プロジェクトファイルの生成、CocoaPodsで管理しているライブラリのインストール
-    - name: Generate licenses, Xcode project, and install Pods
+    # ライセンス情報の生成、プロジェクトファイルの生成
+    - name: Generate licenses and Xcode project
       run: make generate-licenses
+
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache SwiftPM packages
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
 
     # ビルド
     - name: Xcode build
       run: make build-debug
 
+    # ビルドログのアップロード
+    - name: Upload build log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: xcodebuild_build.log
+        if-no-files-found: ignore
+        retention-days: 14
+
     # 単体テストの実行
     - name: Xcode test
       run: make test
+
+    # 単体テストログのアップロード
+    - name: Upload test log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: xcodebuild_test.log
+        if-no-files-found: ignore
+        retention-days: 14
+
+    # コードカバレッジをHTML形式で取得
+    - name: Get code coverage for HTML
+      run: make get-coverage-html
+
+    # テスト結果とコードカバレッジのアップロード
+    - name: Upload test results and code coverage Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: results
+        path: |
+          build/reports/**/*
+          html_report/**/*
+        if-no-files-found: warn
+        retention-days: 14
+
+    # コードカバレッジをCobertura形式で取得
+    - name: Get code coverage for Cobertura
+      run: make get-coverage-cobertura
+
+    # コードカバレッジをCodecovへアップロード
+    - name: Upload code coverage to Codecov
+      run: make upload-coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   info:
     runs-on: macOS-latest
@@ -119,4 +148,3 @@ jobs:
     # 端末の一覧出力
     - name: Show devices
       run: make show-devices
-

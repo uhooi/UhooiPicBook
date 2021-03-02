@@ -30,6 +30,33 @@ final class MonsterListViewController: UIViewController {
 
     // MARK: IBOutlets
 
+    @IBOutlet private weak var menuButton: UIBarButtonItem! {
+        willSet {
+            if #available(iOS 14.0, *) {
+                newValue.menu = UIMenu(
+                    title: "",
+                    children: [
+                        UIAction(title: R.string.localizable.contactUs()) { _ in
+                            self.presenter.didTapContactUs()
+                        },
+                        UIAction(title: R.string.localizable.privacyPolicy()) { _ in
+                            self.presenter.didTapPrivacyPolicy()
+                        },
+                        UIAction(title: R.string.localizable.licenses()) { _ in
+                            self.presenter.didTapLicenses()
+                        },
+                        UIAction(title: R.string.localizable.aboutThisApp()) { _ in
+                            self.presenter.didTapAboutThisApp()
+                        }
+                    ]
+                )
+            } else {
+                newValue.isEnabled = false
+                newValue.tintColor = .clear
+            }
+        }
+    }
+
     @IBOutlet private weak var monstersCollectionView: UICollectionView! {
         willSet {
             newValue.register(R.nib.monsterCollectionViewCell)
@@ -119,6 +146,7 @@ extension MonsterListViewController: MonsterListUserInterface {
         self.monsters = monsters
         DispatchQueue.main.async {
             self.monstersCollectionView.reloadData()
+            self.monstersCollectionView.executeCellSlideUpAnimation()
         }
     }
 

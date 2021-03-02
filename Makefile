@@ -1,7 +1,7 @@
 # Variables
 
 PRODUCT_NAME := UhooiPicBook
-WORKSPACE_NAME := ${PRODUCT_NAME}.xcworkspace
+PROJECT_NAME := ${PRODUCT_NAME}.xcodeproj
 SCHEME_NAME := ${PRODUCT_NAME}
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 
@@ -9,9 +9,12 @@ TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 12 Pro Max
-TEST_OS ?= 14.1
+TEST_OS ?= 14.3
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
+
+XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
+XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
@@ -25,16 +28,20 @@ help:
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
+	$(MAKE) install-ruby
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) install-mint
-	$(MAKE) install-carthage
 	$(MAKE) generate-licenses
+
+.PHONY: install-ruby
+install-ruby: # Install Ruby with rbenv
+	cat .ruby-version | xargs rbenv install --skip-existing
 
 .PHONY: install-bundler
 install-bundler: # Install Bundler dependencies
 	bundle config path vendor/bundle
-	bundle install --jobs 4 --retry 3
+	bundle install --without=documentation --jobs 4 --retry 3
 
 .PHONY: update-bundler
 update-bundler: # Update Bundler dependencies
@@ -43,36 +50,7 @@ update-bundler: # Update Bundler dependencies
 
 .PHONY: install-mint
 install-mint: # Install Mint dependencies
-	mint bootstrap
-
-.PHONY: install-cocoapods
-install-cocoapods: # Install CocoaPods dependencies and generate workspace
-	bundle exec pod install
-
-.PHONY: update-cocoapods
-update-cocoapods: # Update CocoaPods dependencies and generate workspace
-	bundle exec pod update
-
-.PHONY: install-carthage
-install-carthage: # Install Carthage dependencies
-	@$(MAKE) export-carthage-config
-	mint run carthage carthage bootstrap --platform iOS --cache-builds
-	@$(MAKE) show-carthage-dependencies
-
-.PHONY: update-carthage
-update-carthage: # Update Carthage dependencies
-	@$(MAKE) export-carthage-config
-	mint run carthage carthage update --platform iOS
-	@$(MAKE) show-carthage-dependencies
-
-.PHONY: show-carthage-dependencies
-show-carthage-dependencies:
-	@echo '*** Resolved dependencies:'
-	@cat 'Cartfile.resolved'
-
-.PHONY: export-carthage-config
-export-carthage-config:
-	export XCODE_XCCONFIG_FILE=Configs/Carthage.xcconfig
+	mint bootstrap --overwrite y
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -80,7 +58,7 @@ install-templates: # Install Generamba templates
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist and regenerate project
-	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --config-path LicensePlist/license_plist.yml --add-version-numbers
+	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 	$(MAKE) generate-xcodeproj
 
 .PHONY: generate-module
@@ -91,20 +69,22 @@ generate-module: # Generate module with Generamba and regenerate project # MODUL
 .PHONY: generate-xcodeproj
 generate-xcodeproj: # Generate project with XcodeGen
 	mint run xcodegen xcodegen generate
-	$(MAKE) install-cocoapods
 	$(MAKE) open
 
 .PHONY: open
-open: # Open workspace in Xcode
-	open ./${WORKSPACE_NAME}
+open: # Open project in Xcode
+	open ./${PROJECT_NAME}
 
 .PHONY: clean
 clean: # Delete cache
-	xcodebuild clean -alltargets
-	rm -rf ./Pods
-	rm -rf ./Carthage
 	rm -rf ./vendor/bundle
 	rm -rf ./Templates
+	xcodebuild clean -alltargets
+
+.PHONY: analyze
+analyze: # Analyze with SwiftLint
+	$(MAKE) build-debug
+	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
@@ -112,10 +92,13 @@ build-debug: # Xcode build for debug
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--workspace ${WORKSPACE_NAME} \
+-project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
+-destination ${TEST_DESTINATION} \
+-clonedSourcePackagesDirPath './SourcePackages' \
 build \
-| bundle exec xcpretty
+| tee ./${XCODEBUILD_BUILD_LOG_NAME} \
+| bundle exec xcpretty --color
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -123,16 +106,26 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--workspace ${WORKSPACE_NAME} \
+-project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
+-clonedSourcePackagesDirPath './SourcePackages' \
 clean test \
-| bundle exec xcpretty --report html
+| tee ./${XCODEBUILD_TEST_LOG_NAME} \
+| bundle exec xcpretty --color --report html
 
-.PHONY: get-coverage
-get-coverage: # Get code coverage
+.PHONY: get-coverage-html
+get-coverage-html: # Get code coverage for HTML
 	bundle exec slather coverage --html --output-directory ${COVERAGE_OUTPUT}
+
+.PHONY: get-coverage-cobertura
+get-coverage-cobertura: # Get code coverage for Cobertura
+	bundle exec slather
+
+.PHONY: upload-coverage
+upload-coverage: # Upload code coverage to Codecov
+	bash -c "bash <(curl -s https://codecov.io/bash) -f xml_report/cobertura.xml -X coveragepy -X gcov -X xcode"
 
 .PHONY: show-devices
 show-devices: # Show devices

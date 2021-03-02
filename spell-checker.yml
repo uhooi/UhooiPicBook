@@ -8,6 +8,7 @@ whiteList:
   - swiftlint
   - gedatsu
   - json
+  - hashable
   - fcm
 
   # Uhooi
@@ -17,4 +18,6 @@ whiteList:
   - ayausa
   - chibird
   - tomosuke
+  - takehito
+  - koshimizu
 

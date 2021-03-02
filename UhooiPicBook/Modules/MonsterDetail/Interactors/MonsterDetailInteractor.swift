@@ -6,8 +6,6 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import Foundation
-
 /// @mockable
 protocol MonsterDetailInteractorInput: AnyObject {
 }

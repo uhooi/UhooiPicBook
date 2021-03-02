@@ -11,6 +11,12 @@ import Foundation
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad()
     func didSelectMonster(monster: MonsterEntity)
+
+    // Menu
+    func didTapContactUs()
+    func didTapPrivacyPolicy()
+    func didTapLicenses()
+    func didTapAboutThisApp()
 }
 
 /// @mockable
@@ -58,6 +64,22 @@ extension MonsterListPresenter: MonsterListEventHandler {
                 self.view.stopIndicator()
             }
         }
+    }
+
+    func didTapContactUs() {
+        self.router.showContactUs()
+    }
+
+    func didTapPrivacyPolicy() {
+        self.router.showPrivacyPolicy()
+    }
+
+    func didTapLicenses() {
+        self.router.showSettings()
+    }
+
+    func didTapAboutThisApp() {
+        self.router.showAboutThisApp()
     }
 
     func didSelectMonster(monster: MonsterEntity) {

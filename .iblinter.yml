@@ -1,0 +1,30 @@
+# デフォルト有効で無効にするルール
+disabled_rules:
+  #- enable_autolayout
+  #- duplicate_constraint
+  #- duplicate_id
+  #- custom_module
+  #- ambiguous
+
+# デフォルト無効で有効にするルール
+enabled_rules:
+  #- custom_class_name # ファイル名は末尾の `ViewController` を省略したいため
+  - relative_to_margin
+  - misplaced
+  #- storyboard_viewcontroller_id # IDは末尾の `ViewController` を省略したいため
+  - stackview_backgroundcolor
+  - image_resources
+  - use_base_class
+  - view_as_device
+  - reuse_identifier
+  - color_resources
+  - use_trait_collections
+
+# 対象外のファイル・フォルダ
+excluded:
+  - SourcePackages
+  - Generated
+
+view_as_device_rule:
+  device_id: retina6_1 # iPhone 11
+

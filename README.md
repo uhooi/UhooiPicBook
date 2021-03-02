@@ -1,8 +1,14 @@
 # UhooiPicBook-iOS
 
-[![](https://github.com/uhooi/UhooiPicBook/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook/actions?query=workflow%3ACI)
+[![Release](https://img.shields.io/github/v/release/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/releases/latest)
 [![License](https://img.shields.io/github/license/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fthe_uhooi)](https://twitter.com/the_uhooi)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)](https://github.com/uhooi/UhooiPicBook)
+[![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
+
+|Branch|CI|Code coverage|
+|:--|:--|:--|
+|[master](https://github.com/uhooi/UhooiPicBook/tree/master)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/master/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
+|[develop](https://github.com/uhooi/UhooiPicBook/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/develop/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
 
 ![Logo](./Docs/Logo.png)
 
@@ -16,40 +22,33 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/ImagePopup_English.png" width="207">|
 
-|Activity|Spotlight|iMessage|
+|Menu opened in MonsterList|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Light/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Light/Widgets.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Widgets_English.png" width="207">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/MonsterDetail.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/ImagePopup.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/ImagePopup_English.png" width="207">|
 
-|Activity|Spotlight|iMessage|
+|Menu opened in MonsterList|Spotlight|iMessage|
 |:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Activity.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Spotlight.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/iMessage.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/Dark/Widgets.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Widgets_English.png" width="207">|
 
 ## Development
 
 You can develop UhooiPicBook-iOS.
-
-### Environment
-
-- Xcode: 12.1
-- Swift: 5.3
-- Bundler: 2.1.4
-- Mint: 0.14.2
 
 ### Configuration
 
@@ -60,7 +59,12 @@ You can develop UhooiPicBook-iOS.
 
 ### Setup
 
-1. Install [Bundler](https://github.com/rubygems/bundler) and [Mint](https://github.com/yonaskolb/Mint) .
+1. Install the following tools.
+
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.3
+- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
+- [Bundler](https://github.com/rubygems/bundler): 2.1.4
+- [Mint](https://github.com/yonaskolb/Mint): 0.16.0
 
 2. Clone the project.
 
@@ -79,22 +83,22 @@ Run `make help` .
 ```
 $ make help
 setup                                      Install dependencies and prepared development configuration
+install-ruby                               Install Ruby with rbenv
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
-install-cocoapods                          Install CocoaPods dependencies and generate workspace
-update-cocoapods                           Update CocoaPods dependencies and generate workspace
-install-carthage                           Install Carthage dependencies
-update-carthage                            Update Carthage dependencies
 install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist and regenerate project
 generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project
 generate-xcodeproj                         Generate project with XcodeGen
-open                                       Open workspace in Xcode
+open                                       Open project in Xcode
 clean                                      Delete cache
+analyze                                    Analyze with SwiftLint
 build-debug                                Xcode build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
-get-coverage                               Get code coverage
+get-coverage-html                          Get code coverage for HTML
+get-coverage-cobertura                     Get code coverage for Cobertura
+upload-coverage                            Upload code coverage to Codecov
 show-devices                               Show devices
 ```
 

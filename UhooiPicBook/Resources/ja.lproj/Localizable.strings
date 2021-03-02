@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  UhooiPicBook
+
+  Created by uhooi on 2021/02/25.
+  
+*/
+
+// Monster detail
+"UhooiPicBook hashtag" = "#UhooiPicBook";
+
+// Menu
+"Contact us" = "お問い合わせ";
+"Privacy policy" = "プライバシーポリシー";
+"Licenses" = "ライセンス";
+"About this app" = "このアプリについて";
+
+// Contact us
+"Contact us URL" = "https://forms.gle/Bopyk1CCpJqoR3Zy7";
+
+// Privacy policy
+"Privacy policy URL" = "https://theuhooi.com/privacy-policy/";
+
+// About this app
+"This app is open source software" = "このアプリはオープンソースソフトウェアです。";
+"UhooiPicBook GitHub URL" = "https://github.com/uhooi/UhooiPicBook";
+"Version" = "バージョン";
+"Copyright" = "© 2021 THE Uhooi";
+
+// Alert
+"OK" = "OK";

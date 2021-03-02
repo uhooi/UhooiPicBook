@@ -6,7 +6,6 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import Foundation
 import UIKit.UIImage
 
 protocol MonsterDetailEventHandler: AnyObject {
@@ -59,7 +58,7 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
         guard let senderView = senderView, let name = name, let description = description, let icon = icon else {
             return // TODO: エラーハンドリング
         }
-        let text = "\(name)\n\(description)\n#UhooiPicBook"
+        let text = "\(name)\n\(description)\n\(R.string.localizable.uhooiPicBookHashtag())"
         self.router.showActivity(senderView, text: text, icon: icon)
     }
 

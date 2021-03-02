@@ -6,5 +6,7 @@
   
 */
 
-"configurationDisplayName" = "キャラクター情報";
-"description" = "キャラクター情報を表示します。1時間ごとに次のキャラクターの情報に更新します。";
+"Configuration display name" = "キャラクター情報";
+"Description" = "キャラクター情報を表示します。1時間ごとに次のキャラクターの情報に更新します。";
+
+"Configurable description" = "「ウィジェットを編集」で好きなキャラクターを選択しましょう。";
