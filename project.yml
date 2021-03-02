@@ -9,8 +9,8 @@ options:
 
 settings:
   base:
-    MARKETING_VERSION: 1.3.0
-    CURRENT_PROJECT_VERSION: 14
+    MARKETING_VERSION: 1.4.0
+    CURRENT_PROJECT_VERSION: 15
     DEVELOPMENT_TEAM: 47E56DYP3N
     OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
   configs:
@@ -212,7 +212,7 @@ targets:
           - "@executable_path/Frameworks"
           - "@executable_path/../../Frameworks"
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
-        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets.ConfigurableIntent
+        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.WidgetsConfigurableIntent
         PRODUCT_NAME: "UhooiPicBookWidgetsConfigurableIntent"
         SKIP_INSTALL: YES
     sources:
