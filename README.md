@@ -48,7 +48,7 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 ## Development
 
-You can develop UhooiPicBook-iOS.
+You can develop this project.
 
 ### Configuration
 
