@@ -68,7 +68,7 @@ You can develop UhooiPicBook-iOS.
 
 2. Clone the project.
 
-```
+```shell
 $ git clone https://github.com/uhooi/UhooiPicBook.git
 $ cd UhooiPicBook
 ```
@@ -80,7 +80,7 @@ After setup is complete, Workspace automatically opens in Xcode.
 
 Run `make help` .
 
-```
+```shell
 $ make help
 setup                                      Install dependencies and prepared development configuration
 install-ruby                               Install Ruby with rbenv
