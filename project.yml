@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: ja
-  xcodeVersion: "12.3"
+  xcodeVersion: "12.4"
 
 settings:
   base:

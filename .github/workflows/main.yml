@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.3.app
+  DEVELOPER_DIR: /Applications/Xcode_12.4.app
 
 jobs:
   test:

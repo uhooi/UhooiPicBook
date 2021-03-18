@@ -61,7 +61,7 @@ You can develop this project.
 
 1. Install the following tools.
 
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.3
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.4
 - [rbenv](https://github.com/rbenv/rbenv): 1.1.2
 - [Bundler](https://github.com/rubygems/bundler): 2.1.4
 - [Mint](https://github.com/yonaskolb/Mint): 0.16.0
