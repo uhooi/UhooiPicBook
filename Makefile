@@ -16,6 +16,9 @@ COVERAGE_OUTPUT := html_report
 XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
 XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 
+DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
+PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
+
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
@@ -33,6 +36,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-templates
 	$(MAKE) install-mint
 	$(MAKE) generate-licenses
+	$(MAKE) generate-xcodeproj-develop
 
 .PHONY: install-ruby
 install-ruby: # Install Ruby with rbenv
@@ -57,19 +61,40 @@ install-templates: # Install Generamba templates
 	bundle exec generamba template install
 
 .PHONY: generate-licenses
-generate-licenses: # Generate licenses with LicensePlist and regenerate project
+generate-licenses: # Generate licenses with LicensePlist
 	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
-	$(MAKE) generate-xcodeproj
 
 .PHONY: generate-module
-generate-module: # Generate module with Generamba and regenerate project # MODULE_NAME=[module name]
+generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
 	bundle exec generamba gen ${MODULE_NAME} ${MODULE_TEMPLATE_NAME}
-	$(MAKE) generate-xcodeproj
+
+.PHONY: generate-xcodeproj-develop
+generate-xcodeproj-develop: # Generate project with XcodeGen for develop
+	$(MAKE) copy-googleserviceinfo-develop
+	$(MAKE) generate-xcodeproj BUNDLE_IDENTIFIER=${DEVELOP_BUNDLE_IDENTIFIER}
+
+.PHONY: generate-xcodeproj-production
+generate-xcodeproj-production: # Generate project with XcodeGen for production
+	$(MAKE) copy-googleserviceinfo-production
+	$(MAKE) generate-xcodeproj BUNDLE_IDENTIFIER=${PRODUCTION_BUNDLE_IDENTIFIER}
 
 .PHONY: generate-xcodeproj
-generate-xcodeproj: # Generate project with XcodeGen
+generate-xcodeproj:
 	mint run xcodegen xcodegen generate
 	$(MAKE) open
+
+.PHONY: copy-googleserviceinfo-develop
+copy-googleserviceinfo-develop:
+	$(MAKE) copy-googleserviceinfo ENVIRONMENT=Develop
+
+.PHONY: copy-googleserviceinfo-production
+copy-googleserviceinfo-production:
+	$(MAKE) copy-googleserviceinfo ENVIRONMENT=Production
+
+.PHONY: copy-googleserviceinfo
+copy-googleserviceinfo:
+	mkdir -p ./Shared/Resources/
+	cp -f ./GoogleServiceInfo/GoogleService-Info-${ENVIRONMENT}.plist ./Shared/Resources/GoogleService-Info.plist
 
 .PHONY: open
 open: # Open project in Xcode

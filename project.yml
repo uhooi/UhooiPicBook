@@ -49,6 +49,7 @@ targets:
         INFOPLIST_FILE: UhooiPicBook/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: UhooiPicBook/Resources/UhooiPicBook.entitlements
         DEVELOPMENT_LANGUAGE: jp
+        PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_IDENTIFIER}
       configs:
         debug:
           OTHER_SWIFT_FLAGS: $(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500
@@ -143,7 +144,7 @@ targets:
         LD_RUNPATH_SEARCH_PATHS: ""
         MTL_ENABLE_DEBUG_INFO: INCLUDE_SOURCE
         MTL_FAST_MATH: YES
-        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Stickers
+        PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_IDENTIFIER}.Stickers
         PRODUCT_NAME: "UhooiPicBookStickers"
         SKIP_INSTALL: YES
 
@@ -166,7 +167,7 @@ targets:
           - "@executable_path/Frameworks"
           - "@executable_path/../../Frameworks"
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
-        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.Widgets
+        PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_IDENTIFIER}.Widgets
         PRODUCT_NAME: "UhooiPicBookWidgets"
         SKIP_INSTALL: YES
     sources:
@@ -212,7 +213,7 @@ targets:
           - "@executable_path/Frameworks"
           - "@executable_path/../../Frameworks"
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
-        PRODUCT_BUNDLE_IDENTIFIER: com.theuhooi.UhooiPicBook.WidgetsConfigurableIntent
+        PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_IDENTIFIER}.WidgetsConfigurableIntent
         PRODUCT_NAME: "UhooiPicBookWidgetsConfigurableIntent"
         SKIP_INSTALL: YES
     sources:
