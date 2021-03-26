@@ -88,18 +88,19 @@ install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies
 install-templates                          Install Generamba templates
-generate-licenses                          Generate licenses with LicensePlist and regenerate project
-generate-module MODULE_NAME=[module name]  Generate module with Generamba and regenerate project
-generate-xcodeproj                         Generate project with XcodeGen
+generate-licenses                          Generate licenses with LicensePlist
+generate-module MODULE_NAME=[module name]  Generate module with Generamba
+generate-xcodeproj-develop                 Generate project with XcodeGen for develop
+generate-xcodeproj-production              Generate project with XcodeGen for production
 open                                       Open project in Xcode
 clean                                      Delete cache
 analyze                                    Analyze with SwiftLint
-build-debug                                Xcode build for debug
+build-debug                                Xcod build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
 get-coverage-html                          Get code coverage for HTML
 get-coverage-cobertura                     Get code coverage for Cobertura
 upload-coverage                            Upload code coverage to Codecov
-show-devices                               Show devices
+show-devices                               Show devicese
 ```
 
 ## Contribution
