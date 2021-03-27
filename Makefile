@@ -19,6 +19,8 @@ XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
 PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
+BUNDLER_VERSION := 2.2.15
+
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
@@ -32,6 +34,7 @@ help:
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-ruby
+	gem install bundler:${BUNDLER_VERSION}
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) install-mint
@@ -39,13 +42,15 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) generate-xcodeproj-develop
 
 .PHONY: install-ruby
-install-ruby: # Install Ruby with rbenv
+install-ruby:
 	cat .ruby-version | xargs rbenv install --skip-existing
+	rbenv rehash
 
 .PHONY: install-bundler
 install-bundler: # Install Bundler dependencies
 	bundle config path vendor/bundle
 	bundle install --without=documentation --jobs 4 --retry 3
+	rbenv rehash
 
 .PHONY: update-bundler
 update-bundler: # Update Bundler dependencies
