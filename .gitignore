@@ -89,20 +89,26 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Genrated
 *.generated.swift
 MockResults.swift
 
+# Bundler
 vendor/bundle/
 .bundle/
 
+# Generamba
 Templates/
 
+# LicensePlist
 com.mono0926.LicensePlist/
 com.mono0926.LicensePlist.latest_result.txt
 com.mono0926.LicensePlist.plist
 
-# GoogleService-Info.plist
+# Firebase
+GoogleService-Info.plist
 
+# xcodebuild log
 xcodebuild_*.log
 
 # SwiftLint Remote Config Cache
@@ -112,5 +118,6 @@ xcodebuild_*.log
 xml_report/
 html_report/
 
+# Swift Package Manager
 SourcePackages/
 

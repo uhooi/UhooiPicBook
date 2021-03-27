@@ -68,9 +68,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-mint-
 
-    # ライセンス情報の生成、プロジェクトファイルの生成
-    - name: Generate licenses and Xcode project
+    # ライセンス情報の生成
+    - name: Generate licenses
       run: make generate-licenses
+
+    # プロジェクトファイルの生成
+    - name: Generate Xcode project for develop
+      run: make generate-xcodeproj-develop
 
     # SwiftPMで管理しているライブラリのキャッシュ
     - name: Cache SwiftPM packages
