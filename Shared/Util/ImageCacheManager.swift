@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum ImageCacheError: Error {
+    case loadingFailure
+}
+
 /// @mockable
 protocol ImageCacheManagerProtocol: AnyObject {
     func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
@@ -24,29 +28,25 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
         }
 
         var imageToCache = UIImage()
-        var someError: Error?
-
-        let group = DispatchGroup()
-        group.enter()
 
         URLSession.shared.dataTask(with: imageUrl) { data, _, error in
             if let error = error {
-                someError = error
+                completion(.failure(error))
+                return
             } else {
                 guard let data = data, let image = UIImage(data: data) else {
-                    fatalError("Fail to load image.") // TODO: エラーハンドリング
+                    completion(.failure(ImageCacheError.loadingFailure))
+                    return
                 }
 
                 imageToCache = image
                 ImageCacheManager.imageCache.setObject(imageToCache, forKey: imageUrl as AnyObject)
             }
 
-            group.leave()
+            DispatchQueue.main.async {
+                completion(.success(imageToCache))
+            }
         }.resume()
-
-        group.notify(queue: .global()) {
-            completion(someError.map(Result.failure) ?? .success(imageToCache))
-        }
     }
 
     func cacheGIFImage(imageUrl: URL) -> UIImage? {
