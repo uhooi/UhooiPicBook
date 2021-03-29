@@ -63,7 +63,6 @@ You can develop this project.
 
 - [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.4
 - [rbenv](https://github.com/rbenv/rbenv): 1.1.2
-- [Bundler](https://github.com/rubygems/bundler): 2.1.4
 - [Mint](https://github.com/yonaskolb/Mint): 0.16.0
 
 2. Clone the project.
@@ -83,7 +82,6 @@ Run `make help` .
 ```shell
 $ make help
 setup                                      Install dependencies and prepared development configuration
-install-ruby                               Install Ruby with rbenv
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
 install-mint                               Install Mint dependencies

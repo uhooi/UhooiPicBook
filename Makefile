@@ -39,7 +39,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) generate-xcodeproj-develop
 
 .PHONY: install-ruby
-install-ruby: # Install Ruby with rbenv
+install-ruby:
 	cat .ruby-version | xargs rbenv install --skip-existing
 
 .PHONY: install-bundler
