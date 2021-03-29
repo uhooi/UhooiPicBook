@@ -117,13 +117,12 @@ jobs:
     - name: Get code coverage for HTML
       run: make get-coverage-html
 
-    # テスト結果とコードカバレッジのアップロード
+    # コードカバレッジのアップロード
     - name: Upload test results and code coverage Artifact
       uses: actions/upload-artifact@v2
       with:
         name: results
         path: |
-          build/reports/**/*
           html_report/**/*
         if-no-files-found: warn
         retention-days: 14

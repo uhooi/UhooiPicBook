@@ -123,12 +123,13 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| bundle exec xcpretty --color
+| mint run thii/xcbeautify xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 	set -o pipefail \
-&& xcodebuild \
+&& NSUnbufferedIO=YES \
+xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -project ${PROJECT_NAME} \
@@ -137,8 +138,9 @@ test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean test \
+2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| bundle exec xcpretty --color --report html
+| mint run thii/xcbeautify xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML
