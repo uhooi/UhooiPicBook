@@ -26,6 +26,9 @@ env:
 jobs:
   test:
     runs-on: macOS-latest
+    env:
+      MINT_PATH: mint/lib
+      MINT_LINK_PATH: mint/bin
 
     steps:
     # チェックアウト
