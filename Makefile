@@ -19,6 +19,9 @@ XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
 PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
+MINT_PATH := mint/lib
+MINT_LINK_PATH := mint/bin
+
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help

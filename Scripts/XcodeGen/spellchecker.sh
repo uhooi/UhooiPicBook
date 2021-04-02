@@ -1,3 +1,5 @@
+export MINT_PATH=mint/lib
+export MINT_LINK_PATH=mint/bin
 if ! which mint >/dev/null; then
   echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
   exit 0
@@ -16,5 +18,5 @@ do
   options="$options $SRCROOT/$file"
 done
 
-xcrun --sdk macosx mint run SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+xcrun --sdk macosx mint run fromkk/SpellChecker SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
 
