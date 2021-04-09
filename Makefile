@@ -106,6 +106,8 @@ open: # Open project in Xcode
 .PHONY: clean
 clean: # Delete cache
 	rm -rf ./vendor/bundle
+	rm -rf ./mint
+	rm -rf ./SourcePackages
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
 
