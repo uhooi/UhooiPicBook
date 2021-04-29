@@ -26,7 +26,7 @@ env:
   MINT_LINK_PATH: mint/bin
 
 jobs:
-  setup:
+  build:
     runs-on: macOS-latest
 
     steps:
@@ -76,29 +76,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-swiftpm-
 
-    # セットアップのアップロード
-    - uses: actions/upload-artifact@v2
-      with:
-        name: setup-results
-        path: |
-          **/*
-          !Docs/**
-          !README.md
-          !LICENSE
-          !Rambafile
-        if-no-files-found: error
-        retention-days: 1
-
-  build:
-    needs: setup
-    runs-on: macOS-latest
-
-    steps:
-    # セットアップのダウンロード
-    - uses: actions/download-artifact@v2
-      with:
-        name: setup-results
-
     # ビルド
     - name: Xcode build
       run: make build-debug
@@ -114,14 +91,54 @@ jobs:
         retention-days: 14
 
   test:
-    needs: setup
     runs-on: macOS-latest
 
     steps:
-    # セットアップのダウンロード
-    - uses: actions/download-artifact@v2
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # Bundlerで管理しているライブラリのキャッシュ
+    - name: Cache Gems
+      uses: actions/cache@v2
       with:
-        name: setup-results
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    # Bundlerで管理しているライブラリのインストール
+    - name: Install Bundled Gems
+      run: make install-bundler
+
+    # Mintのインストール
+    - name: Install Mint
+      run: brew install mint
+
+    # Mintで管理しているライブラリのキャッシュ
+    - name: Cache Mint packages
+      uses: actions/cache@v2
+      with:
+        path: mint
+        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        restore-keys: |
+          ${{ runner.os }}-mint-
+
+    # ライセンス情報の生成
+    - name: Generate licenses
+      run: make generate-licenses
+
+    # プロジェクトファイルの生成
+    - name: Generate Xcode project for develop
+      run: make generate-xcodeproj-develop
+
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache SwiftPM packages
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
 
     # 単体テストの実行
     - name: Xcode test
