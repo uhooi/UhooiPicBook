@@ -85,19 +85,20 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-swiftpm-
 
-    # ビルド
-    - name: Xcode build
-      run: make build-debug
+    # !!!: 時間がかかるため単体テストでビルドも担保する
+    ## ビルド
+    #- name: Xcode build
+    #  run: make build-debug
 
-    # ビルドログのアップロード
-    - name: Upload build log Artifact
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: xcodebuild-logs
-        path: xcodebuild_build.log
-        if-no-files-found: ignore
-        retention-days: 14
+    ## ビルドログのアップロード
+    #- name: Upload build log Artifact
+    #  uses: actions/upload-artifact@v2
+    #  if: failure()
+    #  with:
+    #    name: xcodebuild-logs
+    #    path: xcodebuild_build.log
+    #    if-no-files-found: ignore
+    #    retention-days: 14
 
     # 単体テストの実行
     - name: Xcode test
