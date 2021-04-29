@@ -22,25 +22,16 @@ on:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_12.5.app
+  MINT_PATH: mint/lib
+  MINT_LINK_PATH: mint/bin
 
 jobs:
-  test:
+  build:
     runs-on: macOS-latest
-    env:
-      MINT_PATH: mint/lib
-      MINT_LINK_PATH: mint/bin
 
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
-
-    # Xcodeのバージョン出力
-    - name: Show Xcode version
-      run: xcodebuild -version
-
-    # Makeのバージョン出力
-    - name: Show Make version
-      run: make --version
 
     # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
@@ -99,6 +90,56 @@ jobs:
         if-no-files-found: ignore
         retention-days: 14
 
+  test:
+    runs-on: macOS-latest
+
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # Bundlerで管理しているライブラリのキャッシュ
+    - name: Cache Gems
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    # Bundlerで管理しているライブラリのインストール
+    - name: Install Bundled Gems
+      run: make install-bundler
+
+    # Mintのインストール
+    - name: Install Mint
+      run: brew install mint
+
+    # Mintで管理しているライブラリのキャッシュ
+    - name: Cache Mint packages
+      uses: actions/cache@v2
+      with:
+        path: mint
+        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        restore-keys: |
+          ${{ runner.os }}-mint-
+
+    # ライセンス情報の生成
+    - name: Generate licenses
+      run: make generate-licenses
+
+    # プロジェクトファイルの生成
+    - name: Generate Xcode project for develop
+      run: make generate-xcodeproj-develop
+
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache SwiftPM packages
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
+
     # 単体テストの実行
     - name: Xcode test
       run: make test
@@ -144,6 +185,22 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
+    # Xcodeのバージョン出力
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # Makeのバージョン出力
+    - name: Show Make version
+      run: make --version
+
+    # Rubyのバージョン出力
+    - name: Show Ruby version
+      run: ruby --version
+
+    # Bundlerのバージョン出力
+    - name: Show Bundler version
+      run: bundle version
+
     # Xcodeの一覧出力
     - name: Show Xcode list
       run: ls /Applications | grep 'Xcode'
@@ -151,3 +208,4 @@ jobs:
     # 端末の一覧出力
     - name: Show devices
       run: make show-devices
+
