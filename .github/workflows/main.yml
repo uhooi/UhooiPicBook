@@ -199,7 +199,7 @@ jobs:
 
     # Bundlerのバージョン出力
     - name: Show Bundler version
-      run:
+      run: bundle version
 
     # Xcodeの一覧出力
     - name: Show Xcode list
