@@ -22,13 +22,12 @@ on:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_12.4.app
+  MINT_PATH: mint/lib
+  MINT_LINK_PATH: mint/bin
 
 jobs:
-  test:
+  setup:
     runs-on: macOS-latest
-    env:
-      MINT_PATH: mint/lib
-      MINT_LINK_PATH: mint/bin
 
     steps:
     # チェックアウト
@@ -85,20 +84,52 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-swiftpm-
 
-    # !!!: 時間がかかるため単体テストでビルドも担保する
-    ## ビルド
-    #- name: Xcode build
-    #  run: make build-debug
+    # セットアップのアップロード
+    - uses: actions/upload-artifact@v2
+      with:
+        name: setup-results
+        path: |
+          **/*
+          !Docs/**
+          !README.md
+          !LICENSE
+          !Rambafile
+        if-no-files-found: error
+        retention-days: 1
 
-    ## ビルドログのアップロード
-    #- name: Upload build log Artifact
-    #  uses: actions/upload-artifact@v2
-    #  if: failure()
-    #  with:
-    #    name: xcodebuild-logs
-    #    path: xcodebuild_build.log
-    #    if-no-files-found: ignore
-    #    retention-days: 14
+  build:
+    needs: setup
+    runs-on: macOS-latest
+
+    steps:
+    # セットアップのダウンロード
+    - uses: actions/download-artifact@v2
+      with:
+        name: setup-results
+
+    # ビルド
+    - name: Xcode build
+      run: make build-debug
+
+    # ビルドログのアップロード
+    - name: Upload build log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: xcodebuild_build.log
+        if-no-files-found: ignore
+        retention-days: 14
+
+  test:
+    needs: setup
+    runs-on: macOS-latest
+
+    steps:
+    # セットアップのダウンロード
+    - uses: actions/download-artifact@v2
+      with:
+        name: setup-results
 
     # 単体テストの実行
     - name: Xcode test
@@ -152,3 +183,4 @@ jobs:
     # 端末の一覧出力
     - name: Show devices
       run: make show-devices
+
