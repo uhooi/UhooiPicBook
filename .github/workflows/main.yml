@@ -33,14 +33,6 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Xcodeのバージョン出力
-    - name: Show Xcode version
-      run: xcodebuild -version
-
-    # Makeのバージョン出力
-    - name: Show Make version
-      run: make --version
-
     # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
       uses: actions/cache@v2
@@ -175,6 +167,22 @@ jobs:
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
+
+    # Xcodeのバージョン出力
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # Makeのバージョン出力
+    - name: Show Make version
+      run: make --version
+
+    # Rubyのバージョン出力
+    - name: Show Ruby version
+      run: ruby --version
+
+    # Bundlerのバージョン出力
+    - name: Show Bundler version
+      run:
 
     # Xcodeの一覧出力
     - name: Show Xcode list
