@@ -114,7 +114,7 @@ clean: # Delete cache
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug
-	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	swift run -c release --package-path Tools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
