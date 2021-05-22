@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "APIKit",
+        "repositoryURL": "https://github.com/ishkawa/APIKit.git",
+        "state": {
+          "branch": null,
+          "revision": "86d51ecee0bc0ebdb53fb69b11a24169a69097ba",
+          "version": "4.1.0"
+        }
+      },
+      {
         "package": "Colorizer",
         "repositoryURL": "https://github.com/getGuaka/Colorizer.git",
         "state": {
@@ -29,6 +38,15 @@
         }
       },
       {
+        "package": "HeliumLogger",
+        "repositoryURL": "https://github.com/IBM-Swift/HeliumLogger.git",
+        "state": {
+          "branch": null,
+          "revision": "55fd2f0b70793017acee853c53cfcf8da0bd8d8d",
+          "version": "1.9.200"
+        }
+      },
+      {
         "package": "IBDecodable",
         "repositoryURL": "https://github.com/IBDecodable/IBDecodable.git",
         "state": {
@@ -44,6 +62,24 @@
           "branch": null,
           "revision": "5d9454d603f6f94fe59acda6fff981380b7424b3",
           "version": "0.4.25"
+        }
+      },
+      {
+        "package": "LicensePlist",
+        "repositoryURL": "https://github.com/mono0926/LicensePlist",
+        "state": {
+          "branch": null,
+          "revision": "fa4699f642bf4f835009ef6e957cbe2728db540d",
+          "version": "3.0.7"
+        }
+      },
+      {
+        "package": "LoggerAPI",
+        "repositoryURL": "https://github.com/Kitura/LoggerAPI.git",
+        "state": {
+          "branch": null,
+          "revision": "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
+          "version": "1.9.200"
         }
       },
       {
@@ -74,6 +110,15 @@
         }
       },
       {
+        "package": "Result",
+        "repositoryURL": "https://github.com/antitypical/Result.git",
+        "state": {
+          "branch": null,
+          "revision": "2ca499ba456795616fbc471561ff1d963e6ae160",
+          "version": "4.1.0"
+        }
+      },
+      {
         "package": "SourceKitten",
         "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
         "state": {
@@ -98,6 +143,24 @@
           "branch": null,
           "revision": "9564d61b08a5335ae0a36f789a7d71493eacadfc",
           "version": "0.3.2"
+        }
+      },
+      {
+        "package": "HTMLEntities",
+        "repositoryURL": "https://github.com/IBM-Swift/swift-html-entities.git",
+        "state": {
+          "branch": null,
+          "revision": "2b14531d0c36dbb7c1c45a4d38db9c2e7898a307",
+          "version": "3.0.200"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
         }
       },
       {
@@ -152,6 +215,15 @@
           "branch": null,
           "revision": "1fc861d368831f751341f804298e78ebb789592e",
           "version": "2.2.0"
+        }
+      },
+      {
+        "package": "Yaml",
+        "repositoryURL": "https://github.com/behrang/YamlSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "287f5cab7da0d92eb947b5fd8151b203ae04a9a3",
+          "version": "3.4.4"
         }
       },
       {

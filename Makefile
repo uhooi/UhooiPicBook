@@ -65,7 +65,7 @@ install-templates: # Install Generamba templates
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	swift run -c release --package-path BuildTools license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
