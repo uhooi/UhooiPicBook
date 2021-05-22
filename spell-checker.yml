@@ -10,6 +10,9 @@ whiteList:
   - json
   - hashable
   - fcm
+  - github
+  - thii
+  - xcbeautify
 
   # Uhooi
   - theuhooi
