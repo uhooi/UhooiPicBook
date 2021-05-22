@@ -11,12 +11,57 @@
         }
       },
       {
+        "package": "Commandant",
+        "repositoryURL": "https://github.com/Carthage/Commandant.git",
+        "state": {
+          "branch": null,
+          "revision": "ab68611013dec67413628ac87c1f29e8427bc8e4",
+          "version": "0.17.0"
+        }
+      },
+      {
         "package": "Commander",
         "repositoryURL": "https://github.com/kylef/Commander.git",
         "state": {
           "branch": null,
           "revision": "4b6133c3071d521489a80c38fb92d7983f19d438",
           "version": "0.9.1"
+        }
+      },
+      {
+        "package": "IBDecodable",
+        "repositoryURL": "https://github.com/IBDecodable/IBDecodable.git",
+        "state": {
+          "branch": null,
+          "revision": "7b77cb58084267b8bbaef3521b8600a85b1b8fd6",
+          "version": "0.4.2"
+        }
+      },
+      {
+        "package": "IBLinter",
+        "repositoryURL": "https://github.com/IBDecodable/IBLinter",
+        "state": {
+          "branch": null,
+          "revision": "5d9454d603f6f94fe59acda6fff981380b7424b3",
+          "version": "0.4.25"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+          "version": "8.1.2"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
+          "version": "2.2.1"
         }
       },
       {
@@ -98,6 +143,15 @@
           "branch": null,
           "revision": "dab519997ca05833470c88f0926b27498911ecbf",
           "version": "2.7.7"
+        }
+      },
+      {
+        "package": "XcodeProjKit",
+        "repositoryURL": "https://github.com/phimage/XcodeProjKit.git",
+        "state": {
+          "branch": null,
+          "revision": "1fc861d368831f751341f804298e78ebb789592e",
+          "version": "2.2.0"
         }
       },
       {

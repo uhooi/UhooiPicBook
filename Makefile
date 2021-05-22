@@ -114,7 +114,7 @@ clean: # Delete cache
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug
-	swift run -c release --package-path Tools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	swift run -c release --package-path BuildTools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
@@ -128,7 +128,7 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| swift run -c release --package-path Tools xcbeautify
+| swift run -c release --package-path BuildTools xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -145,7 +145,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| swift run -c release --package-path Tools xcbeautify --is-ci
+| swift run -c release --package-path BuildTools xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML
