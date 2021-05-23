@@ -24,6 +24,7 @@ enabled_rules:
 excluded:
   - SourcePackages
   - BuildTools
+  - UhooiPicBookIBLinter
   - Generated
 
 view_as_device_rule:
