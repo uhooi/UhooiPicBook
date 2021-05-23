@@ -83,7 +83,7 @@ generate-xcodeproj-production: # Generate project with XcodeGen for production
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
-	mint run xcodegen xcodegen generate
+	swift run -c release --package-path BuildTools xcodegen generate
 	$(MAKE) open
 
 .PHONY: copy-googleserviceinfo-develop
