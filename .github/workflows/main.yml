@@ -44,6 +44,28 @@ jobs:
     - name: Install Bundled Gems
       run: make install-bundler
 
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookIBLinter/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookIBLinter/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
     # ライセンス情報の生成
     - name: Generate licenses
       run: make generate-licenses
@@ -94,6 +116,28 @@ jobs:
     # Bundlerで管理しているライブラリのインストール
     - name: Install Bundled Gems
       run: make install-bundler
+
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookIBLinter/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookIBLinter/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
 
     # ライセンス情報の生成
     - name: Generate licenses
