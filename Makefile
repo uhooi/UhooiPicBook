@@ -19,9 +19,6 @@ XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
 PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
-MINT_PATH := mint/lib
-MINT_LINK_PATH := mint/bin
-
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
@@ -37,7 +34,6 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-ruby
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
-	$(MAKE) install-mint
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
 
@@ -54,10 +50,6 @@ install-bundler: # Install Bundler dependencies
 update-bundler: # Update Bundler dependencies
 	bundle config path vendor/bundle
 	bundle update --jobs 4 --retry 3
-
-.PHONY: install-mint
-install-mint: # Install Mint dependencies
-	mint bootstrap --overwrite y
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -106,7 +98,6 @@ open: # Open project in Xcode
 .PHONY: clean
 clean: # Delete cache
 	rm -rf ./vendor/bundle
-	rm -rf ./mint
 	rm -rf ./SourcePackages
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
