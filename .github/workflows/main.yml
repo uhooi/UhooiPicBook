@@ -45,21 +45,24 @@ jobs:
       run: make install-bundler
 
     # SwiftPMで管理しているCLIツールのキャッシュ
-    - uses: actions/cache@v2
+    - name: Cache CLI tools managed by SwiftPM
+      uses: actions/cache@v2
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
-    - uses: actions/cache@v2
+    - name: Cache IBLinter managed by SwiftPM
+      uses: actions/cache@v2
       with:
         path: Tools/UhooiPicBookIBLinter/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookIBLinter/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
-    - uses: actions/cache@v2
+    - name: Cache Mockolo managed by SwiftPM
+      uses: actions/cache@v2
       with:
         path: Tools/UhooiPicBookMockolo/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
@@ -75,7 +78,7 @@ jobs:
       run: make generate-xcodeproj-develop
 
     # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache SwiftPM packages
+    - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
       with:
         path: SourcePackages
