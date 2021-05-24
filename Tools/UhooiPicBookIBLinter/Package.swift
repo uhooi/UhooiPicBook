@@ -11,12 +11,5 @@ let package = Package(
         // and then we'll put the package together.
         .package(url: "https://github.com/IBDecodable/IBLinter", .exact("0.4.25")),
     ],
-    targets: [
-        .target(
-            name: "UhooiPicBookIBLinter",
-            path: "",
-            exclude: [
-            ]
-        )
-    ]
+    targets: [.target(name: "UhooiPicBookIBLinter", path: "")]
 )
