@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "BuildTools",
+    name: "UhooiPicBookTools",
     platforms: [
         .macOS(.v11)
     ],
@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "BuildTools",
+            name: "UhooiPicBookTools",
             path: "",
             exclude: [
                 "R.swift/Examples"

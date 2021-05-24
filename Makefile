@@ -57,7 +57,7 @@ install-templates: # Install Generamba templates
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	swift run -c release --package-path BuildTools license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	swift run -c release --package-path Tools/UhooiPicBookTools license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
@@ -75,7 +75,7 @@ generate-xcodeproj-production: # Generate project with XcodeGen for production
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
-	swift run -c release --package-path BuildTools xcodegen generate
+	swift run -c release --package-path Tools/UhooiPicBookTools xcodegen generate
 	$(MAKE) open
 
 .PHONY: copy-googleserviceinfo-develop
@@ -105,7 +105,7 @@ clean: # Delete cache
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug
-	swift run -c release --package-path BuildTools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	swift run -c release --package-path Tools/UhooiPicBookTools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
@@ -119,7 +119,7 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| swift run -c release --package-path BuildTools xcbeautify
+| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -136,7 +136,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| swift run -c release --package-path BuildTools xcbeautify --is-ci
+| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML
