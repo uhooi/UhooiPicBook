@@ -7,7 +7,7 @@ let package = Package(
         .macOS(.v11)
     ],
     dependencies: [
-        .package(url: "https://github.com/uhooi/mockolo", .exact("1.3.4")) // TODO: Replace uhooi with uber
+        .package(url: "https://github.com/uhooi/mockolo", .exact("1.4.0")) // TODO: Replace uhooi with uber
     ],
     targets: [.target(name: "UhooiPicBookMockolo", path: "")]
 )
