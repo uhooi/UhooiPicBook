@@ -23,6 +23,7 @@ enabled_rules:
 # 対象外のファイル・フォルダ
 excluded:
   - SourcePackages
+  - Tools
   - Generated
 
 view_as_device_rule:

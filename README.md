@@ -63,7 +63,6 @@ You can develop this project.
 
 - [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.4
 - [rbenv](https://github.com/rbenv/rbenv): 1.1.2
-- [Mint](https://github.com/yonaskolb/Mint): 0.16.0
 
 2. Clone the project.
 
@@ -84,7 +83,6 @@ $ make help
 setup                                      Install dependencies and prepared development configuration
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
-install-mint                               Install Mint dependencies
 install-templates                          Install Generamba templates
 generate-licenses                          Generate licenses with LicensePlist
 generate-module MODULE_NAME=[module name]  Generate module with Generamba
