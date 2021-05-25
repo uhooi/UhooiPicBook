@@ -20,7 +20,7 @@ settings:
 packages:
   Rswift:
     url: https://github.com/mac-cain13/R.swift.Library
-    version: 5.3.0
+    version: 5.4.0
   Gedatsu:
     url: https://github.com/bannzai/Gedatsu
     version: 1.2.0

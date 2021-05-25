@@ -19,9 +19,6 @@ XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
 PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
-MINT_PATH := mint/lib
-MINT_LINK_PATH := mint/bin
-
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
 .DEFAULT_GOAL := help
@@ -37,7 +34,6 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-ruby
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
-	$(MAKE) install-mint
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
 
@@ -55,17 +51,13 @@ update-bundler: # Update Bundler dependencies
 	bundle config path vendor/bundle
 	bundle update --jobs 4 --retry 3
 
-.PHONY: install-mint
-install-mint: # Install Mint dependencies
-	mint bootstrap --overwrite y
-
 .PHONY: install-templates
 install-templates: # Install Generamba templates
 	bundle exec generamba template install
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	mint run LicensePlist license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	swift run -c release --package-path Tools/UhooiPicBookTools license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
@@ -83,7 +75,7 @@ generate-xcodeproj-production: # Generate project with XcodeGen for production
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
-	mint run xcodegen xcodegen generate
+	swift run -c release --package-path Tools/UhooiPicBookTools xcodegen generate
 	$(MAKE) open
 
 .PHONY: copy-googleserviceinfo-develop
@@ -106,7 +98,6 @@ open: # Open project in Xcode
 .PHONY: clean
 clean: # Delete cache
 	rm -rf ./vendor/bundle
-	rm -rf ./mint
 	rm -rf ./SourcePackages
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
@@ -114,7 +105,7 @@ clean: # Delete cache
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug
-	mint run swiftlint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	swift run -c release --package-path Tools/UhooiPicBookTools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
@@ -128,7 +119,7 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| mint run thii/xcbeautify xcbeautify
+| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -145,7 +136,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| mint run thii/xcbeautify xcbeautify --is-ci
+| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML

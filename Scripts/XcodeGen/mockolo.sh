@@ -1,9 +1,4 @@
-export MINT_PATH=mint/lib
-export MINT_LINK_PATH=mint/bin
-if which mint >/dev/null; then
-  rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
-  xcrun --sdk macosx mint run uber/mockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
-else
-  echo "warning: Mint not installed, download from https://github.com/yonaskolb/Mint"
-fi
+rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift
+SDKROOT=macosx
+swift run -c release --package-path Tools/UhooiPicBookMockolo mockolo --sourcedirs $SRCROOT/$TARGET_NAME $SRCROOT/Shared --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final
 

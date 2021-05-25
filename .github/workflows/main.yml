@@ -22,8 +22,6 @@ on:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_12.5.app
-  MINT_PATH: mint/lib
-  MINT_LINK_PATH: mint/bin
 
 jobs:
   build:
@@ -46,18 +44,30 @@ jobs:
     - name: Install Bundled Gems
       run: make install-bundler
 
-    # Mintのインストール
-    - name: Install Mint
-      run: brew install mint
-
-    # Mintで管理しているライブラリのキャッシュ
-    - name: Cache Mint packages
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - name: Cache CLI tools managed by SwiftPM
       uses: actions/cache@v2
       with:
-        path: mint
-        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
         restore-keys: |
-          ${{ runner.os }}-mint-
+          ${{ runner.os }}-spm-
+
+    - name: Cache IBLinter managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookIBLinter/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookIBLinter/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - name: Cache Mockolo managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
 
     # ライセンス情報の生成
     - name: Generate licenses
@@ -68,7 +78,7 @@ jobs:
       run: make generate-xcodeproj-develop
 
     # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache SwiftPM packages
+    - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
       with:
         path: SourcePackages
@@ -110,18 +120,30 @@ jobs:
     - name: Install Bundled Gems
       run: make install-bundler
 
-    # Mintのインストール
-    - name: Install Mint
-      run: brew install mint
-
-    # Mintで管理しているライブラリのキャッシュ
-    - name: Cache Mint packages
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - name: Cache CLI tools managed by SwiftPM
       uses: actions/cache@v2
       with:
-        path: mint
-        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
         restore-keys: |
-          ${{ runner.os }}-mint-
+          ${{ runner.os }}-spm-
+
+    - name: Cache IBLinter managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookIBLinter/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookIBLinter/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - name: Cache Mockolo managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
 
     # ライセンス情報の生成
     - name: Generate licenses
@@ -132,7 +154,7 @@ jobs:
       run: make generate-xcodeproj-develop
 
     # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache SwiftPM packages
+    - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
       with:
         path: SourcePackages

@@ -10,6 +10,13 @@ whiteList:
   - json
   - hashable
   - fcm
+  - github
+  - thii
+  - xcbeautify
+  - yonaskolb
+  - fromkk
+  - uber
+  - mockolo
 
   # Uhooi
   - theuhooi

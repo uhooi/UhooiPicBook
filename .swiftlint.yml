@@ -1,4 +1,4 @@
-parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/v1.0.0/uhooi-base-swiftlint-config.yml
+parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/v1.1.0/uhooi-base-swiftlint-config.yml
 
 included:
   - Shared
