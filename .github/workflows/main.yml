@@ -154,7 +154,7 @@ jobs:
       run: make generate-xcodeproj-develop
 
     # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache SwiftPM packages
+    - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
       with:
         path: SourcePackages
