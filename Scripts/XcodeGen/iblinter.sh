@@ -1,3 +1,3 @@
 SDKROOT=macosx
-swift run -c release --package-path Tools/UhooiPicBookIBLinter iblinter lint
+swift run -c release --package-path Tools/UhooiPicBookTools iblinter lint
 
