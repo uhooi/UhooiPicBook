@@ -90,6 +90,7 @@ generate-xcodeproj-develop                 Generate project with XcodeGen for de
 generate-xcodeproj-production              Generate project with XcodeGen for production
 open                                       Open project in Xcode
 clean                                      Delete cache
+clean-swift-packages                       Delete build artifacts
 analyze                                    Analyze with SwiftLint
 build-debug                                Xcode build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
