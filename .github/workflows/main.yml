@@ -53,14 +53,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-spm-
 
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
     # ライセンス情報の生成
     - name: Generate licenses
       run: make generate-licenses
@@ -118,14 +110,6 @@ jobs:
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
