@@ -29,7 +29,7 @@ packages:
     version: 1.0.0
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    version: 8.0.0
+    version: 8.1.0
 
 targets:
   UhooiPicBook:
