@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.4.app
+  DEVELOPER_DIR: /Applications/Xcode_12.5.app
 
 jobs:
   build:
@@ -50,14 +50,6 @@ jobs:
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
@@ -118,14 +110,6 @@ jobs:
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
