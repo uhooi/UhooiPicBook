@@ -97,10 +97,19 @@ open: # Open project in Xcode
 
 .PHONY: clean
 clean: # Delete cache
+	rm -rf ./Tools/UhooiPicBookTools/.swiftpm
+	rm -rf ./Tools/UhooiPicBookTools/.build
+	rm -rf ./Tools/UhooiPicBookMockolo/.swiftpm
+	rm -rf ./Tools/UhooiPicBookMockolo/.build
 	rm -rf ./vendor/bundle
 	rm -rf ./SourcePackages
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
+
+.PHONY: clean-swift-packages
+clean-swift-packages: # Delete build artifacts
+	swift package --package-path Tools/UhooiPicBookTools clean
+	swift package --package-path Tools/UhooiPicBookMockolo clean
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
