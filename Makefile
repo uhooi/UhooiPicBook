@@ -16,6 +16,9 @@ COVERAGE_OUTPUT := html_report
 XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
 XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 
+DEVELOP_ENVIRONMENT := DEVELOP
+PRODUCTION_ENVIRONMENT := PRODUCTION
+
 DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
 PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
@@ -66,12 +69,12 @@ generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
 .PHONY: generate-xcodeproj-develop
 generate-xcodeproj-develop: # Generate project with XcodeGen for develop
 	$(MAKE) copy-googleserviceinfo-develop
-	$(MAKE) generate-xcodeproj BUNDLE_IDENTIFIER=${DEVELOP_BUNDLE_IDENTIFIER}
+	$(MAKE) generate-xcodeproj ENVIRONMENT=${DEVELOP_ENVIRONMENT} BUNDLE_IDENTIFIER=${DEVELOP_BUNDLE_IDENTIFIER}
 
 .PHONY: generate-xcodeproj-production
 generate-xcodeproj-production: # Generate project with XcodeGen for production
 	$(MAKE) copy-googleserviceinfo-production
-	$(MAKE) generate-xcodeproj BUNDLE_IDENTIFIER=${PRODUCTION_BUNDLE_IDENTIFIER}
+	$(MAKE) generate-xcodeproj ENVIRONMENT=${PRODUCTION_ENVIRONMENT} BUNDLE_IDENTIFIER=${PRODUCTION_BUNDLE_IDENTIFIER}
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
