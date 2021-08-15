@@ -1,13 +1,13 @@
 # UhooiPicBook-iOS
 
 [![Release](https://img.shields.io/github/v/release/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/releases/latest)
-[![License](https://img.shields.io/github/license/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)](https://github.com/uhooi/UhooiPicBook)
 [![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
 |Branch|CI|Code coverage|
 |:--|:--|:--|
-|[master](https://github.com/uhooi/UhooiPicBook/tree/master)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/master/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
+|[main](https://github.com/uhooi/UhooiPicBook/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/main/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
 |[develop](https://github.com/uhooi/UhooiPicBook/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/develop/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
 
 ![Logo](./Docs/Logo.png)
