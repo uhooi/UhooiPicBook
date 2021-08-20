@@ -175,6 +175,10 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
+
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
@@ -190,10 +194,6 @@ jobs:
     # Bundlerのバージョン出力
     - name: Show Bundler version
       run: bundle version
-
-    # Xcodeの一覧出力
-    - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
 
     # 端末の一覧出力
     - name: Show devices
