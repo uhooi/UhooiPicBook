@@ -21,11 +21,11 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.4.app
+  DEVELOPER_DIR: /Applications/Xcode_12.5.1.app
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macos-11
 
     steps:
     # チェックアウト
@@ -50,14 +50,6 @@ jobs:
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
@@ -93,7 +85,7 @@ jobs:
         retention-days: 14
 
   test:
-    runs-on: macOS-latest
+    runs-on: macos-11
 
     steps:
     # チェックアウト
@@ -118,14 +110,6 @@ jobs:
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    - name: Cache Mockolo managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
@@ -185,11 +169,15 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   info:
-    runs-on: macOS-latest
+    runs-on: macos-11
 
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
+
+    # Xcodeの一覧出力
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'
 
     # Xcodeのバージョン出力
     - name: Show Xcode version
@@ -206,10 +194,6 @@ jobs:
     # Bundlerのバージョン出力
     - name: Show Bundler version
       run: bundle version
-
-    # Xcodeの一覧出力
-    - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
 
     # 端末の一覧出力
     - name: Show devices

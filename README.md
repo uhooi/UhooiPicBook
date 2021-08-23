@@ -61,7 +61,7 @@ You can develop this project.
 
 1. Install the following tools.
 
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.4
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.5.1
 - [rbenv](https://github.com/rbenv/rbenv): 1.1.2
 
 2. Clone the project.

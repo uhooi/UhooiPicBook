@@ -9,7 +9,7 @@ TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 12 Pro Max
-TEST_OS ?= 14.4
+TEST_OS ?= 14.5
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
 
@@ -102,8 +102,6 @@ open: # Open project in Xcode
 clean: # Delete cache
 	rm -rf ./Tools/UhooiPicBookTools/.swiftpm
 	rm -rf ./Tools/UhooiPicBookTools/.build
-	rm -rf ./Tools/UhooiPicBookMockolo/.swiftpm
-	rm -rf ./Tools/UhooiPicBookMockolo/.build
 	rm -rf ./vendor/bundle
 	rm -rf ./SourcePackages
 	rm -rf ./Templates
@@ -112,7 +110,6 @@ clean: # Delete cache
 .PHONY: clean-swift-packages
 clean-swift-packages: # Delete build artifacts
 	swift package --package-path Tools/UhooiPicBookTools clean
-	swift package --package-path Tools/UhooiPicBookMockolo clean
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint

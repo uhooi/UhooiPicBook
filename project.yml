@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: ja
-  xcodeVersion: "12.4"
+  xcodeVersion: "12.5.1"
 
 settings:
   base:
@@ -29,7 +29,7 @@ packages:
     version: 1.0.0
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    version: 7.3.1
+    version: 8.6.0
 
 targets:
   UhooiPicBook:
@@ -78,6 +78,8 @@ targets:
         product: FirebaseInstallations
       - package: Firebase
         product: FirebaseMessaging
+      - package: Firebase
+        product: FirebasePerformance
       - package: Firebase
         product: FirebaseRemoteConfig
     preBuildScripts:
@@ -190,6 +192,8 @@ targets:
       - package: Firebase
         product: FirebaseMessaging
       - package: Firebase
+        product: FirebasePerformance
+      - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
       - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
@@ -234,6 +238,8 @@ targets:
       - package: Firebase
         product: FirebaseMessaging
       - package: Firebase
+        product: FirebasePerformance
+      - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
       - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
@@ -246,15 +252,6 @@ schemes:
     build:
       targets:
         UhooiPicBook: all
-      postActions:
-        - script: rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAnalytics.framework" &&
-                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleAppMeasurement.framework" &&
-                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/FirebaseAnalytics.framework" &&
-                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/GoogleAppMeasurement.framework" &&
-                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgets.appex/Frameworks" &&
-                  rm -rf "${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/PlugIns/UhooiPicBookWidgetsConfigurableIntent.appex/Frameworks"
-          name: Remove Firebase frameworks
-          settingsTarget: UhooiPicBook
     run:
       config: Debug
     test:
