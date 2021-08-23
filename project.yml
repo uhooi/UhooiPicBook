@@ -79,6 +79,8 @@ targets:
       - package: Firebase
         product: FirebaseMessaging
       - package: Firebase
+        product: FirebasePerformance
+      - package: Firebase
         product: FirebaseRemoteConfig
     preBuildScripts:
       - path: ./Scripts/XcodeGen/rswift.sh
@@ -190,6 +192,8 @@ targets:
       - package: Firebase
         product: FirebaseMessaging
       - package: Firebase
+        product: FirebasePerformance
+      - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
       - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
@@ -233,6 +237,8 @@ targets:
         product: FirebaseInstallations
       - package: Firebase
         product: FirebaseMessaging
+      - package: Firebase
+        product: FirebasePerformance
       - package: Firebase
         product: FirebaseRemoteConfig
     postBuildScripts:
