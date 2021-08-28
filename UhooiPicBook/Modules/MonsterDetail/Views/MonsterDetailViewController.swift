@@ -87,7 +87,7 @@ final class MonsterDetailViewController: UIViewController {
         self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
         self.nameLabel.text = monster.name
         self.descriptionLabel.text = monster.description
-        self.navigationController?.navigationBar.barTintColor = .init(hex: monster.baseColorCode)
+        self.navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
 
 }
