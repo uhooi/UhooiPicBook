@@ -66,7 +66,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
     typealias Entry = MonsterEntry
 
     static var previews: some View {
-        ForEach(families.indices) { index in
+        ForEach(0..<families.count, id: \.self) { index in
             previewEntryViewGroup
                 .previewContext(WidgetPreviewContext(family: families[index]))
         }
