@@ -38,7 +38,7 @@ struct MonsterEntryView: View {
                 }
                 .padding()
             }
-        case .systemLarge:
+        case .systemLarge, .systemExtraLarge:
             EmptyView()
         @unknown default:
             EmptyView()
