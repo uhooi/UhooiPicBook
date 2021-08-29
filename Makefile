@@ -76,7 +76,7 @@ install-templates: # Install Generamba templates
 .PHONY: download-firebase-sdk
 download-firebase-sdk: # Download firebase-ios-sdk
 	curl -OL https://github.com/firebase/firebase-ios-sdk/releases/download/${FIREBASE_VERSION}/Firebase.zip
-	unzip Firebase.zip -d Frameworks/
+	unzip -o Firebase.zip -d Frameworks/
 	rm -f Firebase.zip
 
 .PHONY: generate-licenses
