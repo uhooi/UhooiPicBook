@@ -147,7 +147,7 @@ build-debug: # Xcode build for debug
 -scheme ${SCHEME_NAME} \
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
-build \
+clean build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
 | Tools/UhooiPicBookTools/.build/release/xcbeautify
 
