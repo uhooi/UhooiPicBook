@@ -27,9 +27,6 @@ packages:
   SwiftPrettyPrint:
     url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
     version: 1.0.0
-  Firebase:
-    url: https://github.com/firebase/firebase-ios-sdk
-    version: 8.6.0
 
 targets:
   UhooiPicBook:
@@ -43,6 +40,8 @@ targets:
         type: file
       - path: "UhooiPicBook/Generated/R.generated.swift"
         optional: true
+        type: file
+      - path: "Frameworks/Firebase/FirebaseFirestore/Resources/gRPCCertificates-Cpp.bundle"
         type: file
     settings:
       base:
@@ -66,22 +65,27 @@ targets:
       - package: Rswift
       - package: Gedatsu
       - package: SwiftPrettyPrint
-      - package: Firebase
-        product: FirebaseAnalytics
-      - package: Firebase
-        product: FirebaseAppDistribution-Beta
-      - package: Firebase
-        product: FirebaseCrashlytics
-      - package: Firebase
-        product: FirebaseFirestore
-      - package: Firebase
-        product: FirebaseInstallations
-      - package: Firebase
-        product: FirebaseMessaging
-      - package: Firebase
-        product: FirebasePerformance
-      - package: Firebase
-        product: FirebaseRemoteConfig
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseAnalytics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/PromisesObjC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAppDistribution/FirebaseAppDistribution.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/abseil.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebasePerformance.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseRemoteConfig.xcframework"
     preBuildScripts:
       - path: ./Scripts/XcodeGen/rswift.sh
         name: Generate Resources with R.swift
@@ -101,7 +105,7 @@ targets:
       - path: ./Scripts/XcodeGen/spellchecker.sh
         name: Run SpellChecker
     postBuildScripts:
-      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+      - script: ./Frameworks/Firebase/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -176,27 +180,34 @@ targets:
     sources:
       - UhooiPicBookWidgets
       - Shared
+      - path: "Frameworks/Firebase/FirebaseFirestore/Resources/gRPCCertificates-Cpp.bundle"
+        type: file
     dependencies:
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
-      - package: Firebase
-        product: FirebaseAnalytics
-      - package: Firebase
-        product: FirebaseAppDistribution-Beta
-      - package: Firebase
-        product: FirebaseCrashlytics
-      - package: Firebase
-        product: FirebaseFirestore
-      - package: Firebase
-        product: FirebaseInstallations
-      - package: Firebase
-        product: FirebaseMessaging
-      - package: Firebase
-        product: FirebasePerformance
-      - package: Firebase
-        product: FirebaseRemoteConfig
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseAnalytics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/PromisesObjC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAppDistribution/FirebaseAppDistribution.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/abseil.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebasePerformance.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseRemoteConfig.xcframework"
     postBuildScripts:
-      - script: ./SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run
+      - script: ./Frameworks/Firebase/FirebaseCrashlytics/run
         name: Run Firebase Crashlytics
         inputFiles:
           - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
@@ -224,21 +235,29 @@ targets:
     sources:
       - UhooiPicBookWidgetsConfigurableIntent
       - Shared
+      - path: "Frameworks/Firebase/FirebaseFirestore/Resources/gRPCCertificates-Cpp.bundle"
+        type: file
     dependencies:
-      - package: Firebase
-        product: FirebaseAnalytics
-      - package: Firebase
-        product: FirebaseAppDistribution-Beta
-      - package: Firebase
-        product: FirebaseFirestore
-      - package: Firebase
-        product: FirebaseInstallations
-      - package: Firebase
-        product: FirebaseMessaging
-      - package: Firebase
-        product: FirebasePerformance
-      - package: Firebase
-        product: FirebaseRemoteConfig
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseAnalytics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/PromisesObjC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseAppDistribution/FirebaseAppDistribution.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/abseil.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"
+      - framework: "Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebasePerformance.xcframework"
+      - framework: "Frameworks/Firebase/FirebasePerformance/FirebaseRemoteConfig.xcframework"
 
 schemes:
   UhooiPicBook:

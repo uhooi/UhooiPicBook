@@ -12,5 +12,5 @@ do
 done
 
 SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
-swift run -c release --package-path Tools/UhooiPicBookTools SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
+Tools/UhooiPicBookTools/.build/release/SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
 
