@@ -1,0 +1,8 @@
+github:
+  - owner: firebase
+    name: firebase-ios-sdk
+    version: 8.6.0
+
+rename:
+  firebase-ios-sdk: Firebase
+

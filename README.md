@@ -83,14 +83,16 @@ $ make help
 setup                                      Install dependencies and prepared development configuration
 install-bundler                            Install Bundler dependencies
 update-bundler                             Update Bundler dependencies
+build-cli-tools                            Build CLI tools managed by SwiftPM
 install-templates                          Install Generamba templates
+download-firebase-sdk                      Download firebase-ios-sdk
 generate-licenses                          Generate licenses with LicensePlist
 generate-module MODULE_NAME=[module name]  Generate module with Generamba
 generate-xcodeproj-develop                 Generate project with XcodeGen for develop
 generate-xcodeproj-production              Generate project with XcodeGen for production
 open                                       Open project in Xcode
 clean                                      Delete cache
-clean-swift-packages                       Delete build artifacts
+clean-cli-tools                            Delete build artifacts for CLI tools managed by SwiftPM
 analyze                                    Analyze with SwiftLint
 build-debug                                Xcode build for debug
 test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
