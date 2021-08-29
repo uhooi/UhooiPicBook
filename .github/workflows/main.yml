@@ -47,6 +47,7 @@ jobs:
     # SwiftPMで管理しているCLIツールのキャッシュ
     - name: Cache CLI tools managed by SwiftPM
       uses: actions/cache@v2
+      id: cli-tools-cache
       with:
         path: Tools/UhooiPicBookTools/.build
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
@@ -55,6 +56,7 @@ jobs:
 
     # SwiftPMで管理しているCLIツールのビルド
     - name: Build Swift CLI tools
+      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
       run: make build-cli-tools
 
     # ライセンス情報の生成
@@ -68,6 +70,7 @@ jobs:
     # SwiftPMで管理しているライブラリのキャッシュ
     - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
+      id: cli-tools-cache
       with:
         path: SourcePackages
         key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
@@ -116,6 +119,11 @@ jobs:
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
+
+    # SwiftPMで管理しているCLIツールのビルド
+    - name: Build Swift CLI tools
+      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
+      run: make build-cli-tools
 
     # ライセンス情報の生成
     - name: Generate licenses
