@@ -24,6 +24,8 @@ PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
 
 MODULE_TEMPLATE_NAME ?= uhooi_viper
 
+FIREBASE_VERSION := 8.6.0
+
 .DEFAULT_GOAL := help
 
 # Targets
@@ -38,6 +40,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) build-cli-tools
+	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
 
@@ -56,7 +59,7 @@ update-bundler: # Update Bundler dependencies
 	bundle update --jobs 4 --retry 3
 
 .PHONY: build-cli-tools
-build-cli-tools: # Build Swift CLI tools
+build-cli-tools: # Build CLI tools managed by SwiftPM
 	swift build -c release --package-path Tools/UhooiPicBookTools --product xcodegen
 	swift build -c release --package-path Tools/UhooiPicBookTools --product swiftlint
 	swift build -c release --package-path Tools/UhooiPicBookTools --product iblinter
@@ -70,9 +73,15 @@ build-cli-tools: # Build Swift CLI tools
 install-templates: # Install Generamba templates
 	bundle exec generamba template install
 
+.PHONY: download-firebase-sdk
+download-firebase-sdk: # Download firebase-ios-sdk
+	curl -OL https://github.com/firebase/firebase-ios-sdk/releases/download/${FIREBASE_VERSION}/Firebase.zip
+	unzip Firebase.zip -d Frameworks/
+	rm -f Firebase.zip
+
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	Tools/UhooiPicBookTools/.build/release/license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	Tools/UhooiPicBookTools/.build/release/license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers --config-path lic-plist.yml
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
@@ -120,7 +129,7 @@ clean: # Delete cache
 	xcodebuild clean -alltargets
 
 .PHONY: clean-cli-tools
-clean-cli-tools: # Delete build artifacts for Swift CLI tools
+clean-cli-tools: # Delete build artifacts for CLI tools managed by SwiftPM
 	swift package --package-path Tools/UhooiPicBookTools clean
 
 .PHONY: analyze

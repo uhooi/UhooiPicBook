@@ -55,9 +55,13 @@ jobs:
           ${{ runner.os }}-spm-
 
     # SwiftPMで管理しているCLIツールのビルド
-    - name: Build Swift CLI tools
+    - name: Build CLI tools managed by SwiftPM
       if: steps.cli-tools-cache.outputs.cache-hit != 'true'
       run: make build-cli-tools
+
+    # Firebase SDKのダウンロード
+    - name: Download Firebase SDK
+      run: make download-firebase-sdk
 
     # ライセンス情報の生成
     - name: Generate licenses
@@ -121,9 +125,13 @@ jobs:
           ${{ runner.os }}-spm-
 
     # SwiftPMで管理しているCLIツールのビルド
-    - name: Build Swift CLI tools
+    - name: Build CLI tools managed by SwiftPM
       if: steps.cli-tools-cache.outputs.cache-hit != 'true'
       run: make build-cli-tools
+
+    # Firebase SDKのダウンロード
+    - name: Download Firebase SDK
+      run: make download-firebase-sdk
 
     # ライセンス情報の生成
     - name: Generate licenses
