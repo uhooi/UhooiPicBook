@@ -53,6 +53,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-spm-
 
+    # SwiftPMで管理しているCLIツールのビルド
+    - name: Build Swift CLI tools
+      run: make build-cli-tools
+
     # ライセンス情報の生成
     - name: Generate licenses
       run: make generate-licenses

@@ -37,6 +37,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-ruby
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
+	$(MAKE) build-cli-tools
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
 
@@ -54,13 +55,24 @@ update-bundler: # Update Bundler dependencies
 	bundle config path vendor/bundle
 	bundle update --jobs 4 --retry 3
 
+.PHONY: build-cli-tools
+build-cli-tools: # Build Swift CLI tools
+	swift build -c release --package-path Tools/UhooiPicBookTools --product xcodegen
+	swift build -c release --package-path Tools/UhooiPicBookTools --product swiftlint
+	swift build -c release --package-path Tools/UhooiPicBookTools --product iblinter
+	swift build -c release --package-path Tools/UhooiPicBookTools --product SpellChecker
+	swift build -c release --package-path Tools/UhooiPicBookTools --product mockolo
+	swift build -c release --package-path Tools/UhooiPicBookTools --product license-plist
+	swift build -c release --package-path Tools/UhooiPicBookTools --product rswift
+	swift build -c release --package-path Tools/UhooiPicBookTools --product xcbeautify
+
 .PHONY: install-templates
 install-templates: # Install Generamba templates
 	bundle exec generamba template install
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	swift run -c release --package-path Tools/UhooiPicBookTools license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
+	Tools/UhooiPicBookTools/.build/release/license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
@@ -78,7 +90,7 @@ generate-xcodeproj-production: # Generate project with XcodeGen for production
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
-	swift run -c release --package-path Tools/UhooiPicBookTools xcodegen generate
+	Tools/UhooiPicBookTools/.build/release/xcodegen generate
 	$(MAKE) open
 
 .PHONY: copy-googleserviceinfo-develop
@@ -107,14 +119,14 @@ clean: # Delete cache
 	rm -rf ./Templates
 	xcodebuild clean -alltargets
 
-.PHONY: clean-swift-packages
-clean-swift-packages: # Delete build artifacts
+.PHONY: clean-cli-tools
+clean-cli-tools: # Delete build artifacts for Swift CLI tools
 	swift package --package-path Tools/UhooiPicBookTools clean
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug
-	swift run -c release --package-path Tools/UhooiPicBookTools swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	Tools/UhooiPicBookTools/.build/release/swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug
 build-debug: # Xcode build for debug
@@ -128,7 +140,7 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify
+| Tools/UhooiPicBookTools/.build/release/xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -145,7 +157,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| swift run -c release --package-path Tools/UhooiPicBookTools xcbeautify --is-ci
+| Tools/UhooiPicBookTools/.build/release/xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML
