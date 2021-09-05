@@ -303,8 +303,8 @@
         "repositoryURL": "https://github.com/yonaskolb/XcodeGen",
         "state": {
           "branch": null,
-          "revision": "938b8269130df4cdeb9b48352df79bc649b2d56b",
-          "version": "2.23.0"
+          "revision": "270ef8b27963b9fbfae3d02a253cc32a82f04ab1",
+          "version": "2.24.0"
         }
       },
       {
@@ -312,8 +312,8 @@
         "repositoryURL": "https://github.com/tuist/XcodeProj.git",
         "state": {
           "branch": null,
-          "revision": "45e349e1c4e4da1a85a7b9392b737acde2e2f2a8",
-          "version": "7.23.0"
+          "revision": "0b18c3e7a10c241323397a80cb445051f4494971",
+          "version": "8.0.0"
         }
       },
       {
