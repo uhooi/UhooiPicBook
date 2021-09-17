@@ -50,6 +50,11 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 You can develop this project.
 
+### Environment
+
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.0
+- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
+
 ### Configuration
 
 - UI implementation: Storyboard + XIB
@@ -59,19 +64,14 @@ You can develop this project.
 
 ### Setup
 
-1. Install the following tools.
-
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.0
-- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
-
-2. Clone the project.
+1. Clone the project.
 
 ```shell
 $ git clone https://github.com/uhooi/UhooiPicBook.git
 $ cd UhooiPicBook
 ```
 
-3. Run `make setup` .  
+2. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
 
 ### Help

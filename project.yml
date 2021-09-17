@@ -26,7 +26,7 @@ packages:
     version: 1.2.0
   SwiftPrettyPrint:
     url: https://github.com/YusukeHosonuma/SwiftPrettyPrint
-    version: 1.0.0
+    version: 1.2.0
 
 targets:
   UhooiPicBook:
