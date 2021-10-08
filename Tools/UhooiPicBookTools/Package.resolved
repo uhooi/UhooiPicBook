@@ -110,15 +110,6 @@
         }
       },
       {
-        "package": "Mockolo",
-        "repositoryURL": "https://github.com/uber/mockolo",
-        "state": {
-          "branch": null,
-          "revision": "bbfa118a3ca819e152ba92053ba6bbe3b45d40b2",
-          "version": "1.4.1"
-        }
-      },
-      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
@@ -215,24 +206,6 @@
           "branch": null,
           "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
           "version": "1.4.2"
-        }
-      },
-      {
-        "package": "SwiftSyntax",
-        "repositoryURL": "https://github.com/apple/swift-syntax.git",
-        "state": {
-          "branch": null,
-          "revision": "2fff9fc25cdc059379b6bd309377cfab45d8520c",
-          "version": "0.50400.0"
-        }
-      },
-      {
-        "package": "swift-tools-support-core",
-        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
-        "state": {
-          "branch": null,
-          "revision": "81e2cda46447b4d78c18e03b0d284d76950f7c2b",
-          "version": "0.1.5"
         }
       },
       {

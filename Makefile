@@ -67,7 +67,7 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
+	swift build -c release --package-path Tools/UhooiPicBookMockolo --product mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=rswift
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
