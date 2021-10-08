@@ -3,7 +3,7 @@ name: UhooiPicBook
 options:
   bundleIdPrefix: com.theuhooi
   deploymentTarget:
-    iOS: 13.0
+    iOS: 14.0
   developmentLanguage: ja
   xcodeVersion: "13.0"
 
