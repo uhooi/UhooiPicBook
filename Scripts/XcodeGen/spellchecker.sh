@@ -11,6 +11,6 @@ do
   options="$options $SRCROOT/$file"
 done
 
-SDKROOT=macosx
+SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 Tools/UhooiPicBookTools/.build/release/SpellChecker --yml $SRCROOT/spell-checker.yml -- $options
 

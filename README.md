@@ -52,7 +52,7 @@ You can develop this project.
 
 ### Environment
 
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 12.5.1
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.0
 - [rbenv](https://github.com/rbenv/rbenv): 1.1.2
 
 ### Configuration
