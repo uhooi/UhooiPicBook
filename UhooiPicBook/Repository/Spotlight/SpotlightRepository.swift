@@ -50,12 +50,7 @@ extension SpotlightClient: SpotlightRepository {
     }
 
     private func createAttributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
-        let attributeSet: CSSearchableItemAttributeSet
-        if #available(iOS 14.0, *) {
-            attributeSet = .init(contentType: .data)
-        } else {
-            attributeSet = .init(itemContentType: kUTTypeData as String)
-        }
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .data)
         attributeSet.title = title
         attributeSet.contentDescription = contentDescription
         attributeSet.thumbnailData = thumbnailData

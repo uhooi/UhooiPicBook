@@ -32,28 +32,23 @@ final class MonsterListViewController: UIViewController {
 
     @IBOutlet private weak var menuButton: UIBarButtonItem! {
         willSet {
-            if #available(iOS 14.0, *) {
-                newValue.menu = UIMenu(
-                    title: "",
-                    children: [
-                        UIAction(title: R.string.localizable.contactUs()) { _ in
-                            self.presenter.didTapContactUs()
-                        },
-                        UIAction(title: R.string.localizable.privacyPolicy()) { _ in
-                            self.presenter.didTapPrivacyPolicy()
-                        },
-                        UIAction(title: R.string.localizable.licenses()) { _ in
-                            self.presenter.didTapLicenses()
-                        },
-                        UIAction(title: R.string.localizable.aboutThisApp()) { _ in
-                            self.presenter.didTapAboutThisApp()
-                        }
-                    ]
-                )
-            } else {
-                newValue.isEnabled = false
-                newValue.tintColor = .clear
-            }
+            newValue.menu = UIMenu(
+                title: "",
+                children: [
+                    UIAction(title: R.string.localizable.contactUs()) { _ in
+                        self.presenter.didTapContactUs()
+                    },
+                    UIAction(title: R.string.localizable.privacyPolicy()) { _ in
+                        self.presenter.didTapPrivacyPolicy()
+                    },
+                    UIAction(title: R.string.localizable.licenses()) { _ in
+                        self.presenter.didTapLicenses()
+                    },
+                    UIAction(title: R.string.localizable.aboutThisApp()) { _ in
+                        self.presenter.didTapAboutThisApp()
+                    }
+                ]
+            )
         }
     }
 
