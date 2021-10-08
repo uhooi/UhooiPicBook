@@ -42,13 +42,13 @@ final class BundleStringTests: XCTestCase {
     // MARK: version
     
     func test_bundle_version() {
-        XCTAssertEqual(Bundle.main.version, "1.4.0")
+        XCTAssertEqual(Bundle.main.version, "1.5.0")
     }
     
     // MARK: build
     
     func test_bundle_build() {
-        XCTAssertEqual(Bundle.main.build, "15")
+        XCTAssertEqual(Bundle.main.build, "16")
     }
 
 }
