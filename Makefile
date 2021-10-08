@@ -43,6 +43,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) build-cli-tools
+	$(MAKE) build-mockolo
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
@@ -67,7 +68,7 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
-	swift build -c release --package-path Tools/UhooiPicBookMockolo --product mockolo
+	# $(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=rswift
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
@@ -75,6 +76,10 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 .PHONY: build-cli-tool
 build-cli-tool:
 	swift build -c release --package-path ${CLI_TOOLS_PACKAGE_PATH} --product ${CLI_TOOL_NAME}
+
+.PHONY: build-mockolo
+build-mockolo:
+	swift build -c release --package-path Tools/UhooiPicBookMockolo --product mockolo
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
