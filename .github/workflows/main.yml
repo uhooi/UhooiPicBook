@@ -21,26 +21,15 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.3.app
+  DEVELOPER_DIR: /Applications/Xcode_13.0.app
 
 jobs:
-  test:
-    runs-on: macOS-latest
-    env:
-      MINT_PATH: mint/lib
-      MINT_LINK_PATH: mint/bin
+  build:
+    runs-on: macos-11
 
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
-
-    # Xcodeのバージョン出力
-    - name: Show Xcode version
-      run: xcodebuild -version
-
-    # Makeのバージョン出力
-    - name: Show Make version
-      run: make --version
 
     # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
@@ -55,25 +44,50 @@ jobs:
     - name: Install Bundled Gems
       run: make install-bundler
 
-    # Mintのインストール
-    - name: Install Mint
-      run: brew install mint
-
-    # Mintで管理しているライブラリのキャッシュ
-    - name: Cache Mint packages
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - name: Cache CLI tools managed by SwiftPM
       uses: actions/cache@v2
+      id: cli-tools-cache
       with:
-        path: mint
-        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
         restore-keys: |
-          ${{ runner.os }}-mint-
+          ${{ runner.os }}-spm-
 
-    # ライセンス情報の生成、プロジェクトファイルの生成
-    - name: Generate licenses and Xcode project
+    # SwiftPMで管理しているCLIツールのビルド
+    - name: Build CLI tools managed by SwiftPM
+      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
+      run: make build-cli-tools
+
+    # Mockoloのキャッシュ
+    - name: Cache Mockolo
+      uses: actions/cache@v2
+      id: mockolo-cache
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    # Mockoloのビルド
+    - name: Build Mockolo
+      if: steps.mockolo-cache.outputs.cache-hit != 'true'
+      run: make build-mockolo
+
+    # Firebase SDKのダウンロード
+    - name: Download Firebase SDK
+      run: make download-firebase-sdk
+
+    # ライセンス情報の生成
+    - name: Generate licenses
       run: make generate-licenses
 
+    # プロジェクトファイルの生成
+    - name: Generate Xcode project for develop
+      run: make generate-xcodeproj-develop
+
     # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache SwiftPM packages
+    - name: Cache libraries managed by SwiftPM
       uses: actions/cache@v2
       with:
         path: SourcePackages
@@ -95,6 +109,77 @@ jobs:
         if-no-files-found: ignore
         retention-days: 14
 
+  test:
+    runs-on: macos-11
+
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # Bundlerで管理しているライブラリのキャッシュ
+    - name: Cache Gems
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    # Bundlerで管理しているライブラリのインストール
+    - name: Install Bundled Gems
+      run: make install-bundler
+
+    # SwiftPMで管理しているCLIツールのキャッシュ
+    - name: Cache CLI tools managed by SwiftPM
+      uses: actions/cache@v2
+      id: cli-tools-cache
+      with:
+        path: Tools/UhooiPicBookTools/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    # SwiftPMで管理しているCLIツールのビルド
+    - name: Build CLI tools managed by SwiftPM
+      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
+      run: make build-cli-tools
+
+    # Mockoloのキャッシュ
+    - name: Cache Mockolo
+      uses: actions/cache@v2
+      id: mockolo-cache
+      with:
+        path: Tools/UhooiPicBookMockolo/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    # Mockoloのビルド
+    - name: Build Mockolo
+      if: steps.mockolo-cache.outputs.cache-hit != 'true'
+      run: make build-mockolo
+
+    # Firebase SDKのダウンロード
+    - name: Download Firebase SDK
+      run: make download-firebase-sdk
+
+    # ライセンス情報の生成
+    - name: Generate licenses
+      run: make generate-licenses
+
+    # プロジェクトファイルの生成
+    - name: Generate Xcode project for develop
+      run: make generate-xcodeproj-develop
+
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache libraries managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
+
     # 単体テストの実行
     - name: Xcode test
       run: make test
@@ -113,13 +198,12 @@ jobs:
     - name: Get code coverage for HTML
       run: make get-coverage-html
 
-    # テスト結果とコードカバレッジのアップロード
+    # コードカバレッジのアップロード
     - name: Upload test results and code coverage Artifact
       uses: actions/upload-artifact@v2
       with:
         name: results
         path: |
-          build/reports/**/*
           html_report/**/*
         if-no-files-found: warn
         retention-days: 14
@@ -135,7 +219,7 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   info:
-    runs-on: macOS-latest
+    runs-on: macos-11
 
     steps:
     # チェックアウト
@@ -145,6 +229,23 @@ jobs:
     - name: Show Xcode list
       run: ls /Applications | grep 'Xcode'
 
+    # Xcodeのバージョン出力
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # Makeのバージョン出力
+    - name: Show Make version
+      run: make --version
+
+    # Rubyのバージョン出力
+    - name: Show Ruby version
+      run: ruby --version
+
+    # Bundlerのバージョン出力
+    - name: Show Bundler version
+      run: bundle version
+
     # 端末の一覧出力
     - name: Show devices
       run: make show-devices
+

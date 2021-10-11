@@ -5,7 +5,7 @@
 //  Created by uhooi on 2020/02/28.
 //
 
-import Firebase
+import FirebaseFirestore
 
 /// @mockable
 protocol MonstersRepository: AnyObject { // swiftlint:disable:this file_types_order
