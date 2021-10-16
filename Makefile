@@ -8,7 +8,7 @@ UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
-TEST_DEVICE ?= iPhone 12 Pro Max
+TEST_DEVICE ?= iPhone 13 Pro Max
 TEST_OS ?= 15.0
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 COVERAGE_OUTPUT := html_report
