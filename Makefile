@@ -175,6 +175,7 @@ xcodebuild \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
+-resultBundlePath 'TestResults.xcresult' \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \

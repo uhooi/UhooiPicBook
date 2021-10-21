@@ -122,3 +122,6 @@ html_report/
 # Swift Package Manager
 SourcePackages/
 
+# Result Bundle
+*.xcresult/
+
