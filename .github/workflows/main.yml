@@ -184,13 +184,20 @@ jobs:
     - name: Xcode test
       run: make test
 
+    # 結果の表示
+    - uses: kishikawakatsumi/xcresulttool@v1
+      if: success() || failure()
+      with:
+        path: TestResults.xcresult
+
     # 単体テストログのアップロード
     - name: Upload test log Artifact
       uses: actions/upload-artifact@v2
       if: failure()
       with:
         name: xcodebuild-logs
-        path: xcodebuild_test.log
+        path: |
+          xcodebuild_test.log
         if-no-files-found: ignore
         retention-days: 14
 
@@ -198,12 +205,14 @@ jobs:
     - name: Get code coverage for HTML
       run: make get-coverage-html
 
-    # コードカバレッジのアップロード
+    # テスト結果とコードカバレッジのアップロード
     - name: Upload test results and code coverage Artifact
       uses: actions/upload-artifact@v2
+      if: success() || failure()
       with:
         name: results
         path: |
+          TestResults.xcresult
           html_report/**/*
         if-no-files-found: warn
         retention-days: 14
