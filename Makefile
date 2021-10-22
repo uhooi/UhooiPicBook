@@ -43,7 +43,6 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) install-bundler
 	$(MAKE) install-templates
 	$(MAKE) build-cli-tools
-	$(MAKE) build-xcbeautify
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
 	$(MAKE) generate-xcodeproj-develop
@@ -71,15 +70,11 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=rswift
-	# $(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
+	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
 
 .PHONY: build-cli-tool
 build-cli-tool:
 	swift build -c release --package-path ${CLI_TOOLS_PACKAGE_PATH} --product ${CLI_TOOL_NAME}
-
-.PHONY: build-xcbeautify
-build-xcbeautify:
-	swift build -c release --package-path Tools/UhooiPicBookXcbeautify --product xcbeautify
 
 .PHONY: install-templates
 install-templates: # Install Generamba templates
@@ -161,7 +156,7 @@ build-debug: # Xcode build for debug
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
-| Tools/UhooiPicBookXcbeautify/.build/release/xcbeautify
+| ${CLI_TOOLS_PATH}/xcbeautify
 
 .PHONY: test
 test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
@@ -179,7 +174,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ./${XCODEBUILD_TEST_LOG_NAME} \
-| Tools/UhooiPicBookXcbeautify/.build/release/xcbeautify --is-ci
+| ${CLI_TOOLS_PATH}/xcbeautify --is-ci
 
 .PHONY: get-coverage-html
 get-coverage-html: # Get code coverage for HTML
