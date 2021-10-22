@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "Colorizer",
-        "repositoryURL": "https://github.com/getGuaka/Colorizer.git",
-        "state": {
-          "branch": null,
-          "revision": "2ccc99bf1715e73c4139e8d40b6e6b30be975586",
-          "version": "0.2.1"
-        }
-      },
-      {
         "package": "Commandant",
         "repositoryURL": "https://github.com/Carthage/Commandant.git",
         "state": {
@@ -96,8 +87,8 @@
         "repositoryURL": "https://github.com/mono0926/LicensePlist",
         "state": {
           "branch": null,
-          "revision": "38db6f435cc77513a528780d14b1b29daf042439",
-          "version": "3.13.0"
+          "revision": "22d5de3a45008f5c366bea25e5279e49d3a3f3fd",
+          "version": "3.14.4"
         }
       },
       {
@@ -107,6 +98,15 @@
           "branch": null,
           "revision": "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
           "version": "1.9.200"
+        }
+      },
+      {
+        "package": "Mockolo",
+        "repositoryURL": "https://github.com/uber/mockolo",
+        "state": {
+          "branch": null,
+          "revision": "f9110ced9267927600e415034499ae0e63d47f7b",
+          "version": "1.6.2"
         }
       },
       {
@@ -159,8 +159,8 @@
         "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
         "state": {
           "branch": null,
-          "revision": "7f4be006fe73211b0fd9666c73dc2f2303ffa756",
-          "version": "0.31.0"
+          "revision": "558628392eb31d37cb251cfe626c53eafd330df6",
+          "version": "0.31.1"
         }
       },
       {
@@ -186,8 +186,8 @@
         "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
         "state": {
           "branch": null,
-          "revision": "9564d61b08a5335ae0a36f789a7d71493eacadfc",
-          "version": "0.3.2"
+          "revision": "d2930e8fcf9c33162b9fcc1d522bc975e2d4179b",
+          "version": "1.0.1"
         }
       },
       {
@@ -209,6 +209,24 @@
         }
       },
       {
+        "package": "SwiftSyntax",
+        "repositoryURL": "https://github.com/apple/swift-syntax.git",
+        "state": {
+          "branch": null,
+          "revision": "75e60475d9d8fd5bbc16a12e0eaa2cb01b0c322e",
+          "version": "0.50500.0"
+        }
+      },
+      {
+        "package": "swift-tools-support-core",
+        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
+        "state": {
+          "branch": null,
+          "revision": "3b6b97d612b56e25d80d0807f5bc38ea08b7bdf3",
+          "version": "0.2.3"
+        }
+      },
+      {
         "package": "SwiftCLI",
         "repositoryURL": "https://github.com/jakeheis/SwiftCLI.git",
         "state": {
@@ -222,8 +240,8 @@
         "repositoryURL": "https://github.com/realm/SwiftLint",
         "state": {
           "branch": null,
-          "revision": "e820e750b08bd67bc9d98f4817868e9bc3d5d865",
-          "version": "0.44.0"
+          "revision": "99465e659fb91facab5b1d3c0f9229176d086bf1",
+          "version": "0.45.0"
         }
       },
       {
@@ -251,15 +269,6 @@
           "branch": null,
           "revision": "a94b48f36763c05629fc102837398505032dead9",
           "version": "2.0.0"
-        }
-      },
-      {
-        "package": "xcbeautify",
-        "repositoryURL": "https://github.com/thii/xcbeautify",
-        "state": {
-          "branch": null,
-          "revision": "21c64495bb3eb9a46ecc9b5eea056d06383eb17c",
-          "version": "0.9.1"
         }
       },
       {

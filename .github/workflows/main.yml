@@ -59,20 +59,20 @@ jobs:
       if: steps.cli-tools-cache.outputs.cache-hit != 'true'
       run: make build-cli-tools
 
-    # Mockoloのキャッシュ
-    - name: Cache Mockolo
+    # xcbeautifyのキャッシュ
+    - name: Cache xcbeautify
       uses: actions/cache@v2
-      id: mockolo-cache
+      id: xcbeautify-cache
       with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        path: Tools/UhooiPicBookXcbeautify/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookXcbeautify/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
-    # Mockoloのビルド
-    - name: Build Mockolo
-      if: steps.mockolo-cache.outputs.cache-hit != 'true'
-      run: make build-mockolo
+    # xcbeautifyのビルド
+    - name: Build xcbeautify
+      if: steps.xcbeautify-cache.outputs.cache-hit != 'true'
+      run: make build-xcbeautify
 
     # Firebase SDKのダウンロード
     - name: Download Firebase SDK
@@ -144,20 +144,20 @@ jobs:
       if: steps.cli-tools-cache.outputs.cache-hit != 'true'
       run: make build-cli-tools
 
-    # Mockoloのキャッシュ
-    - name: Cache Mockolo
+    # xcbeautifyのキャッシュ
+    - name: Cache xcbeautify
       uses: actions/cache@v2
-      id: mockolo-cache
+      id: xcbeautify-cache
       with:
-        path: Tools/UhooiPicBookMockolo/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookMockolo/Package.resolved') }}
+        path: Tools/UhooiPicBookXcbeautify/.build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookXcbeautify/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
 
-    # Mockoloのビルド
-    - name: Build Mockolo
-      if: steps.mockolo-cache.outputs.cache-hit != 'true'
-      run: make build-mockolo
+    # xcbeautifyのビルド
+    - name: Build xcbeautify
+      if: steps.xcbeautify-cache.outputs.cache-hit != 'true'
+      run: make build-xcbeautify
 
     # Firebase SDKのダウンロード
     - name: Download Firebase SDK
