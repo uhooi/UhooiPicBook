@@ -66,10 +66,10 @@ You can develop this project.
 
 1. Clone the project.
 
-```shell
-$ git clone https://github.com/uhooi/UhooiPicBook.git
-$ cd UhooiPicBook
-```
+    ```shell
+    $ git clone https://github.com/uhooi/UhooiPicBook.git
+    $ cd UhooiPicBook
+    ```
 
 2. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
