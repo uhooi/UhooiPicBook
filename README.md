@@ -108,3 +108,7 @@ I would be happy if you contribute :)
 
 - [New issue](https://github.com/uhooi/UhooiPicBook/issues/new)
 - [New pull request](https://github.com/uhooi/UhooiPicBook/compare)
+
+## Stats
+
+[![Stats](https://repobeats.axiom.co/api/embed/1c29e1d49c64b444ae3a829603069d4fcfcf7596.svg "Repobeats analytics image")](https://github.com/uhooi/UhooiPicBook)
