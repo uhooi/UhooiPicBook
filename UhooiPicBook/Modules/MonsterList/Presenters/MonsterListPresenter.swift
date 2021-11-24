@@ -51,17 +51,17 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
         self.view.startIndicator()
-        self.interactor.fetchMonsters { result in
+        self.interactor.fetchMonsters { [weak self] result in
             switch result {
             case let .success(monsters):
                 let monsterEntities = monsters
                     .sorted { $0.order < $1.order }
-                    .map { self.convertDTOToEntity(dto: $0) }
-                self.view.showMonsters(monsterEntities)
-                self.view.stopIndicator()
+                    .compactMap { self?.convertDTOToEntity(dto: $0) }
+                self?.view.showMonsters(monsterEntities)
+                self?.view.stopIndicator()
             case let .failure(error):
                 // TODO: エラーハンドリング
-                self.view.stopIndicator()
+                self?.view.stopIndicator()
             }
         }
     }

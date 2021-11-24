@@ -61,8 +61,12 @@ final class MonsterDetailViewController: UIViewController {
     // MARK: IBActions
 
     @IBAction private func didTapShareButton(_ sender: UIBarButtonItem) {
-        self.presenter.didTapShareButton(sender.value(forKey: "view") as? UIView, name: self.nameLabel.text, description: self.descriptionLabel.text,
-                                         icon: self.iconImageView.image)
+        self.presenter.didTapShareButton(
+            sender.value(forKey: "view") as? UIView,
+            name: self.nameLabel.text,
+            description: self.descriptionLabel.text,
+            icon: self.iconImageView.image
+        )
     }
 
     // MARK: Other Private Methods
@@ -73,11 +77,11 @@ final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
+        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { [weak self] result in
             switch result {
             case let .success(icon):
                 DispatchQueue.main.async {
-                    self.iconImageView.image = icon
+                    self?.iconImageView.image = icon
                 }
             case let .failure(error):
                 // TODO: エラーハンドリング
