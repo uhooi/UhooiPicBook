@@ -51,7 +51,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
         self.view.startIndicator()
-        self.interactor.fetchMonsters { result in
+        self.interactor.fetchMonsters { [weak self] result in
+            guard let self = self else {
+                return
+            }
             switch result {
             case let .success(monsters):
                 let monsterEntities = monsters

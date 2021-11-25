@@ -55,7 +55,11 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
     }
 
     func didTapShareButton(_ senderView: UIView?, name: String?, description: String?, icon: UIImage?) {
-        guard let senderView = senderView, let name = name, let description = description, let icon = icon else {
+        guard let senderView = senderView,
+              let name = name,
+              let description = description,
+              let icon = icon
+        else {
             return // TODO: エラーハンドリング
         }
         let text = "\(name)\n\(description)\n\(R.string.localizable.uhooiPicBookHashtag())"
