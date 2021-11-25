@@ -32,9 +32,11 @@ extension SpotlightClient: SpotlightRepository {
 
     func saveMonster(_ monster: MonsterEntity, forKey key: String) {
         self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { [weak self] result in
+            guard let self = self else {
+                return
+            }
             switch result {
             case .success(let image):
-                guard let self = self else { return }
                 let thumbnailData = image.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
                 let item = CSSearchableItem(
                     uniqueIdentifier: key,

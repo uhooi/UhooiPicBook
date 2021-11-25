@@ -55,23 +55,26 @@ final class InAppWebBrowserViewController: UIViewController {
 
     private func observeWebView() {
         self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
+            guard let self = self else {
+                return
+            }
             // swiftlint:disable:next trailing_closure
             UIView.animate(
                 withDuration: 0.33,
                 animations: {
-                    self?.progressView.alpha = 1.0
+                    self.progressView.alpha = 1.0
                 }
             )
-            self?.progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+            self.progressView.setProgress(Float(webView.estimatedProgress), animated: true)
 
             if webView.estimatedProgress >= 1.0 {
                 UIView.animate(
                     withDuration: 0.33,
                     animations: {
-                        self?.progressView.alpha = 0.0
+                        self.progressView.alpha = 0.0
                     },
                     completion: { _ in
-                        self?.progressView.setProgress(0.0, animated: false)
+                        self.progressView.setProgress(0.0, animated: false)
                     }
                 )
             }
