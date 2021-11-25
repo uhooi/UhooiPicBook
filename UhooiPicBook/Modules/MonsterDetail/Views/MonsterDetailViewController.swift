@@ -80,7 +80,7 @@ final class MonsterDetailViewController: UIViewController {
         self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { [weak self] result in
             switch result {
             case let .success(icon):
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.iconImageView.image = icon
                 }
             case let .failure(error):
