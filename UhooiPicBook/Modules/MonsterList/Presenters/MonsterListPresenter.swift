@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MonsterListEventHandler: AnyObject {
-    func viewDidLoad()
+    func viewDidLoad() async
     func didSelectMonster(monster: MonsterEntity)
 
     // Menu
@@ -49,23 +49,18 @@ final class MonsterListPresenter {
 
 extension MonsterListPresenter: MonsterListEventHandler {
 
-    func viewDidLoad() {
-        Task { [weak self] in
-            guard let self = self else {
-                return
-            }
-            do {
-                self.view.startIndicator()
-                let monsters = try await self.interactor.fetchMonsters()
-                let monsterEntities = monsters
-                    .sorted { $0.order < $1.order }
-                    .map { self.convertDTOToEntity(dto: $0) }
-                self.view.showMonsters(monsterEntities)
-                self.view.stopIndicator()
-            } catch {
-                // TODO: エラーハンドリング
-                self.view.stopIndicator()
-            }
+    func viewDidLoad() async {
+        do {
+            view.startIndicator()
+            let monsters = try await interactor.fetchMonsters()
+            let monsterEntities = monsters
+                .sorted { $0.order < $1.order }
+                .map { convertDTOToEntity(dto: $0) }
+            view.showMonsters(monsterEntities)
+            view.stopIndicator()
+        } catch {
+            // TODO: エラーハンドリング
+            view.stopIndicator()
         }
     }
 

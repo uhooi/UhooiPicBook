@@ -34,7 +34,7 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
-    func test_viewDidLoad_success_zero() {
+    func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
         self.interactorMock.fetchMonstersHandler = { monsterDTOs }
         self.viewMock.showMonstersHandler = { monsters in
@@ -46,7 +46,7 @@ final class MonsterListPresenterTests: XCTestCase {
             }
         }
         
-        self.presenter.viewDidLoad()
+        await self.presenter.viewDidLoad()
         
         XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
@@ -54,7 +54,7 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
     }
     
-    func test_viewDidLoad_success_three() {
+    func test_viewDidLoad_success_three() async {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
         let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
@@ -69,7 +69,7 @@ final class MonsterListPresenterTests: XCTestCase {
             }
         }
         
-        self.presenter.viewDidLoad()
+        await self.presenter.viewDidLoad()
         
         XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
@@ -77,7 +77,7 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
     }
     
-    func test_viewDidLoad_newLine() {
+    func test_viewDidLoad_newLine() async {
         typealias TestCase = (description: String, expected: String, line: UInt)
         let testCases: [TestCase] = [
             ("",              ""            , #line),
@@ -104,7 +104,7 @@ final class MonsterListPresenterTests: XCTestCase {
                 XCTAssertEqual(monsters[0].description, expected, line: line)
             }
 
-            self.presenter.viewDidLoad()
+            await self.presenter.viewDidLoad()
             
             XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
             XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
@@ -113,11 +113,11 @@ final class MonsterListPresenterTests: XCTestCase {
         }
     }
     
-    func test_viewDidLoad_failure() {
+    func test_viewDidLoad_failure() async {
         struct TestError: Error { }
         self.interactorMock.fetchMonstersHandler = { throw TestError() }
         
-        self.presenter.viewDidLoad()
+        await self.presenter.viewDidLoad()
         
         XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)

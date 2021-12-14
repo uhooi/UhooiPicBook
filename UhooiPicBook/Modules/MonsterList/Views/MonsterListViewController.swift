@@ -66,7 +66,10 @@ final class MonsterListViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.tintColor = .white
-        self.presenter.viewDidLoad()
+
+        Task {
+            await presenter.viewDidLoad()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
