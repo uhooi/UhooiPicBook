@@ -21,7 +21,7 @@ on:
       - Rambafile
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_13.0.app
+  DEVELOPER_DIR: /Applications/Xcode_13.2.app
 
 jobs:
   build:
@@ -30,6 +30,10 @@ jobs:
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
+
+    # Swiftプロジェクトのビルドの高速化
+    - name: Enable faster builds for Swift projects
+      run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
     # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
@@ -100,6 +104,10 @@ jobs:
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
+
+    # Swiftプロジェクトのビルドの高速化
+    - name: Enable faster builds for Swift projects
+      run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
     # Bundlerで管理しているライブラリのキャッシュ
     - name: Cache Gems
