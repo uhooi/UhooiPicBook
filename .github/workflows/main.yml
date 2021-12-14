@@ -31,7 +31,7 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Swiftプロジェクトのビルドを高速化する
+    # Swiftプロジェクトのビルドの高速化
     - name: Enable faster builds for Swift projects
       run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
@@ -105,7 +105,7 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Swiftプロジェクトのビルドを高速化する
+    # Swiftプロジェクトのビルドの高速化
     - name: Enable faster builds for Swift projects
       run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
