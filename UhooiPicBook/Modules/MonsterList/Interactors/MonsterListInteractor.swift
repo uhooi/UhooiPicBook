@@ -8,7 +8,7 @@
 
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
-    func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
+    func fetchMonsters() async throws -> [MonsterDTO]
     func saveForSpotlight(_ monster: MonsterEntity)
 }
 
@@ -40,8 +40,8 @@ final class MonsterListInteractor {
 
 extension MonsterListInteractor: MonsterListInteractorInput {
 
-    func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
-        self.monstersRepository.loadMonsters { completion($0) }
+    func fetchMonsters() async throws -> [MonsterDTO] {
+        try await self.monstersRepository.loadMonsters()
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) {

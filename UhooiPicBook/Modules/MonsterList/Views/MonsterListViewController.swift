@@ -92,15 +92,15 @@ extension MonsterListViewController: UICollectionViewDataSource {
             fatalError("Fail to load MonsterCollectionViewCell.")
         }
 
-        let monster = self.monsters[indexPath.row]
-
-        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
-            switch result {
-            case let .success(icon):
-                DispatchQueue.main.async {
-                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-                }
-            case let .failure(error):
+        Task { @MainActor [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                let monster = self.monsters[indexPath.row]
+                let icon = try await self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                cell.setup(name: monster.name, icon: icon, elevation: 1.0)
+            } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }

@@ -9,7 +9,7 @@ import FirebaseFirestore
 
 /// @mockable
 protocol MonstersRepository: AnyObject { // swiftlint:disable:this file_types_order
-    func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void)
+    func loadMonsters() async throws -> [MonsterDTO]
 }
 
 final class MonstersFirebaseClient {
@@ -18,35 +18,32 @@ final class MonstersFirebaseClient {
 
 extension MonstersFirebaseClient: MonstersRepository {
 
-    func loadMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
+    func loadMonsters() async throws -> [MonsterDTO] {
         let monstersRef = self.firestore.collection("monsters")
-        monstersRef.getDocuments { querySnapshot, error in
-            if let error = error {
-                completion(.failure(error))
-                return
+        let querySnapshot = try await monstersRef.getDocuments()
+
+        var monsters: [MonsterDTO] = []
+        for document in querySnapshot.documents.filter({ $0.exists }) {
+            let monster = document.data()
+            guard let name = monster["name"] as? String,
+                  let description = monster["description"] as? String,
+                  let baseColorCode = monster["base_color"] as? String,
+                  let iconUrlString = monster["icon_url"] as? String,
+                  let dancingUrlString = monster["dancing_url"] as? String,
+                  let order = monster["order"] as? Int else {
+                continue
             }
 
-            guard let querySnapshot = querySnapshot else {
-                fatalError("Fail to unwrap `querySnapshot`.")
-            }
-
-            var monsters: [MonsterDTO] = []
-            for document in querySnapshot.documents.filter({ $0.exists }) {
-                let monster = document.data()
-                guard let name = monster["name"] as? String,
-                      let description = monster["description"] as? String,
-                      let baseColorCode = monster["base_color"] as? String,
-                      let iconUrlString = monster["icon_url"] as? String,
-                      let dancingUrlString = monster["dancing_url"] as? String,
-                      let order = monster["order"] as? Int else {
-                    continue
-                }
-
-                monsters.append(MonsterDTO(name: name, description: description, baseColorCode: baseColorCode, iconUrlString: iconUrlString, dancingUrlString: dancingUrlString, order: order))
-            }
-
-            completion(.success(monsters))
+            monsters.append(MonsterDTO(
+                name: name,
+                description: description,
+                baseColorCode: baseColorCode,
+                iconUrlString: iconUrlString,
+                dancingUrlString: dancingUrlString,
+                order: order
+            ))
         }
-    }
 
+        return monsters
+    }
 }

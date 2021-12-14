@@ -77,21 +77,21 @@ final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { [weak self] result in
-            switch result {
-            case let .success(icon):
-                DispatchQueue.main.async {
-                    self?.iconImageView.image = icon
-                }
-            case let .failure(error):
+        Task { @MainActor [weak self] in
+            guard let self = self else {
+                return
+            }
+            do {
+                self.iconImageView.image = try await self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+                self.nameLabel.text = monster.name
+                self.descriptionLabel.text = monster.description
+                self.navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
+            } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }
         }
-        self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
-        self.nameLabel.text = monster.name
-        self.descriptionLabel.text = monster.description
-        self.navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
 
 }

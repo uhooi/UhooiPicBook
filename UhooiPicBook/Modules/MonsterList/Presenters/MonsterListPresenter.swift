@@ -50,19 +50,19 @@ final class MonsterListPresenter {
 extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() {
-        self.view.startIndicator()
-        self.interactor.fetchMonsters { [weak self] result in
+        Task { [weak self] in
             guard let self = self else {
                 return
             }
-            switch result {
-            case let .success(monsters):
+            do {
+                self.view.startIndicator()
+                let monsters = try await self.interactor.fetchMonsters()
                 let monsterEntities = monsters
                     .sorted { $0.order < $1.order }
                     .map { self.convertDTOToEntity(dto: $0) }
                 self.view.showMonsters(monsterEntities)
                 self.view.stopIndicator()
-            case let .failure(error):
+            } catch {
                 // TODO: エラーハンドリング
                 self.view.stopIndicator()
             }
@@ -94,17 +94,19 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
-            fatalError("Fail to load icon.") // TODO: エラーハンドリング
+            fatalError("Fail to load icon.")
         }
         guard let dancingUrl = URL(string: dto.dancingUrlString) else {
-            fatalError("Fail to load dancing image.") // TODO: エラーハンドリング
+            fatalError("Fail to load dancing image.")
         }
 
-        return MonsterEntity(name: dto.name,
-                             description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-                             baseColorCode: dto.baseColorCode,
-                             iconUrl: iconUrl,
-                             dancingUrl: dancingUrl)
+        return MonsterEntity(
+            name: dto.name,
+            description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
+            baseColorCode: dto.baseColorCode,
+            iconUrl: iconUrl,
+            dancingUrl: dancingUrl
+        )
     }
 
 }
