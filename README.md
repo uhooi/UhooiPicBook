@@ -71,7 +71,13 @@ You can develop this project.
     $ cd UhooiPicBook
     ```
 
-2. Run `make setup` .  
+2. Enable faster builds for Swift projects. (Optional)
+
+    ```shell
+    $ defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+    ```
+
+3. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
 
 ### Help
