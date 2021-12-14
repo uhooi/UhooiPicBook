@@ -35,40 +35,30 @@ final class MonsterListInteractorTests: XCTestCase {
     
     // MARK: fetchMonsters()
     
-    func test_fetchMonsters_success() {
+    func test_fetchMonsters_success() async {
         let monsterDTOs: [MonsterDTO] = []
-        self.monstersRepositoryMock.loadMonstersHandler = { result in
-            result(.success(monsterDTOs))
-        }
+        self.monstersRepositoryMock.loadMonstersHandler = { monsterDTOs }
         
-        self.interactor.fetchMonsters { result in
-            switch result {
-            case let .success(monsters):
-                XCTAssertEqual(monsters, monsterDTOs)
-            case let .failure(error):
-                XCTFail("Error: \(error)")
-            }
-            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        do {
+            let monsters = try await self.interactor.fetchMonsters()
+            XCTAssertEqual(monsters, monsterDTOs)
+        } catch {
+            XCTFail("Error: \(error)")
         }
+        XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
-    func test_fetchMonsters_failure() {
-        enum TestError: Error {
-            case test
-        }
-        self.monstersRepositoryMock.loadMonstersHandler = { result in
-            result(.failure(TestError.test))
-        }
+    func test_fetchMonsters_failure() async {
+        struct TestError: Error { }
+        self.monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
         
-        self.interactor.fetchMonsters { result in
-            switch result {
-            case let .success(monsters):
-                XCTFail("Monsters: \(monsters)")
-            case let .failure(error):
-                XCTAssertEqual(error as! TestError, TestError.test)
-            }
-            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        do {
+            let monsters = try await self.interactor.fetchMonsters()
+            XCTFail("Monsters: \(monsters)")
+        } catch {
+            XCTAssertTrue(error is TestError)
         }
+        XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
     // saveForSpotlight()
@@ -89,9 +79,11 @@ final class MonsterListInteractorTests: XCTestCase {
         self.monstersRepositoryMock = MonstersRepositoryMock()
         self.monstersTempRepositoryMock = MonstersTempRepositoryMock()
         self.spotlightRepositoryMock = SpotlightRepositoryMock()
-        self.interactor = MonsterListInteractor(monstersRepository: self.monstersRepositoryMock,
-                                                monstersTempRepository: self.monstersTempRepositoryMock,
-                                                spotlightRepository: self.spotlightRepositoryMock)
+        self.interactor = MonsterListInteractor(
+            monstersRepository: self.monstersRepositoryMock,
+            monstersTempRepository: self.monstersTempRepositoryMock,
+            spotlightRepository: self.spotlightRepositoryMock
+        )
         self.interactor.presenter = self.presenterMock
     }
 

@@ -36,9 +36,7 @@ final class MonsterListPresenterTests: XCTestCase {
 
     func test_viewDidLoad_success_zero() {
         let monsterDTOs: [MonsterDTO] = []
-        self.interactorMock.fetchMonstersHandler = { completion in
-            completion(.success(monsterDTOs))
-        }
+        self.interactorMock.fetchMonstersHandler = { monsterDTOs }
         self.viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
@@ -61,9 +59,7 @@ final class MonsterListPresenterTests: XCTestCase {
         let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
         let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
-        self.interactorMock.fetchMonstersHandler = { completion in
-            completion(.success(monsterDTOs))
-        }
+        self.interactorMock.fetchMonstersHandler = { monsterDTOs }
         self.viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
@@ -103,9 +99,7 @@ final class MonsterListPresenterTests: XCTestCase {
                 dancingUrlString: "https://theuhooi.com/monster-dancing",
                 order: 1
             )
-            self.interactorMock.fetchMonstersHandler = { completion in
-                completion(.success([monsterDTO]))
-            }
+            self.interactorMock.fetchMonstersHandler = { [monsterDTO] }
             self.viewMock.showMonstersHandler = { monsters in
                 XCTAssertEqual(monsters[0].description, expected, line: line)
             }
@@ -120,12 +114,8 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad_failure() {
-        enum TestError: Error {
-            case test
-        }
-        self.interactorMock.fetchMonstersHandler = { completion in
-            completion(.failure(TestError.test))
-        }
+        struct TestError: Error { }
+        self.interactorMock.fetchMonstersHandler = { throw TestError() }
         
         self.presenter.viewDidLoad()
         
@@ -198,7 +188,11 @@ final class MonsterListPresenterTests: XCTestCase {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()
         self.routerMock = MonsterListRouterInputMock()
-        self.presenter = MonsterListPresenter(view: self.viewMock, interactor: self.interactorMock, router: self.routerMock)
+        self.presenter = MonsterListPresenter(
+            view: self.viewMock,
+            interactor: self.interactorMock,
+            router: self.routerMock
+        )
     }
 
 }
