@@ -51,7 +51,9 @@ extension MonsterListInteractor: MonsterListInteractorInput {
     func saveForSpotlight(_ monster: MonsterEntity) {
         let key = "spotlight_\(monster.name)"
         monstersTempRepository.saveMonster(monster, forKey: key)
-        spotlightRepository.saveMonster(monster, forKey: key)
+        Task {
+            await spotlightRepository.saveMonster(monster, forKey: key)
+        }
     }
 
 }
