@@ -19,7 +19,7 @@ final class MonstersFirebaseClient {
 extension MonstersFirebaseClient: MonstersRepository {
 
     func loadMonsters() async throws -> [MonsterDTO] {
-        let monstersRef = self.firestore.collection("monsters")
+        let monstersRef = firestore.collection("monsters")
         let querySnapshot = try await monstersRef.getDocuments()
 
         var monsters: [MonsterDTO] = []

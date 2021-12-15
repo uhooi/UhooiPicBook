@@ -31,23 +31,20 @@ final class SpotlightClient {
 extension SpotlightClient: SpotlightRepository {
 
     func saveMonster(_ monster: MonsterEntity, forKey key: String) {
-        Task { [weak self] in
-            guard let self = self else {
-                return
-            }
+        Task {
             do {
-                let icon = try await self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
                 let thumbnailData = icon.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
                 let item = CSSearchableItem(
                     uniqueIdentifier: key,
                     domainIdentifier: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
-                    attributeSet: self.createAttributeSet(
+                    attributeSet: createAttributeSet(
                         title: monster.name,
                         contentDescription: monster.description,
                         thumbnailData: thumbnailData
                     )
                 )
-                self.searchableIndex.indexSearchableItems([item], completionHandler: nil)
+                searchableIndex.indexSearchableItems([item], completionHandler: nil)
             } catch {
                 // No need for error handling, as there is no need to give the user feedback on save failures for Spotlight search.
                 print(error)

@@ -51,7 +51,7 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
         guard let dancingImage = dancingImage else {
             return
         }
-        self.router.popupDancingImage(dancingImage)
+        router.popupDancingImage(dancingImage)
     }
 
     func didTapShareButton(_ senderView: UIView?, name: String?, description: String?, icon: UIImage?) {
@@ -63,7 +63,7 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
             return // TODO: エラーハンドリング
         }
         let text = "\(name)\n\(description)\n\(R.string.localizable.uhooiPicBookHashtag())"
-        self.router.showActivity(senderView, text: text, icon: icon)
+        router.showActivity(senderView, text: text, icon: icon)
     }
 
 }

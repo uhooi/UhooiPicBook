@@ -54,7 +54,7 @@ extension MonsterProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
             do {
-                let monsters = try await self.monstersRepository.loadMonsters()
+                let monsters = try await monstersRepository.loadMonsters()
                 var entries: [Entry] = []
                 let currentDate = Date()
                 var hourOffset = 0
@@ -63,7 +63,7 @@ extension MonsterProvider: TimelineProvider {
                         continue
                     }
 
-                    let icon = try await self.imageCacheManager.cacheImage(imageUrl: iconUrl)
+                    let icon = try await imageCacheManager.cacheImage(imageUrl: iconUrl)
                     guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else {
                         fatalError("Fail to unwrap `entryDate`. hourOffset: \(hourOffset), currentDate: \(currentDate)")
                     }

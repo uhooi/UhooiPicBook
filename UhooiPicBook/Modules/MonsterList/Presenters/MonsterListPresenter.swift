@@ -51,38 +51,38 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() async {
         do {
-            view.startIndicator()
+            await view.startIndicator()
             let monsters = try await interactor.fetchMonsters()
             let monsterEntities = monsters
                 .sorted { $0.order < $1.order }
                 .map { convertDTOToEntity(dto: $0) }
-            view.showMonsters(monsterEntities)
-            view.stopIndicator()
+            await view.showMonsters(monsterEntities)
+            await view.stopIndicator()
         } catch {
             // TODO: エラーハンドリング
-            view.stopIndicator()
+            await view.stopIndicator()
         }
     }
 
     func didTapContactUs() {
-        self.router.showContactUs()
+        router.showContactUs()
     }
 
     func didTapPrivacyPolicy() {
-        self.router.showPrivacyPolicy()
+        router.showPrivacyPolicy()
     }
 
     func didTapLicenses() {
-        self.router.showSettings()
+        router.showSettings()
     }
 
     func didTapAboutThisApp() {
-        self.router.showAboutThisApp()
+        router.showAboutThisApp()
     }
 
     func didSelectMonster(monster: MonsterEntity) {
-        self.interactor.saveForSpotlight(monster)
-        self.router.showMonsterDetail(monster: monster)
+        interactor.saveForSpotlight(monster)
+        router.showMonsterDetail(monster: monster)
     }
 
     // MARK: Other Private Methods

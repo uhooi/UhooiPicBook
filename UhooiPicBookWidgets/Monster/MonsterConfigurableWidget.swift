@@ -55,7 +55,7 @@ extension MonsterProvider: IntentTimelineProvider {
         guard let dto = dto, let iconUrl = URL(string: dto.iconUrlString) else {
             return nil
         }
-        let icon = try await self.imageManager.cacheImage(imageUrl: iconUrl)
+        let icon = try await imageManager.cacheImage(imageUrl: iconUrl)
         let description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
         return Entry(date: Date(), name: dto.name, description: description, icon: icon)
     }

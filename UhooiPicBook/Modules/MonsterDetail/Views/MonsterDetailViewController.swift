@@ -9,19 +9,21 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterDetailUserInterface: AnyObject {
 }
 
+@MainActor
 final class MonsterDetailViewController: UIViewController {
 
     // MARK: Type Aliases
 
     // MARK: Stored Instance Properties
 
-    var presenter: MonsterDetailEventHandler!
-    var imageCacheManager: ImageCacheManagerProtocol!
+    private var presenter: MonsterDetailEventHandler!
+    private var imageCacheManager: ImageCacheManagerProtocol!
 
-    var monster: MonsterEntity!
+    private var monster: MonsterEntity!
 
     // MARK: Computed Instance Properties
 
@@ -55,43 +57,55 @@ final class MonsterDetailViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-        self.presenter.viewDidLoad()
+
+        Task { @MainActor in
+            presenter.viewDidLoad()
+        }
     }
 
     // MARK: IBActions
 
     @IBAction private func didTapShareButton(_ sender: UIBarButtonItem) {
-        self.presenter.didTapShareButton(
+        presenter.didTapShareButton(
             sender.value(forKey: "view") as? UIView,
-            name: self.nameLabel.text,
-            description: self.descriptionLabel.text,
-            icon: self.iconImageView.image
+            name: nameLabel.text,
+            description: descriptionLabel.text,
+            icon: iconImageView.image
         )
+    }
+
+    // MARK: Other Internal Methods
+
+    func inject(
+        presenter: MonsterDetailEventHandler,
+        imageCacheManager: ImageCacheManagerProtocol,
+        monster: MonsterEntity
+    ) {
+        self.presenter = presenter
+        self.imageCacheManager = imageCacheManager
+        self.monster = monster
     }
 
     // MARK: Other Private Methods
 
     @objc
     private func didTapDancingImageView(_ sender: UITapGestureRecognizer) {
-        self.presenter.didTapDancingImageView(dancingImage: self.dancingImageView.image)
+        presenter.didTapDancingImageView(dancingImage: dancingImageView.image)
     }
 
     private func configureView() {
-        Task { @MainActor [weak self] in
-            guard let self = self else {
-                return
-            }
+        Task { @MainActor in
             do {
-                self.iconImageView.image = try await self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+                nameLabel.text = monster.name
+                descriptionLabel.text = monster.description
+                navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
             } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }
         }
-        self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
-        self.nameLabel.text = monster.name
-        self.descriptionLabel.text = monster.description
-        self.navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
 
 }

@@ -45,8 +45,8 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func configureProgressView() {
-        self.progressView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 0.0)
-        self.view.addSubview(self.progressView)
+        progressView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 0.0)
+        view.addSubview(self.progressView)
     }
 
     private func configureWebView() {
@@ -54,7 +54,7 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func observeWebView() {
-        self.estimatedProgressObservation = self.webView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
+        estimatedProgressObservation = webView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
             guard let self = self else {
                 return
             }
@@ -74,8 +74,8 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func loadWebView() {
-        let request = URLRequest(url: self.url)
-        self.webView.load(request)
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 
 }

@@ -14,7 +14,7 @@ final class BaseView: UIView {
 
     @IBInspectable private var cornerRadius: CGFloat = 0.0 {
         willSet {
-            self.layer.cornerRadius = newValue
+            layer.cornerRadius = newValue
         }
     }
 

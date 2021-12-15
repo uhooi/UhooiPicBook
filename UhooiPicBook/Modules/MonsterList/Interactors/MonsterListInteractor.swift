@@ -28,7 +28,11 @@ final class MonsterListInteractor {
 
     // MARK: Initializer
 
-    init(monstersRepository: MonstersRepository, monstersTempRepository: MonstersTempRepository, spotlightRepository: SpotlightRepository) {
+    init(
+        monstersRepository: MonstersRepository,
+        monstersTempRepository: MonstersTempRepository,
+        spotlightRepository: SpotlightRepository
+    ) {
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
         self.spotlightRepository = spotlightRepository
@@ -41,13 +45,13 @@ final class MonsterListInteractor {
 extension MonsterListInteractor: MonsterListInteractorInput {
 
     func fetchMonsters() async throws -> [MonsterDTO] {
-        try await self.monstersRepository.loadMonsters()
+        try await monstersRepository.loadMonsters()
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) {
         let key = "spotlight_\(monster.name)"
-        self.monstersTempRepository.saveMonster(monster, forKey: key)
-        self.spotlightRepository.saveMonster(monster, forKey: key)
+        monstersTempRepository.saveMonster(monster, forKey: key)
+        spotlightRepository.saveMonster(monster, forKey: key)
     }
 
 }

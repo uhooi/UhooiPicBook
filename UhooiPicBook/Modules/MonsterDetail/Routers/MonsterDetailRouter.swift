@@ -36,9 +36,13 @@ final class MonsterDetailRouter {
         let router = MonsterDetailRouter(viewController: view)
         let presenter = MonsterDetailPresenter(view: view, interactor: interactor, router: router)
 
-        view.presenter = presenter
-        view.imageCacheManager = ImageCacheManager()
-        view.monster = monster
+        Task { @MainActor in
+            view.inject(
+                presenter: presenter,
+                imageCacheManager: ImageCacheManager(),
+                monster: monster
+            )
+        }
         interactor.presenter = presenter
 
         return view
@@ -51,11 +55,11 @@ final class MonsterDetailRouter {
 extension MonsterDetailRouter: MonsterDetailRouterInput {
 
     func popupDancingImage(_ dancingImage: UIImage) {
-        ImagePopupRouter.show(self.viewController, image: dancingImage)
+        ImagePopupRouter.show(viewController, image: dancingImage)
     }
 
     func showActivity(_ senderView: UIView, text: String, icon: UIImage) {
-        ActivityRouter.show(self.viewController, sourceView: senderView, text: text, url: nil, image: icon)
+        ActivityRouter.show(viewController, sourceView: senderView, text: text, url: nil, image: icon)
     }
 
 }
