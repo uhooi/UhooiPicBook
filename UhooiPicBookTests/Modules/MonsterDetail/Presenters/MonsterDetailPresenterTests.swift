@@ -20,6 +20,7 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: TestCase Life-Cycle Methods
 
+    @MainActor
     override func setUpWithError() throws {
         reset()
     }
@@ -89,6 +90,7 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: - Other Private Methods
 
+    @MainActor
     private func reset() {
         self.viewMock = MonsterDetailUserInterfaceMock()
         self.interactorMock = MonsterDetailInteractorInputMock()

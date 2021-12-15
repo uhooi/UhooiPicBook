@@ -20,6 +20,7 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: TestCase Life-Cycle Methods
 
+    @MainActor
     override func setUpWithError() throws {
         reset()
     }
@@ -37,21 +38,23 @@ final class MonsterListPresenterTests: XCTestCase {
     func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
         self.interactorMock.fetchMonstersHandler = { monsterDTOs }
-        self.viewMock.showMonstersHandler = { monsters in
-            for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
+        Task { @MainActor in
+            viewMock.showMonstersHandler = { monsters in
+                for index in 0 ..< monsterDTOs.count {
+                    XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+                    XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                    let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                    XCTAssertEqual(monsters[index].iconUrl, iconUrl)
+                }
             }
         }
         
         await self.presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
+        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
     }
     
     func test_viewDidLoad_success_three() async {
@@ -60,21 +63,23 @@ final class MonsterListPresenterTests: XCTestCase {
         let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         self.interactorMock.fetchMonstersHandler = { monsterDTOs }
-        self.viewMock.showMonstersHandler = { monsters in
-            for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
+        Task { @MainActor in
+            viewMock.showMonstersHandler = { monsters in
+                for index in 0 ..< monsterDTOs.count {
+                    XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+                    XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                    let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                    XCTAssertEqual(monsters[index].iconUrl, iconUrl)
+                }
             }
         }
         
         await self.presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
+        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
     }
     
     func test_viewDidLoad_newLine() async {
@@ -90,7 +95,7 @@ final class MonsterListPresenterTests: XCTestCase {
         ]
         
         for (description, expected, line) in testCases {
-            reset()
+            await reset()
             let monsterDTO = MonsterDTO(
                 name: "monster's name",
                 description: description,
@@ -100,16 +105,18 @@ final class MonsterListPresenterTests: XCTestCase {
                 order: 1
             )
             self.interactorMock.fetchMonstersHandler = { [monsterDTO] }
-            self.viewMock.showMonstersHandler = { monsters in
-                XCTAssertEqual(monsters[0].description, expected, line: line)
+            Task { @MainActor in
+                viewMock.showMonstersHandler = { monsters in
+                    XCTAssertEqual(monsters[0].description, expected, line: line)
+                }
             }
 
             await self.presenter.viewDidLoad()
             
-            XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
+            await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
             XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-            XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-            XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+            await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
+            await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
         }
     }
     
@@ -119,10 +126,10 @@ final class MonsterListPresenterTests: XCTestCase {
         
         await self.presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
         XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 0)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 0)
+        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
     }
     
     // MARK: didSelectMonster()
@@ -184,6 +191,7 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: - Other Private Methods
 
+    @MainActor
     private func reset() {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()
