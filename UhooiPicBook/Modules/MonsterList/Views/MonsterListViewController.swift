@@ -141,7 +141,10 @@ extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 extension MonsterListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didSelectMonster(monster: monsters[indexPath.row])
+        Task {
+            let monster = monsters[indexPath.row]
+            await presenter.didSelectMonster(monster: monster)
+        }
     }
 
 }

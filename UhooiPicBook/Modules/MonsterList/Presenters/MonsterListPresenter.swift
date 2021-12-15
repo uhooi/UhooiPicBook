@@ -11,7 +11,7 @@ import Foundation
 @MainActor
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad() async
-    func didSelectMonster(monster: MonsterEntity)
+    func didSelectMonster(monster: MonsterEntity) async
 
     // Menu
     func didTapContactUs()
@@ -82,9 +82,9 @@ extension MonsterListPresenter: MonsterListEventHandler {
         router.showAboutThisApp()
     }
 
-    func didSelectMonster(monster: MonsterEntity) {
-        interactor.saveForSpotlight(monster)
+    func didSelectMonster(monster: MonsterEntity) async {
         router.showMonsterDetail(monster: monster)
+        await interactor.saveForSpotlight(monster)
     }
 
     // MARK: Other Private Methods
