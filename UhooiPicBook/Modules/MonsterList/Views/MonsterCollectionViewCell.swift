@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 final class MonsterCollectionViewCell: UICollectionViewCell {
 
     // MARK: Stored Instance Properties
