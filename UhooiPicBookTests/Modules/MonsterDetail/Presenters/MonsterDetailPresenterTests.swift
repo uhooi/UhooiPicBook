@@ -35,27 +35,31 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
-    func test_viewDidLoad() {
-        self.presenter.viewDidLoad()
+    @MainActor
+    func test_viewDidLoad() async {
+        presenter.viewDidLoad()
     }
     
     // MARK: didTapDancingImageView()
     
-    func test_didTapDancingImageView_notNil() {
-        self.presenter.didTapDancingImageView(dancingImage: UIImage())
+    @MainActor
+    func test_didTapDancingImageView_notNil() async {
+        presenter.didTapDancingImageView(dancingImage: UIImage())
         
-        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 1)
+        XCTAssertEqual(routerMock.popupDancingImageCallCount, 1)
     }
     
-    func test_didTapDancingImageView_nil() {
-        self.presenter.didTapDancingImageView(dancingImage: nil)
+    @MainActor
+    func test_didTapDancingImageView_nil() async {
+        presenter.didTapDancingImageView(dancingImage: nil)
         
-        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 0)
+        XCTAssertEqual(routerMock.popupDancingImageCallCount, 0)
     }
     
     // MARK: didTapShareButton()
     
-    func test_didTapShareButton_one_nil() {
+    @MainActor
+    func test_didTapShareButton_one_nil() async {
         typealias TestCase = (senderView: UIView?, name: String?, description: String?, icon: UIImage?, line: UInt)
         let testCases: [TestCase] = [
             (nil, "name", "description", UIImage(), #line),
@@ -65,25 +69,26 @@ final class MonsterDetailPresenterTests: XCTestCase {
         ]
         
         for (senderView, name, description, icon, line) in testCases {
-            self.presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
-            XCTAssertEqual(self.routerMock.showActivityCallCount, 0, line: line)
+            presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
+            XCTAssertEqual(routerMock.showActivityCallCount, 0, line: line)
         }
     }
     
-    func test_didTapShareButton_all_notNil() {
+    @MainActor
+    func test_didTapShareButton_all_notNil() async {
         let senderView = UIView()
         let name = "name"
         let description = "description"
         let icon = UIImage()
-        self.routerMock.showActivityHandler = { sourceView, text, image in
+        routerMock.showActivityHandler = { sourceView, text, image in
             XCTAssertEqual(text, "\(name)\n\(description)\n#UhooiPicBook")
             XCTAssertEqual(sourceView, senderView)
             XCTAssertEqual(image, icon)
         }
         
-        self.presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
+        presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
 
-        XCTAssertEqual(self.routerMock.showActivityCallCount, 1)
+        XCTAssertEqual(routerMock.showActivityCallCount, 1)
     }
 
     // MARK: MonsterDetailInteractorOutput

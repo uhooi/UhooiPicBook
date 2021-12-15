@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 
+@MainActor
 final class InAppWebBrowserViewController: UIViewController {
 
     // MARK: Type Aliases

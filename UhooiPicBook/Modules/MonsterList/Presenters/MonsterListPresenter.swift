@@ -8,6 +8,7 @@
 
 import Foundation
 
+@MainActor
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad() async
     func didSelectMonster(monster: MonsterEntity)
@@ -23,6 +24,7 @@ protocol MonsterListEventHandler: AnyObject {
 protocol MonsterListInteractorOutput: AnyObject {
 }
 
+@MainActor
 final class MonsterListPresenter {
 
     // MARK: Type Aliases
@@ -51,16 +53,16 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func viewDidLoad() async {
         do {
-            await view.startIndicator()
+            view.startIndicator()
             let monsters = try await interactor.fetchMonsters()
             let monsterEntities = monsters
                 .sorted { $0.order < $1.order }
                 .map { convertDTOToEntity(dto: $0) }
-            await view.showMonsters(monsterEntities)
-            await view.stopIndicator()
+            view.showMonsters(monsterEntities)
+            view.stopIndicator()
         } catch {
             // TODO: エラーハンドリング
-            await view.stopIndicator()
+            view.stopIndicator()
         }
     }
 

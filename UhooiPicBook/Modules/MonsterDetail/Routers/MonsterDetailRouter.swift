@@ -9,11 +9,13 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterDetailRouterInput: AnyObject {
     func popupDancingImage(_ dancingImage: UIImage)
     func showActivity(_ senderView: UIView, text: String, icon: UIImage)
 }
 
+@MainActor
 final class MonsterDetailRouter {
 
     // MARK: Stored Instance Properties
@@ -36,13 +38,11 @@ final class MonsterDetailRouter {
         let router = MonsterDetailRouter(viewController: view)
         let presenter = MonsterDetailPresenter(view: view, interactor: interactor, router: router)
 
-        Task { @MainActor in
-            view.inject(
-                presenter: presenter,
-                imageCacheManager: ImageCacheManager(),
-                monster: monster
-            )
-        }
+        view.inject(
+            presenter: presenter,
+            imageCacheManager: ImageCacheManager(),
+            monster: monster
+        )
         interactor.presenter = presenter
 
         return view

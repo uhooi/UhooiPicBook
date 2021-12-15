@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 enum ImagePopupRouter {
 
     // MARK: Type Methods

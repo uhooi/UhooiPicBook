@@ -35,53 +35,52 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
+    @MainActor
     func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
-        self.interactorMock.fetchMonstersHandler = { monsterDTOs }
-        Task { @MainActor in
-            viewMock.showMonstersHandler = { monsters in
-                for index in 0 ..< monsterDTOs.count {
-                    XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                    XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                    let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                    XCTAssertEqual(monsters[index].iconUrl, iconUrl)
-                }
+        interactorMock.fetchMonstersHandler = { monsterDTOs }
+        viewMock.showMonstersHandler = { monsters in
+            for index in 0 ..< monsterDTOs.count {
+                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
             }
         }
         
-        await self.presenter.viewDidLoad()
+        await presenter.viewDidLoad()
         
-        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
-        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
+    @MainActor
     func test_viewDidLoad_success_three() async {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
         let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
-        self.interactorMock.fetchMonstersHandler = { monsterDTOs }
-        Task { @MainActor in
-            viewMock.showMonstersHandler = { monsters in
-                for index in 0 ..< monsterDTOs.count {
-                    XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                    XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                    let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                    XCTAssertEqual(monsters[index].iconUrl, iconUrl)
-                }
+        interactorMock.fetchMonstersHandler = { monsterDTOs }
+        viewMock.showMonstersHandler = { monsters in
+            for index in 0 ..< monsterDTOs.count {
+                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
+                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
+                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
             }
         }
         
-        await self.presenter.viewDidLoad()
+        await presenter.viewDidLoad()
         
-        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
-        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
+    @MainActor
     func test_viewDidLoad_newLine() async {
         typealias TestCase = (description: String, expected: String, line: UInt)
         let testCases: [TestCase] = [
@@ -95,7 +94,7 @@ final class MonsterListPresenterTests: XCTestCase {
         ]
         
         for (description, expected, line) in testCases {
-            await reset()
+            reset()
             let monsterDTO = MonsterDTO(
                 name: "monster's name",
                 description: description,
@@ -104,87 +103,91 @@ final class MonsterListPresenterTests: XCTestCase {
                 dancingUrlString: "https://theuhooi.com/monster-dancing",
                 order: 1
             )
-            self.interactorMock.fetchMonstersHandler = { [monsterDTO] }
-            Task { @MainActor in
-                viewMock.showMonstersHandler = { monsters in
-                    XCTAssertEqual(monsters[0].description, expected, line: line)
-                }
+            interactorMock.fetchMonstersHandler = { [monsterDTO] }
+            viewMock.showMonstersHandler = { monsters in
+                XCTAssertEqual(monsters[0].description, expected, line: line)
             }
 
-            await self.presenter.viewDidLoad()
+            await presenter.viewDidLoad()
             
-            await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
-            XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-            await assertEqualAsync(await self.viewMock.showMonstersCallCount, 1)
-            await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
+            XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+            XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+            XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+            XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
         }
     }
     
+    @MainActor
     func test_viewDidLoad_failure() async {
         struct TestError: Error { }
-        self.interactorMock.fetchMonstersHandler = { throw TestError() }
+        interactorMock.fetchMonstersHandler = { throw TestError() }
         
-        await self.presenter.viewDidLoad()
+        await presenter.viewDidLoad()
         
-        await assertEqualAsync(await self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        await assertEqualAsync(await self.viewMock.showMonstersCallCount, 0)
-        await assertEqualAsync(await self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 0)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
     // MARK: didSelectMonster()
     
-    func test_didSelectMonster() {
+    @MainActor
+    func test_didSelectMonster() async {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
 
-        self.presenter.didSelectMonster(monster: uhooiEntity)
+        presenter.didSelectMonster(monster: uhooiEntity)
         
-        XCTAssertEqual(self.interactorMock.saveForSpotlightCallCount, 1)
-        XCTAssertEqual(self.routerMock.showMonsterDetailCallCount, 1)
+        XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
+        XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
     }
     
     // MARK: didTapContactUs()
     
-    func test_didTapContactUs() {
-        self.presenter.didTapContactUs()
+    @MainActor
+    func test_didTapContactUs() async {
+        presenter.didTapContactUs()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 1)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 1)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapPrivacyPolicy()
     
-    func test_didTapPrivacyPolicy() {
-        self.presenter.didTapPrivacyPolicy()
+    @MainActor
+    func test_didTapPrivacyPolicy() async {
+        presenter.didTapPrivacyPolicy()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 1)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 1)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapLicenses()
     
-    func test_didTapLicenses() {
-        self.presenter.didTapLicenses()
+    @MainActor
+    func test_didTapLicenses() async {
+        presenter.didTapLicenses()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 1)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 1)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapAboutThisApp()
     
-    func test_didTapAboutThisApp() {
-        self.presenter.didTapAboutThisApp()
+    @MainActor
+    func test_didTapAboutThisApp() async {
+        presenter.didTapAboutThisApp()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 1)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 1)
     }
 
     // MARK: MonsterListInteractorOutput

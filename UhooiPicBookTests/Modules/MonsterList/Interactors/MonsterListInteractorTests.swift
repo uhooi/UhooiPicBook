@@ -37,28 +37,28 @@ final class MonsterListInteractorTests: XCTestCase {
     
     func test_fetchMonsters_success() async {
         let monsterDTOs: [MonsterDTO] = []
-        self.monstersRepositoryMock.loadMonstersHandler = { monsterDTOs }
+        monstersRepositoryMock.loadMonstersHandler = { monsterDTOs }
         
         do {
-            let monsters = try await self.interactor.fetchMonsters()
+            let monsters = try await interactor.fetchMonsters()
             XCTAssertEqual(monsters, monsterDTOs)
         } catch {
             XCTFail("Error: \(error)")
         }
-        XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
     func test_fetchMonsters_failure() async {
         struct TestError: Error { }
-        self.monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
+        monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
         
         do {
-            let monsters = try await self.interactor.fetchMonsters()
+            let monsters = try await interactor.fetchMonsters()
             XCTFail("Monsters: \(monsters)")
         } catch {
             XCTAssertTrue(error is TestError)
         }
-        XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
     // saveForSpotlight()
@@ -66,10 +66,10 @@ final class MonsterListInteractorTests: XCTestCase {
     func test_saveForSpotlight() {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         
-        self.interactor.saveForSpotlight(uhooiEntity)
+        interactor.saveForSpotlight(uhooiEntity)
         
-        XCTAssertEqual(self.monstersTempRepositoryMock.saveMonsterCallCount, 1)
-        XCTAssertEqual(self.spotlightRepositoryMock.saveMonsterCallCount, 1)
+        XCTAssertEqual(monstersTempRepositoryMock.saveMonsterCallCount, 1)
+        XCTAssertEqual(spotlightRepositoryMock.saveMonsterCallCount, 1)
     }
 
     // MARK: - Other Private Methods

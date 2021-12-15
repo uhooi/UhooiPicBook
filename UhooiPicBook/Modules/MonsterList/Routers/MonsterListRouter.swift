@@ -9,6 +9,7 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterListRouterInput: AnyObject {
     func showMonsterDetail(monster: MonsterEntity)
 
@@ -19,6 +20,7 @@ protocol MonsterListRouterInput: AnyObject {
     func showAboutThisApp()
 }
 
+@MainActor
 final class MonsterListRouter {
 
     // MARK: Stored Instance Properties
@@ -46,9 +48,7 @@ final class MonsterListRouter {
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
-        Task { @MainActor in
-            view.inject(presenter: presenter, imageCacheManager: imageCacheManager)
-        }
+        view.inject(presenter: presenter, imageCacheManager: imageCacheManager)
         interactor.presenter = presenter
 
         return view
