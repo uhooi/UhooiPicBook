@@ -97,15 +97,15 @@ final class MonsterDetailViewController: UIViewController {
         Task { @MainActor in
             do {
                 iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-                dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
-                nameLabel.text = monster.name
-                descriptionLabel.text = monster.description
-                navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
             } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }
         }
+        dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+        nameLabel.text = monster.name
+        descriptionLabel.text = monster.description
+        navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
 
 }
