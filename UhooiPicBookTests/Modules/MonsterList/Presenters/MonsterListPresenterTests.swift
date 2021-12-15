@@ -136,7 +136,7 @@ final class MonsterListPresenterTests: XCTestCase {
     func test_didSelectMonster() async {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
 
-        presenter.didSelectMonster(monster: uhooiEntity)
+        await presenter.didSelectMonster(monster: uhooiEntity)
         
         XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
         XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
