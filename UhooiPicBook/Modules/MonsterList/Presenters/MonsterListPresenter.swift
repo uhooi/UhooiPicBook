@@ -21,7 +21,6 @@ protocol MonsterListEventHandler: AnyObject {
 }
 
 /// @mockable
-@MainActor
 protocol MonsterListInteractorOutput: AnyObject {
 }
 
