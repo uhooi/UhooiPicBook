@@ -100,11 +100,13 @@ extension MonsterListPresenter: MonsterListEventHandler {
             fatalError("Fail to load dancing image.") // TODO: エラーハンドリング
         }
 
-        return MonsterEntity(name: dto.name,
-                             description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-                             baseColorCode: dto.baseColorCode,
-                             iconUrl: iconUrl,
-                             dancingUrl: dancingUrl)
+        return MonsterEntity(
+            name: dto.name,
+            description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
+            baseColorCode: dto.baseColorCode,
+            iconUrl: iconUrl,
+            dancingUrl: dancingUrl
+        )
     }
 
 }

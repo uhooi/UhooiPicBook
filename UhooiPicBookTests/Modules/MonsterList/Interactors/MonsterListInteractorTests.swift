@@ -89,9 +89,11 @@ final class MonsterListInteractorTests: XCTestCase {
         self.monstersRepositoryMock = MonstersRepositoryMock()
         self.monstersTempRepositoryMock = MonstersTempRepositoryMock()
         self.spotlightRepositoryMock = SpotlightRepositoryMock()
-        self.interactor = MonsterListInteractor(monstersRepository: self.monstersRepositoryMock,
-                                                monstersTempRepository: self.monstersTempRepositoryMock,
-                                                spotlightRepository: self.spotlightRepositoryMock)
+        self.interactor = MonsterListInteractor(
+            monstersRepository: self.monstersRepositoryMock,
+            monstersTempRepository: self.monstersTempRepositoryMock,
+            spotlightRepository: self.spotlightRepositoryMock
+        )
         self.interactor.presenter = self.presenterMock
     }
 

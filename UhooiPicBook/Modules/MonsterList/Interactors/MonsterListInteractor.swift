@@ -28,7 +28,11 @@ final class MonsterListInteractor {
 
     // MARK: Initializer
 
-    init(monstersRepository: MonstersRepository, monstersTempRepository: MonstersTempRepository, spotlightRepository: SpotlightRepository) {
+    init(
+        monstersRepository: MonstersRepository,
+        monstersTempRepository: MonstersTempRepository,
+        spotlightRepository: SpotlightRepository
+    ) {
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
         self.spotlightRepository = spotlightRepository
