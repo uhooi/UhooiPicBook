@@ -14,15 +14,15 @@ extension UICollectionView {
         layoutIfNeeded()
 
         // Temporarily bring visible cells under the collection view.
-        self.visibleCells.forEach {
+        visibleCells.forEach {
             $0.transform = CGAffineTransform(
                 translationX: 0,
-                y: self.bounds.size.height
+                y: bounds.size.height
             )
         }
 
         // Animate it back to where it should be.
-        self.visibleCells.enumerated().forEach { object in
+        visibleCells.enumerated().forEach { object in
             UIView.animate(
                 withDuration: 0.6,
                 delay: 0.04 * Double(object.offset),

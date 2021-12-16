@@ -55,17 +55,17 @@ final class MonsterDetailViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-        self.presenter.viewDidLoad()
+        presenter.viewDidLoad()
     }
 
     // MARK: IBActions
 
     @IBAction private func didTapShareButton(_ sender: UIBarButtonItem) {
-        self.presenter.didTapShareButton(
+        presenter.didTapShareButton(
             sender.value(forKey: "view") as? UIView,
-            name: self.nameLabel.text,
-            description: self.descriptionLabel.text,
-            icon: self.iconImageView.image
+            name: nameLabel.text,
+            description: descriptionLabel.text,
+            icon: iconImageView.image
         )
     }
 
@@ -73,7 +73,7 @@ final class MonsterDetailViewController: UIViewController {
 
     @objc
     private func didTapDancingImageView(_ sender: UITapGestureRecognizer) {
-        self.presenter.didTapDancingImageView(dancingImage: self.dancingImageView.image)
+        presenter.didTapDancingImageView(dancingImage: dancingImageView.image)
     }
 
     private func configureView() {
@@ -88,10 +88,10 @@ final class MonsterDetailViewController: UIViewController {
                 print(error)
             }
         }
-        self.dancingImageView.image = self.imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
-        self.nameLabel.text = monster.name
-        self.descriptionLabel.text = monster.description
-        self.navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
+        dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+        nameLabel.text = monster.name
+        descriptionLabel.text = monster.description
+        navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
 
 }

@@ -13,7 +13,7 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
 
     @IBInspectable private var masksToBounds: Bool = false {
         willSet {
-            self.layer.masksToBounds = newValue
+            layer.masksToBounds = newValue
         }
     }
 
@@ -32,16 +32,16 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.iconImageView.image = nil
-        self.nameLabel.text = nil
+        iconImageView.image = nil
+        nameLabel.text = nil
     }
 
     // MARK: Other Internal Methods
 
     func setup(name: String, icon: UIImage, elevation: Double) {
-        self.nameLabel.text = name
-        self.iconImageView.image = icon
-        self.baseView.elevate(elevation: elevation)
+        nameLabel.text = name
+        iconImageView.image = icon
+        baseView.elevate(elevation: elevation)
     }
 
 }

@@ -65,14 +65,14 @@ final class MonsterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
         self.presenter.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.navigationBar.configureBackgroundColor(R.color.navigationBar())
+        navigationController?.navigationBar.configureBackgroundColor(R.color.navigationBar())
     }
 
     // MARK: IBActions
@@ -84,7 +84,7 @@ final class MonsterListViewController: UIViewController {
 extension MonsterListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.monsters.count
+        monsters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,7 +114,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
 extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: self.monstersCollectionView.frame.width - 16.0 * 2, height: 116.0)
+        CGSize(width: monstersCollectionView.frame.width - 16.0 * 2, height: 116.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

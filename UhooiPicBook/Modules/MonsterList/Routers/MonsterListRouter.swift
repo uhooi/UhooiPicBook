@@ -59,14 +59,14 @@ extension MonsterListRouter: MonsterListRouterInput {
 
     func showMonsterDetail(monster: MonsterEntity) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
-        self.viewController.navigationController?.pushViewController(vc, animated: true)
+        viewController.navigationController?.pushViewController(vc, animated: true)
     }
 
     func showContactUs() {
         guard let contactUsUrl = URL(string: R.string.localizable.contactUsURL()) else {
             fatalError("Fail to initialize contact us URL.")
         }
-        InAppWebBrowserRouter.show(self.viewController, url: contactUsUrl)
+        InAppWebBrowserRouter.show(viewController, url: contactUsUrl)
     }
 
     func showPrivacyPolicy() {
@@ -95,7 +95,7 @@ extension MonsterListRouter: MonsterListRouterInput {
 \(R.string.localizable.copyright())
 """
         let okAction = UIAlertAction(title: R.string.localizable.oK(), style: .default) { _ in }
-        self.viewController.showAlert(title: title, message: message, actions: [okAction])
+        viewController.showAlert(title: title, message: message, actions: [okAction])
     }
 
 }

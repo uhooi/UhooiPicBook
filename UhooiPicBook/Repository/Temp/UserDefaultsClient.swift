@@ -16,7 +16,7 @@ final class UserDefaultsClient {
     // MARK: Other Internal Methods
 
     func removeAll() {
-        self.userDefaults.dictionaryRepresentation().keys.forEach { self.userDefaults.removeObject(forKey: $0) }
+        userDefaults.dictionaryRepresentation().keys.forEach { userDefaults.removeObject(forKey: $0) }
     }
 
 }
@@ -27,7 +27,7 @@ extension UserDefaultsClient: MonstersTempRepository {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
-        guard let data = self.userDefaults.data(forKey: key),
+        guard let data = userDefaults.data(forKey: key),
               let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
             return nil
         }
@@ -41,7 +41,7 @@ extension UserDefaultsClient: MonstersTempRepository {
         guard let data = try? jsonEncoder.encode(monster) else {
             return
         }
-        self.userDefaults.set(data, forKey: key)
+        userDefaults.set(data, forKey: key)
     }
 
 }

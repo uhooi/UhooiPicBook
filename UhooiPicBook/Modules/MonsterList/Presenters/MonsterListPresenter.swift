@@ -70,24 +70,24 @@ extension MonsterListPresenter: MonsterListEventHandler {
     }
 
     func didTapContactUs() {
-        self.router.showContactUs()
+        router.showContactUs()
     }
 
     func didTapPrivacyPolicy() {
-        self.router.showPrivacyPolicy()
+        router.showPrivacyPolicy()
     }
 
     func didTapLicenses() {
-        self.router.showSettings()
+        router.showSettings()
     }
 
     func didTapAboutThisApp() {
-        self.router.showAboutThisApp()
+        router.showAboutThisApp()
     }
 
     func didSelectMonster(monster: MonsterEntity) {
-        self.interactor.saveForSpotlight(monster)
-        self.router.showMonsterDetail(monster: monster)
+        interactor.saveForSpotlight(monster)
+        router.showMonsterDetail(monster: monster)
     }
 
     // MARK: Other Private Methods
