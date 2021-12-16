@@ -9,6 +9,7 @@
 import XCTest
 @testable import UhooiPicBook
 
+@MainActor
 final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: Stored Instance Properties
@@ -35,7 +36,6 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
-    @MainActor
     func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
         interactorMock.fetchMonstersHandler = { monsterDTOs }
@@ -56,7 +56,6 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
-    @MainActor
     func test_viewDidLoad_success_three() async {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
@@ -80,7 +79,6 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
-    @MainActor
     func test_viewDidLoad_newLine() async {
         typealias TestCase = (description: String, expected: String, line: UInt)
         let testCases: [TestCase] = [
@@ -117,7 +115,6 @@ final class MonsterListPresenterTests: XCTestCase {
         }
     }
     
-    @MainActor
     func test_viewDidLoad_failure() async {
         struct TestError: Error { }
         interactorMock.fetchMonstersHandler = { throw TestError() }
@@ -132,7 +129,6 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didSelectMonster()
     
-    @MainActor
     func test_didSelectMonster() async {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
 
@@ -144,7 +140,6 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapContactUs()
     
-    @MainActor
     func test_didTapContactUs() async {
         presenter.didTapContactUs()
         
@@ -156,7 +151,6 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapPrivacyPolicy()
     
-    @MainActor
     func test_didTapPrivacyPolicy() async {
         presenter.didTapPrivacyPolicy()
         
@@ -168,7 +162,6 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapLicenses()
     
-    @MainActor
     func test_didTapLicenses() async {
         presenter.didTapLicenses()
         
@@ -180,7 +173,6 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapAboutThisApp()
     
-    @MainActor
     func test_didTapAboutThisApp() async {
         presenter.didTapAboutThisApp()
         
@@ -194,7 +186,6 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: - Other Private Methods
 
-    @MainActor
     private func reset() {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()

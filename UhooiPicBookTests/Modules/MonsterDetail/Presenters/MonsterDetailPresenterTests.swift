@@ -9,6 +9,7 @@
 import XCTest
 @testable import UhooiPicBook
 
+@MainActor
 final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: Stored Instance Properties
@@ -35,21 +36,18 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
-    @MainActor
     func test_viewDidLoad() async {
         presenter.viewDidLoad()
     }
     
     // MARK: didTapDancingImageView()
     
-    @MainActor
     func test_didTapDancingImageView_notNil() async {
         presenter.didTapDancingImageView(dancingImage: UIImage())
         
         XCTAssertEqual(routerMock.popupDancingImageCallCount, 1)
     }
     
-    @MainActor
     func test_didTapDancingImageView_nil() async {
         presenter.didTapDancingImageView(dancingImage: nil)
         
@@ -58,7 +56,6 @@ final class MonsterDetailPresenterTests: XCTestCase {
     
     // MARK: didTapShareButton()
     
-    @MainActor
     func test_didTapShareButton_one_nil() async {
         typealias TestCase = (senderView: UIView?, name: String?, description: String?, icon: UIImage?, line: UInt)
         let testCases: [TestCase] = [
@@ -74,7 +71,6 @@ final class MonsterDetailPresenterTests: XCTestCase {
         }
     }
     
-    @MainActor
     func test_didTapShareButton_all_notNil() async {
         let senderView = UIView()
         let name = "name"
@@ -95,7 +91,6 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: - Other Private Methods
 
-    @MainActor
     private func reset() {
         self.viewMock = MonsterDetailUserInterfaceMock()
         self.interactorMock = MonsterDetailInteractorInputMock()
