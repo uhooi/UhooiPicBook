@@ -46,8 +46,7 @@ final class MonsterListRouter {
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
-        view.presenter = presenter
-        view.imageCacheManager = imageCacheManager
+        view.inject(presenter: presenter, imageCacheManager: imageCacheManager)
         interactor.presenter = presenter
 
         return view

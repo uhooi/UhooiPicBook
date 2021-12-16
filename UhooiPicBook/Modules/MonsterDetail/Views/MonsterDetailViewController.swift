@@ -18,10 +18,10 @@ final class MonsterDetailViewController: UIViewController {
 
     // MARK: Stored Instance Properties
 
-    var presenter: MonsterDetailEventHandler!
-    var imageCacheManager: ImageCacheManagerProtocol!
+    private var presenter: MonsterDetailEventHandler!
+    private var imageCacheManager: ImageCacheManagerProtocol!
 
-    var monster: MonsterEntity!
+    private var monster: MonsterEntity!
 
     // MARK: Computed Instance Properties
 
@@ -67,6 +67,18 @@ final class MonsterDetailViewController: UIViewController {
             description: descriptionLabel.text,
             icon: iconImageView.image
         )
+    }
+
+    // MARK: Other Internal Methods
+
+    func inject(
+        presenter: MonsterDetailEventHandler,
+        imageCacheManager: ImageCacheManagerProtocol,
+        monster: MonsterEntity
+    ) {
+        self.presenter = presenter
+        self.imageCacheManager = imageCacheManager
+        self.monster = monster
     }
 
     // MARK: Other Private Methods
