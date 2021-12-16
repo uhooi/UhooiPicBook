@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         let rootViewController = MonsterListRouter.assembleModule()
-        self.window = UIWindow(windowScene: windowScene)
-        self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        window = UIWindow(windowScene: windowScene)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 
         if let userActivity = connectionOptions.userActivities.first {
             executeUserActivity(userActivity)
@@ -82,7 +82,7 @@ extension SceneDelegate {
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
         guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
               let monster = UserDefaultsClient().loadMonster(key: key),
-              let nav = self.window?.rootViewController as? UINavigationController else {
+              let nav = window?.rootViewController as? UINavigationController else {
             return
         }
 

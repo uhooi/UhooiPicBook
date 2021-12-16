@@ -39,7 +39,7 @@ final class MonsterListPresenterTests: XCTestCase {
         self.interactorMock.fetchMonstersHandler = { completion in
             completion(.success(monsterDTOs))
         }
-        self.viewMock.showMonstersHandler = { monsters in
+        viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
                 XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
@@ -48,12 +48,12 @@ final class MonsterListPresenterTests: XCTestCase {
             }
         }
         
-        self.presenter.viewDidLoad()
+        presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
     func test_viewDidLoad_success_three() {
@@ -64,7 +64,7 @@ final class MonsterListPresenterTests: XCTestCase {
         self.interactorMock.fetchMonstersHandler = { completion in
             completion(.success(monsterDTOs))
         }
-        self.viewMock.showMonstersHandler = { monsters in
+        viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
                 XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
@@ -73,12 +73,12 @@ final class MonsterListPresenterTests: XCTestCase {
             }
         }
         
-        self.presenter.viewDidLoad()
+        presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
     func test_viewDidLoad_newLine() {
@@ -106,16 +106,16 @@ final class MonsterListPresenterTests: XCTestCase {
             self.interactorMock.fetchMonstersHandler = { completion in
                 completion(.success([monsterDTO]))
             }
-            self.viewMock.showMonstersHandler = { monsters in
+            viewMock.showMonstersHandler = { monsters in
                 XCTAssertEqual(monsters[0].description, expected, line: line)
             }
 
-            self.presenter.viewDidLoad()
+            presenter.viewDidLoad()
             
-            XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
-            XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-            XCTAssertEqual(self.viewMock.showMonstersCallCount, 1)
-            XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+            XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+            XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+            XCTAssertEqual(viewMock.showMonstersCallCount, 1)
+            XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
         }
     }
     
@@ -127,12 +127,12 @@ final class MonsterListPresenterTests: XCTestCase {
             completion(.failure(TestError.test))
         }
         
-        self.presenter.viewDidLoad()
+        presenter.viewDidLoad()
         
-        XCTAssertEqual(self.viewMock.startIndicatorCallCount, 1)
-        XCTAssertEqual(self.interactorMock.fetchMonstersCallCount, 1)
-        XCTAssertEqual(self.viewMock.showMonstersCallCount, 0)
-        XCTAssertEqual(self.viewMock.stopIndicatorCallCount, 1)
+        XCTAssertEqual(viewMock.startIndicatorCallCount, 1)
+        XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
+        XCTAssertEqual(viewMock.showMonstersCallCount, 0)
+        XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
     }
     
     // MARK: didSelectMonster()
@@ -140,54 +140,54 @@ final class MonsterListPresenterTests: XCTestCase {
     func test_didSelectMonster() {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
 
-        self.presenter.didSelectMonster(monster: uhooiEntity)
+        presenter.didSelectMonster(monster: uhooiEntity)
         
-        XCTAssertEqual(self.interactorMock.saveForSpotlightCallCount, 1)
-        XCTAssertEqual(self.routerMock.showMonsterDetailCallCount, 1)
+        XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
+        XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
     }
     
     // MARK: didTapContactUs()
     
     func test_didTapContactUs() {
-        self.presenter.didTapContactUs()
+        presenter.didTapContactUs()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 1)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 1)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapPrivacyPolicy()
     
     func test_didTapPrivacyPolicy() {
-        self.presenter.didTapPrivacyPolicy()
+        presenter.didTapPrivacyPolicy()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 1)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 1)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapLicenses()
     
     func test_didTapLicenses() {
-        self.presenter.didTapLicenses()
+        presenter.didTapLicenses()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 1)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 0)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 1)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 0)
     }
     
     // MARK: didTapAboutThisApp()
     
     func test_didTapAboutThisApp() {
-        self.presenter.didTapAboutThisApp()
+        presenter.didTapAboutThisApp()
         
-        XCTAssertEqual(self.routerMock.showContactUsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showPrivacyPolicyCallCount, 0)
-        XCTAssertEqual(self.routerMock.showSettingsCallCount, 0)
-        XCTAssertEqual(self.routerMock.showAboutThisAppCallCount, 1)
+        XCTAssertEqual(routerMock.showContactUsCallCount, 0)
+        XCTAssertEqual(routerMock.showPrivacyPolicyCallCount, 0)
+        XCTAssertEqual(routerMock.showSettingsCallCount, 0)
+        XCTAssertEqual(routerMock.showAboutThisAppCallCount, 1)
     }
 
     // MARK: MonsterListInteractorOutput

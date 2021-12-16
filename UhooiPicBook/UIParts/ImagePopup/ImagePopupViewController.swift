@@ -42,7 +42,7 @@ final class ImagePopupViewController: UIViewController {
     // MARK: Other Private Methods
 
     private func configureView() {
-        self.imageView.image = image
+        imageView.image = image
     }
 
 }

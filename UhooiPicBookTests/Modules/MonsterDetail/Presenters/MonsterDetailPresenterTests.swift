@@ -35,21 +35,21 @@ final class MonsterDetailPresenterTests: XCTestCase {
     // MARK: viewDidLoad()
 
     func test_viewDidLoad() {
-        self.presenter.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     // MARK: didTapDancingImageView()
     
     func test_didTapDancingImageView_notNil() {
-        self.presenter.didTapDancingImageView(dancingImage: UIImage())
+        presenter.didTapDancingImageView(dancingImage: UIImage())
         
-        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 1)
+        XCTAssertEqual(routerMock.popupDancingImageCallCount, 1)
     }
     
     func test_didTapDancingImageView_nil() {
-        self.presenter.didTapDancingImageView(dancingImage: nil)
+        presenter.didTapDancingImageView(dancingImage: nil)
         
-        XCTAssertEqual(self.routerMock.popupDancingImageCallCount, 0)
+        XCTAssertEqual(routerMock.popupDancingImageCallCount, 0)
     }
     
     // MARK: didTapShareButton()
@@ -64,8 +64,8 @@ final class MonsterDetailPresenterTests: XCTestCase {
         ]
         
         for (senderView, name, description, icon, line) in testCases {
-            self.presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
-            XCTAssertEqual(self.routerMock.showActivityCallCount, 0, line: line)
+            presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
+            XCTAssertEqual(routerMock.showActivityCallCount, 0, line: line)
         }
     }
     
@@ -74,15 +74,15 @@ final class MonsterDetailPresenterTests: XCTestCase {
         let name = "name"
         let description = "description"
         let icon = UIImage()
-        self.routerMock.showActivityHandler = { sourceView, text, image in
+        routerMock.showActivityHandler = { sourceView, text, image in
             XCTAssertEqual(text, "\(name)\n\(description)\n#UhooiPicBook")
             XCTAssertEqual(sourceView, senderView)
             XCTAssertEqual(image, icon)
         }
         
-        self.presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
+        presenter.didTapShareButton(senderView, name: name, description: description, icon: icon)
 
-        XCTAssertEqual(self.routerMock.showActivityCallCount, 1)
+        XCTAssertEqual(routerMock.showActivityCallCount, 1)
     }
 
     // MARK: MonsterDetailInteractorOutput

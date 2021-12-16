@@ -41,13 +41,13 @@ final class MonsterListInteractor {
 extension MonsterListInteractor: MonsterListInteractorInput {
 
     func fetchMonsters(_ completion: @escaping (Result<[MonsterDTO], Error>) -> Void) {
-        self.monstersRepository.loadMonsters { completion($0) }
+        monstersRepository.loadMonsters { completion($0) }
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) {
         let key = "spotlight_\(monster.name)"
-        self.monstersTempRepository.saveMonster(monster, forKey: key)
-        self.spotlightRepository.saveMonster(monster, forKey: key)
+        monstersTempRepository.saveMonster(monster, forKey: key)
+        spotlightRepository.saveMonster(monster, forKey: key)
     }
 
 }
