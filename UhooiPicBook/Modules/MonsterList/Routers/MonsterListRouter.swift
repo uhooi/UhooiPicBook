@@ -38,9 +38,11 @@ final class MonsterListRouter {
             fatalError("Fail to load MonsterListViewController from Storyboard.")
         }
         let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
-        let interactor = MonsterListInteractor(monstersRepository: MonstersFirebaseClient(),
-                                               monstersTempRepository: UserDefaultsClient(),
-                                               spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager))
+        let interactor = MonsterListInteractor(
+            monstersRepository: MonstersFirebaseClient(),
+            monstersTempRepository: UserDefaultsClient(),
+            spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager)
+        )
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 

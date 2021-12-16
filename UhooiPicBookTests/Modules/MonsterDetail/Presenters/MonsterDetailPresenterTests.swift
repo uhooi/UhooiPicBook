@@ -93,7 +93,11 @@ final class MonsterDetailPresenterTests: XCTestCase {
         self.viewMock = MonsterDetailUserInterfaceMock()
         self.interactorMock = MonsterDetailInteractorInputMock()
         self.routerMock = MonsterDetailRouterInputMock()
-        self.presenter = MonsterDetailPresenter(view: self.viewMock, interactor: self.interactorMock, router: self.routerMock)
+        self.presenter = MonsterDetailPresenter(
+            view: self.viewMock,
+            interactor: self.interactorMock,
+            router: self.routerMock
+        )
     }
 
 }

@@ -198,7 +198,11 @@ final class MonsterListPresenterTests: XCTestCase {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()
         self.routerMock = MonsterListRouterInputMock()
-        self.presenter = MonsterListPresenter(view: self.viewMock, interactor: self.interactorMock, router: self.routerMock)
+        self.presenter = MonsterListPresenter(
+            view: self.viewMock,
+            interactor: self.interactorMock,
+            router: self.routerMock
+        )
     }
 
 }
