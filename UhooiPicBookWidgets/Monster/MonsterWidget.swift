@@ -53,9 +53,9 @@ extension MonsterProvider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
+            var entries: [Entry] = []
             do {
                 let monsters = try await monstersRepository.loadMonsters()
-                var entries: [Entry] = []
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {
@@ -72,10 +72,10 @@ extension MonsterProvider: TimelineProvider {
                     entries.append(entry)
                     hourOffset += 1
                 }
-                completion(Timeline(entries: entries, policy: .atEnd))
             } catch {
-                return
+                print(error)
             }
+            completion(Timeline(entries: entries, policy: .atEnd))
         }
     }
 }
