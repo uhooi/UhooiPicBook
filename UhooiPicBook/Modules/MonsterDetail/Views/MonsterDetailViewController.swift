@@ -70,6 +70,7 @@ final class MonsterDetailViewController: UIViewController {
     }
 
     // MARK: Other Internal Methods
+
     func inject(
         presenter: MonsterDetailEventHandler,
         imageCacheManager: ImageCacheManagerProtocol,
