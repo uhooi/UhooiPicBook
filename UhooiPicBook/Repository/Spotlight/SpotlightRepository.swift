@@ -43,7 +43,7 @@ extension SpotlightClient: SpotlightRepository {
                     thumbnailData: thumbnailData
                 )
             )
-            searchableIndex.indexSearchableItems([item], completionHandler: nil)
+            try await searchableIndex.indexSearchableItems([item])
         } catch {
             // No need for error handling, as there is no need to give the user feedback on save failures for Spotlight search.
             print(error)
