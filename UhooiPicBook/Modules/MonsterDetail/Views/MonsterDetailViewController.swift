@@ -57,10 +57,7 @@ final class MonsterDetailViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-
-        Task { @MainActor in
-            presenter.viewDidLoad()
-        }
+        presenter.viewDidLoad()
     }
 
     // MARK: IBActions
