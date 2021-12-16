@@ -140,7 +140,7 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapContactUs()
     
-    func test_didTapContactUs() async {
+    func test_didTapContactUs() {
         presenter.didTapContactUs()
         
         XCTAssertEqual(routerMock.showContactUsCallCount, 1)
@@ -151,7 +151,7 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapPrivacyPolicy()
     
-    func test_didTapPrivacyPolicy() async {
+    func test_didTapPrivacyPolicy() {
         presenter.didTapPrivacyPolicy()
         
         XCTAssertEqual(routerMock.showContactUsCallCount, 0)
@@ -162,7 +162,7 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapLicenses()
     
-    func test_didTapLicenses() async {
+    func test_didTapLicenses() {
         presenter.didTapLicenses()
         
         XCTAssertEqual(routerMock.showContactUsCallCount, 0)
@@ -173,7 +173,7 @@ final class MonsterListPresenterTests: XCTestCase {
     
     // MARK: didTapAboutThisApp()
     
-    func test_didTapAboutThisApp() async {
+    func test_didTapAboutThisApp() {
         presenter.didTapAboutThisApp()
         
         XCTAssertEqual(routerMock.showContactUsCallCount, 0)

@@ -36,19 +36,19 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: viewDidLoad()
 
-    func test_viewDidLoad() async {
+    func test_viewDidLoad() {
         presenter.viewDidLoad()
     }
     
     // MARK: didTapDancingImageView()
     
-    func test_didTapDancingImageView_notNil() async {
+    func test_didTapDancingImageView_notNil() {
         presenter.didTapDancingImageView(dancingImage: UIImage())
         
         XCTAssertEqual(routerMock.popupDancingImageCallCount, 1)
     }
     
-    func test_didTapDancingImageView_nil() async {
+    func test_didTapDancingImageView_nil() {
         presenter.didTapDancingImageView(dancingImage: nil)
         
         XCTAssertEqual(routerMock.popupDancingImageCallCount, 0)
@@ -56,7 +56,7 @@ final class MonsterDetailPresenterTests: XCTestCase {
     
     // MARK: didTapShareButton()
     
-    func test_didTapShareButton_one_nil() async {
+    func test_didTapShareButton_one_nil() {
         typealias TestCase = (senderView: UIView?, name: String?, description: String?, icon: UIImage?, line: UInt)
         let testCases: [TestCase] = [
             (nil, "name", "description", UIImage(), #line),
@@ -71,7 +71,7 @@ final class MonsterDetailPresenterTests: XCTestCase {
         }
     }
     
-    func test_didTapShareButton_all_notNil() async {
+    func test_didTapShareButton_all_notNil() {
         let senderView = UIView()
         let name = "name"
         let description = "description"
