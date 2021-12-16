@@ -53,11 +53,9 @@ final class MonsterListInteractorTests: XCTestCase {
     }
     
     func test_fetchMonsters_failure() {
-        enum TestError: Error {
-            case test
-        }
+        struct TestError: Error { }
         self.monstersRepositoryMock.loadMonstersHandler = { result in
-            result(.failure(TestError.test))
+            result(.failure(TestError()))
         }
         
         self.interactor.fetchMonsters { result in
@@ -65,7 +63,7 @@ final class MonsterListInteractorTests: XCTestCase {
             case let .success(monsters):
                 XCTFail("Monsters: \(monsters)")
             case let .failure(error):
-                XCTAssertEqual(error as! TestError, TestError.test)
+                XCTAssertTrue(error is TestError)
             }
             XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
         }

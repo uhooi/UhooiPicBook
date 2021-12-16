@@ -120,11 +120,9 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad_failure() {
-        enum TestError: Error {
-            case test
-        }
+        struct TestError: Error { }
         self.interactorMock.fetchMonstersHandler = { completion in
-            completion(.failure(TestError.test))
+            completion(.failure(TestError()))
         }
         
         presenter.viewDidLoad()
