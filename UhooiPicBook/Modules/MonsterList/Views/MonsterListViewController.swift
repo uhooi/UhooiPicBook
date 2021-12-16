@@ -21,8 +21,8 @@ final class MonsterListViewController: UIViewController {
 
     // MARK: Stored Instance Properties
 
-    var presenter: MonsterListEventHandler!
-    var imageCacheManager: ImageCacheManagerProtocol!
+    private var presenter: MonsterListEventHandler!
+    private var imageCacheManager: ImageCacheManagerProtocol!
 
     private var monsters: [MonsterEntity] = []
 
@@ -76,6 +76,13 @@ final class MonsterListViewController: UIViewController {
     }
 
     // MARK: IBActions
+
+    // MARK: Other Internal Methods
+
+    func inject(presenter: MonsterListEventHandler, imageCacheManager: ImageCacheManagerProtocol) {
+        self.presenter = presenter
+        self.imageCacheManager = imageCacheManager
+    }
 
     // MARK: Other Private Methods
 

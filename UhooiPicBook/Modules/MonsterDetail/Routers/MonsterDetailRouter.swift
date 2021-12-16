@@ -36,9 +36,11 @@ final class MonsterDetailRouter {
         let router = MonsterDetailRouter(viewController: view)
         let presenter = MonsterDetailPresenter(view: view, interactor: interactor, router: router)
 
-        view.presenter = presenter
-        view.imageCacheManager = ImageCacheManager()
-        view.monster = monster
+        view.inject(
+            presenter: presenter,
+            imageCacheManager: ImageCacheManager(),
+            monster: monster
+        )
         interactor.presenter = presenter
 
         return view
