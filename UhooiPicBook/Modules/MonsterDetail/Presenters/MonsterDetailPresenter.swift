@@ -16,6 +16,7 @@ protocol MonsterDetailEventHandler: AnyObject {
 }
 
 /// @mockable
+@MainActor
 protocol MonsterDetailInteractorOutput: AnyObject {
 }
 
