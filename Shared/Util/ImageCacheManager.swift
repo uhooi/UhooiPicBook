@@ -13,7 +13,7 @@ enum ImageCacheError: Error {
 
 /// @mockable
 protocol ImageCacheManagerProtocol: AnyObject {
-    func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void)
+    func cacheImage(imageUrl: URL) async throws -> UIImage
     func cacheGIFImage(imageUrl: URL) -> UIImage?
 }
 
@@ -21,32 +21,17 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
 
     static let imageCache = NSCache<AnyObject, AnyObject>()
 
-    func cacheImage(imageUrl: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func cacheImage(imageUrl: URL) async throws -> UIImage {
         if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
-            completion(.success(imageFromCache))
-            return
+            return imageFromCache
         }
 
-        var imageToCache = UIImage()
-
-        URLSession.shared.dataTask(with: imageUrl) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            } else {
-                guard let data = data, let image = UIImage(data: data) else {
-                    completion(.failure(ImageCacheError.loadingFailure))
-                    return
-                }
-
-                imageToCache = image
-                ImageCacheManager.imageCache.setObject(imageToCache, forKey: imageUrl as AnyObject)
-            }
-
-            DispatchQueue.main.async {
-                completion(.success(imageToCache))
-            }
-        }.resume()
+        let (data, _) = try await URLSession.shared.data(from: imageUrl)
+        guard let image = UIImage(data: data) else {
+            throw ImageCacheError.loadingFailure
+        }
+        ImageCacheManager.imageCache.setObject(image, forKey: imageUrl as AnyObject)
+        return image
     }
 
     func cacheGIFImage(imageUrl: URL) -> UIImage? {

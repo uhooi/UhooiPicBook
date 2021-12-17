@@ -35,46 +35,38 @@ final class MonsterListInteractorTests: XCTestCase {
     
     // MARK: fetchMonsters()
     
-    func test_fetchMonsters_success() {
+    func test_fetchMonsters_success() async {
         let monsterDTOs: [MonsterDTO] = []
-        self.monstersRepositoryMock.loadMonstersHandler = { result in
-            result(.success(monsterDTOs))
-        }
+        monstersRepositoryMock.loadMonstersHandler = { monsterDTOs }
         
-        self.interactor.fetchMonsters { result in
-            switch result {
-            case let .success(monsters):
-                XCTAssertEqual(monsters, monsterDTOs)
-            case let .failure(error):
-                XCTFail("Error: \(error)")
-            }
-            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        do {
+            let monsters = try await interactor.fetchMonsters()
+            XCTAssertEqual(monsters, monsterDTOs)
+        } catch {
+            XCTFail("Error: \(error)")
         }
+        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
-    func test_fetchMonsters_failure() {
+    func test_fetchMonsters_failure() async {
         struct TestError: Error { }
-        self.monstersRepositoryMock.loadMonstersHandler = { result in
-            result(.failure(TestError()))
-        }
+        monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
         
-        self.interactor.fetchMonsters { result in
-            switch result {
-            case let .success(monsters):
-                XCTFail("Monsters: \(monsters)")
-            case let .failure(error):
-                XCTAssertTrue(error is TestError)
-            }
-            XCTAssertEqual(self.monstersRepositoryMock.loadMonstersCallCount, 1)
+        do {
+            let monsters = try await interactor.fetchMonsters()
+            XCTFail("Monsters: \(monsters)")
+        } catch {
+            XCTAssertTrue(error is TestError)
         }
+        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
     }
     
     // saveForSpotlight()
     
-    func test_saveForSpotlight() {
+    func test_saveForSpotlight() async {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         
-        interactor.saveForSpotlight(uhooiEntity)
+        await interactor.saveForSpotlight(uhooiEntity)
         
         XCTAssertEqual(monstersTempRepositoryMock.saveMonsterCallCount, 1)
         XCTAssertEqual(spotlightRepositoryMock.saveMonsterCallCount, 1)

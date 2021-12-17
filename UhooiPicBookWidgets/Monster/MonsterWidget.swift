@@ -52,48 +52,29 @@ extension MonsterProvider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        var entries: [Entry] = []
-
-        // swiftlint:disable:next closure_body_length
-        self.monstersRepository.loadMonsters { result in
-            switch result {
-            case let .success(monsters):
+        Task {
+            var entries: [Entry] = []
+            do {
+                let monsters = try await monstersRepository.loadMonsters()
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {
-                    let name = monster.name
-                    let description = monster.description.replacingOccurrences(of: "\\n", with: "\n")
-                    let iconUrlString = monster.iconUrlString
-
-                    guard let iconUrl = URL(string: iconUrlString) else {
+                    guard let iconUrl = URL(string: monster.iconUrlString) else {
                         continue
                     }
 
-                    let group = DispatchGroup()
-                    group.enter()
-
-                    self.imageCacheManager.cacheImage(imageUrl: iconUrl) { result in
-                        switch result {
-                        case let .success(icon):
-                            guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else {
-                                fatalError("Fail to unwrap `entryDate`. hourOffset: \(hourOffset), currentDate: \(currentDate)")
-                            }
-                            let entry = Entry(date: entryDate, name: name, description: description, icon: icon)
-                            entries.append(entry)
-                            hourOffset += 1
-                        case .failure:
-                            break
-                        }
-
-                        group.leave()
+                    let icon = try await imageCacheManager.cacheImage(imageUrl: iconUrl)
+                    guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else {
+                        fatalError("Fail to unwrap `entryDate`. hourOffset: \(hourOffset), currentDate: \(currentDate)")
                     }
-
-                    group.wait()
+                    let description = monster.description.replacingOccurrences(of: "\\n", with: "\n")
+                    let entry = Entry(date: entryDate, name: monster.name, description: description, icon: icon)
+                    entries.append(entry)
+                    hourOffset += 1
                 }
-            case .failure:
-                break
+            } catch {
+                print(error)
             }
-
             completion(Timeline(entries: entries, policy: .atEnd))
         }
     }

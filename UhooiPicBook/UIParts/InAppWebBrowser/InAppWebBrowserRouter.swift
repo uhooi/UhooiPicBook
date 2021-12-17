@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 enum InAppWebBrowserRouter {
 
     // MARK: Type Methods

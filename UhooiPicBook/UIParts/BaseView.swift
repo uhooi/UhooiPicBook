@@ -8,6 +8,7 @@
 import UIKit
 
 @IBDesignable
+@MainActor
 final class BaseView: UIView {
 
     // MARK: Stored Instance Properties

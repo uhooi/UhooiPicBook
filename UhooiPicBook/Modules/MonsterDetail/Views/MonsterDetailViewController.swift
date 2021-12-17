@@ -9,9 +9,11 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterDetailUserInterface: AnyObject {
 }
 
+@MainActor
 final class MonsterDetailViewController: UIViewController {
 
     // MARK: Type Aliases
@@ -89,13 +91,10 @@ final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { [weak self] result in
-            switch result {
-            case let .success(icon):
-                DispatchQueue.main.async {
-                    self?.iconImageView.image = icon
-                }
-            case let .failure(error):
+        Task {
+            do {
+                iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+            } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }

@@ -14,6 +14,7 @@ import Gedatsu
 #endif
 
 @UIApplicationMain
+@MainActor
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // swiftlint:disable:next discouraged_optional_collection

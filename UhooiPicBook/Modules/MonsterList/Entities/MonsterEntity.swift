@@ -16,3 +16,5 @@ struct MonsterEntity: Equatable {
 }
 
 extension MonsterEntity: Codable {}
+
+extension MonsterEntity: Sendable {}

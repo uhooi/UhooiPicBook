@@ -9,6 +9,7 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterListRouterInput: AnyObject {
     func showMonsterDetail(monster: MonsterEntity)
 
@@ -19,6 +20,7 @@ protocol MonsterListRouterInput: AnyObject {
     func showAboutThisApp()
 }
 
+@MainActor
 final class MonsterListRouter {
 
     // MARK: Stored Instance Properties

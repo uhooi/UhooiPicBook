@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 enum ActivityRouter {
 
     // MARK: Type Methods

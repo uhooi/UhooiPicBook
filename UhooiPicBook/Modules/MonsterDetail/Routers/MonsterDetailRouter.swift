@@ -9,11 +9,13 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterDetailRouterInput: AnyObject {
     func popupDancingImage(_ dancingImage: UIImage)
     func showActivity(_ senderView: UIView, text: String, icon: UIImage)
 }
 
+@MainActor
 final class MonsterDetailRouter {
 
     // MARK: Stored Instance Properties

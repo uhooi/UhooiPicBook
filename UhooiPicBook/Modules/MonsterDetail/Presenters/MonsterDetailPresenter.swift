@@ -8,6 +8,7 @@
 
 import UIKit.UIImage
 
+@MainActor
 protocol MonsterDetailEventHandler: AnyObject {
     func viewDidLoad()
     func didTapDancingImageView(dancingImage: UIImage?)
@@ -18,6 +19,7 @@ protocol MonsterDetailEventHandler: AnyObject {
 protocol MonsterDetailInteractorOutput: AnyObject {
 }
 
+@MainActor
 final class MonsterDetailPresenter {
 
     // MARK: Type Aliases

@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 final class ImagePopupViewController: UIViewController {
 
     // MARK: Type Aliases

@@ -9,12 +9,14 @@
 import UIKit
 
 /// @mockable
+@MainActor
 protocol MonsterListUserInterface: AnyObject {
     func showMonsters(_ monsters: [MonsterEntity])
     func startIndicator()
     func stopIndicator()
 }
 
+@MainActor
 final class MonsterListViewController: UIViewController {
 
     // MARK: Type Aliases
@@ -66,7 +68,10 @@ final class MonsterListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = .white
-        self.presenter.viewDidLoad()
+
+        Task {
+            await presenter.viewDidLoad()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -99,15 +104,12 @@ extension MonsterListViewController: UICollectionViewDataSource {
             fatalError("Fail to load MonsterCollectionViewCell.")
         }
 
-        let monster = self.monsters[indexPath.row]
-
-        self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl) { result in
-            switch result {
-            case let .success(icon):
-                DispatchQueue.main.async {
-                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-                }
-            case let .failure(error):
+        Task {
+            do {
+                let monster = monsters[indexPath.row]
+                let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
+                cell.setup(name: monster.name, icon: icon, elevation: 1.0)
+            } catch {
                 // TODO: エラーハンドリング
                 print(error)
             }
@@ -137,7 +139,10 @@ extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
 extension MonsterListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presenter.didSelectMonster(monster: self.monsters[indexPath.row])
+        Task {
+            let monster = monsters[indexPath.row]
+            await presenter.didSelectMonster(monster: monster)
+        }
     }
 
 }
@@ -146,23 +151,17 @@ extension MonsterListViewController: MonsterListUserInterface {
 
     func showMonsters(_ monsters: [MonsterEntity]) {
         self.monsters = monsters
-        DispatchQueue.main.async {
-            self.monstersCollectionView.reloadData()
-            self.monstersCollectionView.executeCellSlideUpAnimation()
-        }
+        monstersCollectionView.reloadData()
+        monstersCollectionView.executeCellSlideUpAnimation()
     }
 
     func startIndicator() {
-        DispatchQueue.main.async {
-            self.view.bringSubviewToFront(self.activityIndicatorView)
-            self.activityIndicatorView.startAnimating()
-        }
+        view.bringSubviewToFront(activityIndicatorView)
+        activityIndicatorView.startAnimating()
     }
 
     func stopIndicator() {
-        DispatchQueue.main.async {
-            self.activityIndicatorView.stopAnimating()
-        }
+        activityIndicatorView.stopAnimating()
     }
 
 }

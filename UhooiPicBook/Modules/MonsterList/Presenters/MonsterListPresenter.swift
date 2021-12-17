@@ -8,9 +8,10 @@
 
 import Foundation
 
+@MainActor
 protocol MonsterListEventHandler: AnyObject {
-    func viewDidLoad()
-    func didSelectMonster(monster: MonsterEntity)
+    func viewDidLoad() async
+    func didSelectMonster(monster: MonsterEntity) async
 
     // Menu
     func didTapContactUs()
@@ -23,6 +24,7 @@ protocol MonsterListEventHandler: AnyObject {
 protocol MonsterListInteractorOutput: AnyObject {
 }
 
+@MainActor
 final class MonsterListPresenter {
 
     // MARK: Type Aliases
@@ -49,23 +51,18 @@ final class MonsterListPresenter {
 
 extension MonsterListPresenter: MonsterListEventHandler {
 
-    func viewDidLoad() {
-        self.view.startIndicator()
-        self.interactor.fetchMonsters { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            switch result {
-            case let .success(monsters):
-                let monsterEntities = monsters
-                    .sorted { $0.order < $1.order }
-                    .map { self.convertDTOToEntity(dto: $0) }
-                self.view.showMonsters(monsterEntities)
-                self.view.stopIndicator()
-            case let .failure(error):
-                // TODO: エラーハンドリング
-                self.view.stopIndicator()
-            }
+    func viewDidLoad() async {
+        do {
+            view.startIndicator()
+            let monsters = try await interactor.fetchMonsters()
+            let monsterEntities = monsters
+                .sorted { $0.order < $1.order }
+                .map { convertDTOToEntity(dto: $0) }
+            view.showMonsters(monsterEntities)
+            view.stopIndicator()
+        } catch {
+            // TODO: エラーハンドリング
+            view.stopIndicator()
         }
     }
 
@@ -85,19 +82,19 @@ extension MonsterListPresenter: MonsterListEventHandler {
         router.showAboutThisApp()
     }
 
-    func didSelectMonster(monster: MonsterEntity) {
-        interactor.saveForSpotlight(monster)
+    func didSelectMonster(monster: MonsterEntity) async {
         router.showMonsterDetail(monster: monster)
+        await interactor.saveForSpotlight(monster)
     }
 
     // MARK: Other Private Methods
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
-            fatalError("Fail to load icon.") // TODO: エラーハンドリング
+            fatalError("Fail to load icon.")
         }
         guard let dancingUrl = URL(string: dto.dancingUrlString) else {
-            fatalError("Fail to load dancing image.") // TODO: エラーハンドリング
+            fatalError("Fail to load dancing image.")
         }
 
         return MonsterEntity(

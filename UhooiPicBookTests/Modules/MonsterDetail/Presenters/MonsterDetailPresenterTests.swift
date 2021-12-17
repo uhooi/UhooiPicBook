@@ -9,6 +9,7 @@
 import XCTest
 @testable import UhooiPicBook
 
+@MainActor
 final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: Stored Instance Properties
@@ -20,6 +21,7 @@ final class MonsterDetailPresenterTests: XCTestCase {
 
     // MARK: TestCase Life-Cycle Methods
 
+    @MainActor
     override func setUpWithError() throws {
         reset()
     }

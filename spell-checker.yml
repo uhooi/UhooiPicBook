@@ -1,6 +1,7 @@
 whiteList:
   # Common
   - codable
+  - autoclosure
   - lhs
   - rhs
   - dto
