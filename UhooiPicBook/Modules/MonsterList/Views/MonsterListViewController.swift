@@ -108,9 +108,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
             do {
                 let monster = monsters[indexPath.row]
                 let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-                Task { @MainActor in
-                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-                }
+                cell.setup(name: monster.name, icon: icon, elevation: 1.0)
             } catch {
                 // TODO: エラーハンドリング
                 print(error)
