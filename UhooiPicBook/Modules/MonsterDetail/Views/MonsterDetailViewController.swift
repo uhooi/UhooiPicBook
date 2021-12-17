@@ -91,7 +91,7 @@ final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        Task { @MainActor in
+        Task {
             do {
                 iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
             } catch {
