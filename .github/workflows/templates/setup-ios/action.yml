@@ -1,0 +1,70 @@
+name: "Setup for iOS"
+description: "Install dependencies and prepared development configuration for iOS"
+
+inputs:
+  environment:
+    description: "Environment"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+  # Swiftプロジェクトのビルドの高速化
+  - name: Enable faster builds for Swift projects
+    run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+    shell: bash
+
+  # Bundlerで管理しているライブラリのキャッシュ
+  - name: Cache Gems
+    uses: actions/cache@v2
+    with:
+      path: vendor/bundle
+      key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      restore-keys: |
+        ${{ runner.os }}-gems-
+
+  # Bundlerで管理しているライブラリのインストール
+  - name: Install Bundled Gems
+    run: make install-bundler
+    shell: bash
+
+  # SwiftPMで管理しているCLIツールのキャッシュ
+  - name: Cache CLI tools managed by SwiftPM
+    uses: actions/cache@v2
+    id: cli-tools-cache
+    with:
+      path: Tools/UhooiPicBookTools/.build
+      key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
+      restore-keys: |
+        ${{ runner.os }}-spm-
+
+  # SwiftPMで管理しているCLIツールのビルド
+  - name: Build CLI tools managed by SwiftPM
+    if: steps.cli-tools-cache.outputs.cache-hit != 'true'
+    run: make build-cli-tools
+    shell: bash
+
+  # Firebase SDKのダウンロード
+  - name: Download Firebase SDK
+    run: make download-firebase-sdk
+    shell: bash
+
+  # ライセンス情報の生成
+  - name: Generate licenses
+    run: make generate-licenses
+    shell: bash
+
+  # プロジェクトファイルの生成
+  - name: Generate Xcode project for ${{ inputs.environment }}
+    run: make generate-xcodeproj-${{ inputs.environment }}
+    shell: bash
+
+  # SwiftPMで管理しているライブラリのキャッシュ
+  - name: Cache libraries managed by SwiftPM
+    uses: actions/cache@v2
+    with:
+      path: SourcePackages
+      key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+      restore-keys: |
+        ${{ runner.os }}-swiftpm-
+
