@@ -7,6 +7,7 @@ runs:
   # Swiftプロジェクトのビルドの高速化
   - name: Enable faster builds for Swift projects
     run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+    shell: bash
 
   # Bundlerで管理しているライブラリのキャッシュ
   - name: Cache Gems
@@ -20,6 +21,7 @@ runs:
   # Bundlerで管理しているライブラリのインストール
   - name: Install Bundled Gems
     run: make install-bundler
+    shell: bash
 
   # SwiftPMで管理しているCLIツールのキャッシュ
   - name: Cache CLI tools managed by SwiftPM
@@ -35,18 +37,22 @@ runs:
   - name: Build CLI tools managed by SwiftPM
     if: steps.cli-tools-cache.outputs.cache-hit != 'true'
     run: make build-cli-tools
+    shell: bash
 
   # Firebase SDKのダウンロード
   - name: Download Firebase SDK
     run: make download-firebase-sdk
+    shell: bash
 
   # ライセンス情報の生成
   - name: Generate licenses
     run: make generate-licenses
+    shell: bash
 
   # プロジェクトファイルの生成
   - name: Generate Xcode project for develop
     run: make generate-xcodeproj-develop
+    shell: bash
 
   # SwiftPMで管理しているライブラリのキャッシュ
   - name: Cache libraries managed by SwiftPM

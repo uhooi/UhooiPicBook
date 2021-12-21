@@ -7,24 +7,30 @@ runs:
   # Xcodeの一覧出力
   - name: Show Xcode list
     run: ls /Applications | grep 'Xcode'
+    shell: bash
 
   # Xcodeのバージョン出力
   - name: Show Xcode version
     run: xcodebuild -version
+    shell: bash
 
   # Makeのバージョン出力
   - name: Show Make version
     run: make --version
+    shell: bash
 
   # Rubyのバージョン出力
   - name: Show Ruby version
     run: ruby --version
+    shell: bash
 
   # Bundlerのバージョン出力
   - name: Show Bundler version
     run: bundle version
+    shell: bash
 
   # 端末の一覧出力
   - name: Show devices
     run: make show-devices
+    shell: bash
 
