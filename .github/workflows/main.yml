@@ -105,9 +105,11 @@ jobs:
 
     # コードカバレッジをCodecovへアップロード
     - name: Upload code coverage to Codecov
-      run: make upload-coverage
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      uses: codecov/codecov-action@v2
+      with:
+        files: ./xml_report/cobertura.xml
+        fail_ci_if_error: true
+        verbose: true
 
   info:
     runs-on: macos-11

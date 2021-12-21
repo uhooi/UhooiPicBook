@@ -184,10 +184,6 @@ get-coverage-html: # Get code coverage for HTML
 get-coverage-cobertura: # Get code coverage for Cobertura
 	bundle exec slather
 
-.PHONY: upload-coverage
-upload-coverage: # Upload code coverage to Codecov
-	bash -c "bash <(curl -s https://codecov.io/bash) -f xml_report/cobertura.xml -X coveragepy -X gcov -X xcode"
-
 .PHONY: show-devices
 show-devices: # Show devices
 	xcrun xctrace list devices
