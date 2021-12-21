@@ -1,6 +1,11 @@
 name: "Setup for iOS"
 description: "Install dependencies and prepared development configuration for iOS"
 
+inputs:
+  environment:
+    description: "Environment"
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -50,8 +55,8 @@ runs:
     shell: bash
 
   # プロジェクトファイルの生成
-  - name: Generate Xcode project for develop
-    run: make generate-xcodeproj-develop
+  - name: Generate Xcode project for ${{ inputs.environment }}
+    run: make generate-xcodeproj-${{ inputs.environment }}
     shell: bash
 
   # SwiftPMで管理しているライブラリのキャッシュ
