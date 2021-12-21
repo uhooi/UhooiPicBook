@@ -31,58 +31,8 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Swiftプロジェクトのビルドの高速化
-    - name: Enable faster builds for Swift projects
-      run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
-
-    # Bundlerで管理しているライブラリのキャッシュ
-    - name: Cache Gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
-
-    # Bundlerで管理しているライブラリのインストール
-    - name: Install Bundled Gems
-      run: make install-bundler
-
-    # SwiftPMで管理しているCLIツールのキャッシュ
-    - name: Cache CLI tools managed by SwiftPM
-      uses: actions/cache@v2
-      id: cli-tools-cache
-      with:
-        path: Tools/UhooiPicBookTools/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    # SwiftPMで管理しているCLIツールのビルド
-    - name: Build CLI tools managed by SwiftPM
-      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
-      run: make build-cli-tools
-
-    # Firebase SDKのダウンロード
-    - name: Download Firebase SDK
-      run: make download-firebase-sdk
-
-    # ライセンス情報の生成
-    - name: Generate licenses
-      run: make generate-licenses
-
-    # プロジェクトファイルの生成
-    - name: Generate Xcode project for develop
-      run: make generate-xcodeproj-develop
-
-    # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache libraries managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: SourcePackages
-        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-swiftpm-
+    # セットアップ
+    - uses: ./.github/workflows/templates/setup-ios
 
     # ビルド
     - name: Xcode build
@@ -105,58 +55,8 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Swiftプロジェクトのビルドの高速化
-    - name: Enable faster builds for Swift projects
-      run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
-
-    # Bundlerで管理しているライブラリのキャッシュ
-    - name: Cache Gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
-
-    # Bundlerで管理しているライブラリのインストール
-    - name: Install Bundled Gems
-      run: make install-bundler
-
-    # SwiftPMで管理しているCLIツールのキャッシュ
-    - name: Cache CLI tools managed by SwiftPM
-      uses: actions/cache@v2
-      id: cli-tools-cache
-      with:
-        path: Tools/UhooiPicBookTools/.build
-        key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-spm-
-
-    # SwiftPMで管理しているCLIツールのビルド
-    - name: Build CLI tools managed by SwiftPM
-      if: steps.cli-tools-cache.outputs.cache-hit != 'true'
-      run: make build-cli-tools
-
-    # Firebase SDKのダウンロード
-    - name: Download Firebase SDK
-      run: make download-firebase-sdk
-
-    # ライセンス情報の生成
-    - name: Generate licenses
-      run: make generate-licenses
-
-    # プロジェクトファイルの生成
-    - name: Generate Xcode project for develop
-      run: make generate-xcodeproj-develop
-
-    # SwiftPMで管理しているライブラリのキャッシュ
-    - name: Cache libraries managed by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: SourcePackages
-        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-swiftpm-
+    # セットアップ
+    - uses: ./.github/workflows/templates/setup-ios
 
     # 単体テストの実行
     - name: Xcode test
@@ -212,27 +112,6 @@ jobs:
     # チェックアウト
     - uses: actions/checkout@v2
 
-    # Xcodeの一覧出力
-    - name: Show Xcode list
-      run: ls /Applications | grep 'Xcode'
-
-    # Xcodeのバージョン出力
-    - name: Show Xcode version
-      run: xcodebuild -version
-
-    # Makeのバージョン出力
-    - name: Show Make version
-      run: make --version
-
-    # Rubyのバージョン出力
-    - name: Show Ruby version
-      run: ruby --version
-
-    # Bundlerのバージョン出力
-    - name: Show Bundler version
-      run: bundle version
-
-    # 端末の一覧出力
-    - name: Show devices
-      run: make show-devices
+    # 情報の出力
+    - uses: ./.github/workflows/templates/output-info
 

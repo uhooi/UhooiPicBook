@@ -98,7 +98,7 @@ vendor/bundle/
 .bundle/
 
 # Generamba
-Templates/
+/Templates/
 
 # LicensePlist
 com.mono0926.LicensePlist/

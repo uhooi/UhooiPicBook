@@ -1,0 +1,30 @@
+name: "Output info"
+description: "Output the information of each tool"
+
+runs:
+  using: "composite"
+  steps:
+  # Xcodeの一覧出力
+  - name: Show Xcode list
+    run: ls /Applications | grep 'Xcode'
+
+  # Xcodeのバージョン出力
+  - name: Show Xcode version
+    run: xcodebuild -version
+
+  # Makeのバージョン出力
+  - name: Show Make version
+    run: make --version
+
+  # Rubyのバージョン出力
+  - name: Show Ruby version
+    run: ruby --version
+
+  # Bundlerのバージョン出力
+  - name: Show Bundler version
+    run: bundle version
+
+  # 端末の一覧出力
+  - name: Show devices
+    run: make show-devices
+
