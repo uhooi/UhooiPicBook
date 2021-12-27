@@ -30,7 +30,7 @@ final class MonsterListInteractor {
 
     init(
         monstersRepository: MonstersRepository,
-        monstersTempRepository: MonstersTempRepository,
+        monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared,
         spotlightRepository: SpotlightRepository
     ) {
         self.monstersRepository = monstersRepository
