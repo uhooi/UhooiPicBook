@@ -12,7 +12,7 @@ final class UserDefaultsClientTests: XCTestCase {
 
     // MARK: Stored Instance Properties
     
-    private var userDefaults: UserDefaultsClient!
+    private let userDefaults = UserDefaultsClient.shared
     
     // MARK: TestCase Life-Cycle Methods
     
@@ -53,7 +53,6 @@ final class UserDefaultsClientTests: XCTestCase {
     // MARK: - Other Private Methods
     
     private func reset() {
-        self.userDefaults = UserDefaultsClient()
         self.userDefaults.removeAll()
     }
     
