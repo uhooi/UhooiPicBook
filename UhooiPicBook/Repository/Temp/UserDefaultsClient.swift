@@ -9,9 +9,17 @@ import Foundation
 
 final class UserDefaultsClient {
 
+    // MARK: Stored Type Properties
+
+    static let shared = UserDefaultsClient()
+
     // MARK: Stored Instance Properties
 
     private let userDefaults = UserDefaults.standard
+
+    // MARK: Initializers
+
+    private init() {}
 
     // MARK: Other Internal Methods
 

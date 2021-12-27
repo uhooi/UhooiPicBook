@@ -18,6 +18,7 @@ whiteList:
   - fromkk
   - uber
   - mockolo
+  - firestore
 
   # Uhooi
   - theuhooi

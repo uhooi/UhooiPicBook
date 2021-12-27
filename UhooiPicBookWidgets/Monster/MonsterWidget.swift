@@ -15,9 +15,12 @@ private struct MonsterProvider {
     private let monstersRepository: MonstersRepository
     private let imageCacheManager: ImageCacheManagerProtocol
 
-    init(monstersRepository: MonstersRepository, imageCacheManager: ImageCacheManagerProtocol) {
-        self.monstersRepository = monstersRepository
+    init(
+        imageCacheManager: ImageCacheManagerProtocol,
+        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared
+    ) {
         self.imageCacheManager = imageCacheManager
+        self.monstersRepository = monstersRepository
     }
 }
 
@@ -26,7 +29,6 @@ struct MonsterWidget: Widget {
         StaticConfiguration(
             kind: "Monster",
             provider: MonsterProvider(
-                monstersRepository: MonstersFirebaseClient(),
                 imageCacheManager: ImageCacheManager()
             )
         ) { entry in
