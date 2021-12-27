@@ -41,7 +41,6 @@ final class MonsterListRouter {
         }
         let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
         let interactor = MonsterListInteractor(
-            monstersRepository: MonstersFirebaseClient(),
             spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager)
         )
         let router = MonsterListRouter(viewController: view)

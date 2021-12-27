@@ -13,7 +13,19 @@ protocol MonstersRepository: AnyObject { // swiftlint:disable:this file_types_or
 }
 
 final class MonstersFirebaseClient {
+
+    // MARK: Stored Type Properties
+
+    static let shared = MonstersFirebaseClient()
+
+    // MARK: Stored Instance Properties
+
     private let firestore = Firestore.firestore()
+
+    // MARK: Initializers
+
+    private init() {}
+
 }
 
 extension MonstersFirebaseClient: MonstersRepository {

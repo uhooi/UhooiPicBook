@@ -29,12 +29,12 @@ final class MonsterListInteractor {
     // MARK: Initializer
 
     init(
-        monstersRepository: MonstersRepository,
         spotlightRepository: SpotlightRepository,
+        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
         monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
     ) {
-        self.monstersRepository = monstersRepository
         self.spotlightRepository = spotlightRepository
+        self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
     }
 
