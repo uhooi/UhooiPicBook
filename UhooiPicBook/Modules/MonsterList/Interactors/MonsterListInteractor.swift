@@ -30,12 +30,12 @@ final class MonsterListInteractor {
 
     init(
         monstersRepository: MonstersRepository,
-        monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared,
-        spotlightRepository: SpotlightRepository
+        spotlightRepository: SpotlightRepository,
+        monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
     ) {
         self.monstersRepository = monstersRepository
-        self.monstersTempRepository = monstersTempRepository
         self.spotlightRepository = spotlightRepository
+        self.monstersTempRepository = monstersTempRepository
     }
 
     // MARK: Other Private Methods
