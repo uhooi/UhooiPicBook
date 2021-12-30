@@ -24,7 +24,7 @@ protocol LoggerProtocol {
 final class Logger {
     static let `default` = Logger(category: .default)
 
-    let logger: os.Logger
+    private let logger: os.Logger
 
     init(category: LogCategory) {
         self.logger = os.Logger(
