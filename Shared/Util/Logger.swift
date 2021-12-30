@@ -97,7 +97,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        self.fault(error.localizedDescription, file: file, function: function, line: line, column: column)
+        fault(error.localizedDescription, file: file, function: function, line: line, column: column)
     }
 
     private func createLogRowString(
