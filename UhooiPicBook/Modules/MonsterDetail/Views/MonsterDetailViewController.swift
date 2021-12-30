@@ -22,6 +22,7 @@ final class MonsterDetailViewController: UIViewController {
 
     private var presenter: MonsterDetailEventHandler!
     private var imageCacheManager: ImageCacheManagerProtocol!
+    private var logger: LoggerProtocol!
 
     private var monster: MonsterEntity!
 
@@ -76,11 +77,13 @@ final class MonsterDetailViewController: UIViewController {
     func inject(
         presenter: MonsterDetailEventHandler,
         imageCacheManager: ImageCacheManagerProtocol,
-        monster: MonsterEntity
+        monster: MonsterEntity,
+        logger: LoggerProtocol = Logger.default
     ) {
         self.presenter = presenter
         self.imageCacheManager = imageCacheManager
         self.monster = monster
+        self.logger = logger
     }
 
     // MARK: Other Private Methods
@@ -96,7 +99,7 @@ final class MonsterDetailViewController: UIViewController {
                 iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
             } catch {
                 // TODO: エラーハンドリング
-                print(error)
+                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
             }
         }
         dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)

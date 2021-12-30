@@ -25,6 +25,7 @@ final class MonsterListViewController: UIViewController {
 
     private var presenter: MonsterListEventHandler!
     private var imageCacheManager: ImageCacheManagerProtocol!
+    private var logger: LoggerProtocol!
 
     private var monsters: [MonsterEntity] = []
 
@@ -84,9 +85,14 @@ final class MonsterListViewController: UIViewController {
 
     // MARK: Other Internal Methods
 
-    func inject(presenter: MonsterListEventHandler, imageCacheManager: ImageCacheManagerProtocol) {
+    func inject(
+        presenter: MonsterListEventHandler,
+        imageCacheManager: ImageCacheManagerProtocol,
+        logger: LoggerProtocol = Logger.default
+    ) {
         self.presenter = presenter
         self.imageCacheManager = imageCacheManager
+        self.logger = logger
     }
 
     // MARK: Other Private Methods
@@ -111,7 +117,7 @@ extension MonsterListViewController: UICollectionViewDataSource {
                 cell.setup(name: monster.name, icon: icon, elevation: 1.0)
             } catch {
                 // TODO: エラーハンドリング
-                print(error)
+                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
             }
         }
 
