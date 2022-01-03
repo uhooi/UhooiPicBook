@@ -19,11 +19,13 @@ final class SpotlightClient {
 
     private let searchableIndex = CSSearchableIndex.default()
     private let imageCacheManager: ImageCacheManagerProtocol
+    private let logger: LoggerProtocol
 
     // MARK: Initializer
 
-    init(imageCacheManager: ImageCacheManagerProtocol) {
+    init(imageCacheManager: ImageCacheManagerProtocol, logger: LoggerProtocol = Logger.default) {
         self.imageCacheManager = imageCacheManager
+        self.logger = logger
     }
 
 }
@@ -46,7 +48,7 @@ extension SpotlightClient: SpotlightRepository {
             try await searchableIndex.indexSearchableItems([item])
         } catch {
             // No need for error handling, as there is no need to give the user feedback on save failures for Spotlight search.
-            print(error)
+            logger.exception(error, file: #file, function: #function, line: #line, column: #column)
             return
         }
     }

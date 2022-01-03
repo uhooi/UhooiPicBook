@@ -14,13 +14,16 @@ private struct MonsterProvider {
 
     private let monstersRepository: MonstersRepository
     private let imageCacheManager: ImageCacheManagerProtocol
+    private let logger: LoggerProtocol
 
     init(
         imageCacheManager: ImageCacheManagerProtocol,
-        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared
+        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
+        logger: LoggerProtocol = Logger.default
     ) {
         self.imageCacheManager = imageCacheManager
         self.monstersRepository = monstersRepository
+        self.logger = logger
     }
 }
 
@@ -75,7 +78,7 @@ extension MonsterProvider: TimelineProvider {
                     hourOffset += 1
                 }
             } catch {
-                print(error)
+                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
             }
             completion(Timeline(entries: entries, policy: .atEnd))
         }
