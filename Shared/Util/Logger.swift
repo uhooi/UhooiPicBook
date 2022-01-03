@@ -12,6 +12,7 @@ enum LogCategory: String {
     case `default`
 }
 
+/// @mockable
 protocol LoggerProtocol {
     func debug(_ message: String, file: String, function: String, line: Int, column: Int)
     func info(_ message: String, file: String, function: String, line: Int, column: Int)
