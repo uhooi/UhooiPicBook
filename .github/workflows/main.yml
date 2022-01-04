@@ -38,7 +38,7 @@ jobs:
 
     # ビルド
     - name: Xcode build
-      run: make build-debug
+      run: make build-develop-debug
 
     # ビルドログのアップロード
     - name: Upload build log Artifact
@@ -64,7 +64,7 @@ jobs:
 
     # 単体テストの実行
     - name: Xcode test
-      run: make test
+      run: make test-develop-debug
 
     # 結果の表示
     - uses: kishikawakatsumi/xcresulttool@v1

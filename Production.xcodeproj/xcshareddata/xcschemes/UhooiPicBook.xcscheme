@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1321"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Remove Firebase frameworks"
+               scriptText = "rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/abseil.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/BoringSSL-GRPC.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseABTesting.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAnalytics.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseAppDistribution.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseCore.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseCoreDiagnostics.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseCrashlytics.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseFirestore.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseInstallations.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseMessaging.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebasePerformance.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/FirebaseRemoteConfig.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleAppMeasurement.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleDataTransport.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/GoogleUtilities.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/gRPC-C++.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/gRPC-Core.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/leveldb-library.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/nanopb.framework&quot; &amp;&amp; rm -rf &quot;${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Frameworks/PromisesObjC.framework&quot;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+                     BuildableName = "UhooiPicBook.app"
+                     BlueprintName = "UhooiPicBook"
+                     ReferencedContainer = "container:UhooiPicBook.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+               BuildableName = "UhooiPicBook.app"
+               BlueprintName = "UhooiPicBook"
+               ReferencedContainer = "container:Develop.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AD5F2C9896C8C0CAC68E089A"
+               BuildableName = "UhooiPicBookUITests.xctest"
+               BlueprintName = "UhooiPicBookUITests"
+               ReferencedContainer = "container:Develop.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4677FBF8E3C5D8691051D106"
+               BuildableName = "UhooiPicBookTests.xctest"
+               BlueprintName = "UhooiPicBookTests"
+               ReferencedContainer = "container:Develop.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+            BuildableName = "UhooiPicBook.app"
+            BlueprintName = "UhooiPicBook"
+            ReferencedContainer = "container:UhooiPicBook.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+            BuildableName = "UhooiPicBook.app"
+            BlueprintName = "UhooiPicBook"
+            ReferencedContainer = "container:Develop.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4677FBF8E3C5D8691051D106"
+               BuildableName = "UhooiPicBookTests.xctest"
+               BlueprintName = "UhooiPicBookTests"
+               ReferencedContainer = "container:Production.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AD5F2C9896C8C0CAC68E089A"
+               BuildableName = "UhooiPicBookUITests.xctest"
+               BlueprintName = "UhooiPicBookUITests"
+               ReferencedContainer = "container:Production.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+            BuildableName = "UhooiPicBook.app"
+            BlueprintName = "UhooiPicBook"
+            ReferencedContainer = "container:Develop.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
