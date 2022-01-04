@@ -33,8 +33,6 @@ jobs:
 
     # セットアップ
     - uses: ./.github/workflows/templates/setup-ios
-      with:
-        environment: 'develop'
 
     # ビルド
     - name: Xcode build
@@ -59,8 +57,6 @@ jobs:
 
     # セットアップ
     - uses: ./.github/workflows/templates/setup-ios
-      with:
-        environment: 'develop'
 
     # 単体テストの実行
     - name: Xcode test

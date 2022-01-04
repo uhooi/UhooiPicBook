@@ -1,11 +1,6 @@
 name: "Setup for iOS"
 description: "Install dependencies and prepared development configuration for iOS"
 
-inputs:
-  environment:
-    description: "Environment"
-    required: true
-
 runs:
   using: "composite"
   steps:
@@ -52,11 +47,6 @@ runs:
   # ライセンス情報の生成
   - name: Generate licenses
     run: make generate-licenses
-    shell: bash
-
-  # プロジェクトファイルの生成
-  - name: Generate Xcode project for ${{ inputs.environment }}
-    run: make generate-xcodeproj-${{ inputs.environment }}
     shell: bash
 
   # SwiftPMで管理しているライブラリのキャッシュ
