@@ -106,7 +106,6 @@ com.mono0926.LicensePlist.latest_result.txt
 com.mono0926.LicensePlist.plist
 
 # Firebase
-GoogleService-Info.plist
 Frameworks/Firebase/
 
 # xcodebuild log

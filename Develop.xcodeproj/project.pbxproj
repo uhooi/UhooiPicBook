@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,6 @@
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
 		2C37172ECCD6723405BE8C16 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
 		2CBBA9A5C1EAF252A5C54474 /* URLSession+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD823F694B53615C61A0C93D /* URLSession+Async.swift */; };
-		2CF2FD0B048548DDE2C4FBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31373525A6E7FCFFFF44F1B7 /* GoogleService-Info.plist */; };
 		2F05458E16B1FAD7731B0D32 /* gRPC-C++.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C25BE3139AF9A212CCC8F0 /* gRPC-C++.xcframework */; };
 		3132F26131831DA4A8803F0C /* MonsterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF45A821A86AA6C4461C182 /* MonsterListRouter.swift */; };
 		32B260C3C8D202B8F3A210E7 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
@@ -93,6 +92,9 @@
 		78C186BF20C2EA3A379EB660 /* abseil.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93FC0F13B863F9E5F5D500D /* abseil.xcframework */; };
 		78C7E2AF74EB8DB3B27AD84E /* FirebasePerformance.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43FC43A5F5F2869F78909D /* FirebasePerformance.xcframework */; };
 		78E0A0F2DB681BE500B182C7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378DB5FC184A4310AAC7EB5 /* BaseView.swift */; };
+		79F57BD427849472003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
+		79F57BD72784948F003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
+		79F57BD827849491003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662806AC7BD136ED73614130 /* MockResults.swift */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */; };
@@ -116,7 +118,6 @@
 		9353A36BD79D14FB5DF5851A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64156736597BF2619C1FA63D /* R.generated.swift */; };
 		93DF53CEA311104449749C22 /* FirebaseAppDistribution.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056CC3440EC68EDD8CB4F9D0 /* FirebaseAppDistribution.xcframework */; };
 		945DD76072F19D5E680B0D2E /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C821440C03DA07AFB8D9CBD3 /* SpotlightRepository.swift */; };
-		957B83128AF5EE68A6539927 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31373525A6E7FCFFFF44F1B7 /* GoogleService-Info.plist */; };
 		96534BE2585C0E121EE52CDB /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
 		966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		977570602072C91C029FBF5F /* ImagePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB6DC4D3D8E585B23DC1FFA /* ImagePopup.storyboard */; };
@@ -128,7 +129,6 @@
 		9DF887B711D9D6DA6FE31E38 /* gRPC-C++.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C25BE3139AF9A212CCC8F0 /* gRPC-C++.xcframework */; };
 		9E763FB1D9F7BE6909A35C1C /* MonstersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35800994CC4FF58F943F6180 /* MonstersRepository.swift */; };
 		9ECB3ED38597BD2EF1127B78 /* FirebaseRemoteConfig.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144AF202560DF7170CA1B88E /* FirebaseRemoteConfig.xcframework */; };
-		9FFF769BF9058811AEE5A65F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31373525A6E7FCFFFF44F1B7 /* GoogleService-Info.plist */; };
 		A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A3102AAD5FFA11FBF719CB97 /* BoringSSL-GRPC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ACB3BE3E7ED3A4C84410CA /* BoringSSL-GRPC.xcframework */; };
@@ -298,7 +298,6 @@
 		1E50AAC168458A7226CD68D0 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		28A863A43106CA9DE60339FA /* MonsterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWidget.swift; sourceTree = "<group>"; };
 		2A4367B9CA784F9D7E87D07B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		31373525A6E7FCFFFF44F1B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3378DB5FC184A4310AAC7EB5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3407CC7B917FA57875DE348E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -335,6 +334,7 @@
 		6D51BED7CFB1B03360CFFDDA /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		72C2F0468CB85CC3568F81E6 /* UICollectionView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Animation.swift"; sourceTree = "<group>"; };
 		73D27EFB3E262DB02FE93E55 /* MonsterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCollectionViewCell.swift; sourceTree = "<group>"; };
+		79F57BD327849472003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7BC27DF3E29DCFD45C2139AA /* ActivityRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -954,7 +954,7 @@
 		C2B92E538C189F4941F7DAFE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31373525A6E7FCFFFF44F1B7 /* GoogleService-Info.plist */,
+				79F57BD327849472003218BC /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1220,7 +1220,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 09429085F8A0F9BD0D9F66E1 /* Build configuration list for PBXProject "UhooiPicBook" */;
+			buildConfigurationList = 09429085F8A0F9BD0D9F66E1 /* Build configuration list for PBXProject "Develop" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = ja;
 			hasScannedForEncodings = 0;
@@ -1232,7 +1232,7 @@
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
 				9A578A41A0736AB44E39B4F5 /* XCRemoteSwiftPackageReference "Gedatsu" */,
-				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift.Library" */,
+				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */,
 				A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */,
 			);
 			projectDirPath = "";
@@ -1253,8 +1253,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				957B83128AF5EE68A6539927 /* GoogleService-Info.plist in Resources */,
 				96534BE2585C0E121EE52CDB /* gRPCCertificates-Cpp.bundle in Resources */,
+				79F57BD827849491003218BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1263,7 +1263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD68F1EEBA4F4D89B3A4580 /* Assets.xcassets in Resources */,
-				2CF2FD0B048548DDE2C4FBBD /* GoogleService-Info.plist in Resources */,
 				977570602072C91C029FBF5F /* ImagePopup.storyboard in Resources */,
 				550F8E4E2CC39982B5B8E517 /* InAppWebBrowser.storyboard in Resources */,
 				586249F7FAF62EBD5A503993 /* InfoPlist.strings in Resources */,
@@ -1276,6 +1275,7 @@
 				70C8B5F80442BA472299E42B /* MonsterList.storyboard in Resources */,
 				6DDB377235BCDC1ED9CDF3CD /* Settings.bundle in Resources */,
 				32B260C3C8D202B8F3A210E7 /* gRPCCertificates-Cpp.bundle in Resources */,
+				79F57BD427849472003218BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1284,7 +1284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				072871692A06D0D8CEE7AC93 /* Assets.xcassets in Resources */,
-				9FFF769BF9058811AEE5A65F /* GoogleService-Info.plist in Resources */,
+				79F57BD72784948F003218BC /* GoogleService-Info.plist in Resources */,
 				A7C8978901C5939663E9E00D /* Localizable.strings in Resources */,
 				2C37172ECCD6723405BE8C16 /* gRPCCertificates-Cpp.bundle in Resources */,
 			);
@@ -1670,7 +1670,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theuhooi.UhooiPicBook-Develop.Widgets";
 				PRODUCT_NAME = UhooiPicBookWidgets;
 				SDKROOT = iphoneos;
@@ -1703,7 +1707,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theuhooi.UhooiPicBook-Develop.WidgetsConfigurableIntent";
 				PRODUCT_NAME = UhooiPicBookWidgetsConfigurableIntent;
 				SDKROOT = iphoneos;
@@ -1763,7 +1771,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theuhooi.UhooiPicBook-Develop.Widgets";
 				PRODUCT_NAME = UhooiPicBookWidgets;
 				SDKROOT = iphoneos;
@@ -1840,7 +1852,11 @@
 				MARKETING_VERSION = 1.5.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1931,7 +1947,11 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -warn-long-expression-type-checking=500 -Xfrontend -warn-long-function-bodies=500 -Xfrontend -warn-concurrency -Xfrontend -enable-actor-data-race-checks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -2036,7 +2056,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited) $(OTHER_LDFLAGS) -ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theuhooi.UhooiPicBook-Develop.WidgetsConfigurableIntent";
 				PRODUCT_NAME = UhooiPicBookWidgetsConfigurableIntent;
 				SDKROOT = iphoneos;
@@ -2048,7 +2072,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09429085F8A0F9BD0D9F66E1 /* Build configuration list for PBXProject "UhooiPicBook" */ = {
+		09429085F8A0F9BD0D9F66E1 /* Build configuration list for PBXProject "Develop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7957E27092FF80EC435C94B8 /* Debug */,
@@ -2114,7 +2138,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift.Library" */ = {
+		1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
 			requirement = {
@@ -2143,7 +2167,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		36CFF74BDAD19C71928DB66A /* Rswift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift.Library" */;
+			package = 1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = Rswift;
 		};
 		81737CE3A0500ECF56287EA8 /* Gedatsu */ = {
