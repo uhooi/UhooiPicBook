@@ -95,6 +95,7 @@
 		79F57BD427849472003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BD72784948F003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BD827849491003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
+		79F57BDC2784B3E5003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDB2784B3E5003218BC /* GedatsuSetup */; };
 		7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662806AC7BD136ED73614130 /* MockResults.swift */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */; };
@@ -155,7 +156,6 @@
 		BD995B998107145B55E0AC5D /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC27DF3E29DCFD45C2139AA /* ActivityRouter.swift */; };
 		C023C7F58EBFBC9BCD1272DB /* FirebaseRemoteConfig.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144AF202560DF7170CA1B88E /* FirebaseRemoteConfig.xcframework */; };
 		C06EC9D978511E18041F2A93 /* gRPC-C++.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C25BE3139AF9A212CCC8F0 /* gRPC-C++.xcframework */; };
-		C6F11BAB3F19655DF8835480 /* Gedatsu in Frameworks */ = {isa = PBXBuildFile; productRef = 81737CE3A0500ECF56287EA8 /* Gedatsu */; };
 		C748E7BA76C9DE752409C30D /* abseil.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93FC0F13B863F9E5F5D500D /* abseil.xcframework */; };
 		C9A7DCED18D1B5696031623D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3D8EC9E67C38D29D07444 /* Logger.swift */; };
 		CB963625798B49AFE6D58E59 /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F94607B0325642C330CD793 /* nanopb.xcframework */; };
@@ -408,7 +408,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */,
-				C6F11BAB3F19655DF8835480 /* Gedatsu in Frameworks */,
 				F9594411C73297A72B25884A /* SwiftPrettyPrint in Frameworks */,
 				14AF40CEA6A82E5AAE88FDC6 /* FirebaseAnalytics.xcframework in Frameworks */,
 				8516CEA1AA14BD7B12763E21 /* FirebaseCore.xcframework in Frameworks */,
@@ -418,6 +417,7 @@
 				4E36E2FE4A06EE79270819FF /* GoogleDataTransport.xcframework in Frameworks */,
 				D6B376715DEF35D8EF7DD2AA /* GoogleUtilities.xcframework in Frameworks */,
 				E9C360C0E07A83B117A2E7E3 /* PromisesObjC.xcframework in Frameworks */,
+				79F57BDC2784B3E5003218BC /* GedatsuSetup in Frameworks */,
 				CB963625798B49AFE6D58E59 /* nanopb.xcframework in Frameworks */,
 				93DF53CEA311104449749C22 /* FirebaseAppDistribution.xcframework in Frameworks */,
 				8C134DA791DEDE73A8138D85 /* FirebaseCrashlytics.xcframework in Frameworks */,
@@ -1181,8 +1181,8 @@
 			name = UhooiPicBook;
 			packageProductDependencies = (
 				36CFF74BDAD19C71928DB66A /* Rswift */,
-				81737CE3A0500ECF56287EA8 /* Gedatsu */,
 				86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */,
+				79F57BDB2784B3E5003218BC /* GedatsuSetup */,
 			);
 			productName = UhooiPicBook;
 			productReference = E4EA4C797239C728014E8BCC /* UhooiPicBook.app */;
@@ -1231,7 +1231,6 @@
 			);
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
-				9A578A41A0736AB44E39B4F5 /* XCRemoteSwiftPackageReference "Gedatsu" */,
 				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */,
 				A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */,
 			);
@@ -2146,14 +2145,6 @@
 				version = 5.4.0;
 			};
 		};
-		9A578A41A0736AB44E39B4F5 /* XCRemoteSwiftPackageReference "Gedatsu" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bannzai/Gedatsu";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.0;
-			};
-		};
 		A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/YusukeHosonuma/SwiftPrettyPrint";
@@ -2170,10 +2161,9 @@
 			package = 1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = Rswift;
 		};
-		81737CE3A0500ECF56287EA8 /* Gedatsu */ = {
+		79F57BDB2784B3E5003218BC /* GedatsuSetup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9A578A41A0736AB44E39B4F5 /* XCRemoteSwiftPackageReference "Gedatsu" */;
-			productName = Gedatsu;
+			productName = GedatsuSetup;
 		};
 		86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */ = {
 			isa = XCSwiftPackageProductDependency;
