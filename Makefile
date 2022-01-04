@@ -59,7 +59,6 @@ update-bundler: # Update Bundler dependencies
 
 .PHONY: build-cli-tools
 build-cli-tools: # Build CLI tools managed by SwiftPM
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcodegen
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
