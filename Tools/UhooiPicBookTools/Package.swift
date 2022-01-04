@@ -7,7 +7,6 @@ let package = Package(
         .macOS(.v11)
     ],
     dependencies: [
-        .package(url: "https://github.com/yonaskolb/XcodeGen", .exact("2.25.0")),
         .package(url: "https://github.com/realm/SwiftLint", .exact("0.45.0")),
         .package(url: "https://github.com/IBDecodable/IBLinter", .exact("0.4.27")),
         .package(url: "https://github.com/fromkk/SpellChecker", .exact("0.1.0")),
