@@ -188,7 +188,6 @@
 		F75420FD142AB543AD12AEC6 /* GoogleDataTransport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
-		F9594411C73297A72B25884A /* SwiftPrettyPrint in Frameworks */ = {isa = PBXBuildFile; productRef = 86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */; };
 		FA24990B45EAFFD0FEFD4021 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		FA70F58DDC9183733ED6D371 /* leveldb-library.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18C42AC12CA0DA009E4241B5 /* leveldb-library.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAE78FE7107DAAE3AB40AA8D /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3034A14E3F41394DEB55A62 /* GoogleAppMeasurement.xcframework */; };
@@ -408,7 +407,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */,
-				F9594411C73297A72B25884A /* SwiftPrettyPrint in Frameworks */,
 				14AF40CEA6A82E5AAE88FDC6 /* FirebaseAnalytics.xcframework in Frameworks */,
 				8516CEA1AA14BD7B12763E21 /* FirebaseCore.xcframework in Frameworks */,
 				3DCD634F5C389E44F7926B64 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
@@ -1181,7 +1179,6 @@
 			name = UhooiPicBook;
 			packageProductDependencies = (
 				36CFF74BDAD19C71928DB66A /* Rswift */,
-				86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */,
 				79F57BDD2784B3F8003218BC /* GedatsuSetup */,
 			);
 			productName = UhooiPicBook;
@@ -1232,7 +1229,6 @@
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
 				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */,
-				A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -2145,14 +2141,6 @@
 				version = 5.4.0;
 			};
 		};
-		A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/YusukeHosonuma/SwiftPrettyPrint";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2164,11 +2152,6 @@
 		79F57BDD2784B3F8003218BC /* GedatsuSetup */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GedatsuSetup;
-		};
-		86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */;
-			productName = SwiftPrettyPrint;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

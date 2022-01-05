@@ -69,7 +69,6 @@
 		5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */; };
 		5DD4C18780928B0DEC79FEC8 /* URLSession+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD823F694B53615C61A0C93D /* URLSession+Async.swift */; };
 		5E9A4700C127A0634AF5F4E8 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1C45D8147A4ECAB8E12A /* UIImage+GIF.swift */; };
-		6000352FDFEE8D707AF516BF /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8C7ECAF647ED98DDFBC205 /* Debug.swift */; };
 		603500EF07F6745AF38BBB5C /* PromisesObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B121E1EC2442F244D11C5380 /* PromisesObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63879243A480DA6B8C6412F1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD23C5FD823B92C2B678867 /* ImageCacheManager.swift */; };
 		6778A65C6DC4861D7D4F3F5C /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FFF310A9627C956E59EDA /* UIColor+Hex.swift */; };
@@ -188,7 +187,6 @@
 		F75420FD142AB543AD12AEC6 /* GoogleDataTransport.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
-		F9594411C73297A72B25884A /* SwiftPrettyPrint in Frameworks */ = {isa = PBXBuildFile; productRef = 86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */; };
 		FA24990B45EAFFD0FEFD4021 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		FA70F58DDC9183733ED6D371 /* leveldb-library.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18C42AC12CA0DA009E4241B5 /* leveldb-library.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAE78FE7107DAAE3AB40AA8D /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3034A14E3F41394DEB55A62 /* GoogleAppMeasurement.xcframework */; };
@@ -316,7 +314,6 @@
 		49F079169054FED691AA58BB /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
 		4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
 		4C26A27920CB1D8FCC0B9E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		4D8C7ECAF647ED98DDFBC205 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		50A04606F6224E383C5DDBB9 /* MonsterDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailRouter.swift; sourceTree = "<group>"; };
 		53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
@@ -408,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */,
-				F9594411C73297A72B25884A /* SwiftPrettyPrint in Frameworks */,
 				14AF40CEA6A82E5AAE88FDC6 /* FirebaseAnalytics.xcframework in Frameworks */,
 				8516CEA1AA14BD7B12763E21 /* FirebaseCore.xcframework in Frameworks */,
 				3DCD634F5C389E44F7926B64 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
@@ -609,7 +605,6 @@
 				2E155C2611B43F5863CE991D /* Repository */,
 				3EC1582FF32CC0DD1ED382EC /* Resources */,
 				D98F7412A8C78EDBC24B2545 /* UIParts */,
-				9C93ABD2C2EDF8F2A2EDB421 /* Util */,
 			);
 			path = UhooiPicBook;
 			sourceTree = "<group>";
@@ -856,14 +851,6 @@
 				3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */,
 			);
 			path = IntentDefinition;
-			sourceTree = "<group>";
-		};
-		9C93ABD2C2EDF8F2A2EDB421 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				4D8C7ECAF647ED98DDFBC205 /* Debug.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		9D14FEE7DAB67CCFD61B333D /* TestCases */ = {
@@ -1181,7 +1168,6 @@
 			name = UhooiPicBook;
 			packageProductDependencies = (
 				36CFF74BDAD19C71928DB66A /* Rswift */,
-				86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */,
 				79F57BDB2784B3E5003218BC /* GedatsuSetup */,
 			);
 			productName = UhooiPicBook;
@@ -1232,7 +1218,6 @@
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
 				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */,
-				A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1442,7 +1427,6 @@
 				7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */,
 				78E0A0F2DB681BE500B182C7 /* BaseView.swift in Sources */,
 				B8AB127BE0A902B5C1FA5E64 /* Bundle+String.swift in Sources */,
-				6000352FDFEE8D707AF516BF /* Debug.swift in Sources */,
 				78BFAAD96D4364A42FCB0077 /* ImageCacheManager.swift in Sources */,
 				0B6939B86ABFFEE1AA9EB606 /* ImagePopupRouter.swift in Sources */,
 				282855AC985D94841F4DF32A /* ImagePopupViewController.swift in Sources */,
@@ -2145,14 +2129,6 @@
 				version = 5.4.0;
 			};
 		};
-		A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/YusukeHosonuma/SwiftPrettyPrint";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2164,11 +2140,6 @@
 		79F57BDB2784B3E5003218BC /* GedatsuSetup */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GedatsuSetup;
-		};
-		86605B26DE2C3629DEAF988B /* SwiftPrettyPrint */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A568261561D7D24A1B8BA632 /* XCRemoteSwiftPackageReference "SwiftPrettyPrint" */;
-			productName = SwiftPrettyPrint;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
