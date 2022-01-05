@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Shared
 
 struct MonsterEntity: Equatable {
     let name: String

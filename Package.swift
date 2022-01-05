@@ -12,6 +12,7 @@ let package = Package(
     products: [
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
         .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
+        .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
         .library(name: "ImageCache", targets: ["ImageCache"]), // FIXME: Remove later
     ],
     dependencies: [
@@ -22,6 +23,11 @@ let package = Package(
             name: "GedatsuSetup",
             dependencies: [
                 .product(name: "Gedatsu", package: "Gedatsu"),
+            ]
+        ),
+        .target(
+            name: "Shared",
+            dependencies: [
             ]
         ),
         .target(
