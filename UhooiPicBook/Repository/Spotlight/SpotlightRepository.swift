@@ -7,6 +7,7 @@
 
 import CoreGraphics.CGGeometry
 import CoreSpotlight
+import Logger
 
 /// @mockable
 protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order

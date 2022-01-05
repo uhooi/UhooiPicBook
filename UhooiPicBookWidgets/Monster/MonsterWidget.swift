@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import FirebaseCore
+import Logger
 
 private struct MonsterProvider {
     typealias Entry = MonsterEntry

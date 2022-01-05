@@ -11,6 +11,7 @@ let package = Package(
     ],
     products: [
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
+        .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
     ],
     dependencies: [
         .package(url: "https://github.com/bannzai/Gedatsu", from: "1.2.0"),
@@ -20,6 +21,11 @@ let package = Package(
             name: "GedatsuSetup",
             dependencies: [
                 .product(name: "Gedatsu", package: "Gedatsu"),
+            ]
+        ),
+        .target(
+            name: "Logger",
+            dependencies: [
             ]
         ),
     ]

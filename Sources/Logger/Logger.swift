@@ -8,12 +8,12 @@
 import Foundation
 import os.log
 
-enum LogCategory: String {
+public enum LogCategory: String {
     case `default`
 }
 
 /// @mockable
-protocol LoggerProtocol {
+public protocol LoggerProtocol {
     func debug(_ message: String, file: String, function: String, line: Int, column: Int)
     func info(_ message: String, file: String, function: String, line: Int, column: Int)
     func notice(_ message: String, file: String, function: String, line: Int, column: Int)
@@ -22,12 +22,12 @@ protocol LoggerProtocol {
     func exception(_ error: Error, file: String, function: String, line: Int, column: Int)
 }
 
-final class Logger {
-    static let `default` = Logger(category: .default)
+public final class Logger {
+    public static let `default` = Logger(category: .default)
 
     private let logger: os.Logger
 
-    init(category: LogCategory) {
+    public init(category: LogCategory) {
         self.logger = os.Logger(
             subsystem: Bundle.main.bundleIdentifier!, // swiftlint:disable:this force_unwrapping
             category: category.rawValue
@@ -36,7 +36,7 @@ final class Logger {
 }
 
 extension Logger: LoggerProtocol {
-    func debug(
+    public func debug(
         _ message: String,
         file: String = #file,
         function: String = #function,
@@ -47,7 +47,7 @@ extension Logger: LoggerProtocol {
         logger.debug("\(logRow, privacy: .public)")
     }
 
-    func info(
+    public func info(
         _ message: String,
         file: String = #file,
         function: String = #function,
@@ -58,7 +58,7 @@ extension Logger: LoggerProtocol {
         logger.info("\(logRow, privacy: .public)")
     }
 
-    func notice(
+    public func notice(
         _ message: String,
         file: String = #file,
         function: String = #function,
@@ -69,7 +69,7 @@ extension Logger: LoggerProtocol {
         logger.notice("\(logRow, privacy: .public)")
     }
 
-    func error(
+    public func error(
         _ message: String,
         file: String = #file,
         function: String = #function,
@@ -80,7 +80,7 @@ extension Logger: LoggerProtocol {
         logger.error("\(logRow, privacy: .public)")
     }
 
-    func fault(
+    public func fault(
         _ message: String,
         file: String = #file,
         function: String = #function,
@@ -91,7 +91,7 @@ extension Logger: LoggerProtocol {
         logger.fault("\(logRow, privacy: .public)")
     }
 
-    func exception(
+    public func exception(
         _ error: Error,
         file: String = #file,
         function: String = #function,
