@@ -7,6 +7,7 @@ whiteList:
   - dto
   - interactor
   - swiftlint
+  - bannzai
   - gedatsu
   - json
   - hashable
