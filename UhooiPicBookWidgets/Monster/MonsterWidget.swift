@@ -7,7 +7,7 @@
 
 import WidgetKit
 import SwiftUI
-import FirebaseCore
+import FirebaseSetup
 import ImageCache
 import Logger
 
@@ -45,7 +45,7 @@ struct MonsterWidget: Widget {
     }
 
     init() {
-        FirebaseApp.configure()
+        FirebaseSetup.configure()
     }
 }
 

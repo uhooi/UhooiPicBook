@@ -86,6 +86,8 @@
 		7921EEF32785DDFE0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF22785DDFE0033DDEC /* Shared */; };
 		7921EEF52785DE040033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF42785DE040033DDEC /* Shared */; };
 		7921EEF72785DE0A0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF62785DE0A0033DDEC /* Shared */; };
+		7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF82785E5E40033DDEC /* FirebaseSetup */; };
+		7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFA2785E6290033DDEC /* FirebaseSetup */; };
 		79AFF1582785B5B300396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1572785B5B300396E49 /* Logger */; };
 		79AFF15A2785B5BB00396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1592785B5BB00396E49 /* Logger */; };
 		79AFF1602785B9F000396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF15F2785B9F000396E49 /* ImageCache */; };
@@ -94,6 +96,7 @@
 		79F57BD92784949B003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BDA2784949C003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDD2784B3F8003218BC /* GedatsuSetup */; };
+		79F774192785ED9300FDF5CE /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F774182785ED9300FDF5CE /* FirebaseSetup */; };
 		7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662806AC7BD136ED73614130 /* MockResults.swift */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */; };
@@ -415,6 +418,7 @@
 				B5096387AB1A041238B61780 /* gRPC-Core.xcframework in Frameworks */,
 				00E403D92E4213ED40CD9B53 /* leveldb-library.xcframework in Frameworks */,
 				79AFF1602785B9F000396E49 /* ImageCache in Frameworks */,
+				7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */,
 				3323979613186AB6C6DD5334 /* FirebaseMessaging.xcframework in Frameworks */,
 				39A6155F763564D79F3914BE /* FirebaseABTesting.xcframework in Frameworks */,
 				FB6C0FAECAD98D6AEE35D46D /* FirebasePerformance.xcframework in Frameworks */,
@@ -431,6 +435,7 @@
 				7921EEF52785DE040033DDEC /* Shared in Frameworks */,
 				17583822CACC18930BC3F240 /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
 				32DBEC1296852073CCF63FE1 /* FirebaseInstallations.xcframework in Frameworks */,
+				7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */,
 				FAE78FE7107DAAE3AB40AA8D /* GoogleAppMeasurement.xcframework in Frameworks */,
 				248F5099C70EE2AF2E28A1CE /* GoogleDataTransport.xcframework in Frameworks */,
 				291E340357A717545D9D00FA /* GoogleUtilities.xcframework in Frameworks */,
@@ -476,6 +481,7 @@
 				4509A7DF56B346A819A3D845 /* gRPC-Core.xcframework in Frameworks */,
 				2A02D02B8C2BFD4746F022F9 /* leveldb-library.xcframework in Frameworks */,
 				79AFF1622785B9F800396E49 /* ImageCache in Frameworks */,
+				79F774192785ED9300FDF5CE /* FirebaseSetup in Frameworks */,
 				779CCB600544578D3B2DC846 /* FirebaseMessaging.xcframework in Frameworks */,
 				E2AE593DED1971537A4E468E /* FirebaseABTesting.xcframework in Frameworks */,
 				3DD56215A38A37EDAA21F7A8 /* FirebasePerformance.xcframework in Frameworks */,
@@ -1061,6 +1067,7 @@
 				79AFF1592785B5BB00396E49 /* Logger */,
 				79AFF1612785B9F800396E49 /* ImageCache */,
 				7921EEF22785DDFE0033DDEC /* Shared */,
+				79F774182785ED9300FDF5CE /* FirebaseSetup */,
 			);
 			productName = UhooiPicBookWidgets;
 			productReference = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */;
@@ -1113,6 +1120,7 @@
 			name = UhooiPicBookWidgetsConfigurableIntent;
 			packageProductDependencies = (
 				7921EEF42785DE040033DDEC /* Shared */,
+				7921EEFA2785E6290033DDEC /* FirebaseSetup */,
 			);
 			productName = UhooiPicBookWidgetsConfigurableIntent;
 			productReference = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */;
@@ -1148,6 +1156,7 @@
 				79AFF1572785B5B300396E49 /* Logger */,
 				79AFF15F2785B9F000396E49 /* ImageCache */,
 				7921EEF62785DE0A0033DDEC /* Shared */,
+				7921EEF82785E5E40033DDEC /* FirebaseSetup */,
 			);
 			productName = UhooiPicBook;
 			productReference = E4EA4C797239C728014E8BCC /* UhooiPicBook.app */;
@@ -2114,6 +2123,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Shared;
 		};
+		7921EEF82785E5E40033DDEC /* FirebaseSetup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseSetup;
+		};
+		7921EEFA2785E6290033DDEC /* FirebaseSetup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseSetup;
+		};
 		79AFF1572785B5B300396E49 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Logger;
@@ -2133,6 +2150,10 @@
 		79F57BDD2784B3F8003218BC /* GedatsuSetup */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GedatsuSetup;
+		};
+		79F774182785ED9300FDF5CE /* FirebaseSetup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseSetup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

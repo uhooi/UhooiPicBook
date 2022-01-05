@@ -6,14 +6,14 @@
 //
 
 import Intents
-import FirebaseCore
+import FirebaseSetup
 
 final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
     private let repository: MonstersRepository
 
     override init() {
-        FirebaseApp.configure()
+        FirebaseSetup.configure()
         self.repository = MonstersFirebaseClient.shared
         super.init()
     }

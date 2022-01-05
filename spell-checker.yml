@@ -19,7 +19,10 @@ whiteList:
   - fromkk
   - uber
   - mockolo
+  - crashlytics
   - firestore
+  - nanopb
+  - xcframework
 
   # Uhooi
   - theuhooi

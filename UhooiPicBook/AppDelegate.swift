@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import FirebaseCore
 import FirebaseMessaging
 #if DEBUG
 import GedatsuSetup
 #endif
+import FirebaseSetup
 
 @UIApplicationMain
 @MainActor
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GedatsuSetup.configure()
         #endif
 
-        FirebaseApp.configure()
+        FirebaseSetup.configure()
         configureNotifications(application: application)
         Messaging.messaging().delegate = self
 
