@@ -89,6 +89,9 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Project dependencies are resolved by the workspace
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
 # Genrated
 *.generated.swift
 MockResults.swift
