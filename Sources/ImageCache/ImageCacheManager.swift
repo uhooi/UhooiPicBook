@@ -7,21 +7,20 @@
 
 import UIKit
 
-enum ImageCacheError: Error {
-    case loadingFailure
-}
-
 /// @mockable
-protocol ImageCacheManagerProtocol: AnyObject {
+public protocol ImageCacheManagerProtocol: AnyObject {
     func cacheImage(imageUrl: URL) async throws -> UIImage
     func cacheGIFImage(imageUrl: URL) -> UIImage?
 }
 
-final class ImageCacheManager: ImageCacheManagerProtocol {
+public final class ImageCacheManager {
+    public static let imageCache = NSCache<AnyObject, AnyObject>()
 
-    static let imageCache = NSCache<AnyObject, AnyObject>()
+    public init() {}
+}
 
-    func cacheImage(imageUrl: URL) async throws -> UIImage {
+extension ImageCacheManager: ImageCacheManagerProtocol {
+    public func cacheImage(imageUrl: URL) async throws -> UIImage {
         if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
             return imageFromCache
         }
@@ -34,7 +33,7 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
         return image
     }
 
-    func cacheGIFImage(imageUrl: URL) -> UIImage? {
+    public func cacheGIFImage(imageUrl: URL) -> UIImage? {
         if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
             return imageFromCache
         }
@@ -47,5 +46,4 @@ final class ImageCacheManager: ImageCacheManagerProtocol {
 
         return imageToCache
     }
-
 }

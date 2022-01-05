@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import FirebaseCore
+import ImageCache
 import Logger
 
 private struct MonsterProvider {

@@ -7,6 +7,7 @@
 
 import CoreGraphics.CGGeometry
 import CoreSpotlight
+import ImageCache
 import Logger
 
 /// @mockable

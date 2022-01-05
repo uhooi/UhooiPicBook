@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import ImageCache
 
 private struct MonsterProvider {
     typealias Entry = MonsterEntry
