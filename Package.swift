@@ -2,6 +2,26 @@
 
 import PackageDescription
 
+let firebaseAnalyticsDependencies: [Target.Dependency] = [
+    "FirebaseAnalytics",
+    "FirebaseCore",
+    "FirebaseCoreDiagnostics",
+    "FirebaseInstallations",
+    "GoogleAppMeasurement",
+    "GoogleDataTransport",
+    "GoogleUtilities",
+    "nanopb",
+    "PromisesObjC",
+]
+
+let firebaseCrashlyticsDependencies: [Target.Dependency]  = [
+    "FirebaseCrashlytics",
+] + firebaseAnalyticsDependencies
+
+let firebaseMessagingDependencies: [Target.Dependency]  = [
+    "FirebaseMessaging",
+] + firebaseAnalyticsDependencies
+
 let package = Package(
     name: "UhooiPicBookPackage",
     defaultLocalization: "ja",
@@ -11,6 +31,7 @@ let package = Package(
     ],
     products: [
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
+        .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
         .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
@@ -22,18 +43,11 @@ let package = Package(
     targets: [
         .target(
             name: "FirebaseSetup",
-            dependencies: [
-                "FirebaseAnalytics",
-                "FirebaseCore",
-                "FirebaseCoreDiagnostics",
-                "FirebaseInstallations",
-                "GoogleAppMeasurement",
-                "GoogleDataTransport",
-                "GoogleUtilities",
-                "nanopb",
-                "PromisesObjC",
-                "FirebaseCrashlytics",
-            ]
+            dependencies: firebaseCrashlyticsDependencies
+        ),
+        .target(
+            name: "FirebaseMessagingBridge",
+            dependencies: firebaseMessagingDependencies
         ),
         .target(
             name: "GedatsuSetup",
@@ -95,6 +109,10 @@ let package = Package(
         .binaryTarget(
             name: "FirebaseCrashlytics",
             path: "./Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseMessaging",
+            path: "./Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
         ),
     ]
 )

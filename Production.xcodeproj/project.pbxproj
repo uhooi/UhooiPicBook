@@ -88,6 +88,7 @@
 		7921EEF72785DE0A0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF62785DE0A0033DDEC /* Shared */; };
 		7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF82785E5E40033DDEC /* FirebaseSetup */; };
 		7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFA2785E6290033DDEC /* FirebaseSetup */; };
+		7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */; };
 		79AFF1582785B5B300396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1572785B5B300396E49 /* Logger */; };
 		79AFF15A2785B5BB00396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1592785B5BB00396E49 /* Logger */; };
 		79AFF1602785B9F000396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF15F2785B9F000396E49 /* ImageCache */; };
@@ -403,6 +404,7 @@
 				4A4E6AC0F04F380EE66FCC06 /* FirebaseInstallations.xcframework in Frameworks */,
 				A940187BE96CD903131873FA /* GoogleAppMeasurement.xcframework in Frameworks */,
 				79AFF1582785B5B300396E49 /* Logger in Frameworks */,
+				7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */,
 				4E36E2FE4A06EE79270819FF /* GoogleDataTransport.xcframework in Frameworks */,
 				D6B376715DEF35D8EF7DD2AA /* GoogleUtilities.xcframework in Frameworks */,
 				E9C360C0E07A83B117A2E7E3 /* PromisesObjC.xcframework in Frameworks */,
@@ -1157,6 +1159,7 @@
 				79AFF15F2785B9F000396E49 /* ImageCache */,
 				7921EEF62785DE0A0033DDEC /* Shared */,
 				7921EEF82785E5E40033DDEC /* FirebaseSetup */,
+				7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */,
 			);
 			productName = UhooiPicBook;
 			productReference = E4EA4C797239C728014E8BCC /* UhooiPicBook.app */;
@@ -2130,6 +2133,10 @@
 		7921EEFA2785E6290033DDEC /* FirebaseSetup */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseSetup;
+		};
+		7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseMessagingBridge;
 		};
 		79AFF1572785B5B300396E49 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;

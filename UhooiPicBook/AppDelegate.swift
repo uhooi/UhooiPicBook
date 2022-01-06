@@ -7,15 +7,17 @@
 //
 
 import UIKit
-import FirebaseMessaging
+import FirebaseSetup
+import FirebaseMessagingBridge
 #if DEBUG
 import GedatsuSetup
 #endif
-import FirebaseSetup
 
 @UIApplicationMain
 @MainActor
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    private let firebaseMessagingBridge = FirebaseMessagingBridge()
 
     // swiftlint:disable:next discouraged_optional_collection
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseSetup.configure()
         configureNotifications(application: application)
-        Messaging.messaging().delegate = self
+        firebaseMessagingBridge.delegate = self
 
         return true
     }
@@ -86,8 +88,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
-extension AppDelegate: MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+extension AppDelegate: MessagingBridgeDelegate {
+    func didReceiveRegistrationToken(_ fcmToken: String?) {
         guard let fcmToken = fcmToken else {
             return
         }
