@@ -16,17 +16,17 @@ let firebaseAnalyticsDependencies: [Target.Dependency] = [
 
 let firebaseCrashlyticsDependencies: [Target.Dependency] = [
     "FirebaseCrashlytics",
-] + firebaseAnalyticsDependencies
+]
 
 let firebasePerformanceDependencies: [Target.Dependency] = [
     "FirebaseABTesting",
     "FirebasePerformance",
     "FirebaseRemoteConfig",
-] + firebaseAnalyticsDependencies
+]
 
 let firebaseMessagingDependencies: [Target.Dependency] = [
     "FirebaseMessaging",
-] + firebaseAnalyticsDependencies
+]
 
 let firebaseFirestoreDependencies: [Target.Dependency] = [
     "BoringSSL-GRPC",
@@ -35,7 +35,7 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
     "gRPC-C++",
     "gRPC-Core",
     "leveldb-library",
-] + firebaseAnalyticsDependencies
+]
 
 let package = Package(
     name: "UhooiPicBookPackage",
@@ -59,14 +59,14 @@ let package = Package(
     targets: [
         .target(
             name: "FirebaseSetup",
-            dependencies: firebaseCrashlyticsDependencies + firebasePerformanceDependencies,
+            dependencies: firebaseCrashlyticsDependencies + firebasePerformanceDependencies + firebaseAnalyticsDependencies,
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
         ),
         .target(
             name: "FirebaseMessagingBridge",
-            dependencies: firebaseMessagingDependencies,
+            dependencies: firebaseMessagingDependencies + firebaseAnalyticsDependencies,
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
@@ -79,7 +79,7 @@ let package = Package(
         ),
         .target(
             name: "MonstersFirebaseClient",
-            dependencies: firebaseFirestoreDependencies,
+            dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
             resources: [.process("./Frameworks/Firebase/FirebaseFirestore/Resources/")], // FIXME: File not found
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
