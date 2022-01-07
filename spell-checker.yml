@@ -22,6 +22,7 @@ whiteList:
   - crashlytics
   - firestore
   - nanopb
+  - leveldb
   - xcframework
 
   # Uhooi

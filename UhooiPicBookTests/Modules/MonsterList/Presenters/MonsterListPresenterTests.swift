@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import UhooiPicBook
+import MonstersFirebaseClient
 
 @MainActor
 final class MonsterListPresenterTests: XCTestCase {

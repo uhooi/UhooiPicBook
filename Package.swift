@@ -14,12 +14,21 @@ let firebaseAnalyticsDependencies: [Target.Dependency] = [
     "PromisesObjC",
 ]
 
-let firebaseCrashlyticsDependencies: [Target.Dependency]  = [
+let firebaseCrashlyticsDependencies: [Target.Dependency] = [
     "FirebaseCrashlytics",
 ] + firebaseAnalyticsDependencies
 
-let firebaseMessagingDependencies: [Target.Dependency]  = [
+let firebaseMessagingDependencies: [Target.Dependency] = [
     "FirebaseMessaging",
+] + firebaseAnalyticsDependencies
+
+let firebaseFirestoreDependencies: [Target.Dependency] = [
+    "BoringSSL-GRPC",
+    "FirebaseFirestore",
+    "abseil",
+    "gRPC-C++",
+    "gRPC-Core",
+    "leveldb-library",
 ] + firebaseAnalyticsDependencies
 
 let package = Package(
@@ -33,8 +42,9 @@ let package = Package(
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
-        .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
+        .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
+        .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
         .library(name: "ImageCache", targets: ["ImageCache"]), // FIXME: Remove later
     ],
     dependencies: [
@@ -54,6 +64,11 @@ let package = Package(
             dependencies: [
                 .product(name: "Gedatsu", package: "Gedatsu"),
             ]
+        ),
+        .target(
+            name: "MonstersFirebaseClient",
+            dependencies: firebaseFirestoreDependencies,
+            resources: [.process("./Frameworks/Firebase/FirebaseFirestore/Resources/")] // FIXME: File not found
         ),
         .target(
             name: "Shared",
@@ -113,6 +128,30 @@ let package = Package(
         .binaryTarget(
             name: "FirebaseMessaging",
             path: "./Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
+        ),
+        .binaryTarget(
+            name: "abseil",
+            path: "./Frameworks/Firebase/FirebaseFirestore/abseil.xcframework"
+        ),
+        .binaryTarget(
+            name: "BoringSSL-GRPC",
+            path: "./Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseFirestore",
+            path: "./Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework"
+        ),
+        .binaryTarget(
+            name: "gRPC-C++",
+            path: "./Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"
+        ),
+        .binaryTarget(
+            name: "gRPC-Core",
+            path: "./Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"
+        ),
+        .binaryTarget(
+            name: "leveldb-library",
+            path: "./Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"
         ),
     ]
 )

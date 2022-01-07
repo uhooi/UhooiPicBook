@@ -7,6 +7,7 @@
 
 import Intents
 import FirebaseSetup
+import MonstersFirebaseClient
 
 final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 

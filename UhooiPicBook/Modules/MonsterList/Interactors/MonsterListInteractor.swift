@@ -6,6 +6,8 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
+import MonstersFirebaseClient
+
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
     func fetchMonsters() async throws -> [MonsterDTO]
