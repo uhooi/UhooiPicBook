@@ -18,6 +18,12 @@ let firebaseCrashlyticsDependencies: [Target.Dependency] = [
     "FirebaseCrashlytics",
 ] + firebaseAnalyticsDependencies
 
+let firebasePerformanceDependencies: [Target.Dependency] = [
+    "FirebaseABTesting",
+    "FirebasePerformance",
+    "FirebaseRemoteConfig",
+] + firebaseAnalyticsDependencies
+
 let firebaseMessagingDependencies: [Target.Dependency] = [
     "FirebaseMessaging",
 ] + firebaseAnalyticsDependencies
@@ -53,7 +59,7 @@ let package = Package(
     targets: [
         .target(
             name: "FirebaseSetup",
-            dependencies: firebaseCrashlyticsDependencies
+            dependencies: firebaseCrashlyticsDependencies + firebasePerformanceDependencies
         ),
         .target(
             name: "FirebaseMessagingBridge",
@@ -124,6 +130,18 @@ let package = Package(
         .binaryTarget(
             name: "FirebaseCrashlytics",
             path: "./Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseABTesting",
+            path: "./Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebasePerformance",
+            path: "./Frameworks/Firebase/FirebasePerformance/FirebasePerformance.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseRemoteConfig",
+            path: "./Frameworks/Firebase/FirebasePerformance/FirebaseRemoteConfig.xcframework"
         ),
         .binaryTarget(
             name: "FirebaseMessaging",
