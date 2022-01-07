@@ -59,11 +59,17 @@ let package = Package(
     targets: [
         .target(
             name: "FirebaseSetup",
-            dependencies: firebaseCrashlyticsDependencies + firebasePerformanceDependencies
+            dependencies: firebaseCrashlyticsDependencies + firebasePerformanceDependencies,
+            linkerSettings: [
+                .unsafeFlags(["-ObjC"]),
+            ]
         ),
         .target(
             name: "FirebaseMessagingBridge",
-            dependencies: firebaseMessagingDependencies
+            dependencies: firebaseMessagingDependencies,
+            linkerSettings: [
+                .unsafeFlags(["-ObjC"]),
+            ]
         ),
         .target(
             name: "GedatsuSetup",
@@ -74,7 +80,10 @@ let package = Package(
         .target(
             name: "MonstersFirebaseClient",
             dependencies: firebaseFirestoreDependencies,
-            resources: [.process("./Frameworks/Firebase/FirebaseFirestore/Resources/")] // FIXME: File not found
+            resources: [.process("./Frameworks/Firebase/FirebaseFirestore/Resources/")], // FIXME: File not found
+            linkerSettings: [
+                .unsafeFlags(["-ObjC"]),
+            ]
         ),
         .target(
             name: "Shared",
