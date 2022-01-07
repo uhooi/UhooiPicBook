@@ -15,9 +15,7 @@
 		27B2B112D0173DDBAFC3D622 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286674C150C49D97C80EF1 /* UIViewController+Alert.swift */; };
 		282855AC985D94841F4DF32A /* ImagePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD55D8D5B9932C36DA84AED /* ImagePopupViewController.swift */; };
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
-		2C37172ECCD6723405BE8C16 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
 		3132F26131831DA4A8803F0C /* MonsterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF45A821A86AA6C4461C182 /* MonsterListRouter.swift */; };
-		32B260C3C8D202B8F3A210E7 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
 		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */; };
 		3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
@@ -74,7 +72,6 @@
 		92FFCDE598225695479553E1 /* MonsterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B092CB5948DC0CAEDCF1B2 /* MonsterCollectionViewCell.xib */; };
 		9353A36BD79D14FB5DF5851A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64156736597BF2619C1FA63D /* R.generated.swift */; };
 		945DD76072F19D5E680B0D2E /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C821440C03DA07AFB8D9CBD3 /* SpotlightRepository.swift */; };
-		96534BE2585C0E121EE52CDB /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */; };
 		966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		977570602072C91C029FBF5F /* ImagePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB6DC4D3D8E585B23DC1FFA /* ImagePopup.storyboard */; };
 		99CF66845E8619AB3B798B81 /* MonsterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F02EAD0D609211A46CA4D /* MonsterDetailPresenter.swift */; };
@@ -204,7 +201,6 @@
 		64156736597BF2619C1FA63D /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		64FA23DFA00E386CF2DBCE63 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
 		662806AC7BD136ED73614130 /* MockResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
-		66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
 		6D51BED7CFB1B03360CFFDDA /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		72C2F0468CB85CC3568F81E6 /* UICollectionView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Animation.swift"; sourceTree = "<group>"; };
 		73D27EFB3E262DB02FE93E55 /* MonsterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -452,15 +448,6 @@
 			path = MonsterDetail;
 			sourceTree = "<group>";
 		};
-		4053EA9D3ADBF69ABC5E85FF /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				66A02AE8F7FD566AFF5DAD67 /* gRPCCertificates-Cpp.bundle */,
-			);
-			name = Resources;
-			path = Frameworks/Firebase/FirebaseFirestore/Resources;
-			sourceTree = "<group>";
-		};
 		40B1F0BFCE8961C8FDB63941 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				B8C693EA7E65690ECAC21653 /* Generated */,
-				4053EA9D3ADBF69ABC5E85FF /* Resources */,
 				781042549E5A01519EFED671 /* Shared */,
 				3E8E9F450BF77CCBC59C870C /* UhooiPicBook */,
 				9429A22B22277DD7F5E7B884 /* UhooiPicBookStickers */,
@@ -1034,7 +1020,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96534BE2585C0E121EE52CDB /* gRPCCertificates-Cpp.bundle in Resources */,
 				79F57BDA2784949C003218BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1055,7 +1040,6 @@
 				CC1F541B2227280589F7D38F /* MonsterDetail.storyboard in Resources */,
 				70C8B5F80442BA472299E42B /* MonsterList.storyboard in Resources */,
 				6DDB377235BCDC1ED9CDF3CD /* Settings.bundle in Resources */,
-				32B260C3C8D202B8F3A210E7 /* gRPCCertificates-Cpp.bundle in Resources */,
 				79F57BD627849480003218BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1067,7 +1051,6 @@
 				072871692A06D0D8CEE7AC93 /* Assets.xcassets in Resources */,
 				79F57BD92784949B003218BC /* GoogleService-Info.plist in Resources */,
 				A7C8978901C5939663E9E00D /* Localizable.strings in Resources */,
-				2C37172ECCD6723405BE8C16 /* gRPCCertificates-Cpp.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

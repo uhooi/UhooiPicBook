@@ -80,7 +80,6 @@ let package = Package(
         .target(
             name: "MonstersFirebaseClient",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
-            resources: [.process("./Frameworks/Firebase/FirebaseFirestore/Resources/")], // FIXME: File not found
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
