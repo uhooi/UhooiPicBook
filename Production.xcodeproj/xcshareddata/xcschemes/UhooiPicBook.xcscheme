@@ -103,6 +103,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F7174334A4963303CCEE4E61"
+            BuildableName = "UhooiPicBook.app"
+            BlueprintName = "UhooiPicBook"
+            ReferencedContainer = "container:Production.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -110,15 +120,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7174334A4963303CCEE4E61"
             BuildableName = "UhooiPicBook.app"
             BlueprintName = "UhooiPicBook"
-            ReferencedContainer = "container:Develop.xcodeproj">
+            ReferencedContainer = "container:Production.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
