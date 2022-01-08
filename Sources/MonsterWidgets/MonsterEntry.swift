@@ -31,7 +31,7 @@ public struct MonsterEntry: TimelineEntry {
             date: Date(),
             name: "uhooi",
             description: "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
-            icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
+            icon: R.Image.uhooiIcon
         )
     }
 }

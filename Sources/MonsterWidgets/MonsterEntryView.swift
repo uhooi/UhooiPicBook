@@ -95,7 +95,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
             date: Date(),
             name: "1",
             description: "1",
-            icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
+            icon: R.Image.uhooiIcon
         )
     }
 
@@ -104,7 +104,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
             date: Date(),
             name: "123456789012345678901234567890",
             description: "12345678901234567890\n12345678901234567890\n12345678901234567890",
-            icon: UIImage(named: "Uhooi")! // swiftlint:disable:this force_unwrapping
+            icon: R.Image.uhooiIcon
         )
     }
 }

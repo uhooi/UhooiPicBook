@@ -40,8 +40,8 @@ public struct MonsterWidget: Widget {
         ) { entry in
             MonsterEntryView(entry: entry)
         }
-        .configurationDisplayName("Configuration display name")
-        .description("Description")
+        .configurationDisplayName(R.LocalizedString.configurationDisplayName)
+        .description(R.LocalizedString.description)
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 
