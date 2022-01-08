@@ -21,7 +21,6 @@
 		3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		44ABF940986C6673F554FDDE /* MonsterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C545ADB18DA6B9380C68A4 /* MonsterEntity.swift */; };
-		4547A0AC629AE4FBF3844E9C /* MonsterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49063064E2B94C8A9F7E1D8 /* MonsterEntry.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
 		4AC9EECDB50A0693322B7F8B /* MonsterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9E395371E031ADD9DAC7C /* MonsterListViewController.swift */; };
 		4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */; };
@@ -50,14 +49,13 @@
 		7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3927880A7900B553DC /* MonstersFirebaseClient */; };
 		7995BD3C27880A9800B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3B27880A9800B553DC /* MonstersFirebaseClient */; };
 		79AFF1582785B5B300396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1572785B5B300396E49 /* Logger */; };
-		79AFF15A2785B5BB00396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1592785B5BB00396E49 /* Logger */; };
 		79AFF1602785B9F000396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF15F2785B9F000396E49 /* ImageCache */; };
 		79AFF1622785B9F800396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1612785B9F800396E49 /* ImageCache */; };
+		79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 79C193AA2789CF5200E7A58E /* MonsterWidgets */; };
 		79F57BD627849480003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BD92784949B003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BDA2784949C003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDD2784B3F8003218BC /* GedatsuSetup */; };
-		79F774192785ED9300FDF5CE /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F774182785ED9300FDF5CE /* FirebaseSetup */; };
 		7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662806AC7BD136ED73614130 /* MockResults.swift */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */; };
@@ -91,9 +89,7 @@
 		D7287F00818985931690CC34 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E50AAC168458A7226CD68D0 /* Stickers.xcassets */; };
 		E5D00EC60E40486C0B3F8A38 /* InAppWebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EDD497E0D4672B0884217C /* InAppWebBrowserViewController.swift */; };
 		E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 36CFF74BDAD19C71928DB66A /* Rswift */; };
-		E89C68029524529EFA061FC7 /* MonsterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A863A43106CA9DE60339FA /* MonsterWidget.swift */; };
 		ED23EF346F55E2E02F461F16 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D686A013EAD76B19604C9 /* PageProtocol.swift */; };
-		EE2705989B2C02671E3DCF33 /* MonsterEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E3598F2A1F63362F22D8F /* MonsterEntryView.swift */; };
 		F52BB729600886030E41D991 /* MonsterDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
@@ -169,7 +165,6 @@
 		196A9EA385D0916435D5A047 /* MonsterList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonsterList.storyboard; sourceTree = "<group>"; };
 		1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailPage.swift; sourceTree = "<group>"; };
 		1E50AAC168458A7226CD68D0 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
-		28A863A43106CA9DE60339FA /* MonsterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWidget.swift; sourceTree = "<group>"; };
 		2A4367B9CA784F9D7E87D07B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3378DB5FC184A4310AAC7EB5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -211,7 +206,6 @@
 		8982EBADEED2E1AC1652BEB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A43FC43A5F5F2869F78909D /* FirebasePerformance.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebasePerformance.xcframework; path = Frameworks/Firebase/FirebasePerformance/FirebasePerformance.xcframework; sourceTree = "<group>"; };
 		8B1D686A013EAD76B19604C9 /* PageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProtocol.swift; sourceTree = "<group>"; };
-		8B4E3598F2A1F63362F22D8F /* MonsterEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterEntryView.swift; sourceTree = "<group>"; };
 		8BA1D60203EDBC076FFF5642 /* FirebaseMessaging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseMessaging.xcframework; path = Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework; sourceTree = "<group>"; };
 		8C75060B539557E8CDA1743E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8DBD424E06729D5A6042F7E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,7 +215,6 @@
 		989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPresenterTests.swift; sourceTree = "<group>"; };
 		9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
 		9F35DCA370E783F8D3064AEF /* UIView+Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Material.swift"; sourceTree = "<group>"; };
-		A49063064E2B94C8A9F7E1D8 /* MonsterEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterEntry.swift; sourceTree = "<group>"; };
 		A6E1EB1A3EF56CE36D981F57 /* Bundle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+String.swift"; sourceTree = "<group>"; };
 		AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
@@ -299,11 +292,10 @@
 			files = (
 				5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */,
 				F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */,
-				79AFF15A2785B5BB00396E49 /* Logger in Frameworks */,
 				7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */,
 				7921EEF32785DDFE0033DDEC /* Shared in Frameworks */,
+				79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */,
 				79AFF1622785B9F800396E49 /* ImageCache in Frameworks */,
-				79F774192785ED9300FDF5CE /* FirebaseSetup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */,
-				A49063064E2B94C8A9F7E1D8 /* MonsterEntry.swift */,
-				8B4E3598F2A1F63362F22D8F /* MonsterEntryView.swift */,
-				28A863A43106CA9DE60339FA /* MonsterWidget.swift */,
 			);
 			path = Monster;
 			sourceTree = "<group>";
@@ -845,11 +834,10 @@
 			);
 			name = UhooiPicBookWidgets;
 			packageProductDependencies = (
-				79AFF1592785B5BB00396E49 /* Logger */,
 				79AFF1612785B9F800396E49 /* ImageCache */,
 				7921EEF22785DDFE0033DDEC /* Shared */,
-				79F774182785ED9300FDF5CE /* FirebaseSetup */,
 				7995BD3927880A7900B553DC /* MonstersFirebaseClient */,
+				79C193AA2789CF5200E7A58E /* MonsterWidgets */,
 			);
 			productName = UhooiPicBookWidgets;
 			productReference = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */;
@@ -1269,10 +1257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */,
-				4547A0AC629AE4FBF3844E9C /* MonsterEntry.swift in Sources */,
-				EE2705989B2C02671E3DCF33 /* MonsterEntryView.swift in Sources */,
 				3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */,
-				E89C68029524529EFA061FC7 /* MonsterWidget.swift in Sources */,
 				A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */,
 				FFE920AC1952E4214A66DDD1 /* WidgetsConfiguration.intentdefinition in Sources */,
 			);
@@ -1925,10 +1910,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Logger;
 		};
-		79AFF1592785B5BB00396E49 /* Logger */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Logger;
-		};
 		79AFF15F2785B9F000396E49 /* ImageCache */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ImageCache;
@@ -1937,13 +1918,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ImageCache;
 		};
+		79C193AA2789CF5200E7A58E /* MonsterWidgets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MonsterWidgets;
+		};
 		79F57BDD2784B3F8003218BC /* GedatsuSetup */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GedatsuSetup;
-		};
-		79F774182785ED9300FDF5CE /* FirebaseSetup */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FirebaseSetup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

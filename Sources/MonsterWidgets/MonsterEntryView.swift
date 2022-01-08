@@ -8,11 +8,11 @@
 import WidgetKit
 import SwiftUI
 
-struct MonsterEntryView: View {
+public struct MonsterEntryView: View {
     var entry: MonsterEntry
     @Environment(\.widgetFamily) private var family
 
-    var body: some View {
+    public var body: some View {
         switch family {
         case .systemSmall:
             ZStack {
@@ -59,6 +59,10 @@ struct MonsterEntryView: View {
     private var description: some View {
         Text(entry.description)
             .font(.body)
+    }
+
+    public init(entry: MonsterEntry) {
+        self.entry = entry
     }
 }
 

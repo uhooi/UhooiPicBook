@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MonsterWidgets
 
 @main
 struct UhooiPicBookWidgets: WidgetBundle {

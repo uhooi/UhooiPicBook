@@ -48,6 +48,7 @@ let package = Package(
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
+        .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
         .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
         .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
@@ -75,6 +76,15 @@ let package = Package(
             name: "GedatsuSetup",
             dependencies: [
                 .product(name: "Gedatsu", package: "Gedatsu"),
+            ]
+        ),
+        .target(
+            name: "MonsterWidgets",
+            dependencies: [
+                "FirebaseSetup",
+                "MonstersFirebaseClient",
+                "Logger",
+                "ImageCache"
             ]
         ),
         .target(

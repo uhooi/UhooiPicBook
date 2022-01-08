@@ -30,8 +30,8 @@ private struct MonsterProvider {
     }
 }
 
-struct MonsterWidget: Widget {
-    var body: some WidgetConfiguration {
+public struct MonsterWidget: Widget {
+    public var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: "Monster",
             provider: MonsterProvider(
@@ -45,7 +45,7 @@ struct MonsterWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 
-    init() {
+    public init() {
         FirebaseSetup.configure()
     }
 }
