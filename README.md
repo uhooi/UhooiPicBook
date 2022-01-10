@@ -93,15 +93,16 @@ build-cli-tools                            Build CLI tools managed by SwiftPM
 install-templates                          Install Generamba templates
 download-firebase-sdk                      Download firebase-ios-sdk
 generate-licenses                          Generate licenses with LicensePlist
+generate-mocks                             Generate mocks with Mockolo
 generate-module MODULE_NAME=[module name]  Generate module with Generamba
-generate-xcodeproj-develop                 Generate project with XcodeGen for develop
-generate-xcodeproj-production              Generate project with XcodeGen for production
-open                                       Open project in Xcode
+open                                       Open workspace in Xcode
 clean                                      Delete cache
 clean-cli-tools                            Delete build artifacts for CLI tools managed by SwiftPM
 analyze                                    Analyze with SwiftLint
-build-debug                                Xcode build for debug
-test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
+build-develop-debug                        Xcode debug build for develop
+build-production-debug                     Xcode debug build for production
+test-develop-debug                         Xcode debug test for develop
+test-production-debug                      Xcode debug test for production
 get-coverage-html                          Get code coverage for HTML
 get-coverage-cobertura                     Get code coverage for Cobertura
 show-devices                               Show devices

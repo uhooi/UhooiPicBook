@@ -141,12 +141,12 @@ clean build \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
 .PHONY: test-develop-debug
-test-develop-debug: # Xcode debug test for develop # TEST_DEVICE=[device] TEST_OS=[OS]
+test-develop-debug: # Xcode debug test for develop
 	rm -rf ./TestResults.xcresult/
 	$(MAKE) test-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
 .PHONY: test-production-debug
-test-production-debug: # Xcode debug test for production # TEST_DEVICE=[device] TEST_OS=[OS]
+test-production-debug: # Xcode debug test for production
 	rm -rf ./TestResults.xcresult/
 	$(MAKE) test-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
 
