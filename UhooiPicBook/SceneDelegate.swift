@@ -8,6 +8,7 @@
 
 import CoreSpotlight
 import UIKit
+import AppModule
 
 @MainActor
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -48,10 +48,10 @@ let package = Package(
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
+        .library(name: "AppModule", targets: ["AppModule"]),
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
         .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
-        .library(name: "Logger", targets: ["Logger"]), // FIXME: Remove later
         .library(name: "ImageCache", targets: ["ImageCache"]), // FIXME: Remove later
     ],
     dependencies: [
@@ -79,12 +79,21 @@ let package = Package(
             ]
         ),
         .target(
+            name: "AppModule",
+            dependencies: [
+                "MonstersFirebaseClient",
+                "Shared",
+                "Logger",
+                "ImageCache",
+            ]
+        ),
+        .target(
             name: "MonsterWidgets",
             dependencies: [
                 "FirebaseSetup",
                 "MonstersFirebaseClient",
                 "Logger",
-                "ImageCache"
+                "ImageCache",
             ]
         ),
         .target(

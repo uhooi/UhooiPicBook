@@ -12,8 +12,8 @@ included:
   - Sources
 
 excluded:
-  - UhooiPicBook/Generated
   - UhooiPicBookTests
   - UhooiPicBookUITests
+  - Sources/AppModule/Generated
   - Tests
 

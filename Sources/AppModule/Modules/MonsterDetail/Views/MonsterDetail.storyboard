@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Q3-Cj-FlN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monster Detail View Controller-->
+        <scene sceneID="3jR-ti-cnL">
+            <objects>
+                <viewController id="5Q3-Cj-FlN" customClass="MonsterDetailViewController" customModule="AppModule" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O9a-4I-Xuy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUS-dz-08e">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbX-Hh-jGA" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="584"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="biE-jY-aJ2">
+                                                <rect key="frame" x="87" y="56" width="240" height="240"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="8qv-0r-JfS"/>
+                                                    <constraint firstAttribute="width" secondItem="biE-jY-aJ2" secondAttribute="height" multiplier="1:1" id="jPk-Eh-9vr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPl-m6-n0S">
+                                                <rect key="frame" x="77" y="487" width="260" height="41"/>
+                                                <string key="text">ゆかいな　みどりの　せいぶつ。
+わるそうに　みえるが　むがい。</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uhooi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kR-5g-AHA">
+                                                <rect key="frame" x="160" y="380" width="94" height="43"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="39I-uB-ftE">
+                                                <rect key="frame" x="283" y="304" width="44" height="44"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="monsterDetail_dancing_image"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="m7W-2Q-U2R"/>
+                                                    <constraint firstAttribute="width" secondItem="39I-uB-ftE" secondAttribute="height" multiplier="1:1" id="nSw-fk-jJw"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="dx0-n2-1I6"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="monsterDetail"/>
+                                        <constraints>
+                                            <constraint firstItem="dx0-n2-1I6" firstAttribute="bottom" secondItem="vPl-m6-n0S" secondAttribute="bottom" constant="56" id="76d-M1-msg"/>
+                                            <constraint firstItem="biE-jY-aJ2" firstAttribute="centerX" secondItem="TbX-Hh-jGA" secondAttribute="centerX" id="9nx-g9-xNO"/>
+                                            <constraint firstItem="3kR-5g-AHA" firstAttribute="centerX" secondItem="biE-jY-aJ2" secondAttribute="centerX" id="Fqg-Sy-O1j"/>
+                                            <constraint firstItem="39I-uB-ftE" firstAttribute="trailing" secondItem="biE-jY-aJ2" secondAttribute="trailing" id="HYF-Oz-cqc"/>
+                                            <constraint firstItem="vPl-m6-n0S" firstAttribute="centerX" secondItem="3kR-5g-AHA" secondAttribute="centerX" id="Nb6-8N-FxK"/>
+                                            <constraint firstItem="39I-uB-ftE" firstAttribute="top" secondItem="biE-jY-aJ2" secondAttribute="bottom" constant="8" id="OUr-oo-dfI"/>
+                                            <constraint firstItem="biE-jY-aJ2" firstAttribute="top" secondItem="dx0-n2-1I6" secondAttribute="top" constant="56" id="RW5-QU-qfe"/>
+                                            <constraint firstItem="vPl-m6-n0S" firstAttribute="top" secondItem="3kR-5g-AHA" secondAttribute="bottom" constant="64" id="uic-VX-YUB"/>
+                                            <constraint firstItem="3kR-5g-AHA" firstAttribute="top" secondItem="39I-uB-ftE" secondAttribute="bottom" constant="32" id="vlY-Y2-QfX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TbX-Hh-jGA" firstAttribute="trailing" secondItem="eAM-7N-ZhN" secondAttribute="trailing" id="0GC-FO-g78"/>
+                                    <constraint firstItem="TbX-Hh-jGA" firstAttribute="bottom" secondItem="eAM-7N-ZhN" secondAttribute="bottom" id="5AB-9a-W7k"/>
+                                    <constraint firstItem="TbX-Hh-jGA" firstAttribute="width" secondItem="Nq2-Xp-wwD" secondAttribute="width" id="sDp-aE-8Ju"/>
+                                    <constraint firstItem="TbX-Hh-jGA" firstAttribute="top" secondItem="eAM-7N-ZhN" secondAttribute="top" id="sXj-aj-ikQ"/>
+                                    <constraint firstItem="TbX-Hh-jGA" firstAttribute="leading" secondItem="eAM-7N-ZhN" secondAttribute="leading" id="wPm-dc-cS0"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="eAM-7N-ZhN"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Nq2-Xp-wwD"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JCE-kT-TIJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="monsterDetail"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oUS-dz-08e" secondAttribute="bottom" id="CUd-Xu-axh"/>
+                            <constraint firstItem="oUS-dz-08e" firstAttribute="top" secondItem="O9a-4I-Xuy" secondAttribute="top" id="Ffs-ne-0Co"/>
+                            <constraint firstItem="oUS-dz-08e" firstAttribute="leading" secondItem="JCE-kT-TIJ" secondAttribute="leading" id="dfT-Ma-yMc"/>
+                            <constraint firstItem="oUS-dz-08e" firstAttribute="trailing" secondItem="JCE-kT-TIJ" secondAttribute="trailing" id="dt9-Ys-oIt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vv0-CE-Fs9">
+                        <barButtonItem key="rightBarButtonItem" title="Share" image="square.and.arrow.up" catalog="system" id="xjI-pV-5WW">
+                            <connections>
+                                <action selector="didTapShareButton:" destination="5Q3-Cj-FlN" id="2b1-gl-Rqc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dancingImageView" destination="39I-uB-ftE" id="U5r-2b-egh"/>
+                        <outlet property="descriptionLabel" destination="vPl-m6-n0S" id="LaP-xb-suE"/>
+                        <outlet property="iconImageView" destination="biE-jY-aJ2" id="A6O-Kq-zal"/>
+                        <outlet property="nameLabel" destination="3kR-5g-AHA" id="SfL-QH-oGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P19-2S-dsw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

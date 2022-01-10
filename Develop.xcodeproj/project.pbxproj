@@ -7,93 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		061EE3F00A48295789ADC08C /* UICollectionView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C2F0468CB85CC3568F81E6 /* UICollectionView+Animation.swift */; };
-		0B6939B86ABFFEE1AA9EB606 /* ImagePopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60DFFEAF7AD947E77B2A9E /* ImagePopupRouter.swift */; };
-		13271A84BE5119E5F56C4598 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8283C8A15CF18E317D9152E /* UIImage+Resize.swift */; };
 		1510133741DFE73B93681372 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
-		27B2B112D0173DDBAFC3D622 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286674C150C49D97C80EF1 /* UIViewController+Alert.swift */; };
-		282855AC985D94841F4DF32A /* ImagePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD55D8D5B9932C36DA84AED /* ImagePopupViewController.swift */; };
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
-		3132F26131831DA4A8803F0C /* MonsterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF45A821A86AA6C4461C182 /* MonsterListRouter.swift */; };
 		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */; };
 		3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
-		44ABF940986C6673F554FDDE /* MonsterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C545ADB18DA6B9380C68A4 /* MonsterEntity.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
-		4AC9EECDB50A0693322B7F8B /* MonsterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A9E395371E031ADD9DAC7C /* MonsterListViewController.swift */; };
 		4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
-		550F8E4E2CC39982B5B8E517 /* InAppWebBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A2836170F12335F02A59B6 /* InAppWebBrowser.storyboard */; };
-		577856FEAAB16FA8DD6E21BB /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F079169054FED691AA58BB /* MonsterDetailViewController.swift */; };
 		586249F7FAF62EBD5A503993 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA80FDB88F9FDFFFF5D1859E /* InfoPlist.strings */; };
 		5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */; };
-		6778A65C6DC4861D7D4F3F5C /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FFF310A9627C956E59EDA /* UIColor+Hex.swift */; };
 		6DDB377235BCDC1ED9CDF3CD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8734300FB965A50AC0A720F2 /* Settings.bundle */; };
-		70C8B5F80442BA472299E42B /* MonsterList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196A9EA385D0916435D5A047 /* MonsterList.storyboard */; };
 		71093B73CE1A123F1CD35CB8 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
-		714E0341AFA8770622BEDD3B /* MonsterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611EF290ECFBC12665398B76 /* MonsterListInteractor.swift */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		767338C604E9855BB79BE755 /* MonsterDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF966AB8F9B07199DBC933B3 /* MonsterDetailInteractor.swift */; };
-		76A2D6D92D73A4F1DAEBEE8D /* MonsterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB86F39EE10B57D82545B03 /* MonsterListPresenter.swift */; };
-		78E0A0F2DB681BE500B182C7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378DB5FC184A4310AAC7EB5 /* BaseView.swift */; };
 		7921EEED2785DDE50033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEEC2785DDE50033DDEC /* Shared */; };
 		7921EEEF2785DDED0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEEE2785DDED0033DDEC /* Shared */; };
-		7921EEF12785DDF40033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF02785DDF40033DDEC /* Shared */; };
 		7921EEFD2785E6370033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFC2785E6370033DDEC /* FirebaseSetup */; };
 		7921EEFF2785E63E0033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFE2785E63E0033DDEC /* FirebaseSetup */; };
+		797ABFA7278A9B59005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA6278A9B59005B445B /* AppModule */; };
 		7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */; };
-		7995BD322788093200B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD312788093200B553DC /* MonstersFirebaseClient */; };
 		7995BD34278809F500B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD33278809F500B553DC /* MonstersFirebaseClient */; };
 		7995BD3627880A1700B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3527880A1700B553DC /* MonstersFirebaseClient */; };
-		79AFF1542785B59C00396E49 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1532785B59C00396E49 /* Logger */; };
-		79AFF15C2785B9D000396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF15B2785B9D000396E49 /* ImageCache */; };
 		79AFF15E2785B9E000396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF15D2785B9E000396E49 /* ImageCache */; };
 		79C193A92789CF1D00E7A58E /* MonsterWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 79C193A82789CF1D00E7A58E /* MonsterWidgets */; };
 		79F57BD427849472003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BD72784948F003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BD827849491003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BDC2784B3E5003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDB2784B3E5003218BC /* GedatsuSetup */; };
-		7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662806AC7BD136ED73614130 /* MockResults.swift */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */; };
 		7FD9093312208AB764B342E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73353BC83C395FD37E588220 /* LaunchScreen.storyboard */; };
 		7FFE1266556F252E4461FC19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3407CC7B917FA57875DE348E /* InfoPlist.strings */; };
 		82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711CB6227990EAC0E6C635 /* IntentHandler.swift */; };
-		850B16E908E366074143F309 /* MonsterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D27EFB3E262DB02FE93E55 /* MonsterCollectionViewCell.swift */; };
-		867FC07492C919327C85D144 /* TempRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB5C4E61299875A4ABA0B72 /* TempRepository.swift */; };
 		8CD68F1EEBA4F4D89B3A4580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A4367B9CA784F9D7E87D07B /* Assets.xcassets */; };
-		92D7E45561D88EB36D4F86F4 /* UINavigationBar+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F31A719EC582D46FEA4ED /* UINavigationBar+Color.swift */; };
-		92FFCDE598225695479553E1 /* MonsterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B092CB5948DC0CAEDCF1B2 /* MonsterCollectionViewCell.xib */; };
-		9353A36BD79D14FB5DF5851A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64156736597BF2619C1FA63D /* R.generated.swift */; };
-		945DD76072F19D5E680B0D2E /* SpotlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C821440C03DA07AFB8D9CBD3 /* SpotlightRepository.swift */; };
 		966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
-		977570602072C91C029FBF5F /* ImagePopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB6DC4D3D8E585B23DC1FFA /* ImagePopup.storyboard */; };
-		99CF66845E8619AB3B798B81 /* MonsterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F02EAD0D609211A46CA4D /* MonsterDetailPresenter.swift */; };
 		A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
-		A4A002ED3C78E319E545CA0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18FF25951C8099F5C2FC981D /* Localizable.strings */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
-		AD017CA9CF0EBD886B736E01 /* InAppWebBrowserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040574E79900249F22C2ABDC /* InAppWebBrowserRouter.swift */; };
-		ADBD9DBFAC6E47D1E480E396 /* MonsterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A04606F6224E383C5DDBB9 /* MonsterDetailRouter.swift */; };
-		AEA45F9289FBBC3076997277 /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D51BED7CFB1B03360CFFDDA /* UserDefaultsClient.swift */; };
 		AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */; };
-		B8AB127BE0A902B5C1FA5E64 /* Bundle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1EB1A3EF56CE36D981F57 /* Bundle+String.swift */; };
-		BD995B998107145B55E0AC5D /* ActivityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC27DF3E29DCFD45C2139AA /* ActivityRouter.swift */; };
-		CC1F541B2227280589F7D38F /* MonsterDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C7AFBAACFDB598282AA87F /* MonsterDetail.storyboard */; };
-		D27AE54623E049A2AE1AD905 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB8DE5DD6059FB01784FDA /* Localizable.strings */; };
 		D70DAFB16B06278F4567C9C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD424E06729D5A6042F7E6 /* SceneDelegate.swift */; };
 		D7287F00818985931690CC34 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E50AAC168458A7226CD68D0 /* Stickers.xcassets */; };
-		E5D00EC60E40486C0B3F8A38 /* InAppWebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EDD497E0D4672B0884217C /* InAppWebBrowserViewController.swift */; };
-		E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 36CFF74BDAD19C71928DB66A /* Rswift */; };
 		ED23EF346F55E2E02F461F16 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D686A013EAD76B19604C9 /* PageProtocol.swift */; };
 		F52BB729600886030E41D991 /* MonsterDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
 		FA24990B45EAFFD0FEFD4021 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		FB293019EEFEB445EF5EA56A /* UserDefaultsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */; };
-		FEC9A5901D344FE650C85D75 /* UIView+Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35DCA370E783F8D3064AEF /* UIView+Material.swift */; };
 		FFE920AC1952E4214A66DDD1 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
 /* End PBXBuildFile section */
 
@@ -152,49 +113,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		040574E79900249F22C2ABDC /* InAppWebBrowserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppWebBrowserRouter.swift; sourceTree = "<group>"; };
 		051BCB7B0AC16C12AC52C8C6 /* UhooiPicBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UhooiPicBook.entitlements; sourceTree = "<group>"; };
 		056CC3440EC68EDD8CB4F9D0 /* FirebaseAppDistribution.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAppDistribution.xcframework; path = Frameworks/Firebase/FirebaseAppDistribution/FirebaseAppDistribution.xcframework; sourceTree = "<group>"; };
 		1023D16F5A2DA7D98DEF0F0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		10643B8C75A51C25725E377B /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
 		144AF202560DF7170CA1B88E /* FirebaseRemoteConfig.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseRemoteConfig.xcframework; path = Frameworks/Firebase/FirebasePerformance/FirebaseRemoteConfig.xcframework; sourceTree = "<group>"; };
 		18C42AC12CA0DA009E4241B5 /* leveldb-library.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "leveldb-library.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"; sourceTree = "<group>"; };
-		18FF25951C8099F5C2FC981D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		196A9EA385D0916435D5A047 /* MonsterList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonsterList.storyboard; sourceTree = "<group>"; };
 		1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailPage.swift; sourceTree = "<group>"; };
 		1E50AAC168458A7226CD68D0 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		2A4367B9CA784F9D7E87D07B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3378DB5FC184A4310AAC7EB5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3407CC7B917FA57875DE348E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
-		35B092CB5948DC0CAEDCF1B2 /* MonsterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonsterCollectionViewCell.xib; sourceTree = "<group>"; };
 		3678749154206AA2C7DE69F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		39C545ADB18DA6B9380C68A4 /* MonsterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterEntity.swift; sourceTree = "<group>"; };
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		3BCB8DE5DD6059FB01784FDA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3FB86F39EE10B57D82545B03 /* MonsterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPresenter.swift; sourceTree = "<group>"; };
 		43EBF5B610EADF73596B467B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
-		49F079169054FED691AA58BB /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
 		4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
 		4C26A27920CB1D8FCC0B9E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		50A04606F6224E383C5DDBB9 /* MonsterDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailRouter.swift; sourceTree = "<group>"; };
 		53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
-		55EDD497E0D4672B0884217C /* InAppWebBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppWebBrowserViewController.swift; sourceTree = "<group>"; };
 		57D8DBFD34D65F383FA44465 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
-		5F60DFFEAF7AD947E77B2A9E /* ImagePopupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupRouter.swift; sourceTree = "<group>"; };
 		5FC40872E7A32ADB0B8AE3D7 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestore.xcframework; path = Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework; sourceTree = "<group>"; };
 		60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailInteractorTests.swift; sourceTree = "<group>"; };
-		611EF290ECFBC12665398B76 /* MonsterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListInteractor.swift; sourceTree = "<group>"; };
-		64156736597BF2619C1FA63D /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		64FA23DFA00E386CF2DBCE63 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
-		662806AC7BD136ED73614130 /* MockResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
-		6D51BED7CFB1B03360CFFDDA /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
-		72C2F0468CB85CC3568F81E6 /* UICollectionView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Animation.swift"; sourceTree = "<group>"; };
-		73D27EFB3E262DB02FE93E55 /* MonsterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCollectionViewCell.swift; sourceTree = "<group>"; };
 		79F57BD327849472003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		7BC27DF3E29DCFD45C2139AA /* ActivityRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRouter.swift; sourceTree = "<group>"; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4ADEF286CCE96A2942A1A /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework; sourceTree = "<group>"; };
@@ -205,13 +147,10 @@
 		8BA1D60203EDBC076FFF5642 /* FirebaseMessaging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseMessaging.xcframework; path = Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework; sourceTree = "<group>"; };
 		8C75060B539557E8CDA1743E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8DBD424E06729D5A6042F7E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8E8FFF310A9627C956E59EDA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8F94607B0325642C330CD793 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework; sourceTree = "<group>"; };
 		988A97043A06E226C6868588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPresenterTests.swift; sourceTree = "<group>"; };
 		9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
-		9F35DCA370E783F8D3064AEF /* UIView+Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Material.swift"; sourceTree = "<group>"; };
-		A6E1EB1A3EF56CE36D981F57 /* Bundle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+String.swift"; sourceTree = "<group>"; };
 		AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
 		AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClientTests.swift; sourceTree = "<group>"; };
@@ -222,37 +161,24 @@
 		B3034A14E3F41394DEB55A62 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		B3ACB3BE3E7ED3A4C84410CA /* BoringSSL-GRPC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "BoringSSL-GRPC.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"; sourceTree = "<group>"; };
 		B7711CB6227990EAC0E6C635 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		B8283C8A15CF18E317D9152E /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		BA21C3023C46CC6151A43886 /* UhooiPicBookTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6DB9EB8A33ED4D0822DB8F /* FirebaseABTesting.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseABTesting.xcframework; path = Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework; sourceTree = "<group>"; };
 		BF104BB707E325AC73440499 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
-		BF966AB8F9B07199DBC933B3 /* MonsterDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailInteractor.swift; sourceTree = "<group>"; };
-		BFB5C4E61299875A4ABA0B72 /* TempRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempRepository.swift; sourceTree = "<group>"; };
-		C20F02EAD0D609211A46CA4D /* MonsterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailPresenter.swift; sourceTree = "<group>"; };
-		C4C7AFBAACFDB598282AA87F /* MonsterDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonsterDetail.storyboard; sourceTree = "<group>"; };
 		C4DB460657711DAA8A60E2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C821440C03DA07AFB8D9CBD3 /* SpotlightRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightRepository.swift; sourceTree = "<group>"; };
 		D1BC591FA4C18A058784472F /* ActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPage.swift; sourceTree = "<group>"; };
 		D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgetsConfigurableIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EE851D738F39BA086C87F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/WidgetsConfiguration.intentdefinition; sourceTree = "<group>"; };
 		D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = UhooiPicBookStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC286674C150C49D97C80EF1 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
-		DCB6DC4D3D8E585B23DC1FFA /* ImagePopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImagePopup.storyboard; sourceTree = "<group>"; };
-		DD7F31A719EC582D46FEA4ED /* UINavigationBar+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Color.swift"; sourceTree = "<group>"; };
-		DDD55D8D5B9932C36DA84AED /* ImagePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupViewController.swift; sourceTree = "<group>"; };
 		E4618659C63EB6D450468854 /* BundleStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleStringTests.swift; sourceTree = "<group>"; };
 		E486EDFB4B99417855E33115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E4A9E395371E031ADD9DAC7C /* MonsterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListViewController.swift; sourceTree = "<group>"; };
 		E4EA4C797239C728014E8BCC /* UhooiPicBook.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = UhooiPicBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C25BE3139AF9A212CCC8F0 /* gRPC-C++.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "gRPC-C++.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"; sourceTree = "<group>"; };
 		E93FC0F13B863F9E5F5D500D /* abseil.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = abseil.xcframework; path = Frameworks/Firebase/FirebaseFirestore/abseil.xcframework; sourceTree = "<group>"; };
-		F0A2836170F12335F02A59B6 /* InAppWebBrowser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InAppWebBrowser.storyboard; sourceTree = "<group>"; };
 		F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListInteractorTests.swift; sourceTree = "<group>"; };
 		F6868AB01C3AABA6F00D83C8 /* gRPC-Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "gRPC-Core.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"; sourceTree = "<group>"; };
 		F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookUITests.swift; sourceTree = "<group>"; };
 		FA80FDB88F9FDFFFF5D1859E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDBD9590661CE70E9A012683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FEF45A821A86AA6C4461C182 /* MonsterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,13 +186,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63DDE4B507D21DA1CE58193 /* Rswift in Frameworks */,
-				79AFF1542785B59C00396E49 /* Logger in Frameworks */,
+				797ABFA7278A9B59005B445B /* AppModule in Frameworks */,
 				7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */,
 				79F57BDC2784B3E5003218BC /* GedatsuSetup in Frameworks */,
-				7921EEF12785DDF40033DDEC /* Shared in Frameworks */,
-				79AFF15C2785B9D000396E49 /* ImageCache in Frameworks */,
-				7995BD322788093200B553DC /* MonstersFirebaseClient in Frameworks */,
 				7921EEFD2785E6370033DDEC /* FirebaseSetup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,16 +219,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02A4D7C3320C27DA0988E6F4 /* InAppWebBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				F0A2836170F12335F02A59B6 /* InAppWebBrowser.storyboard */,
-				040574E79900249F22C2ABDC /* InAppWebBrowserRouter.swift */,
-				55EDD497E0D4672B0884217C /* InAppWebBrowserViewController.swift */,
-			);
-			path = InAppWebBrowser;
-			sourceTree = "<group>";
-		};
 		047DDCB4A329ED03D5DC6ED6 /* Monster */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,19 +254,6 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		1998BA87EA0EB6A80D2B0C4E /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				72C2F0468CB85CC3568F81E6 /* UICollectionView+Animation.swift */,
-				8E8FFF310A9627C956E59EDA /* UIColor+Hex.swift */,
-				B8283C8A15CF18E317D9152E /* UIImage+Resize.swift */,
-				DD7F31A719EC582D46FEA4ED /* UINavigationBar+Color.swift */,
-				9F35DCA370E783F8D3064AEF /* UIView+Material.swift */,
-				DC286674C150C49D97C80EF1 /* UIViewController+Alert.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		209A8D03792A3E6A18E9B5C5 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,34 +270,13 @@
 			path = Temp;
 			sourceTree = "<group>";
 		};
-		2E155C2611B43F5863CE991D /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				6C363C0E1A16F81BB6AD5399 /* Spotlight */,
-				CFD004F730FC9433546E899F /* Temp */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		3296E8AF60CBAA567E241A07 /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				611EF290ECFBC12665398B76 /* MonsterListInteractor.swift */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
 		3E8E9F450BF77CCBC59C870C /* UhooiPicBook */ = {
 			isa = PBXGroup;
 			children = (
 				53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */,
 				8DBD424E06729D5A6042F7E6 /* SceneDelegate.swift */,
 				8734300FB965A50AC0A720F2 /* Settings.bundle */,
-				CDB179B1C43C6B37E147FCEE /* Extensions */,
-				40B1F0BFCE8961C8FDB63941 /* Modules */,
-				2E155C2611B43F5863CE991D /* Repository */,
 				3EC1582FF32CC0DD1ED382EC /* Resources */,
-				D98F7412A8C78EDBC24B2545 /* UIParts */,
 			);
 			path = UhooiPicBook;
 			sourceTree = "<group>";
@@ -411,8 +289,6 @@
 				3407CC7B917FA57875DE348E /* InfoPlist.strings */,
 				FA80FDB88F9FDFFFF5D1859E /* InfoPlist.strings */,
 				73353BC83C395FD37E588220 /* LaunchScreen.storyboard */,
-				3BCB8DE5DD6059FB01784FDA /* Localizable.strings */,
-				18FF25951C8099F5C2FC981D /* Localizable.strings */,
 				051BCB7B0AC16C12AC52C8C6 /* UhooiPicBook.entitlements */,
 			);
 			path = Resources;
@@ -427,27 +303,9 @@
 			path = MonsterDetail;
 			sourceTree = "<group>";
 		};
-		40B1F0BFCE8961C8FDB63941 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				8774901A8D8350D0682B2808 /* MonsterDetail */,
-				79FEFABC5F95D6563CABCE75 /* MonsterList */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		4448EAF001F7F9B1DE8DC02F /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				BF966AB8F9B07199DBC933B3 /* MonsterDetailInteractor.swift */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
 		47C552D3546C641AB89783C1 = {
 			isa = PBXGroup;
 			children = (
-				B8C693EA7E65690ECAC21653 /* Generated */,
 				781042549E5A01519EFED671 /* Shared */,
 				3E8E9F450BF77CCBC59C870C /* UhooiPicBook */,
 				9429A22B22277DD7F5E7B884 /* UhooiPicBookStickers */,
@@ -458,31 +316,6 @@
 				644BA30E73485BDC342F7204 /* Frameworks */,
 				B9F854ED00B8603447D5057B /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		493255170524526DBAB8128C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C4C7AFBAACFDB598282AA87F /* MonsterDetail.storyboard */,
-				49F079169054FED691AA58BB /* MonsterDetailViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4B2FC6108B1F1A68C4FFBA26 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				7BC27DF3E29DCFD45C2139AA /* ActivityRouter.swift */,
-			);
-			path = Activity;
-			sourceTree = "<group>";
-		};
-		5FFA1DE89A967F968EC8EC34 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				C20F02EAD0D609211A46CA4D /* MonsterDetailPresenter.swift */,
-			);
-			path = Presenters;
 			sourceTree = "<group>";
 		};
 		644BA30E73485BDC342F7204 /* Frameworks */ = {
@@ -515,14 +348,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C363C0E1A16F81BB6AD5399 /* Spotlight */ = {
-			isa = PBXGroup;
-			children = (
-				C821440C03DA07AFB8D9CBD3 /* SpotlightRepository.swift */,
-			);
-			path = Spotlight;
-			sourceTree = "<group>";
-		};
 		781042549E5A01519EFED671 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,29 +355,6 @@
 				C2B92E538C189F4941F7DAFE /* Resources */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		79FEFABC5F95D6563CABCE75 /* MonsterList */ = {
-			isa = PBXGroup;
-			children = (
-				A5CD6F81CDE17FA1B55A86FC /* Entities */,
-				3296E8AF60CBAA567E241A07 /* Interactors */,
-				BDFF4FC8E44E96557949D604 /* Presenters */,
-				F51F9EE5EDA2CC4FAFEA3DEE /* Routers */,
-				B04518B4F46B200F2313648D /* Views */,
-			);
-			path = MonsterList;
-			sourceTree = "<group>";
-		};
-		8774901A8D8350D0682B2808 /* MonsterDetail */ = {
-			isa = PBXGroup;
-			children = (
-				4448EAF001F7F9B1DE8DC02F /* Interactors */,
-				5FFA1DE89A967F968EC8EC34 /* Presenters */,
-				C4108B8803E1440F867E20BA /* Routers */,
-				493255170524526DBAB8128C /* Views */,
-			);
-			path = MonsterDetail;
 			sourceTree = "<group>";
 		};
 		893210394C6FBD9D4384A4D9 /* Repository */ = {
@@ -588,16 +390,6 @@
 			path = UhooiPicBookStickers;
 			sourceTree = "<group>";
 		};
-		95408D382BDA0F993CD2A717 /* ImagePopup */ = {
-			isa = PBXGroup;
-			children = (
-				DCB6DC4D3D8E585B23DC1FFA /* ImagePopup.storyboard */,
-				5F60DFFEAF7AD947E77B2A9E /* ImagePopupRouter.swift */,
-				DDD55D8D5B9932C36DA84AED /* ImagePopupViewController.swift */,
-			);
-			path = ImagePopup;
-			sourceTree = "<group>";
-		};
 		980AA549A5DF5892786B94BB /* IntentDefinition */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,35 +413,6 @@
 				17E82F135C45DA22DAD85E72 /* Foundation */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A5CD6F81CDE17FA1B55A86FC /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				39C545ADB18DA6B9380C68A4 /* MonsterEntity.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		B04518B4F46B200F2313648D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				73D27EFB3E262DB02FE93E55 /* MonsterCollectionViewCell.swift */,
-				35B092CB5948DC0CAEDCF1B2 /* MonsterCollectionViewCell.xib */,
-				196A9EA385D0916435D5A047 /* MonsterList.storyboard */,
-				E4A9E395371E031ADD9DAC7C /* MonsterListViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B8C693EA7E65690ECAC21653 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				662806AC7BD136ED73614130 /* MockResults.swift */,
-				64156736597BF2619C1FA63D /* R.generated.swift */,
-			);
-			name = Generated;
-			path = UhooiPicBook/Generated;
 			sourceTree = "<group>";
 		};
 		B9F854ED00B8603447D5057B /* Products */ = {
@@ -676,14 +439,6 @@
 			path = UhooiPicBookTests;
 			sourceTree = "<group>";
 		};
-		BDFF4FC8E44E96557949D604 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				3FB86F39EE10B57D82545B03 /* MonsterListPresenter.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
 		BEFA3747E1D1E1F80EDBCA34 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,32 +453,6 @@
 				79F57BD327849472003218BC /* GoogleService-Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		C4108B8803E1440F867E20BA /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				50A04606F6224E383C5DDBB9 /* MonsterDetailRouter.swift */,
-			);
-			path = Routers;
-			sourceTree = "<group>";
-		};
-		CDB179B1C43C6B37E147FCEE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				EE674E33121B41C3EEEBEF32 /* Foundation */,
-				1998BA87EA0EB6A80D2B0C4E /* UIKit */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		CFD004F730FC9433546E899F /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				BFB5C4E61299875A4ABA0B72 /* TempRepository.swift */,
-				6D51BED7CFB1B03360CFFDDA /* UserDefaultsClient.swift */,
-			);
-			path = Temp;
 			sourceTree = "<group>";
 		};
 		D28B5AA035A5F48373BC57B2 /* MonsterList */ = {
@@ -742,17 +471,6 @@
 				B7711CB6227990EAC0E6C635 /* IntentHandler.swift */,
 			);
 			path = UhooiPicBookWidgetsConfigurableIntent;
-			sourceTree = "<group>";
-		};
-		D98F7412A8C78EDBC24B2545 /* UIParts */ = {
-			isa = PBXGroup;
-			children = (
-				3378DB5FC184A4310AAC7EB5 /* BaseView.swift */,
-				4B2FC6108B1F1A68C4FFBA26 /* Activity */,
-				95408D382BDA0F993CD2A717 /* ImagePopup */,
-				02A4D7C3320C27DA0988E6F4 /* InAppWebBrowser */,
-			);
-			path = UIParts;
 			sourceTree = "<group>";
 		};
 		EB1BD4D1C82D8077591B0698 /* UhooiPicBookUITests */ = {
@@ -776,22 +494,6 @@
 				B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */,
 			);
 			path = Pages;
-			sourceTree = "<group>";
-		};
-		EE674E33121B41C3EEEBEF32 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				A6E1EB1A3EF56CE36D981F57 /* Bundle+String.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		F51F9EE5EDA2CC4FAFEA3DEE /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				FEF45A821A86AA6C4461C182 /* MonsterListRouter.swift */,
-			);
-			path = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -894,8 +596,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13C9DF26DB51CA2F181109A7 /* Build configuration list for PBXNativeTarget "UhooiPicBook" */;
 			buildPhases = (
-				038DFF8ABCE71B2FD6A44052 /* Generate Resources with R.swift */,
-				A4ED3486399EAFD669B102F1 /* Generate Mocks with Mockolo */,
 				1536BFDD1A0F36A88A1E7765 /* Sources */,
 				3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */,
 				273E5548C378B1635B235E18 /* Run IBLinter */,
@@ -914,14 +614,10 @@
 			);
 			name = UhooiPicBook;
 			packageProductDependencies = (
-				36CFF74BDAD19C71928DB66A /* Rswift */,
 				79F57BDB2784B3E5003218BC /* GedatsuSetup */,
-				79AFF1532785B59C00396E49 /* Logger */,
-				79AFF15B2785B9D000396E49 /* ImageCache */,
-				7921EEF02785DDF40033DDEC /* Shared */,
 				7921EEFC2785E6370033DDEC /* FirebaseSetup */,
 				7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */,
-				7995BD312788093200B553DC /* MonstersFirebaseClient */,
+				797ABFA6278A9B59005B445B /* AppModule */,
 			);
 			productName = UhooiPicBook;
 			productReference = E4EA4C797239C728014E8BCC /* UhooiPicBook.app */;
@@ -970,7 +666,6 @@
 			);
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
-				1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -999,16 +694,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD68F1EEBA4F4D89B3A4580 /* Assets.xcassets in Resources */,
-				977570602072C91C029FBF5F /* ImagePopup.storyboard in Resources */,
-				550F8E4E2CC39982B5B8E517 /* InAppWebBrowser.storyboard in Resources */,
 				586249F7FAF62EBD5A503993 /* InfoPlist.strings in Resources */,
 				7FFE1266556F252E4461FC19 /* InfoPlist.strings in Resources */,
 				7FD9093312208AB764B342E6 /* LaunchScreen.storyboard in Resources */,
-				A4A002ED3C78E319E545CA0D /* Localizable.strings in Resources */,
-				D27AE54623E049A2AE1AD905 /* Localizable.strings in Resources */,
-				92FFCDE598225695479553E1 /* MonsterCollectionViewCell.xib in Resources */,
-				CC1F541B2227280589F7D38F /* MonsterDetail.storyboard in Resources */,
-				70C8B5F80442BA472299E42B /* MonsterList.storyboard in Resources */,
 				6DDB377235BCDC1ED9CDF3CD /* Settings.bundle in Resources */,
 				79F57BD427849472003218BC /* GoogleService-Info.plist in Resources */,
 			);
@@ -1033,26 +721,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		038DFF8ABCE71B2FD6A44052 /* Generate Resources with R.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			name = "Generate Resources with R.swift";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/$TARGET_NAME/Generated/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nTools/UhooiPicBookTools/.build/release/rswift generate \"$SRCROOT/$TARGET_NAME/Generated/R.generated.swift\"\n\n";
-		};
 		0FA2530C0E3D86880E87A1B6 /* Run SpellChecker */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1107,25 +775,6 @@
 			shellPath = /bin/sh;
 			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nTools/UhooiPicBookTools/.build/release/swiftlint --fix --format\nTools/UhooiPicBookTools/.build/release/swiftlint\n\n";
 		};
-		A4ED3486399EAFD669B102F1 /* Generate Mocks with Mockolo */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Mocks with Mockolo";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/$TARGET_NAME/Generated/MockResults.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -f $SRCROOT/$TARGET_NAME/Generated/MockResults.swift\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nTools/UhooiPicBookTools/.build/release/mockolo --sourcedirs $SRCROOT/$TARGET_NAME --sourcedirs $SRCROOT/Shared --sourcedirs $SRCROOT/sources --destination $SRCROOT/$TARGET_NAME/Generated/MockResults.swift --mock-final\n\n";
-		};
 		CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1171,37 +820,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD995B998107145B55E0AC5D /* ActivityRouter.swift in Sources */,
 				7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */,
-				78E0A0F2DB681BE500B182C7 /* BaseView.swift in Sources */,
-				B8AB127BE0A902B5C1FA5E64 /* Bundle+String.swift in Sources */,
-				0B6939B86ABFFEE1AA9EB606 /* ImagePopupRouter.swift in Sources */,
-				282855AC985D94841F4DF32A /* ImagePopupViewController.swift in Sources */,
-				AD017CA9CF0EBD886B736E01 /* InAppWebBrowserRouter.swift in Sources */,
-				E5D00EC60E40486C0B3F8A38 /* InAppWebBrowserViewController.swift in Sources */,
-				7A6729D992F1DD746C753B0A /* MockResults.swift in Sources */,
-				850B16E908E366074143F309 /* MonsterCollectionViewCell.swift in Sources */,
-				767338C604E9855BB79BE755 /* MonsterDetailInteractor.swift in Sources */,
-				99CF66845E8619AB3B798B81 /* MonsterDetailPresenter.swift in Sources */,
-				ADBD9DBFAC6E47D1E480E396 /* MonsterDetailRouter.swift in Sources */,
-				577856FEAAB16FA8DD6E21BB /* MonsterDetailViewController.swift in Sources */,
-				44ABF940986C6673F554FDDE /* MonsterEntity.swift in Sources */,
 				966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */,
-				714E0341AFA8770622BEDD3B /* MonsterListInteractor.swift in Sources */,
-				76A2D6D92D73A4F1DAEBEE8D /* MonsterListPresenter.swift in Sources */,
-				3132F26131831DA4A8803F0C /* MonsterListRouter.swift in Sources */,
-				4AC9EECDB50A0693322B7F8B /* MonsterListViewController.swift in Sources */,
-				9353A36BD79D14FB5DF5851A /* R.generated.swift in Sources */,
 				D70DAFB16B06278F4567C9C6 /* SceneDelegate.swift in Sources */,
-				945DD76072F19D5E680B0D2E /* SpotlightRepository.swift in Sources */,
-				867FC07492C919327C85D144 /* TempRepository.swift in Sources */,
-				061EE3F00A48295789ADC08C /* UICollectionView+Animation.swift in Sources */,
-				6778A65C6DC4861D7D4F3F5C /* UIColor+Hex.swift in Sources */,
-				13271A84BE5119E5F56C4598 /* UIImage+Resize.swift in Sources */,
-				92D7E45561D88EB36D4F86F4 /* UINavigationBar+Color.swift in Sources */,
-				FEC9A5901D344FE650C85D75 /* UIView+Material.swift in Sources */,
-				27B2B112D0173DDBAFC3D622 /* UIViewController+Alert.swift in Sources */,
-				AEA45F9289FBBC3076997277 /* UserDefaultsClient.swift in Sources */,
 				71093B73CE1A123F1CD35CB8 /* WidgetsConfiguration.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1835,32 +1456,12 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
-			requirement = {
-				kind = exactVersion;
-				version = 5.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		36CFF74BDAD19C71928DB66A /* Rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FCE719CC8186289AA5A40E1 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = Rswift;
-		};
 		7921EEEC2785DDE50033DDEC /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Shared;
 		};
 		7921EEEE2785DDED0033DDEC /* Shared */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Shared;
-		};
-		7921EEF02785DDF40033DDEC /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Shared;
 		};
@@ -1872,13 +1473,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseSetup;
 		};
+		797ABFA6278A9B59005B445B /* AppModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppModule;
+		};
 		7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseMessagingBridge;
-		};
-		7995BD312788093200B553DC /* MonstersFirebaseClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MonstersFirebaseClient;
 		};
 		7995BD33278809F500B553DC /* MonstersFirebaseClient */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1887,14 +1488,6 @@
 		7995BD3527880A1700B553DC /* MonstersFirebaseClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MonstersFirebaseClient;
-		};
-		79AFF1532785B59C00396E49 /* Logger */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Logger;
-		};
-		79AFF15B2785B9D000396E49 /* ImageCache */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ImageCache;
 		};
 		79AFF15D2785B9E000396E49 /* ImageCache */ = {
 			isa = XCSwiftPackageProductDependency;

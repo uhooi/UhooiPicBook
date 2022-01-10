@@ -11,30 +11,36 @@ import UIKit.UIImage
 
 public enum R { // swiftlint:disable:this type_name
     public enum LocalizedString {
-        public static let configurationDisplayName = NSLocalizedString(
-            "Configuration display name",
-            bundle: .module,
-            comment: "Configuration display name"
-        )
 
-        public static let configurableDescription = NSLocalizedString(
-            "Configurable description",
-            bundle: .module,
-            comment: "Configurable description"
-        )
+        // MARK: Public Stored Type Properties
 
-        static let description = NSLocalizedString(
-            "Description",
-            bundle: .module,
-            comment: "Description"
-        )
+        public static let configurationDisplayName = createNSLocalizedString("Configuration display name")
+        public static let configurableDescription = createNSLocalizedString("Configurable description")
+
+        // MARK: Internal Stored Type Properties
+
+        static let description = createNSLocalizedString("Description")
+
+        // MARK: Other Private Methods
+
+        private static func createNSLocalizedString(_ key: String) -> String {
+            NSLocalizedString(key, bundle: .module, comment: key)
+        }
     }
 
     enum Image {
-        static let uhooiIcon = UIImage(
-            named: "Uhooi",
-            in: .module,
-            with: nil
-        )! // swiftlint:disable:this force_unwrapping
+
+        // MARK: Internal Stored Type Properties
+
+        static let uhooiIcon = createUIImage(named: "Uhooi")
+
+        // MARK: Other Private Methods
+
+        private static func createUIImage(named name: String, line: UInt = #line) -> UIImage {
+            guard let image = UIImage(named: name, in: .module, with: nil) else {
+                fatalError("Fail to load '\(name)' image.", line: line)
+            }
+            return image
+        }
     }
 }
