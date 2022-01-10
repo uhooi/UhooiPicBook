@@ -34,6 +34,7 @@
 		792E8F20278C445E000F3902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F18278C445E000F3902 /* AppDelegate.swift */; };
 		792E8F21278C445E000F3902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F19278C445E000F3902 /* SceneDelegate.swift */; };
 		792E8F55278C4C22000F3902 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F53278C4C22000F3902 /* Stickers.xcassets */; };
+		792E8F5E278C5B30000F3902 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F5D278C5B30000F3902 /* MockResults.swift */; };
 		797ABFA7278A9B59005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA6278A9B59005B445B /* AppModule */; };
 		7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */; };
 		7995BD34278809F500B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD33278809F500B553DC /* MonstersFirebaseClient */; };
@@ -142,6 +143,7 @@
 		792E8F22278C4489000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		792E8F53278C4C22000F3902 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		792E8F54278C4C22000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792E8F5D278C5B30000F3902 /* MockResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
 		79F57BD327849472003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +378,14 @@
 			path = App/UhooiPicBookStickers;
 			sourceTree = "<group>";
 		};
+		792E8F5C278C5B30000F3902 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				792E8F5D278C5B30000F3902 /* MockResults.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		893210394C6FBD9D4384A4D9 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +444,7 @@
 			children = (
 				988A97043A06E226C6868588 /* Info.plist */,
 				9E07DDF4AF7D2B2926033FDC /* Extensions */,
+				792E8F5C278C5B30000F3902 /* Generated */,
 				180F961DDBB1443BCBB3B9F2 /* Modules */,
 				893210394C6FBD9D4384A4D9 /* Repository */,
 			);
@@ -860,6 +871,7 @@
 				AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */,
 				378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */,
 				4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */,
+				792E8F5E278C5B30000F3902 /* MockResults.swift in Sources */,
 				FB293019EEFEB445EF5EA56A /* UserDefaultsClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

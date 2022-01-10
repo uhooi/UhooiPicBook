@@ -58,6 +58,10 @@ jobs:
     # セットアップ
     - uses: ./.github/workflows/templates/setup-ios
 
+    # モックの生成
+    - name: Generate mocks with Mockolo
+      run: make generate-mocks
+
     # 単体テストの実行
     - name: Xcode test
       run: make test-develop-debug

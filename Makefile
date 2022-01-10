@@ -21,6 +21,8 @@ PRODUCTION_PROJECT_NAME := Production
 CLI_TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
 CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
 
+MOCK_FILE_PATH := ./UhooiPicbookTests/Generated/MockResults.swift
+
 FIREBASE_VERSION := 8.6.0
 
 MODULE_TEMPLATE_NAME ?= uhooi_viper
@@ -41,6 +43,7 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) build-cli-tools
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
+	$(MAKE) generate-mocks
 	$(MAKE) open
 
 .PHONY: install-ruby
@@ -84,6 +87,11 @@ download-firebase-sdk: # Download firebase-ios-sdk
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
 	${CLI_TOOLS_PATH}/license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers --config-path lic-plist.yml
+
+.PHONY: generate-mocks
+generate-mocks: # Generate mocks with Mockolo
+	rm -f ${MOCK_FILE_PATH}
+	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --mock-final
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]

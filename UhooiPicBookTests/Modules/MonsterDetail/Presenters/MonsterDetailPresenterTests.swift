@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import UhooiPicBook
+@testable import AppModule
 
 @MainActor
 final class MonsterDetailPresenterTests: XCTestCase {
