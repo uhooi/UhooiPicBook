@@ -18,7 +18,7 @@
                BlueprintIdentifier = "0E1AD029696068D4B516B255"
                BuildableName = "UhooiPicBookStickers.appex"
                BlueprintName = "UhooiPicBookStickers"
-               ReferencedContainer = "container:Develop.xcodeproj">
+               ReferencedContainer = "container:Production.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -32,7 +32,7 @@
                BlueprintIdentifier = "F7174334A4963303CCEE4E61"
                BuildableName = "UhooiPicBook.app"
                BlueprintName = "UhooiPicBook"
-               ReferencedContainer = "container:Develop.xcodeproj">
+               ReferencedContainer = "container:Production.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "F7174334A4963303CCEE4E61"
             BuildableName = "UhooiPicBook.app"
             BlueprintName = "UhooiPicBook"
-            ReferencedContainer = "container:Develop.xcodeproj">
+            ReferencedContainer = "container:Production.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,7 +83,7 @@
             BlueprintIdentifier = "F7174334A4963303CCEE4E61"
             BuildableName = "UhooiPicBook.app"
             BlueprintName = "UhooiPicBook"
-            ReferencedContainer = "container:Develop.xcodeproj">
+            ReferencedContainer = "container:Production.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
