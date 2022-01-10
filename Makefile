@@ -120,12 +120,20 @@ analyze: # Analyze with SwiftLint
 
 .PHONY: build-develop-debug
 build-develop-debug: # Xcode debug build for develop
+	$(MAKE) build-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
+
+.PHONY: build-production-debug
+build-production-debug: # Xcode debug build for production
+	$(MAKE) build-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+
+.PHONY: build-debug
+build-debug:
 	set -o pipefail \
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
--scheme '${PRODUCT_NAME} (${DEVELOP_PROJECT_NAME} project)' \
+-scheme '${PRODUCT_NAME} (${PROJECT_NAME} project)' \
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
@@ -134,13 +142,23 @@ clean build \
 
 .PHONY: test-develop-debug
 test-develop-debug: # Xcode debug test for develop # TEST_DEVICE=[device] TEST_OS=[OS]
+	rm -rf ./TestResults.xcresult/
+	$(MAKE) test-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
+
+.PHONY: test-production-debug
+test-production-debug: # Xcode debug test for production # TEST_DEVICE=[device] TEST_OS=[OS]
+	rm -rf ./TestResults.xcresult/
+	$(MAKE) test-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+
+.PHONY: test-debug
+test-debug:
 	set -o pipefail \
 && NSUnbufferedIO=YES \
 xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
--scheme '${PRODUCT_NAME} (${DEVELOP_PROJECT_NAME} project)' \
+-scheme '${PRODUCT_NAME} (${PROJECT_NAME} project)' \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \

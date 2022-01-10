@@ -25,7 +25,11 @@ env:
 
 jobs:
   build:
+    name: Build for ${{ matrix.environment }}
     runs-on: macos-11
+    strategy:
+      matrix:
+        environment: ["develop", "production"]
 
     steps:
     # チェックアウト
@@ -35,8 +39,8 @@ jobs:
     - uses: ./.github/workflows/templates/setup-ios
 
     # ビルド
-    - name: Xcode build
-      run: make build-develop-debug
+    - name: Xcode build for ${{ matrix.environment }}
+      run: make build-${{ matrix.environment }}-debug
 
     # ビルドログのアップロード
     - name: Upload build log Artifact
