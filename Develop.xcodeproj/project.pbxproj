@@ -36,6 +36,7 @@
 		792E8F5E278C5B30000F3902 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F5D278C5B30000F3902 /* MockResults.swift */; };
 		792E8F85278C6465000F3902 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F82278C6465000F3902 /* MonsterConfigurableWidget.swift */; };
 		792E8F86278C6465000F3902 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F83278C6465000F3902 /* UhooiPicBookWidgets.swift */; };
+		792E8F92278C675C000F3902 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F90278C675C000F3902 /* IntentHandler.swift */; };
 		797ABFA7278A9B59005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA6278A9B59005B445B /* AppModule */; };
 		7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */; };
 		7995BD34278809F500B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD33278809F500B553DC /* MonstersFirebaseClient */; };
@@ -47,7 +48,6 @@
 		79F57BD827849491003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD327849472003218BC /* GoogleService-Info.plist */; };
 		79F57BDC2784B3E5003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDB2784B3E5003218BC /* GedatsuSetup */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
-		82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711CB6227990EAC0E6C635 /* IntentHandler.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
 		AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */; };
@@ -121,7 +121,6 @@
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3678749154206AA2C7DE69F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		4C26A27920CB1D8FCC0B9E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
 		5FC40872E7A32ADB0B8AE3D7 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestore.xcframework; path = Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework; sourceTree = "<group>"; };
 		60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailInteractorTests.swift; sourceTree = "<group>"; };
@@ -146,6 +145,8 @@
 		792E8F80278C6465000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F82278C6465000F3902 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
 		792E8F83278C6465000F3902 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
+		792E8F90278C675C000F3902 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		792E8F91278C675C000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79F57BD327849472003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +166,6 @@
 		B2A9349AFF95EFE00FCADA23 /* FirebaseCrashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCrashlytics.xcframework; path = Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework; sourceTree = "<group>"; };
 		B3034A14E3F41394DEB55A62 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		B3ACB3BE3E7ED3A4C84410CA /* BoringSSL-GRPC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "BoringSSL-GRPC.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/BoringSSL-GRPC.xcframework"; sourceTree = "<group>"; };
-		B7711CB6227990EAC0E6C635 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		BA21C3023C46CC6151A43886 /* UhooiPicBookTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6DB9EB8A33ED4D0822DB8F /* FirebaseABTesting.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseABTesting.xcframework; path = Frameworks/Firebase/FirebasePerformance/FirebaseABTesting.xcframework; sourceTree = "<group>"; };
 		BF104BB707E325AC73440499 /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				BAB84381A6737A2083BC961F /* UhooiPicBookTests */,
 				EB1BD4D1C82D8077591B0698 /* UhooiPicBookUITests */,
 				792E8F7F278C6465000F3902 /* UhooiPicBookWidgets */,
-				D36F70AE4E6593FF23CBB6A3 /* UhooiPicBookWidgetsConfigurableIntent */,
+				792E8F8F278C675C000F3902 /* UhooiPicBookWidgetsConfigurableIntent */,
 				644BA30E73485BDC342F7204 /* Frameworks */,
 				B9F854ED00B8603447D5057B /* Products */,
 			);
@@ -387,6 +387,16 @@
 			path = Monster;
 			sourceTree = "<group>";
 		};
+		792E8F8F278C675C000F3902 /* UhooiPicBookWidgetsConfigurableIntent */ = {
+			isa = PBXGroup;
+			children = (
+				792E8F91278C675C000F3902 /* Info.plist */,
+				792E8F90278C675C000F3902 /* IntentHandler.swift */,
+			);
+			name = UhooiPicBookWidgetsConfigurableIntent;
+			path = App/UhooiPicBookWidgetsConfigurableIntent;
+			sourceTree = "<group>";
+		};
 		893210394C6FBD9D4384A4D9 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,15 +485,6 @@
 				BEFA3747E1D1E1F80EDBCA34 /* Presenters */,
 			);
 			path = MonsterList;
-			sourceTree = "<group>";
-		};
-		D36F70AE4E6593FF23CBB6A3 /* UhooiPicBookWidgetsConfigurableIntent */ = {
-			isa = PBXGroup;
-			children = (
-				4C26A27920CB1D8FCC0B9E59 /* Info.plist */,
-				B7711CB6227990EAC0E6C635 /* IntentHandler.swift */,
-			);
-			path = UhooiPicBookWidgetsConfigurableIntent;
 			sourceTree = "<group>";
 		};
 		EB1BD4D1C82D8077591B0698 /* UhooiPicBookUITests */ = {
@@ -858,7 +859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				792E8EDE278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */,
-				82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */,
+				792E8F92278C675C000F3902 /* IntentHandler.swift in Sources */,
 				792E8EDB278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,7 +1042,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = UhooiPicBookWidgetsConfigurableIntent/Info.plist;
+				INFOPLIST_FILE = App/UhooiPicBookWidgetsConfigurableIntent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1390,7 +1391,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = UhooiPicBookWidgetsConfigurableIntent/Info.plist;
+				INFOPLIST_FILE = App/UhooiPicBookWidgetsConfigurableIntent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
