@@ -28,7 +28,6 @@
 		792E8EF0278C430A000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8EE7278C430A000F3902 /* MonsterIntentObject+Convert.swift */; };
 		792E8F49278C4B2D000F3902 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F3B278C4B2D000F3902 /* Settings.bundle */; };
 		792E8F4A278C4B2D000F3902 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F3D278C4B2D000F3902 /* InfoPlist.strings */; };
-		792E8F4C278C4B2D000F3902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F43278C4B2D000F3902 /* Assets.xcassets */; };
 		792E8F4D278C4B2D000F3902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F44278C4B2D000F3902 /* LaunchScreen.storyboard */; };
 		792E8F4F278C4B2D000F3902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F47278C4B2D000F3902 /* AppDelegate.swift */; };
 		792E8F50278C4B2D000F3902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F48278C4B2D000F3902 /* SceneDelegate.swift */; };
@@ -37,6 +36,7 @@
 		792E8F8D278C6532000F3902 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */; };
 		792E8F8E278C6532000F3902 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */; };
 		792E8F97278C67F1000F3902 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F95278C67F1000F3902 /* IntentHandler.swift */; };
+		792E8F9C278C6933000F3902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F9B278C6933000F3902 /* Assets.xcassets */; };
 		797ABFA9278A9BA5005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA8278A9BA5005B445B /* AppModule */; };
 		7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */; };
 		7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3927880A7900B553DC /* MonstersFirebaseClient */; };
@@ -133,7 +133,6 @@
 		792E8F3E278C4B2D000F3902 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		792E8F41278C4B2D000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		792E8F42278C4B2D000F3902 /* UhooiPicBook.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UhooiPicBook.entitlements; sourceTree = "<group>"; };
-		792E8F43278C4B2D000F3902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		792E8F45278C4B2D000F3902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		792E8F46278C4B2D000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F47278C4B2D000F3902 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
 		792E8F95278C67F1000F3902 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		792E8F96278C67F1000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792E8F9B278C6933000F3902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/UhooiPicBook/Production/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		79F57BD527849480003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Production/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,7 +341,7 @@
 		792E8F3C278C4B2D000F3902 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				792E8F43278C4B2D000F3902 /* Assets.xcassets */,
+				792E8F9B278C6933000F3902 /* Assets.xcassets */,
 				792E8F46278C4B2D000F3902 /* Info.plist */,
 				792E8F3D278C4B2D000F3902 /* InfoPlist.strings */,
 				792E8F44278C4B2D000F3902 /* LaunchScreen.storyboard */,
@@ -711,7 +711,7 @@
 				792E8F4A278C4B2D000F3902 /* InfoPlist.strings in Resources */,
 				79F57BD627849480003218BC /* GoogleService-Info.plist in Resources */,
 				792E8F4D278C4B2D000F3902 /* LaunchScreen.storyboard in Resources */,
-				792E8F4C278C4B2D000F3902 /* Assets.xcassets in Resources */,
+				792E8F9C278C6933000F3902 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1306,7 +1306,7 @@
 		7C503DF97828E781A59C4ECF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-PRODUCTION";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_LANGUAGE = jp;
@@ -1333,7 +1333,7 @@
 		A7401616F8B6C53FFDF54AD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-PRODUCTION";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_LANGUAGE = jp;
