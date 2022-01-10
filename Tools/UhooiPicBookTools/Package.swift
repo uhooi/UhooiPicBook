@@ -1,4 +1,5 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.5
+
 import PackageDescription
 
 let package = Package(
@@ -12,8 +13,7 @@ let package = Package(
         .package(url: "https://github.com/fromkk/SpellChecker", .exact("0.1.0")),
         .package(url: "https://github.com/uber/mockolo", .exact("1.6.2")),
         .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.14.4")),
-        .package(url: "https://github.com/mac-cain13/R.swift", .exact("5.4.0")),
-        .package(url: "https://github.com/thii/xcbeautify", .exact("0.10.1"))
+        .package(url: "https://github.com/thii/xcbeautify", .exact("0.10.1")),
     ],
     targets: [.target(name: "UhooiPicBookTools", path: "")]
 )

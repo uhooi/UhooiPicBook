@@ -67,7 +67,6 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=rswift
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
 
 .PHONY: build-cli-tool
