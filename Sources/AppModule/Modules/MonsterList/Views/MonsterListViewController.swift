@@ -61,7 +61,7 @@ public final class MonsterListViewController: UIViewController {
         willSet {
             newValue.register(
                 R.Nib.monsterCollectionViewCell,
-                forCellWithReuseIdentifier: "MonsterCollectionViewCell"
+                forCellWithReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier
             )
         }
     }
@@ -111,7 +111,10 @@ extension MonsterListViewController: UICollectionViewDataSource {
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonsterCollectionViewCell", for: indexPath) as? MonsterCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier,
+            for: indexPath
+        ) as? MonsterCollectionViewCell else {
             fatalError("Fail to load MonsterCollectionViewCell.")
         }
 

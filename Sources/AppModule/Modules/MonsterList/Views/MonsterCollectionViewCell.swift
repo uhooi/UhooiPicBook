@@ -10,6 +10,10 @@ import UIKit
 @MainActor
 final class MonsterCollectionViewCell: UICollectionViewCell {
 
+    // MARK: Stored Type Properties
+
+    static let reuseIdentifier = "MonsterCollectionViewCell"
+
     // MARK: Stored Instance Properties
 
     @IBInspectable private var masksToBounds: Bool = false {
