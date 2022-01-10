@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import UhooiPicBook
+@testable import AppModule
+import MonstersFirebaseClient
 
 final class MonsterListInteractorTests: XCTestCase {
 

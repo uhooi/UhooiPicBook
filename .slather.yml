@@ -1,5 +1,6 @@
 coverage_service: cobertura_xml
-xcodeproj: UhooiPicBook.xcodeproj
+workspace: UhooiPicBook.xcworkspace
+xcodeproj: Develop.xcodeproj
 scheme: UhooiPicBook
 source_directory: UhooiPicBook
 output_directory: xml_report
@@ -8,9 +9,15 @@ ignore:
   - "**/AppDelegate.swift"
   - "**/SceneDelegate.swift"
   - "**/Generated/*"
-  - "**/Util/Debug.swift"
+  - "**/R.swift"
   - "**/Extensions/UIKit/*"
   - "**/UIParts/*"
   - "**/Views/*"
   - "**/Routers/*"
+  - "**/UncheckedSendable.swift"
+  - "**/FirebaseSetup/*"
+  - "**/FirebaseMessagingBridge/*"
+  - "**/GedatsuSetup/*"
+  - "**/MonsterWidgets/*"
+  - "**/MonstersFirebaseClient/*"
 

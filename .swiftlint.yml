@@ -1,14 +1,18 @@
 parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/v1.3.0/uhooi-base-swiftlint-config.yml
 
+disabled_rules:
+  - missing_docs
+
 included:
   - Shared
   - UhooiPicBook
   - UhooiPicBookStickers
   - UhooiPicBookWidgets
   - UhooiPicBookWidgetsConfigurableIntent
-  #- UhooiPicBookTests
-  #- UhooiPicBookUITests
+  - Sources
 
 excluded:
-  - UhooiPicBook/Generated
+  - UhooiPicBookTests
+  - UhooiPicBookUITests
+  - Tests
 

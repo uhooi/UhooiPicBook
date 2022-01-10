@@ -7,6 +7,7 @@ whiteList:
   - dto
   - interactor
   - swiftlint
+  - bannzai
   - gedatsu
   - json
   - hashable
@@ -18,7 +19,12 @@ whiteList:
   - fromkk
   - uber
   - mockolo
+  - crashlytics
   - firestore
+  - nanopb
+  - leveldb
+  - xcframework
+  - nslocalizedstring
 
   # Uhooi
   - theuhooi

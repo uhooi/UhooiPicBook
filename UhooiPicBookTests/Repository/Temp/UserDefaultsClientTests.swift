@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import UhooiPicBook
+@testable import AppModule
 
 final class UserDefaultsClientTests: XCTestCase {
 

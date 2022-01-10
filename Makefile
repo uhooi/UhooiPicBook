@@ -1,8 +1,7 @@
 # Variables
 
 PRODUCT_NAME := UhooiPicBook
-PROJECT_NAME := ${PRODUCT_NAME}.xcodeproj
-SCHEME_NAME := ${PRODUCT_NAME}
+WORKSPACE_NAME := ${PRODUCT_NAME}.xcworkspace
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 
 TEST_SDK := iphonesimulator
@@ -16,14 +15,13 @@ COVERAGE_OUTPUT := html_report
 XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
 XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 
-DEVELOP_ENVIRONMENT := DEVELOP
-PRODUCTION_ENVIRONMENT := PRODUCTION
-
-DEVELOP_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook-Develop
-PRODUCTION_BUNDLE_IDENTIFIER :=com.theuhooi.UhooiPicBook
+DEVELOP_PROJECT_NAME := Develop
+PRODUCTION_PROJECT_NAME := Production
 
 CLI_TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
 CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
+
+MOCK_FILE_PATH := ./UhooiPicbookTests/Generated/MockResults.swift
 
 FIREBASE_VERSION := 8.6.0
 
@@ -45,7 +43,8 @@ setup: # Install dependencies and prepared development configuration
 	$(MAKE) build-cli-tools
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
-	$(MAKE) generate-xcodeproj-develop
+	$(MAKE) generate-mocks
+	$(MAKE) open
 
 .PHONY: install-ruby
 install-ruby:
@@ -63,13 +62,11 @@ update-bundler: # Update Bundler dependencies
 
 .PHONY: build-cli-tools
 build-cli-tools: # Build CLI tools managed by SwiftPM
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcodegen
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=rswift
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
 
 .PHONY: build-cli-tool
@@ -88,43 +85,20 @@ download-firebase-sdk: # Download firebase-ios-sdk
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	${CLI_TOOLS_PATH}/license-plist --output-path ${PRODUCT_NAME}/Settings.bundle --add-version-numbers --config-path lic-plist.yml
+	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path lic-plist.yml
+
+.PHONY: generate-mocks
+generate-mocks: # Generate mocks with Mockolo
+	rm -f ${MOCK_FILE_PATH}
+	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --mock-final
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
 	bundle exec generamba gen ${MODULE_NAME} ${MODULE_TEMPLATE_NAME}
 
-.PHONY: generate-xcodeproj-develop
-generate-xcodeproj-develop: # Generate project with XcodeGen for develop
-	$(MAKE) copy-googleserviceinfo-develop
-	$(MAKE) generate-xcodeproj ENVIRONMENT=${DEVELOP_ENVIRONMENT} BUNDLE_IDENTIFIER=${DEVELOP_BUNDLE_IDENTIFIER}
-
-.PHONY: generate-xcodeproj-production
-generate-xcodeproj-production: # Generate project with XcodeGen for production
-	$(MAKE) copy-googleserviceinfo-production
-	$(MAKE) generate-xcodeproj ENVIRONMENT=${PRODUCTION_ENVIRONMENT} BUNDLE_IDENTIFIER=${PRODUCTION_BUNDLE_IDENTIFIER}
-
-.PHONY: generate-xcodeproj
-generate-xcodeproj:
-	${CLI_TOOLS_PATH}/xcodegen generate
-	$(MAKE) open
-
-.PHONY: copy-googleserviceinfo-develop
-copy-googleserviceinfo-develop:
-	$(MAKE) copy-googleserviceinfo ENVIRONMENT=Develop
-
-.PHONY: copy-googleserviceinfo-production
-copy-googleserviceinfo-production:
-	$(MAKE) copy-googleserviceinfo ENVIRONMENT=Production
-
-.PHONY: copy-googleserviceinfo
-copy-googleserviceinfo:
-	mkdir -p ./Shared/Resources/
-	cp -f ./GoogleServiceInfo/GoogleService-Info-${ENVIRONMENT}.plist ./Shared/Resources/GoogleService-Info.plist
-
 .PHONY: open
-open: # Open project in Xcode
-	open ./${PROJECT_NAME}
+open: # Open workspace in Xcode
+	open ./${WORKSPACE_NAME}
 
 .PHONY: clean
 clean: # Delete cache
@@ -141,32 +115,50 @@ clean-cli-tools: # Delete build artifacts for CLI tools managed by SwiftPM
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
-	$(MAKE) build-debug
+	$(MAKE) build-develop-debug
 	${CLI_TOOLS_PATH}/swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
+.PHONY: build-develop-debug
+build-develop-debug: # Xcode debug build for develop
+	$(MAKE) build-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
+
+.PHONY: build-production-debug
+build-production-debug: # Xcode debug build for production
+	$(MAKE) build-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+
 .PHONY: build-debug
-build-debug: # Xcode build for debug
+build-debug:
 	set -o pipefail \
 && xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--project ${PROJECT_NAME} \
--scheme ${SCHEME_NAME} \
+-workspace ${WORKSPACE_NAME} \
+-scheme '${PRODUCT_NAME} (${PROJECT_NAME} project)' \
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
 | tee ./${XCODEBUILD_BUILD_LOG_NAME} \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
-.PHONY: test
-test: # Xcode test # TEST_DEVICE=[device] TEST_OS=[OS]
+.PHONY: test-develop-debug
+test-develop-debug: # Xcode debug test for develop
+	rm -rf ./TestResults.xcresult/
+	$(MAKE) test-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
+
+.PHONY: test-production-debug
+test-production-debug: # Xcode debug test for production
+	rm -rf ./TestResults.xcresult/
+	$(MAKE) test-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+
+.PHONY: test-debug
+test-debug:
 	set -o pipefail \
 && NSUnbufferedIO=YES \
 xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
--project ${PROJECT_NAME} \
--scheme ${SCHEME_NAME} \
+-workspace ${WORKSPACE_NAME} \
+-scheme '${PRODUCT_NAME} (${PROJECT_NAME} project)' \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \

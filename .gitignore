@@ -40,11 +40,11 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 # Package.resolved
-*.xcodeproj
+# *.xcodeproj
 #
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
+.swiftpm
 
 .build/
 
@@ -57,7 +57,7 @@ playground.xcworkspace
 Pods/
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
-*.xcworkspace
+# *.xcworkspace
 
 # Carthage
 #
@@ -89,8 +89,10 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Project dependencies are resolved by the workspace
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
 # Genrated
-*.generated.swift
 MockResults.swift
 
 # Bundler
@@ -106,7 +108,6 @@ com.mono0926.LicensePlist.latest_result.txt
 com.mono0926.LicensePlist.plist
 
 # Firebase
-GoogleService-Info.plist
 Frameworks/Firebase/
 
 # xcodebuild log
