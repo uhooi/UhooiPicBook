@@ -15,7 +15,6 @@
 		4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
-		5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7921EEF32785DDFE0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF22785DDFE0033DDEC /* Shared */; };
 		7921EEF52785DE040033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF42785DE040033DDEC /* Shared */; };
@@ -35,6 +34,8 @@
 		792E8F50278C4B2D000F3902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F48278C4B2D000F3902 /* SceneDelegate.swift */; };
 		792E8F5A278C4C8E000F3902 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F58278C4C8E000F3902 /* Stickers.xcassets */; };
 		792E8F61278C5D17000F3902 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F60278C5D17000F3902 /* MockResults.swift */; };
+		792E8F8D278C6532000F3902 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */; };
+		792E8F8E278C6532000F3902 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */; };
 		797ABFA9278A9BA5005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA8278A9BA5005B445B /* AppModule */; };
 		7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */; };
 		7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3927880A7900B553DC /* MonstersFirebaseClient */; };
@@ -47,7 +48,6 @@
 		79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDD2784B3F8003218BC /* GedatsuSetup */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711CB6227990EAC0E6C635 /* IntentHandler.swift */; };
-		A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
 		AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */; };
@@ -119,7 +119,6 @@
 		18C42AC12CA0DA009E4241B5 /* leveldb-library.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "leveldb-library.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"; sourceTree = "<group>"; };
 		1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailPage.swift; sourceTree = "<group>"; };
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
 		3678749154206AA2C7DE69F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
 		4C26A27920CB1D8FCC0B9E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +143,9 @@
 		792E8F58278C4C8E000F3902 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		792E8F59278C4C8E000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F60278C5D17000F3902 /* MockResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
+		792E8F88278C6532000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
+		792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
 		79F57BD527849480003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Production/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +156,6 @@
 		8F94607B0325642C330CD793 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework; sourceTree = "<group>"; };
 		988A97043A06E226C6868588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPresenterTests.swift; sourceTree = "<group>"; };
-		9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
 		AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
 		AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClientTests.swift; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListInteractorTests.swift; sourceTree = "<group>"; };
 		F6868AB01C3AABA6F00D83C8 /* gRPC-Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "gRPC-Core.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"; sourceTree = "<group>"; };
 		F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookUITests.swift; sourceTree = "<group>"; };
-		FDBD9590661CE70E9A012683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,24 +220,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		047DDCB4A329ED03D5DC6ED6 /* Monster */ = {
-			isa = PBXGroup;
-			children = (
-				9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */,
-			);
-			path = Monster;
-			sourceTree = "<group>";
-		};
-		062755201729FA860AF30148 /* UhooiPicBookWidgets */ = {
-			isa = PBXGroup;
-			children = (
-				FDBD9590661CE70E9A012683 /* Info.plist */,
-				3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */,
-				047DDCB4A329ED03D5DC6ED6 /* Monster */,
-			);
-			path = UhooiPicBookWidgets;
-			sourceTree = "<group>";
-		};
 		17E82F135C45DA22DAD85E72 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +270,7 @@
 				792E8F57278C4C8E000F3902 /* UhooiPicBookStickers */,
 				BAB84381A6737A2083BC961F /* UhooiPicBookTests */,
 				EB1BD4D1C82D8077591B0698 /* UhooiPicBookUITests */,
-				062755201729FA860AF30148 /* UhooiPicBookWidgets */,
+				792E8F87278C6532000F3902 /* UhooiPicBookWidgets */,
 				D36F70AE4E6593FF23CBB6A3 /* UhooiPicBookWidgetsConfigurableIntent */,
 				644BA30E73485BDC342F7204 /* Frameworks */,
 				B9F854ED00B8603447D5057B /* Products */,
@@ -384,6 +366,25 @@
 				792E8F60278C5D17000F3902 /* MockResults.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		792E8F87278C6532000F3902 /* UhooiPicBookWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				792E8F88278C6532000F3902 /* Info.plist */,
+				792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */,
+				792E8F89278C6532000F3902 /* Monster */,
+			);
+			name = UhooiPicBookWidgets;
+			path = App/UhooiPicBookWidgets;
+			sourceTree = "<group>";
+		};
+		792E8F89278C6532000F3902 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */,
+			);
+			path = Monster;
 			sourceTree = "<group>";
 		};
 		893210394C6FBD9D4384A4D9 /* Repository */ = {
@@ -880,9 +881,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */,
-				A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */,
+				792E8F8D278C6532000F3902 /* MonsterConfigurableWidget.swift in Sources */,
 				792E8EEC278C430A000F3902 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8F8E278C6532000F3902 /* UhooiPicBookWidgets.swift in Sources */,
 				792E8EEF278C430A000F3902 /* MonsterIntentObject+Convert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1003,7 +1004,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = UhooiPicBookWidgets/Info.plist;
+				INFOPLIST_FILE = App/UhooiPicBookWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1104,7 +1105,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = UhooiPicBookWidgets/Info.plist;
+				INFOPLIST_FILE = App/UhooiPicBookWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
