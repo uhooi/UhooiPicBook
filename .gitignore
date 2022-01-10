@@ -93,8 +93,7 @@ iOSInjectionProject/
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # Genrated
-# *.generated.swift
-# MockResults.swift
+MockResults.swift
 
 # Bundler
 vendor/bundle/
