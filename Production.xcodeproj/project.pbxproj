@@ -37,15 +37,15 @@
 		792E8F8E278C6532000F3902 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */; };
 		792E8F97278C67F1000F3902 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F95278C67F1000F3902 /* IntentHandler.swift */; };
 		792E8F9C278C6933000F3902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F9B278C6933000F3902 /* Assets.xcassets */; };
+		792E8FA2278C6A56000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */; };
+		792E8FA3278C6A56000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */; };
+		792E8FA4278C6A56000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */; };
 		797ABFA9278A9BA5005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA8278A9BA5005B445B /* AppModule */; };
 		7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */; };
 		7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3927880A7900B553DC /* MonstersFirebaseClient */; };
 		7995BD3C27880A9800B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3B27880A9800B553DC /* MonstersFirebaseClient */; };
 		79AFF1622785B9F800396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1612785B9F800396E49 /* ImageCache */; };
 		79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 79C193AA2789CF5200E7A58E /* MonsterWidgets */; };
-		79F57BD627849480003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
-		79F57BD92784949B003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
-		79F57BDA2784949C003218BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79F57BD527849480003218BC /* GoogleService-Info.plist */; };
 		79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDD2784B3F8003218BC /* GedatsuSetup */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
@@ -147,7 +147,7 @@
 		792E8F95278C67F1000F3902 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		792E8F96278C67F1000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F9B278C6933000F3902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/UhooiPicBook/Production/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		79F57BD527849480003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Production/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "App/Shared/Production/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4ADEF286CCE96A2942A1A /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework; sourceTree = "<group>"; };
@@ -473,7 +473,7 @@
 		C2B92E538C189F4941F7DAFE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				79F57BD527849480003218BC /* GoogleService-Info.plist */,
+				792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -699,7 +699,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F57BDA2784949C003218BC /* GoogleService-Info.plist in Resources */,
+				792E8FA4278C6A56000F3902 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,7 +709,7 @@
 			files = (
 				792E8F49278C4B2D000F3902 /* Settings.bundle in Resources */,
 				792E8F4A278C4B2D000F3902 /* InfoPlist.strings in Resources */,
-				79F57BD627849480003218BC /* GoogleService-Info.plist in Resources */,
+				792E8FA2278C6A56000F3902 /* GoogleService-Info.plist in Resources */,
 				792E8F4D278C4B2D000F3902 /* LaunchScreen.storyboard in Resources */,
 				792E8F9C278C6933000F3902 /* Assets.xcassets in Resources */,
 			);
@@ -719,7 +719,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F57BD92784949B003218BC /* GoogleService-Info.plist in Resources */,
+				792E8FA3278C6A56000F3902 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
