@@ -24,6 +24,7 @@ whiteList:
   - nanopb
   - leveldb
   - xcframework
+  - nslocalizedstring
 
   # Uhooi
   - theuhooi
