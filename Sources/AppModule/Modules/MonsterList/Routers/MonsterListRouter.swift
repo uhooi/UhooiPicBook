@@ -38,11 +38,11 @@ public final class MonsterListRouter {
 
     public static func assembleModule() -> MonsterListViewController {
         let view = R.Storyboard.MonsterList.instantiateInitialViewController()
-        let router = MonsterListRouter(viewController: view)
         let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
         let interactor = MonsterListInteractor(
             spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager)
         )
+        let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
         view.inject(presenter: presenter, imageCacheManager: imageCacheManager)
