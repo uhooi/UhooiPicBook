@@ -26,7 +26,6 @@
 		792E8EDC278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
 		792E8EDD278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
 		792E8EDE278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
-		792E8F1A278C445E000F3902 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F0C278C445E000F3902 /* Settings.bundle */; };
 		792E8F1B278C445E000F3902 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F0E278C445E000F3902 /* InfoPlist.strings */; };
 		792E8F1E278C445E000F3902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F15278C445E000F3902 /* LaunchScreen.storyboard */; };
 		792E8F20278C445E000F3902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F18278C445E000F3902 /* AppDelegate.swift */; };
@@ -40,6 +39,7 @@
 		792E8F9E278C6A3C000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F9D278C6A3C000F3902 /* GoogleService-Info.plist */; };
 		792E8F9F278C6A3C000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F9D278C6A3C000F3902 /* GoogleService-Info.plist */; };
 		792E8FA0278C6A3C000F3902 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F9D278C6A3C000F3902 /* GoogleService-Info.plist */; };
+		792E8FD9278C7ABC000F3902 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792E8FD8278C7ABC000F3902 /* Settings.bundle */; };
 		797ABFA7278A9B59005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA6278A9B59005B445B /* AppModule */; };
 		7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */; };
 		7995BD34278809F500B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD33278809F500B553DC /* MonstersFirebaseClient */; };
@@ -129,7 +129,6 @@
 		792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
 		792E8EDF278C42BD000F3902 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
 		792E8EE0278C42C1000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
-		792E8F0C278C445E000F3902 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		792E8F0F278C445E000F3902 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		792E8F12278C445E000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		792E8F13278C445E000F3902 /* UhooiPicBook.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UhooiPicBook.entitlements; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		792E8F91278C675C000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F99278C6901000F3902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/UhooiPicBook/Develop/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		792E8F9D278C6A3C000F3902 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "App/Shared/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		792E8FD8278C7ABC000F3902 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4ADEF286CCE96A2942A1A /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework; sourceTree = "<group>"; };
@@ -331,7 +331,6 @@
 			children = (
 				792E8F18278C445E000F3902 /* AppDelegate.swift */,
 				792E8F19278C445E000F3902 /* SceneDelegate.swift */,
-				792E8F0C278C445E000F3902 /* Settings.bundle */,
 				792E8F0D278C445E000F3902 /* Resources */,
 			);
 			name = UhooiPicBook;
@@ -345,6 +344,7 @@
 				792E8F17278C445E000F3902 /* Info.plist */,
 				792E8F0E278C445E000F3902 /* InfoPlist.strings */,
 				792E8F15278C445E000F3902 /* LaunchScreen.storyboard */,
+				792E8FD8278C7ABC000F3902 /* Settings.bundle */,
 				792E8F13278C445E000F3902 /* UhooiPicBook.entitlements */,
 			);
 			path = Resources;
@@ -707,9 +707,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				792E8F1A278C445E000F3902 /* Settings.bundle in Resources */,
 				792E8F1B278C445E000F3902 /* InfoPlist.strings in Resources */,
 				792E8F9E278C6A3C000F3902 /* GoogleService-Info.plist in Resources */,
+				792E8FD9278C7ABC000F3902 /* Settings.bundle in Resources */,
 				792E8F1E278C445E000F3902 /* LaunchScreen.storyboard in Resources */,
 				792E8F9A278C6901000F3902 /* Assets.xcassets in Resources */,
 			);
