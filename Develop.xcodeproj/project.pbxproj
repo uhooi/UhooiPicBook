@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1510133741DFE73B93681372 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
 		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */; };
-		3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
 		4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */; };
@@ -20,12 +18,17 @@
 		586249F7FAF62EBD5A503993 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA80FDB88F9FDFFFF5D1859E /* InfoPlist.strings */; };
 		5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F19DA01248FB1CADB6974 /* MonsterConfigurableWidget.swift */; };
 		6DDB377235BCDC1ED9CDF3CD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8734300FB965A50AC0A720F2 /* Settings.bundle */; };
-		71093B73CE1A123F1CD35CB8 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7921EEED2785DDE50033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEEC2785DDE50033DDEC /* Shared */; };
 		7921EEEF2785DDED0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEEE2785DDED0033DDEC /* Shared */; };
 		7921EEFD2785E6370033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFC2785E6370033DDEC /* FirebaseSetup */; };
 		7921EEFF2785E63E0033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFE2785E63E0033DDEC /* FirebaseSetup */; };
+		792E8ED9278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED3278C4299000F3902 /* WidgetsConfiguration.intentdefinition */; };
+		792E8EDA278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED3278C4299000F3902 /* WidgetsConfiguration.intentdefinition */; };
+		792E8EDB278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED3278C4299000F3902 /* WidgetsConfiguration.intentdefinition */; };
+		792E8EDC278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
+		792E8EDD278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
+		792E8EDE278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */; };
 		797ABFA7278A9B59005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA6278A9B59005B445B /* AppModule */; };
 		7995BD2E2786F35200B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2D2786F35200B553DC /* FirebaseMessagingBridge */; };
 		7995BD34278809F500B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD33278809F500B553DC /* MonstersFirebaseClient */; };
@@ -42,7 +45,6 @@
 		7FFE1266556F252E4461FC19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3407CC7B917FA57875DE348E /* InfoPlist.strings */; };
 		82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7711CB6227990EAC0E6C635 /* IntentHandler.swift */; };
 		8CD68F1EEBA4F4D89B3A4580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A4367B9CA784F9D7E87D07B /* Assets.xcassets */; };
-		966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
@@ -53,9 +55,7 @@
 		F52BB729600886030E41D991 /* MonsterDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
-		FA24990B45EAFFD0FEFD4021 /* MonsterIntentObject+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */; };
 		FB293019EEFEB445EF5EA56A /* UserDefaultsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */; };
-		FFE920AC1952E4214A66DDD1 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,15 +127,16 @@
 		3540AB75EC1D8B292C1E0F12 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
 		3678749154206AA2C7DE69F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		43EBF5B610EADF73596B467B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
-		4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
 		4C26A27920CB1D8FCC0B9E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		53DA7560818DFFF20B0E75A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
-		57D8DBFD34D65F383FA44465 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
 		5FC40872E7A32ADB0B8AE3D7 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestore.xcframework; path = Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework; sourceTree = "<group>"; };
 		60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailInteractorTests.swift; sourceTree = "<group>"; };
 		64FA23DFA00E386CF2DBCE63 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
+		792E8ED4278C4299000F3902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/WidgetsConfiguration.intentdefinition; sourceTree = "<group>"; };
+		792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
+		792E8EDF278C42BD000F3902 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
+		792E8EE0278C42C1000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WidgetsConfiguration.strings; sourceTree = "<group>"; };
 		79F57BD327849472003218BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "GoogleServiceInfo/Develop/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +168,6 @@
 		C4DB460657711DAA8A60E2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D1BC591FA4C18A058784472F /* ActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPage.swift; sourceTree = "<group>"; };
 		D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgetsConfigurableIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5EE851D738F39BA086C87F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/WidgetsConfiguration.intentdefinition; sourceTree = "<group>"; };
 		D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = UhooiPicBookStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4618659C63EB6D450468854 /* BundleStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleStringTests.swift; sourceTree = "<group>"; };
 		E486EDFB4B99417855E33115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -351,11 +351,21 @@
 		781042549E5A01519EFED671 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				980AA549A5DF5892786B94BB /* IntentDefinition */,
+				792E8ECF278C4299000F3902 /* IntentDefinition */,
 				C2B92E538C189F4941F7DAFE /* Resources */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
+		};
+		792E8ECF278C4299000F3902 /* IntentDefinition */ = {
+			isa = PBXGroup;
+			children = (
+				792E8ED5278C4299000F3902 /* MonsterIntentObject+Convert.swift */,
+				792E8ED3278C4299000F3902 /* WidgetsConfiguration.intentdefinition */,
+			);
+			name = IntentDefinition;
+			path = App/Shared/IntentDefinition;
+			sourceTree = SOURCE_ROOT;
 		};
 		893210394C6FBD9D4384A4D9 /* Repository */ = {
 			isa = PBXGroup;
@@ -388,15 +398,6 @@
 				1E50AAC168458A7226CD68D0 /* Stickers.xcassets */,
 			);
 			path = UhooiPicBookStickers;
-			sourceTree = "<group>";
-		};
-		980AA549A5DF5892786B94BB /* IntentDefinition */ = {
-			isa = PBXGroup;
-			children = (
-				4A2A7DDCD2A3DA6717170251 /* MonsterIntentObject+Convert.swift */,
-				3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */,
-			);
-			path = IntentDefinition;
 			sourceTree = "<group>";
 		};
 		9D14FEE7DAB67CCFD61B333D /* TestCases */ = {
@@ -821,9 +822,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D25038F12C86FD4F9BB7D19 /* AppDelegate.swift in Sources */,
-				966EFB0CCE4DBA5B6DE2252B /* MonsterIntentObject+Convert.swift in Sources */,
 				D70DAFB16B06278F4567C9C6 /* SceneDelegate.swift in Sources */,
-				71093B73CE1A123F1CD35CB8 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8ED9278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8EDC278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,9 +846,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792E8EDE278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */,
 				82BC979827D6F1B1924D5EA7 /* IntentHandler.swift in Sources */,
-				FA24990B45EAFFD0FEFD4021 /* MonsterIntentObject+Convert.swift in Sources */,
-				1510133741DFE73B93681372 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8EDB278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,9 +870,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DCD1ED78C0BDFAFF5A77738 /* MonsterConfigurableWidget.swift in Sources */,
-				3B2BC77BD5069EC03B28F2B7 /* MonsterIntentObject+Convert.swift in Sources */,
 				A0D252F9C9406B98104AACC8 /* UhooiPicBookWidgets.swift in Sources */,
-				FFE920AC1952E4214A66DDD1 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8EDA278C4299000F3902 /* WidgetsConfiguration.intentdefinition in Sources */,
+				792E8EDD278C4299000F3902 /* MonsterIntentObject+Convert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,16 +907,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3646E9B49C79F8DBF2B608E1 /* WidgetsConfiguration.intentdefinition */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D5EE851D738F39BA086C87F0 /* Base */,
-				57D8DBFD34D65F383FA44465 /* en */,
-				43EBF5B610EADF73596B467B /* ja */,
-			);
-			name = WidgetsConfiguration.intentdefinition;
-			sourceTree = "<group>";
-		};
 		73353BC83C395FD37E588220 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -923,6 +914,16 @@
 				8C75060B539557E8CDA1743E /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		792E8ED3278C4299000F3902 /* WidgetsConfiguration.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				792E8ED4278C4299000F3902 /* Base */,
+				792E8EDF278C42BD000F3902 /* ja */,
+				792E8EE0278C42C1000F3902 /* en */,
+			);
+			name = WidgetsConfiguration.intentdefinition;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
