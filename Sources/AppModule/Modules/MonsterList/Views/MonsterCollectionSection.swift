@@ -35,7 +35,7 @@ final class MonsterCollectionSection {
 extension MonsterCollectionSection: CollectionSectionProtocol {
     var numberOfItems: Int { monsters.count }
 
-    func layoutSection(in collectionView: UICollectionView) -> NSCollectionLayoutSection {
+    func layoutSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
