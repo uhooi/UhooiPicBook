@@ -28,15 +28,11 @@ protocol MonsterListInteractorOutput: AnyObject {
 @MainActor
 final class MonsterListPresenter {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     private unowned let view: MonsterListUserInterface
     private let interactor: MonsterListInteractorInput
     private let router: MonsterListRouterInput
-
-    // MARK: Computed Instance Properties
 
     // MARK: Initializers
 
@@ -45,13 +41,9 @@ final class MonsterListPresenter {
         self.interactor = interactor
         self.router = router
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterListPresenter: MonsterListEventHandler {
-
     func viewDidLoad() async {
         do {
             view.startIndicator()
@@ -106,7 +98,6 @@ extension MonsterListPresenter: MonsterListEventHandler {
             dancingUrl: dancingUrl
         )
     }
-
 }
 
 extension MonsterListPresenter: MonsterListInteractorOutput {

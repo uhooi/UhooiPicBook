@@ -25,11 +25,9 @@ public final class MonstersFirebaseClient {
     // MARK: Initializers
 
     private init() {}
-
 }
 
 extension MonstersFirebaseClient: MonstersRepository {
-
     public func loadMonsters() async throws -> [MonsterDTO] {
         let monstersRef = firestore.collection("monsters")
         let querySnapshot = try await monstersRef.getDocuments()

@@ -101,5 +101,4 @@ final class MonsterDetailPresenterTests: XCTestCase {
             router: self.routerMock
         )
     }
-
 }

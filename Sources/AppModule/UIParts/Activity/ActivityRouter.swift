@@ -21,5 +21,4 @@ enum ActivityRouter {
         activityVC.popoverPresentationController?.sourceView = sourceView
         parent.present(activityVC, animated: true)
     }
-
 }

@@ -9,7 +9,6 @@ import Foundation
 
 @available(iOS, introduced: 13.0, deprecated: 15.0, message: "Use the built-in API instead")
 extension URLSession {
-
     func data(from url: URL) async throws -> (Data, URLResponse) {
         try await withCheckedThrowingContinuation { continuation in
             self.dataTask(with: url) { data, response, error in
@@ -23,5 +22,4 @@ extension URLSession {
             }.resume()
         }
     }
-
 }

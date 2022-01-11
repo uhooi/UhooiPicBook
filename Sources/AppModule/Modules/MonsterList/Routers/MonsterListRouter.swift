@@ -50,13 +50,9 @@ public final class MonsterListRouter {
 
         return view
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterListRouter: MonsterListRouterInput {
-
     func showMonsterDetail(monster: MonsterEntity) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         viewController.navigationController?.pushViewController(vc, animated: true)
@@ -97,5 +93,4 @@ extension MonsterListRouter: MonsterListRouterInput {
         let okAction = UIAlertAction(title: R.LocalizedString.oK, style: .default) { _ in }
         viewController.showAlert(title: title, message: message, actions: [okAction])
     }
-
 }

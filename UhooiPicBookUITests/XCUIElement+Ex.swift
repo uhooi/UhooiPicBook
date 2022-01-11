@@ -8,10 +8,8 @@
 import XCTest
 
 extension XCUIElement {
-    
     func inputText(_ text: String) {
         tap()
         typeText(text)
     }
-
 }

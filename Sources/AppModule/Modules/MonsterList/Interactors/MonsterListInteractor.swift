@@ -16,8 +16,6 @@ protocol MonsterListInteractorInput: AnyObject {
 
 final class MonsterListInteractor {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     weak var presenter: MonsterListInteractorOutput!
@@ -25,8 +23,6 @@ final class MonsterListInteractor {
     private let monstersRepository: MonstersRepository
     private let monstersTempRepository: MonstersTempRepository
     private let spotlightRepository: SpotlightRepository
-
-    // MARK: Computed Instance Properties
 
     // MARK: Initializer
 
@@ -39,13 +35,9 @@ final class MonsterListInteractor {
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterListInteractor: MonsterListInteractorInput {
-
     func fetchMonsters() async throws -> [MonsterDTO] {
         try await monstersRepository.loadMonsters()
     }
@@ -55,5 +47,4 @@ extension MonsterListInteractor: MonsterListInteractorInput {
         monstersTempRepository.saveMonster(monster, forKey: key)
         await spotlightRepository.saveMonster(monster, forKey: key)
     }
-
 }

@@ -18,5 +18,4 @@ final class BaseView: UIView {
             layer.cornerRadius = newValue
         }
     }
-
 }

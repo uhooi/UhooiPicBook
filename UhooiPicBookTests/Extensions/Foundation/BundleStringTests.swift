@@ -50,5 +50,4 @@ final class BundleStringTests: XCTestCase {
     func test_bundle_build() {
         XCTAssertEqual(Bundle.main.build, "16")
     }
-
 }
