@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "UhooiPicBookTools",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v11),
     ],
     dependencies: [
         .package(url: "https://github.com/realm/SwiftLint", .exact("0.45.0")),
