@@ -17,21 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vfg-v7-CM0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9gg-wx-hF0">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="VO7-ZU-5oB" id="aQc-df-Ubz"/>
-                                    <outlet property="delegate" destination="VO7-ZU-5oB" id="Xqj-V9-sis"/>
-                                </connections>
-                            </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DUo-oL-Oos">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </activityIndicatorView>
@@ -41,10 +26,6 @@
                         <accessibility key="accessibilityConfiguration" identifier="monsterList"/>
                         <constraints>
                             <constraint firstItem="QCB-zG-Slj" firstAttribute="trailing" secondItem="DUo-oL-Oos" secondAttribute="trailing" id="AGQ-mI-AxG"/>
-                            <constraint firstItem="Vfg-v7-CM0" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="MWn-HM-N0v"/>
-                            <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="Vfg-v7-CM0" secondAttribute="bottom" id="McV-8m-EFQ"/>
-                            <constraint firstItem="QCB-zG-Slj" firstAttribute="trailing" secondItem="Vfg-v7-CM0" secondAttribute="trailing" id="Vwd-tZ-vYz"/>
-                            <constraint firstItem="Vfg-v7-CM0" firstAttribute="leading" secondItem="QCB-zG-Slj" secondAttribute="leading" id="bP4-VP-oKJ"/>
                             <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="DUo-oL-Oos" secondAttribute="bottom" id="dvY-U2-Vbm"/>
                             <constraint firstItem="DUo-oL-Oos" firstAttribute="leading" secondItem="QCB-zG-Slj" secondAttribute="leading" id="g0J-rM-oeZ"/>
                             <constraint firstItem="DUo-oL-Oos" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="lyh-8U-yE3"/>
@@ -57,7 +38,6 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="DUo-oL-Oos" id="nIi-qO-Sx7"/>
                         <outlet property="menuButton" destination="m4P-2c-2Rv" id="0vc-yW-vnb"/>
-                        <outlet property="monstersCollectionView" destination="Vfg-v7-CM0" id="zQI-5l-EMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Um6-RH-5QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
