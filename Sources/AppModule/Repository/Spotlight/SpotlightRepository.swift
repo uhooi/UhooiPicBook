@@ -29,11 +29,9 @@ final class SpotlightClient {
         self.imageCacheManager = imageCacheManager
         self.logger = logger
     }
-
 }
 
 extension SpotlightClient: SpotlightRepository {
-
     func saveMonster(_ monster: MonsterEntity, forKey key: String) async {
         do {
             let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
@@ -55,6 +53,8 @@ extension SpotlightClient: SpotlightRepository {
         }
     }
 
+    // MARK: Other Private Methods
+
     private func createAttributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
         let attributeSet = CSSearchableItemAttributeSet(contentType: .data)
         attributeSet.title = title
@@ -62,5 +62,4 @@ extension SpotlightClient: SpotlightRepository {
         attributeSet.thumbnailData = thumbnailData
         return attributeSet
     }
-
 }

@@ -46,13 +46,9 @@ public final class MonsterDetailRouter {
 
         return view
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterDetailRouter: MonsterDetailRouterInput {
-
     func popupDancingImage(_ dancingImage: UIImage) {
         ImagePopupRouter.show(viewController, image: dancingImage)
     }
@@ -60,5 +56,4 @@ extension MonsterDetailRouter: MonsterDetailRouterInput {
     func showActivity(_ senderView: UIView, text: String, icon: UIImage) {
         ActivityRouter.show(viewController, sourceView: senderView, text: text, url: nil, image: icon)
     }
-
 }

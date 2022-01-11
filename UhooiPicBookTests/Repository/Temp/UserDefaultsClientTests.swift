@@ -55,5 +55,4 @@ final class UserDefaultsClientTests: XCTestCase {
     private func reset() {
         userDefaults.removeAll()
     }
-    
 }

@@ -12,21 +12,14 @@ protocol MonsterDetailInteractorInput: AnyObject {
 
 final class MonsterDetailInteractor {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     weak var presenter: MonsterDetailInteractorOutput!
-
-    // MARK: Computed Instance Properties
 
     // MARK: Initializer
 
     init() {
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterDetailInteractor: MonsterDetailInteractorInput {

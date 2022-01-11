@@ -22,15 +22,11 @@ protocol MonsterDetailInteractorOutput: AnyObject {
 @MainActor
 final class MonsterDetailPresenter {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     private unowned let view: MonsterDetailUserInterface
     private let interactor: MonsterDetailInteractorInput
     private let router: MonsterDetailRouterInput
-
-    // MARK: Computed Instance Properties
 
     // MARK: Initializers
 
@@ -39,13 +35,9 @@ final class MonsterDetailPresenter {
         self.interactor = interactor
         self.router = router
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterDetailPresenter: MonsterDetailEventHandler {
-
     func viewDidLoad() {
     }
 
@@ -67,7 +59,6 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
         let text = "\(name)\n\(description)\n\(R.LocalizedString.uhooiPicBookHashtag)"
         router.showActivity(senderView, text: text, icon: icon)
     }
-
 }
 
 extension MonsterDetailPresenter: MonsterDetailInteractorOutput {

@@ -37,5 +37,4 @@ final class MonsterDetailInteractorTests: XCTestCase {
         self.interactor = MonsterDetailInteractor()
         self.interactor.presenter = self.presenterMock
     }
-
 }

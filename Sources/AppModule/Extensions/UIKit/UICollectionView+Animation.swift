@@ -8,7 +8,6 @@
 import UIKit
 
 extension UICollectionView {
-
     func executeCellSlideUpAnimation() {
         // If not called first, `visibleCells` will be empty.
         layoutIfNeeded()
@@ -36,5 +35,4 @@ extension UICollectionView {
             )
         }
     }
-
 }

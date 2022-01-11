@@ -12,16 +12,12 @@ import WebKit
 @MainActor
 final class InAppWebBrowserViewController: UIViewController {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     var url: URL!
 
     private var progressView = UIProgressView(progressViewStyle: .bar)
     private var estimatedProgressObservation: NSKeyValueObservation?
-
-    // MARK: Computed Instance Properties
 
     // MARK: IBOutlets
 
@@ -36,8 +32,6 @@ final class InAppWebBrowserViewController: UIViewController {
         loadWebView()
     }
 
-    // MARK: IBActions
-
     // MARK: Other Private Methods
 
     private func configureView() {
@@ -47,7 +41,7 @@ final class InAppWebBrowserViewController: UIViewController {
 
     private func configureProgressView() {
         progressView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 0.0)
-        view.addSubview(self.progressView)
+        view.addSubview(progressView)
     }
 
     private func configureWebView() {
@@ -78,5 +72,4 @@ final class InAppWebBrowserViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
     }
-
 }

@@ -10,13 +10,9 @@ import UIKit
 @MainActor
 final class ImagePopupViewController: UIViewController {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     var image: UIImage!
-
-    // MARK: Computed Instance Properties
 
     // MARK: IBOutlets
 
@@ -45,5 +41,4 @@ final class ImagePopupViewController: UIViewController {
     private func configureView() {
         imageView.image = image
     }
-
 }

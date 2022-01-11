@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIColor {
-
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexString = hex
         if hex.prefix(1) == "#" {
@@ -20,5 +19,4 @@ extension UIColor {
         let b = CGFloat(v / Int(powf(256, 0)) % 256) / 255
         self.init(red: r, green: g, blue: b, alpha: min(max(alpha, 0), 1))
     }
-
 }

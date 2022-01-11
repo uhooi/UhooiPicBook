@@ -26,11 +26,9 @@ public final class UserDefaultsClient {
     func removeAll() {
         userDefaults.dictionaryRepresentation().keys.forEach { userDefaults.removeObject(forKey: $0) }
     }
-
 }
 
 extension UserDefaultsClient: MonstersTempRepository {
-
     public func loadMonster(key: String) -> MonsterEntity? {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -51,5 +49,4 @@ extension UserDefaultsClient: MonstersTempRepository {
         }
         userDefaults.set(data, forKey: key)
     }
-
 }

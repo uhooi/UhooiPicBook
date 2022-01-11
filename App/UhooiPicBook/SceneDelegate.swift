@@ -67,10 +67,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // MARK: - UserActivity
 
 extension SceneDelegate {
-
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         executeUserActivity(userActivity)
     }
+
+    // MARK: Other Private Methods
 
     private func executeUserActivity(_ userActivity: NSUserActivity) {
         switch userActivity.activityType {
@@ -93,5 +94,4 @@ extension SceneDelegate {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         nav.pushViewController(vc, animated: true)
     }
-
 }

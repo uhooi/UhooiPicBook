@@ -23,9 +23,16 @@ public protocol LoggerProtocol {
 }
 
 public final class Logger {
+
+    // MARK: Stored Type Properties
+
     public static let `default` = Logger(category: .default)
 
+    // MARK: Stored Instance Properties
+
     private let logger: os.Logger
+
+    // MARK: Initializers
 
     public init(category: LogCategory) {
         self.logger = os.Logger(
@@ -101,6 +108,8 @@ extension Logger: LoggerProtocol {
         self.error(error.localizedDescription, file: file, function: function, line: line, column: column)
     }
 
+    // MARK: Other Private Methods
+
     private func createLogRowString(
         _ message: String,
         file: String,
@@ -110,5 +119,4 @@ extension Logger: LoggerProtocol {
     ) -> String {
         "\(file) \(function) (Line: \(line), Column: \(column)): \(message)"
     }
-
 }

@@ -21,8 +21,6 @@ protocol MonsterListUserInterface: AnyObject {
 @MainActor
 public final class MonsterListViewController: UIViewController {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterListEventHandler!
@@ -30,8 +28,6 @@ public final class MonsterListViewController: UIViewController {
     private var logger: LoggerProtocol!
 
     private var monsters: [MonsterEntity] = []
-
-    // MARK: Computed Instance Properties
 
     // MARK: IBOutlets
 
@@ -86,8 +82,6 @@ public final class MonsterListViewController: UIViewController {
         navigationController?.navigationBar.configureBackgroundColor(R.Color.navigationBar)
     }
 
-    // MARK: IBActions
-
     // MARK: Other Internal Methods
 
     func inject(
@@ -99,13 +93,9 @@ public final class MonsterListViewController: UIViewController {
         self.imageCacheManager = imageCacheManager
         self.logger = logger
     }
-
-    // MARK: Other Private Methods
-
 }
 
 extension MonsterListViewController: UICollectionViewDataSource {
-
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         monsters.count
     }
@@ -131,11 +121,9 @@ extension MonsterListViewController: UICollectionViewDataSource {
 
         return cell
     }
-
 }
 
 extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
-
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: monstersCollectionView.frame.width - 16.0 * 2, height: 116.0)
     }
@@ -147,22 +135,18 @@ extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         12.0
     }
-
 }
 
 extension MonsterListViewController: UICollectionViewDelegate {
-
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Task {
             let monster = monsters[indexPath.row]
             await presenter.didSelectMonster(monster: monster)
         }
     }
-
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
-
     func showMonsters(_ monsters: [MonsterEntity]) {
         self.monsters = monsters
         monstersCollectionView.reloadData()
@@ -177,5 +161,4 @@ extension MonsterListViewController: MonsterListUserInterface {
     func stopIndicator() {
         activityIndicatorView.stopAnimating()
     }
-
 }

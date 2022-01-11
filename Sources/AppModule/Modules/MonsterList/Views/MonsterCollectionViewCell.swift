@@ -48,5 +48,4 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
         iconImageView.image = icon
         baseView.elevate(elevation: elevation)
     }
-
 }

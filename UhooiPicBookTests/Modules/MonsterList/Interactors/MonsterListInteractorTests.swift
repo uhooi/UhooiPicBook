@@ -87,5 +87,4 @@ final class MonsterListInteractorTests: XCTestCase {
         )
         self.interactor.presenter = self.presenterMock
     }
-
 }

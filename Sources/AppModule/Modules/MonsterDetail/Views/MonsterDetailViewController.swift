@@ -18,8 +18,6 @@ protocol MonsterDetailUserInterface: AnyObject {
 @MainActor
 public final class MonsterDetailViewController: UIViewController {
 
-    // MARK: Type Aliases
-
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterDetailEventHandler!
@@ -27,8 +25,6 @@ public final class MonsterDetailViewController: UIViewController {
     private var logger: LoggerProtocol!
 
     private var monster: MonsterEntity!
-
-    // MARK: Computed Instance Properties
 
     // MARK: IBOutlets
 
@@ -109,7 +105,6 @@ public final class MonsterDetailViewController: UIViewController {
         descriptionLabel.text = monster.description
         navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
     }
-
 }
 
 extension MonsterDetailViewController: MonsterDetailUserInterface {

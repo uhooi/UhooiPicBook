@@ -26,5 +26,4 @@ enum InAppWebBrowserRouter {
 
         return view
     }
-
 }

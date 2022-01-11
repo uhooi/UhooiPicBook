@@ -9,7 +9,6 @@ import UIKit
 import ImageIO
 
 extension UIImage {
-
     static func gifImage(with url: URL) -> UIImage? {
         guard let imageData = try? Data(contentsOf: url) else {
             return nil
@@ -26,7 +25,7 @@ extension UIImage {
         return animatedImage(with: source)
     }
 
-    // MARK: Private Methods
+    // MARK: Other Private Methods
 
     private static func animatedImage(with source: CGImageSource) -> UIImage? {
         let count = CGImageSourceGetCount(source)
@@ -105,5 +104,4 @@ extension UIImage {
             b = a % b
         }
     }
-
 }
