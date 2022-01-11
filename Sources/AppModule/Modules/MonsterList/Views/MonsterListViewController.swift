@@ -47,8 +47,8 @@ public final class MonsterListViewController: UIViewController {
     }()
 
     private lazy var compositionalLayout: UICollectionViewCompositionalLayout = {
-        UICollectionViewCompositionalLayout { [unowned self] section, _ in
-            self.collectionSections[section].layoutSection(in: self.monstersCollectionView)
+        UICollectionViewCompositionalLayout { [weak self] section, _ in
+            self?.collectionSections[section].layoutSection(in: self?.monstersCollectionView ?? .init())
         }
     }()
 
