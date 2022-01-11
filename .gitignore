@@ -89,9 +89,8 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# Project and CLI tools dependencies are resolved by the workspace
+# Project dependencies are resolved by the workspace
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
-UhooiPicBookTools/Package.resolved
 
 # Genrated
 MockResults.swift
