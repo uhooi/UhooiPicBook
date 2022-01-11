@@ -36,14 +36,16 @@ extension MonsterCollectionSection: CollectionSectionProtocol {
     var numberOfItems: Int { monsters.count }
 
     func layoutSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: .init(
+        let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
-        ))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(128.0)
-        ), subitems: [item])
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 6.0, leading: 16.0, bottom: 6.0, trailing: 16.0)
         return NSCollectionLayoutSection(group: group)
     }
