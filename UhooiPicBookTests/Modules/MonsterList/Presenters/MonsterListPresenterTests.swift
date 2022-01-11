@@ -117,7 +117,7 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad_failure() async {
-        struct TestError: Error { }
+        struct TestError: Error {}
         interactorMock.fetchMonstersHandler = { throw TestError() }
         
         await presenter.viewDidLoad()

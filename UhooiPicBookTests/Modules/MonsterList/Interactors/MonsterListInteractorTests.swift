@@ -50,7 +50,7 @@ final class MonsterListInteractorTests: XCTestCase {
     }
     
     func test_fetchMonsters_failure() async {
-        struct TestError: Error { }
+        struct TestError: Error {}
         monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
         
         do {

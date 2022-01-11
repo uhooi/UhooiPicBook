@@ -30,4 +30,4 @@ public struct MonsterDTO {
     }
 }
 
-extension MonsterDTO: Equatable { }
+extension MonsterDTO: Equatable {}
