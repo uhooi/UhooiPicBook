@@ -60,7 +60,8 @@ public final class MonsterListViewController: UIViewController {
         }
     }
 
-    private let cellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item> { cell, _, item in
+    private let cellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item>(
+        cellNib: R.Nib.monsterCollectionViewCell) { cell, _, item in
         switch item {
         case let .monster(monster):
             cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
