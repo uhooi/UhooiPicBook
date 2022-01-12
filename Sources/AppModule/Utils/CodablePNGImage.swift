@@ -8,7 +8,7 @@
 import UIKit.UIImage
 
 struct CodablePNGImage {
-    var pngData: Data
+    let pngData: Data
 
     init(uiImage: UIImage) {
         guard let pngData = uiImage.pngData() else {
