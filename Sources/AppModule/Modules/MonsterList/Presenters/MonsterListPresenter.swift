@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit.UIColor
 import MonstersFirebaseClient
 import ImageCache
 
@@ -40,9 +39,9 @@ final class MonsterListPresenter {
     private let interactor: MonsterListInteractorInput
     private let router: MonsterListRouterInput
 
-    private let imageCacheManager: ImageCacheManagerProtocol
+    private let monsterConverter: MonsterConverter
 
-    private var monsters: [MonsterItem] = []
+    private var monsters: [MonsterEntity] = []
 
     // MARK: Initializers
 
@@ -55,7 +54,7 @@ final class MonsterListPresenter {
         self.view = view
         self.interactor = interactor
         self.router = router
-        self.imageCacheManager = imageCacheManager
+        self.monsterConverter = MonsterConverter(imageCacheManager: imageCacheManager)
     }
 }
 
@@ -64,8 +63,11 @@ extension MonsterListPresenter: MonsterListEventHandler {
         do {
             view.startIndicator()
             let monsters = try await interactor.fetchMonsters()
-            let monsterItems = await convertDTOsToItems(dtos: monsters.sorted { $0.order < $1.order })
-            self.monsters = monsterItems
+            let monsterEntities = monsters
+                .sorted { $0.order < $1.order }
+                .map { convertDTOToEntity(dto: $0) }
+            self.monsters = monsterEntities
+            let monsterItems = await convertEntitiesToItems(entities: monsterEntities)
             view.showMonsters(monsterItems)
             view.stopIndicator()
         } catch {
@@ -92,40 +94,36 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     // MARK: Other Private Methods
 
-    private func convertDTOsToItems(dtos: [MonsterDTO]) async -> [MonsterItem] {
-        var items: [MonsterItem] = []
-        for dto in dtos {
-            items.append(await convertDTOToItem(dto: dto))
-        }
-        return items
-    }
-
-    private func convertDTOToItem(dto: MonsterDTO) async -> MonsterItem {
-        guard let iconUrl = URL(string: dto.iconUrlString),
-              let icon = try? await imageCacheManager.cacheImage(imageUrl: iconUrl)
-        else {
+    private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
+        guard let iconUrl = URL(string: dto.iconUrlString) else {
             fatalError("Fail to load icon.")
         }
-        guard let dancingUrl = URL(string: dto.dancingUrlString),
-              let dancingImage = imageCacheManager.cacheGIFImage(imageUrl: dancingUrl)
-        else {
+        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
             fatalError("Fail to load dancing image.")
         }
 
-        return MonsterItem(
+        return MonsterEntity(
             name: dto.name,
             description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-            baseColor: UIColor(hex: dto.baseColorCode),
-            icon: icon,
-            dancingImage: dancingImage
+            baseColorCode: dto.baseColorCode,
+            iconUrl: iconUrl,
+            dancingUrl: dancingUrl
         )
+    }
+
+    private func convertEntitiesToItems(entities: [MonsterEntity]) async -> [MonsterItem] {
+        var items: [MonsterItem] = []
+        for entity in entities {
+            items.append(await monsterConverter.convertEntityToItem(entity: entity))
+        }
+        return items
     }
 }
 
 extension MonsterListPresenter: MonsterSectionEventHandler {
     func didSelectMonsterAt(_ row: Int) async {
         let monster = monsters[row]
-        router.showMonsterDetail(monster: monster)
+        router.showMonsterDetail(monster: await monsterConverter.convertEntityToItem(entity: monster))
         await interactor.saveForSpotlight(monster)
     }
 }

@@ -9,6 +9,7 @@
 import CoreSpotlight
 import UIKit
 import AppModule
+import ImageCache
 
 @MainActor
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -91,7 +92,12 @@ extension SceneDelegate {
 
         nav.dismiss(animated: false)
         nav.popToRootViewController(animated: false)
-        let vc = MonsterDetailRouter.assembleModule(monster: monster)
-        nav.pushViewController(vc, animated: true)
+        Task {
+            let monsterConverter = MonsterConverter(imageCacheManager: ImageCacheManager())
+            let vc = MonsterDetailRouter.assembleModule(
+                monster: await monsterConverter.convertEntityToItem(entity: monster)
+            )
+            nav.pushViewController(vc, animated: true)
+        }
     }
 }

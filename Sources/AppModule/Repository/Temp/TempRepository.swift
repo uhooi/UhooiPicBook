@@ -8,6 +8,6 @@
 
 /// @mockable
 protocol MonstersTempRepository {
-    func loadMonster(key: String) -> MonsterItem?
-    func saveMonster(_ monster: MonsterItem, forKey key: String)
+    func loadMonster(key: String) -> MonsterEntity?
+    func saveMonster(_ monster: MonsterEntity, forKey key: String)
 }

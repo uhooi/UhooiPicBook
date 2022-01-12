@@ -29,18 +29,18 @@ public final class UserDefaultsClient {
 }
 
 extension UserDefaultsClient: MonstersTempRepository {
-    public func loadMonster(key: String) -> MonsterItem? {
+    public func loadMonster(key: String) -> MonsterEntity? {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         guard let data = userDefaults.data(forKey: key),
-              let monster = try? jsonDecoder.decode(MonsterItem.self, from: data) else {
+              let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
             return nil
         }
         return monster
     }
 
-    func saveMonster(_ monster: MonsterItem, forKey key: String) {
+    func saveMonster(_ monster: MonsterEntity, forKey key: String) {
         let jsonEncoder = JSONEncoder()
         jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
 
