@@ -5,6 +5,7 @@ whiteList:
   - lhs
   - rhs
   - dto
+  - dtos
   - interactor
   - swiftlint
   - bannzai

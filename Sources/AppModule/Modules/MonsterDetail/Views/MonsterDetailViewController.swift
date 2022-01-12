@@ -24,7 +24,7 @@ public final class MonsterDetailViewController: UIViewController {
     private var imageCacheManager: ImageCacheManagerProtocol!
     private var logger: LoggerProtocol!
 
-    private var monster: MonsterEntity!
+    private var monster: MonsterItem!
 
     // MARK: IBOutlets
 
@@ -75,7 +75,7 @@ public final class MonsterDetailViewController: UIViewController {
     func inject(
         presenter: MonsterDetailEventHandler,
         imageCacheManager: ImageCacheManagerProtocol,
-        monster: MonsterEntity,
+        monster: MonsterItem,
         logger: LoggerProtocol = Logger.default
     ) {
         self.presenter = presenter
@@ -92,18 +92,10 @@ public final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        Task {
-            do {
-                iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-            } catch {
-                // TODO: エラーハンドリング
-                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
-            }
-        }
-        dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+        dancingImageView.image = monster.dancingImage
         nameLabel.text = monster.name
         descriptionLabel.text = monster.description
-        navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
+        navigationController?.navigationBar.configureBackgroundColor(monster.baseColor)
     }
 }
 

@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import ImageCache
-import Logger
 
 /// @mockable
 @MainActor
 protocol MonsterListUserInterface: AnyObject {
-    func showMonsters(_ monsters: [MonsterEntity])
+    func showMonsters(_ monsters: [MonsterItem])
     func startIndicator()
     func stopIndicator()
 }
@@ -28,24 +26,17 @@ public final class MonsterListViewController: UIViewController {
     }
 
     private enum Item: Hashable {
-        case monster(_ monster: MonsterEntity)
+        case monster(_ monster: MonsterItem)
     }
 
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterListEventHandler!
-    private var imageCacheManager: ImageCacheManagerProtocol!
-    private var logger: LoggerProtocol!
 
     private var sections: [CollectionSectionProtocol]!
 
     private lazy var monstersCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .null, collectionViewLayout: compositionalLayout)
-        collectionView.register(
-            R.Nib.monsterCollectionViewCell,
-            forCellWithReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier
-        )
-        return collectionView
+        UICollectionView(frame: .null, collectionViewLayout: compositionalLayout)
     }()
 
     private lazy var compositionalLayout: UICollectionViewCompositionalLayout = {
@@ -60,25 +51,19 @@ public final class MonsterListViewController: UIViewController {
             return .init()
         }
         switch itemIdentifier {
+        case .monster:
+            return collectionView.dequeueConfiguredReusableCell(
+                using: self.cellRegistration,
+                for: indexPath,
+                item: itemIdentifier
+            )
+        }
+    }
+
+    private let cellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item> { cell, _, item in
+        switch item {
         case let .monster(monster):
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as? MonsterCollectionViewCell else {
-                fatalError("Fail to load MonsterCollectionViewCell.")
-            }
-
-            Task {
-                do {
-                    let icon = try await self.imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-                    cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-                } catch {
-                    // TODO: エラーハンドリング
-                    self.logger.exception(error, file: #file, function: #function, line: #line, column: #column)
-                }
-            }
-
-            return cell
+            cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
         }
     }
 
@@ -131,14 +116,10 @@ public final class MonsterListViewController: UIViewController {
 
     func inject(
         sections: [CollectionSectionProtocol],
-        presenter: MonsterListEventHandler,
-        imageCacheManager: ImageCacheManagerProtocol,
-        logger: LoggerProtocol = Logger.default
+        presenter: MonsterListEventHandler
     ) {
         self.sections = sections
         self.presenter = presenter
-        self.imageCacheManager = imageCacheManager
-        self.logger = logger
     }
 
     // MARK: Other Private Methods
@@ -157,7 +138,7 @@ public final class MonsterListViewController: UIViewController {
         ])
     }
 
-    private func applyDataSource(monsters: [MonsterEntity]) {
+    private func applyDataSource(monsters: [MonsterItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections(Section.allCases)
 
@@ -175,7 +156,7 @@ extension MonsterListViewController: UICollectionViewDelegate {
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
-    func showMonsters(_ monsters: [MonsterEntity]) {
+    func showMonsters(_ monsters: [MonsterItem]) {
         applyDataSource(monsters: monsters)
         monstersCollectionView.executeCellSlideUpAnimation()
     }

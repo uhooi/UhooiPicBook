@@ -31,7 +31,7 @@ public final class MonsterDetailRouter {
 
     // MARK: Type Methods
 
-    public static func assembleModule(monster: MonsterEntity) -> MonsterDetailViewController {
+    public static func assembleModule(monster: MonsterItem) -> MonsterDetailViewController {
         let view = R.Storyboard.MonsterDetail.instantiateInitialViewController()
         let interactor = MonsterDetailInteractor()
         let router = MonsterDetailRouter(viewController: view)

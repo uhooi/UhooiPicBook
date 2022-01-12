@@ -12,7 +12,7 @@ import ImageCache
 /// @mockable
 @MainActor
 protocol MonsterListRouterInput: AnyObject {
-    func showMonsterDetail(monster: MonsterEntity)
+    func showMonsterDetail(monster: MonsterItem)
 
     // Menu
     func showContactUs()
@@ -43,12 +43,17 @@ public final class MonsterListRouter {
             spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager)
         )
         let router = MonsterListRouter(viewController: view)
-        let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
+        let presenter = MonsterListPresenter(
+            view: view,
+            interactor: interactor,
+            router: router,
+            imageCacheManager: imageCacheManager
+        )
 
         let sections: [CollectionSectionProtocol] = [
             MonsterCollectionSection(presenter: presenter)
         ]
-        view.inject(sections: sections, presenter: presenter, imageCacheManager: imageCacheManager)
+        view.inject(sections: sections, presenter: presenter)
         interactor.presenter = presenter
 
         return view
@@ -56,7 +61,7 @@ public final class MonsterListRouter {
 }
 
 extension MonsterListRouter: MonsterListRouterInput {
-    func showMonsterDetail(monster: MonsterEntity) {
+    func showMonsterDetail(monster: MonsterItem) {
         let vc = MonsterDetailRouter.assembleModule(monster: monster)
         viewController.navigationController?.pushViewController(vc, animated: true)
     }

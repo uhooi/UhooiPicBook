@@ -12,7 +12,7 @@ import Logger
 
 /// @mockable
 protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_order
-    func saveMonster(_ monster: MonsterEntity, forKey key: String) async
+    func saveMonster(_ monster: MonsterItem, forKey key: String) async
 }
 
 final class SpotlightClient {
@@ -32,10 +32,9 @@ final class SpotlightClient {
 }
 
 extension SpotlightClient: SpotlightRepository {
-    func saveMonster(_ monster: MonsterEntity, forKey key: String) async {
+    func saveMonster(_ monster: MonsterItem, forKey key: String) async {
         do {
-            let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-            let thumbnailData = icon.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
+            let thumbnailData = monster.icon.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
             let item = CSSearchableItem(
                 uniqueIdentifier: key,
                 domainIdentifier: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
