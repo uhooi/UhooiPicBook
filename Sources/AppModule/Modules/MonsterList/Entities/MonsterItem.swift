@@ -32,8 +32,8 @@ extension MonsterItem: Codable { // For saving in UserDefaults
         name = try container.decode(String.self, forKey: .name)
         description = try container.decode(String.self, forKey: .description)
         baseColor = try container.decode(CodableColor.self, forKey: .baseColor).uiColor()
-        icon = try container.decode(CodableImage.self, forKey: .icon).uiImage()
-        dancingImage = try container.decode(CodableImage.self, forKey: .dancingImage).uiImage()
+        icon = try container.decode(CodablePNGImage.self, forKey: .icon).uiImage()
+        dancingImage = try container.decode(CodablePNGImage.self, forKey: .dancingImage).uiImage() // FIXME: Animation is not retained
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -41,8 +41,8 @@ extension MonsterItem: Codable { // For saving in UserDefaults
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
         try container.encode(CodableColor(uiColor: baseColor), forKey: .baseColor)
-        try container.encode(CodableImage(uiImage: icon), forKey: .icon)
-        try container.encode(CodableImage(uiImage: dancingImage), forKey: .dancingImage)
+        try container.encode(CodablePNGImage(uiImage: icon), forKey: .icon)
+        try container.encode(CodablePNGImage(uiImage: dancingImage), forKey: .dancingImage) // FIXME: Animation is not retained
     }
 }
 
