@@ -39,7 +39,6 @@ public final class MonsterDetailRouter {
 
         view.inject(
             presenter: presenter,
-            imageCacheManager: ImageCacheManager(),
             monster: monster
         )
         interactor.presenter = presenter

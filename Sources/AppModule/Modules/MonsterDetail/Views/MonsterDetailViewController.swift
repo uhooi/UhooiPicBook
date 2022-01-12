@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import ImageCache
-import Logger
 
 /// @mockable
 @MainActor
@@ -21,8 +19,6 @@ public final class MonsterDetailViewController: UIViewController {
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterDetailEventHandler!
-    private var imageCacheManager: ImageCacheManagerProtocol!
-    private var logger: LoggerProtocol!
 
     private var monster: MonsterItem!
 
@@ -74,14 +70,10 @@ public final class MonsterDetailViewController: UIViewController {
 
     func inject(
         presenter: MonsterDetailEventHandler,
-        imageCacheManager: ImageCacheManagerProtocol,
-        monster: MonsterItem,
-        logger: LoggerProtocol = Logger.default
+        monster: MonsterItem
     ) {
         self.presenter = presenter
-        self.imageCacheManager = imageCacheManager
         self.monster = monster
-        self.logger = logger
     }
 
     // MARK: Other Private Methods
