@@ -22,7 +22,7 @@ protocol MonsterListEventHandler: AnyObject {
 
 @MainActor
 protocol MonsterSectionEventHandler {
-    func didSelectMonster(monster: MonsterEntity) async
+    func didSelectMonsterAt(_ row: Int) async
 }
 
 /// @mockable
@@ -37,6 +37,8 @@ final class MonsterListPresenter {
     private unowned let view: MonsterListUserInterface
     private let interactor: MonsterListInteractorInput
     private let router: MonsterListRouterInput
+
+    private var monsters: [MonsterEntity] = []
 
     // MARK: Initializers
 
@@ -55,6 +57,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
             let monsterEntities = monsters
                 .sorted { $0.order < $1.order }
                 .map { convertDTOToEntity(dto: $0) }
+            self.monsters = monsterEntities
             view.showMonsters(monsterEntities)
             view.stopIndicator()
         } catch {
@@ -100,7 +103,8 @@ extension MonsterListPresenter: MonsterListEventHandler {
 }
 
 extension MonsterListPresenter: MonsterSectionEventHandler {
-    func didSelectMonster(monster: MonsterEntity) async {
+    func didSelectMonsterAt(_ row: Int) async {
+        let monster = monsters[row]
         router.showMonsterDetail(monster: monster)
         await interactor.saveForSpotlight(monster)
     }

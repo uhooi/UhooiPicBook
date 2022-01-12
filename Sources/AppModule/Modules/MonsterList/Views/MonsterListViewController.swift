@@ -176,7 +176,6 @@ extension MonsterListViewController: UICollectionViewDelegate {
 
 extension MonsterListViewController: MonsterListUserInterface {
     func showMonsters(_ monsters: [MonsterEntity]) {
-        (sections[Section.monster.rawValue] as? MonsterCollectionSection)?.setMonsters(monsters)
         applyDataSource(monsters: monsters)
         monstersCollectionView.executeCellSlideUpAnimation()
     }

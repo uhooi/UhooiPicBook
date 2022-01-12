@@ -11,14 +11,8 @@ import UIKit
 final class MonsterCollectionSection {
     private let presenter: MonsterSectionEventHandler
 
-    private var monsters: [MonsterEntity] = []
-
     init(presenter: MonsterSectionEventHandler) {
         self.presenter = presenter
-    }
-
-    func setMonsters(_ monsters: [MonsterEntity]) {
-        self.monsters = monsters
     }
 }
 
@@ -44,8 +38,7 @@ extension MonsterCollectionSection: CollectionSectionProtocol {
 
     func didSelectItemAt(_ row: Int) {
         Task {
-            let monster = monsters[row]
-            await presenter.didSelectMonster(monster: monster)
+            await presenter.didSelectMonsterAt(row)
         }
     }
 }
