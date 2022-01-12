@@ -23,7 +23,7 @@ public final class MonsterListViewController: UIViewController {
 
     // MARK: Enums
 
-    private enum CollectionSection: Int {
+    private enum Section: Int {
         case monster
     }
 
@@ -33,7 +33,7 @@ public final class MonsterListViewController: UIViewController {
     private var imageCacheManager: ImageCacheManagerProtocol!
     private var logger: LoggerProtocol!
 
-    private lazy var collectionSections: [CollectionSectionProtocol] = [
+    private lazy var sections: [CollectionSectionProtocol] = [
         MonsterCollectionSection(presenter: presenter, imageCacheManager: imageCacheManager, logger: logger)
     ]
 
@@ -48,7 +48,7 @@ public final class MonsterListViewController: UIViewController {
 
     private lazy var compositionalLayout: UICollectionViewCompositionalLayout = {
         UICollectionViewCompositionalLayout { [weak self] section, _ in
-            self?.collectionSections[section].layoutSection()
+            self?.sections[section].layoutSection()
         }
     }()
 
@@ -129,23 +129,23 @@ public final class MonsterListViewController: UIViewController {
 
 extension MonsterListViewController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionSections[section].numberOfItems
+        sections[section].numberOfItems
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionSections[indexPath.section].collectionView(collectionView, cellForItemAt: indexPath)
+        sections[indexPath.section].collectionView(collectionView, cellForItemAt: indexPath)
     }
 }
 
 extension MonsterListViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionSections[indexPath.section].didSelectItemAt(indexPath.row)
+        sections[indexPath.section].didSelectItemAt(indexPath.row)
     }
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
     func showMonsters(_ monsters: [MonsterEntity]) {
-        (collectionSections[CollectionSection.monster.rawValue] as? MonsterCollectionSection)?.setMonsters(monsters)
+        (sections[Section.monster.rawValue] as? MonsterCollectionSection)?.setMonsters(monsters)
         monstersCollectionView.reloadData()
         monstersCollectionView.executeCellSlideUpAnimation()
     }
