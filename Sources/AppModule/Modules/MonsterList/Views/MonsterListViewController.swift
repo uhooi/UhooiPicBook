@@ -39,7 +39,9 @@ public final class MonsterListViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout { [weak self] section, _ in
             self?.sections[section].layoutSection()
         }
-        return UICollectionView(frame: .null, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .null, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        return collectionView
     }()
 
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
