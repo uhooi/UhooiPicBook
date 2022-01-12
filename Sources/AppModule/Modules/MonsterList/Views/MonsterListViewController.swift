@@ -42,28 +42,26 @@ public final class MonsterListViewController: UIViewController {
         return UICollectionView(frame: .null, collectionViewLayout: layout)
     }()
 
-    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Item>(
-        collectionView: monstersCollectionView) { [weak self] collectionView, indexPath, itemIdentifier in
-        guard let self = self else {
-            return .init()
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
+        let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item>(
+            cellNib: R.Nib.monsterCollectionViewCell) { cell, _, item in
+            switch item {
+            case let .monster(monster):
+                cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
+            }
         }
-        switch itemIdentifier {
-        case .monster:
-            return collectionView.dequeueConfiguredReusableCell(
-                using: self.cellRegistration,
-                for: indexPath,
-                item: itemIdentifier
-            )
-        }
-    }
 
-    private let cellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item>(
-        cellNib: R.Nib.monsterCollectionViewCell) { cell, _, item in
-        switch item {
-        case let .monster(monster):
-            cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
+        return .init(collectionView: monstersCollectionView) { collectionView, indexPath, itemIdentifier in
+            switch itemIdentifier {
+            case .monster:
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: monsterCellRegistration,
+                    for: indexPath,
+                    item: itemIdentifier
+                )
+            }
         }
-    }
+    }()
 
     // MARK: IBOutlets
 
