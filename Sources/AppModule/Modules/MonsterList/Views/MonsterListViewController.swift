@@ -37,9 +37,7 @@ public final class MonsterListViewController: UIViewController {
     private var imageCacheManager: ImageCacheManagerProtocol!
     private var logger: LoggerProtocol!
 
-    private lazy var sections: [CollectionSectionProtocol] = [
-        MonsterCollectionSection(presenter: presenter)
-    ]
+    private var sections: [CollectionSectionProtocol]!
 
     private lazy var monstersCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .null, collectionViewLayout: compositionalLayout)
@@ -132,10 +130,12 @@ public final class MonsterListViewController: UIViewController {
     // MARK: Other Internal Methods
 
     func inject(
+        sections: [CollectionSectionProtocol],
         presenter: MonsterListEventHandler,
         imageCacheManager: ImageCacheManagerProtocol,
         logger: LoggerProtocol = Logger.default
     ) {
+        self.sections = sections
         self.presenter = presenter
         self.imageCacheManager = imageCacheManager
         self.logger = logger

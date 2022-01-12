@@ -12,13 +12,17 @@ import MonstersFirebaseClient
 @MainActor
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad() async
-    func didSelectMonster(monster: MonsterEntity) async
 
     // Menu
     func didTapContactUs()
     func didTapPrivacyPolicy()
     func didTapLicenses()
     func didTapAboutThisApp()
+}
+
+@MainActor
+protocol MonsterSectionEventHandler {
+    func didSelectMonster(monster: MonsterEntity) async
 }
 
 /// @mockable
@@ -75,11 +79,6 @@ extension MonsterListPresenter: MonsterListEventHandler {
         router.showAboutThisApp()
     }
 
-    func didSelectMonster(monster: MonsterEntity) async {
-        router.showMonsterDetail(monster: monster)
-        await interactor.saveForSpotlight(monster)
-    }
-
     // MARK: Other Private Methods
 
     private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
@@ -97,6 +96,13 @@ extension MonsterListPresenter: MonsterListEventHandler {
             iconUrl: iconUrl,
             dancingUrl: dancingUrl
         )
+    }
+}
+
+extension MonsterListPresenter: MonsterSectionEventHandler {
+    func didSelectMonster(monster: MonsterEntity) async {
+        router.showMonsterDetail(monster: monster)
+        await interactor.saveForSpotlight(monster)
     }
 }
 

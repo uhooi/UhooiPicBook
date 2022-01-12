@@ -45,7 +45,10 @@ public final class MonsterListRouter {
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
-        view.inject(presenter: presenter, imageCacheManager: imageCacheManager)
+        let sections: [CollectionSectionProtocol] = [
+            MonsterCollectionSection(presenter: presenter)
+        ]
+        view.inject(sections: sections, presenter: presenter, imageCacheManager: imageCacheManager)
         interactor.presenter = presenter
 
         return view

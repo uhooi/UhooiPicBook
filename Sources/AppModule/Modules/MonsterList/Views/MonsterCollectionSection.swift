@@ -9,11 +9,11 @@ import UIKit
 
 @MainActor
 final class MonsterCollectionSection {
-    private let presenter: MonsterListEventHandler
+    private let presenter: MonsterSectionEventHandler
 
     private var monsters: [MonsterEntity] = []
 
-    init(presenter: MonsterListEventHandler) {
+    init(presenter: MonsterSectionEventHandler) {
         self.presenter = presenter
     }
 
