@@ -43,21 +43,18 @@ public final class MonsterListViewController: UIViewController {
     }()
 
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
-        let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, Item>(
-            cellNib: R.Nib.monsterCollectionViewCell) { cell, _, item in
-            switch item {
-            case let .monster(monster):
-                cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
-            }
+        let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, MonsterItem>(
+            cellNib: R.Nib.monsterCollectionViewCell) { cell, _, monster in
+            cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
         }
 
-        return .init(collectionView: monstersCollectionView) { collectionView, indexPath, itemIdentifier in
-            switch itemIdentifier {
-            case .monster:
+        return .init(collectionView: monstersCollectionView) { collectionView, indexPath, item in
+            switch item {
+            case let .monster(monster):
                 return collectionView.dequeueConfiguredReusableCell(
                     using: monsterCellRegistration,
                     for: indexPath,
-                    item: itemIdentifier
+                    item: monster
                 )
             }
         }
