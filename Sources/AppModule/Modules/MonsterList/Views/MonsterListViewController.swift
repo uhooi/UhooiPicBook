@@ -36,13 +36,10 @@ public final class MonsterListViewController: UIViewController {
     private var sections: [CollectionSectionProtocol]!
 
     private lazy var monstersCollectionView: UICollectionView = {
-        UICollectionView(frame: .null, collectionViewLayout: compositionalLayout)
-    }()
-
-    private lazy var compositionalLayout: UICollectionViewCompositionalLayout = {
-        UICollectionViewCompositionalLayout { [weak self] section, _ in
+        let layout = UICollectionViewCompositionalLayout { [weak self] section, _ in
             self?.sections[section].layoutSection()
         }
+        return UICollectionView(frame: .null, collectionViewLayout: layout)
     }()
 
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Item>(
