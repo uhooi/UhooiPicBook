@@ -92,6 +92,7 @@ public final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
+        iconImageView.image = monster.icon
         dancingImageView.image = monster.dancingImage
         nameLabel.text = monster.name
         descriptionLabel.text = monster.description
