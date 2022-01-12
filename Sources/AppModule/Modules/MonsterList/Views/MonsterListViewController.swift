@@ -118,11 +118,12 @@ public final class MonsterListViewController: UIViewController {
         view.addSubview(monstersCollectionView)
         monstersCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
-        let leading = monstersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
-        let trailing = monstersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
-        let top = monstersCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0)
-        let bottom = monstersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        NSLayoutConstraint.activate([
+            monstersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            monstersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            monstersCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            monstersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
