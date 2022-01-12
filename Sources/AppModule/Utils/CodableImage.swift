@@ -8,10 +8,13 @@
 import UIKit.UIImage
 
 struct CodableImage {
-    var pngData: Data = .init()
+    var pngData: Data
 
     init(uiImage: UIImage) {
-        uiImage.pngData()
+        guard let pngData = uiImage.pngData() else {
+            fatalError("Fail to initialize CodableImage.")
+        }
+        self.pngData = pngData
     }
 
     func uiImage() -> UIImage {
