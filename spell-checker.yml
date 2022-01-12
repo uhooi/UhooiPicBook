@@ -11,6 +11,8 @@ whiteList:
   - gedatsu
   - json
   - hashable
+  - iterable
+  - diffable
   - fcm
   - github
   - thii

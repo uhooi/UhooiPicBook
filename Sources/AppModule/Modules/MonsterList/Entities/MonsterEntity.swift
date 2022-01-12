@@ -18,4 +18,6 @@ public struct MonsterEntity: Equatable {
 
 extension MonsterEntity: Codable {}
 
+extension MonsterEntity: Hashable {} // For diffable data source
+
 extension MonsterEntity: Sendable {}

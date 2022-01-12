@@ -6,25 +6,15 @@
 //
 
 import UIKit
-import ImageCache
-import Logger
 
 @MainActor
 final class MonsterCollectionSection {
     private let presenter: MonsterListEventHandler
-    private let imageCacheManager: ImageCacheManagerProtocol
-    private let logger: LoggerProtocol
 
     private var monsters: [MonsterEntity] = []
 
-    init(
-        presenter: MonsterListEventHandler,
-        imageCacheManager: ImageCacheManagerProtocol,
-        logger: LoggerProtocol = Logger.default
-    ) {
+    init(presenter: MonsterListEventHandler) {
         self.presenter = presenter
-        self.imageCacheManager = imageCacheManager
-        self.logger = logger
     }
 
     func setMonsters(_ monsters: [MonsterEntity]) {
@@ -33,8 +23,6 @@ final class MonsterCollectionSection {
 }
 
 extension MonsterCollectionSection: CollectionSectionProtocol {
-    var numberOfItems: Int { monsters.count }
-
     func layoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -52,28 +40,6 @@ extension MonsterCollectionSection: CollectionSectionProtocol {
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16.0, bottom: 0, trailing: 16.0)
         section.interGroupSpacing = 12.0
         return section
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier,
-            for: indexPath
-        ) as? MonsterCollectionViewCell else {
-            fatalError("Fail to load MonsterCollectionViewCell.")
-        }
-
-        Task {
-            do {
-                let monster = monsters[indexPath.row]
-                let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-                cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-            } catch {
-                // TODO: エラーハンドリング
-                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
-            }
-        }
-
-        return cell
     }
 
     func didSelectItemAt(_ row: Int) {
