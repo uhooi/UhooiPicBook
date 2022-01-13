@@ -16,8 +16,8 @@ public struct MonsterEntity {
     let dancingUrl: URL
 }
 
-extension MonsterEntity: Equatable {} // For unit tests
-
 extension MonsterEntity: Codable {} // For saving in UserDefaults
 
 extension MonsterEntity: Sendable {}
+
+extension MonsterEntity: Equatable {} // For unit tests

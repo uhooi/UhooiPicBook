@@ -18,6 +18,8 @@ final class MonsterListPresenterTests: XCTestCase {
     private var viewMock: MonsterListUserInterfaceMock!
     private var interactorMock: MonsterListInteractorInputMock!
     private var routerMock: MonsterListRouterInputMock!
+    private var imageCacheManagerMock: ImageCacheManagerProtocolMock!
+    
     private var presenter: MonsterListPresenter!
 
     // MARK: TestCase Life-Cycle Methods
@@ -40,12 +42,13 @@ final class MonsterListPresenterTests: XCTestCase {
     func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
         interactorMock.fetchMonstersHandler = { monsterDTOs }
+        let icon = UIImage(systemName: "sun.max")!
+        imageCacheManagerMock.cacheImageHandler = { _ in icon }
+        let dancingImage = UIImage(systemName: "person")!
+        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
         viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
             }
         }
         
@@ -59,16 +62,21 @@ final class MonsterListPresenterTests: XCTestCase {
     
     func test_viewDidLoad_success_three() async {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
-        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
-        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
+        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#000000", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
+        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#999999", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         interactorMock.fetchMonstersHandler = { monsterDTOs }
+        let icon = UIImage(systemName: "sun.max")!
+        imageCacheManagerMock.cacheImageHandler = { _ in icon }
+        let dancingImage = UIImage(systemName: "person")!
+        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
         viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description)
-                let iconUrl = URL(string: monsterDTOs[index].iconUrlString)
-                XCTAssertEqual(monsters[index].iconUrl, iconUrl)
+                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description.replacingOccurrences(of: "\\n", with: "\n"))
+                XCTAssertEqual(monsters[index].baseColor, UIColor(hex: monsterDTOs[index].baseColorCode))
+                XCTAssertEqual(monsters[index].icon, icon)
+                XCTAssertEqual(monsters[index].dancingImage, dancingImage)
             }
         }
         
@@ -103,6 +111,10 @@ final class MonsterListPresenterTests: XCTestCase {
                 order: 1
             )
             interactorMock.fetchMonstersHandler = { [monsterDTO] }
+            let icon = UIImage(systemName: "sun.max")!
+            imageCacheManagerMock.cacheImageHandler = { _ in icon }
+            let dancingImage = UIImage(systemName: "person")!
+            imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
             viewMock.showMonstersHandler = { monsters in
                 XCTAssertEqual(monsters[0].description, expected, line: line)
             }
@@ -126,17 +138,6 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(interactorMock.fetchMonstersCallCount, 1)
         XCTAssertEqual(viewMock.showMonstersCallCount, 0)
         XCTAssertEqual(viewMock.stopIndicatorCallCount, 1)
-    }
-    
-    // MARK: didSelectMonster()
-    
-    func test_didSelectMonster() async {
-        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
-
-        await presenter.didSelectMonster(monster: uhooiEntity)
-        
-        XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
-        XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
     }
     
     // MARK: didTapContactUs()
@@ -183,6 +184,31 @@ final class MonsterListPresenterTests: XCTestCase {
         XCTAssertEqual(routerMock.showAboutThisAppCallCount, 1)
     }
 
+    // MARK: MonsterSectionEventHandler
+    
+    // MARK: didSelectMonsterAt()
+    
+    func test_didSelectMonsterAt() async {
+        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
+        let monsterDTOs = [uhooiDTO]
+        interactorMock.fetchMonstersHandler = { monsterDTOs }
+        let icon = UIImage(systemName: "sun.max")!
+        imageCacheManagerMock.cacheImageHandler = { _ in icon }
+        let dancingImage = UIImage(systemName: "person")!
+        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
+        viewMock.showMonstersHandler = { monsters in
+            for index in 0 ..< monsterDTOs.count {
+                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+            }
+        }
+        await presenter.viewDidLoad()
+        
+        await presenter.didSelectMonsterAt(0)
+        
+        XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
+        XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
+    }
+    
     // MARK: MonsterListInteractorOutput
 
     // MARK: - Other Private Methods
@@ -191,10 +217,12 @@ final class MonsterListPresenterTests: XCTestCase {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()
         self.routerMock = MonsterListRouterInputMock()
+        self.imageCacheManagerMock = ImageCacheManagerProtocolMock()
         self.presenter = MonsterListPresenter(
             view: self.viewMock,
             interactor: self.interactorMock,
-            router: self.routerMock
+            router: self.routerMock,
+            imageCacheManager: self.imageCacheManagerMock
         )
     }
 
