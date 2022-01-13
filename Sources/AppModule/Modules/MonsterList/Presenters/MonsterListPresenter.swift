@@ -112,11 +112,23 @@ extension MonsterListPresenter: MonsterListEventHandler {
     }
 
     private func convertEntitiesToItems(entities: [MonsterEntity]) async -> [MonsterItem] {
-        var items: [MonsterItem] = []
-        for entity in entities {
-            items.append(await monsterConverter.convertEntityToItem(entity: entity))
+        await withTaskGroup(of: MonsterItem.self) { [weak self] group in
+            guard let self = self else {
+                return []
+            }
+
+            for entity in entities {
+                group.addTask {
+                    await self.monsterConverter.convertEntityToItem(entity: entity)
+                }
+            }
+
+            var items: [MonsterItem] = []
+            for await item in group {
+                items.append(item)
+            }
+            return items
         }
-        return items
     }
 }
 
