@@ -22,7 +22,7 @@ protocol MonsterListEventHandler: AnyObject {
 }
 
 @MainActor
-protocol MonsterSectionEventHandler {
+protocol MonsterSectionEventHandler: AnyObject {
     func didSelectMonsterAt(_ row: Int) async
 }
 

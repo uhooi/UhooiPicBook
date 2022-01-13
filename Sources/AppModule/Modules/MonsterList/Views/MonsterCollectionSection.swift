@@ -9,7 +9,7 @@ import UIKit
 
 @MainActor
 final class MonsterCollectionSection {
-    private let presenter: MonsterSectionEventHandler
+    private unowned let presenter: MonsterSectionEventHandler
 
     init(presenter: MonsterSectionEventHandler) {
         self.presenter = presenter
