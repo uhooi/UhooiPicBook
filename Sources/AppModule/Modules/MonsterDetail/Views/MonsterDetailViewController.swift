@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import ImageCache
-import Logger
 
 /// @mockable
 @MainActor
@@ -21,10 +19,8 @@ public final class MonsterDetailViewController: UIViewController {
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterDetailEventHandler!
-    private var imageCacheManager: ImageCacheManagerProtocol!
-    private var logger: LoggerProtocol!
 
-    private var monster: MonsterEntity!
+    private var monster: MonsterItem!
 
     // MARK: IBOutlets
 
@@ -74,14 +70,10 @@ public final class MonsterDetailViewController: UIViewController {
 
     func inject(
         presenter: MonsterDetailEventHandler,
-        imageCacheManager: ImageCacheManagerProtocol,
-        monster: MonsterEntity,
-        logger: LoggerProtocol = Logger.default
+        monster: MonsterItem
     ) {
         self.presenter = presenter
-        self.imageCacheManager = imageCacheManager
         self.monster = monster
-        self.logger = logger
     }
 
     // MARK: Other Private Methods
@@ -92,18 +84,11 @@ public final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        Task {
-            do {
-                iconImageView.image = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-            } catch {
-                // TODO: エラーハンドリング
-                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
-            }
-        }
-        dancingImageView.image = imageCacheManager.cacheGIFImage(imageUrl: monster.dancingUrl)
+        iconImageView.image = monster.icon
+        dancingImageView.image = monster.dancingImage
         nameLabel.text = monster.name
         descriptionLabel.text = monster.description
-        navigationController?.navigationBar.configureBackgroundColor(.init(hex: monster.baseColorCode))
+        navigationController?.navigationBar.configureBackgroundColor(monster.baseColor)
     }
 }
 

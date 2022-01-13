@@ -11,3 +11,4 @@ import UIKit
 extension URL: @unchecked Sendable {}
 extension IndexPath: @unchecked Sendable {}
 extension UIImage: @unchecked Sendable {}
+extension UIColor: @unchecked Sendable {}

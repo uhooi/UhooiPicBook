@@ -8,7 +8,7 @@
 import Foundation
 import Shared
 
-public struct MonsterEntity: Equatable {
+public struct MonsterEntity {
     let name: String
     let description: String
     let baseColorCode: String
@@ -16,6 +16,8 @@ public struct MonsterEntity: Equatable {
     let dancingUrl: URL
 }
 
-extension MonsterEntity: Codable {}
+extension MonsterEntity: Codable {} // For saving in UserDefaults
 
 extension MonsterEntity: Sendable {}
+
+extension MonsterEntity: Equatable {} // For unit tests

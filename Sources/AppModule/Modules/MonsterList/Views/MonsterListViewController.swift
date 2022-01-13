@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import ImageCache
-import Logger
 
 /// @mockable
 @MainActor
 protocol MonsterListUserInterface: AnyObject {
-    func showMonsters(_ monsters: [MonsterEntity])
+    func showMonsters(_ monsters: [MonsterItem])
     func startIndicator()
     func stopIndicator()
 }
@@ -21,13 +19,48 @@ protocol MonsterListUserInterface: AnyObject {
 @MainActor
 public final class MonsterListViewController: UIViewController {
 
+    // MARK: Enums
+
+    private enum Section: Int, CaseIterable {
+        case monster
+    }
+
+    private enum Item: Hashable {
+        case monster(_ monster: MonsterItem)
+    }
+
     // MARK: Stored Instance Properties
 
     private var presenter: MonsterListEventHandler!
-    private var imageCacheManager: ImageCacheManagerProtocol!
-    private var logger: LoggerProtocol!
 
-    private var monsters: [MonsterEntity] = []
+    private var sections: [CollectionSectionProtocol]!
+
+    private lazy var monstersCollectionView: UICollectionView = {
+        let layout = UICollectionViewCompositionalLayout { [weak self] section, _ in
+            self?.sections[section].layoutSection()
+        }
+        let collectionView = UICollectionView(frame: .null, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        return collectionView
+    }()
+
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
+        let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, MonsterItem>(
+            cellNib: R.Nib.monsterCollectionViewCell) { cell, _, monster in
+            cell.setup(name: monster.name, icon: monster.icon, elevation: 1.0)
+        }
+
+        return .init(collectionView: monstersCollectionView) { collectionView, indexPath, item in
+            switch item {
+            case let .monster(monster):
+                return collectionView.dequeueConfiguredReusableCell(
+                    using: monsterCellRegistration,
+                    for: indexPath,
+                    item: monster
+                )
+            }
+        }
+    }()
 
     // MARK: IBOutlets
 
@@ -53,15 +86,6 @@ public final class MonsterListViewController: UIViewController {
         }
     }
 
-    @IBOutlet private weak var monstersCollectionView: UICollectionView! {
-        willSet {
-            newValue.register(
-                R.Nib.monsterCollectionViewCell,
-                forCellWithReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier
-            )
-        }
-    }
-
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     // MARK: View Life-Cycle Methods
@@ -70,6 +94,7 @@ public final class MonsterListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = .white
+        configureMonstersCollectionView()
 
         Task {
             await presenter.viewDidLoad()
@@ -85,71 +110,49 @@ public final class MonsterListViewController: UIViewController {
     // MARK: Other Internal Methods
 
     func inject(
-        presenter: MonsterListEventHandler,
-        imageCacheManager: ImageCacheManagerProtocol,
-        logger: LoggerProtocol = Logger.default
+        sections: [CollectionSectionProtocol],
+        presenter: MonsterListEventHandler
     ) {
+        self.sections = sections
         self.presenter = presenter
-        self.imageCacheManager = imageCacheManager
-        self.logger = logger
-    }
-}
-
-extension MonsterListViewController: UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        monsters.count
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: MonsterCollectionViewCell.reuseIdentifier,
-            for: indexPath
-        ) as? MonsterCollectionViewCell else {
-            fatalError("Fail to load MonsterCollectionViewCell.")
-        }
+    // MARK: Other Private Methods
 
-        Task {
-            do {
-                let monster = monsters[indexPath.row]
-                let icon = try await imageCacheManager.cacheImage(imageUrl: monster.iconUrl)
-                cell.setup(name: monster.name, icon: icon, elevation: 1.0)
-            } catch {
-                // TODO: エラーハンドリング
-                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
-            }
-        }
+    private func configureMonstersCollectionView() {
+        monstersCollectionView.delegate = self
 
-        return cell
-    }
-}
+        view.addSubview(monstersCollectionView)
+        monstersCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
-extension MonsterListViewController: UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: monstersCollectionView.frame.width - 16.0 * 2, height: 116.0)
+        NSLayoutConstraint.activate([
+            monstersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            monstersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            monstersCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            monstersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        12.0
-    }
+    private func applyDataSource(monsters: [MonsterItem]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections(Section.allCases)
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        12.0
+        let monsterItems: [Item] = monsters.map { .monster($0) }
+        snapshot.appendItems(monsterItems, toSection: .monster)
+
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
 extension MonsterListViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Task {
-            let monster = monsters[indexPath.row]
-            await presenter.didSelectMonster(monster: monster)
-        }
+        sections[indexPath.section].didSelectItemAt(indexPath.row)
     }
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
-    func showMonsters(_ monsters: [MonsterEntity]) {
-        self.monsters = monsters
-        monstersCollectionView.reloadData()
+    func showMonsters(_ monsters: [MonsterItem]) {
+        applyDataSource(monsters: monsters)
         monstersCollectionView.executeCellSlideUpAnimation()
     }
 

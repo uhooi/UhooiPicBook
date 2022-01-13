@@ -5,12 +5,15 @@ whiteList:
   - lhs
   - rhs
   - dto
+  - dtos
   - interactor
   - swiftlint
   - bannzai
   - gedatsu
   - json
   - hashable
+  - iterable
+  - diffable
   - fcm
   - github
   - thii

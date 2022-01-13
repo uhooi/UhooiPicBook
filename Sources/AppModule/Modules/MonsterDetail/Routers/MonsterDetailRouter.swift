@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ImageCache
 
 /// @mockable
 @MainActor
@@ -31,7 +30,7 @@ public final class MonsterDetailRouter {
 
     // MARK: Type Methods
 
-    public static func assembleModule(monster: MonsterEntity) -> MonsterDetailViewController {
+    public static func assembleModule(monster: MonsterItem) -> MonsterDetailViewController {
         let view = R.Storyboard.MonsterDetail.instantiateInitialViewController()
         let interactor = MonsterDetailInteractor()
         let router = MonsterDetailRouter(viewController: view)
@@ -39,7 +38,6 @@ public final class MonsterDetailRouter {
 
         view.inject(
             presenter: presenter,
-            imageCacheManager: ImageCacheManager(),
             monster: monster
         )
         interactor.presenter = presenter
