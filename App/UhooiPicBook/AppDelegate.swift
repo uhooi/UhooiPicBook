@@ -9,9 +9,6 @@
 import UIKit
 import FirebaseSetup
 import FirebaseMessagingBridge
-#if DEBUG
-import GedatsuSetup
-#endif
 
 @UIApplicationMain
 @MainActor
@@ -21,10 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // swiftlint:disable:next discouraged_optional_collection
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if DEBUG
-        GedatsuSetup.configure()
-        #endif
-
         FirebaseSetup.configure()
         configureNotifications(application: application)
         firebaseMessagingBridge.delegate = self
