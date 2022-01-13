@@ -47,7 +47,6 @@ let package = Package(
     products: [
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
-        .library(name: "GedatsuSetup", targets: ["GedatsuSetup"]),
         .library(name: "AppModule", targets: ["AppModule"]),
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
         .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
@@ -55,7 +54,6 @@ let package = Package(
         .library(name: "ImageCache", targets: ["ImageCache"]), // FIXME: Remove later
     ],
     dependencies: [
-        .package(url: "https://github.com/bannzai/Gedatsu", from: "1.2.0"),
     ],
     targets: [
         .target(
@@ -70,12 +68,6 @@ let package = Package(
             dependencies: firebaseMessagingDependencies + firebaseAnalyticsDependencies,
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
-            ]
-        ),
-        .target(
-            name: "GedatsuSetup",
-            dependencies: [
-                .product(name: "Gedatsu", package: "Gedatsu"),
             ]
         ),
         .target(

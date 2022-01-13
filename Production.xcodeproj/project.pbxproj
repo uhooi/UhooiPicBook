@@ -46,7 +46,6 @@
 		7995BD3C27880A9800B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3B27880A9800B553DC /* MonstersFirebaseClient */; };
 		79AFF1622785B9F800396E49 /* ImageCache in Frameworks */ = {isa = PBXBuildFile; productRef = 79AFF1612785B9F800396E49 /* ImageCache */; };
 		79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 79C193AA2789CF5200E7A58E /* MonsterWidgets */; };
-		79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 79F57BDD2784B3F8003218BC /* GedatsuSetup */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
@@ -189,7 +188,6 @@
 			files = (
 				797ABFA9278A9BA5005B445B /* AppModule in Frameworks */,
 				7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */,
-				79F57BDE2784B3F8003218BC /* GedatsuSetup in Frameworks */,
 				7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,7 +626,6 @@
 			);
 			name = UhooiPicBook;
 			packageProductDependencies = (
-				79F57BDD2784B3F8003218BC /* GedatsuSetup */,
 				7921EEF82785E5E40033DDEC /* FirebaseSetup */,
 				7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */,
 				797ABFA8278A9BA5005B445B /* AppModule */,
@@ -1519,10 +1516,6 @@
 		79C193AA2789CF5200E7A58E /* MonsterWidgets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MonsterWidgets;
-		};
-		79F57BDD2784B3F8003218BC /* GedatsuSetup */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GedatsuSetup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

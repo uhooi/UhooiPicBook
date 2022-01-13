@@ -29,15 +29,6 @@
         }
       },
       {
-        "package": "Gedatsu",
-        "repositoryURL": "https://github.com/bannzai/Gedatsu",
-        "state": {
-          "branch": null,
-          "revision": "644f18f82943ed9f6392a5c3ca88a430524a789f",
-          "version": "1.2.0"
-        }
-      },
-      {
         "package": "HeliumLogger",
         "repositoryURL": "https://github.com/Kitura/HeliumLogger.git",
         "state": {
