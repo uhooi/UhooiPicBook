@@ -47,8 +47,8 @@ final class MonsterListPresenterTests: XCTestCase {
         let dancingImage = UIImage(systemName: "person")!
         imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
         viewMock.showMonstersHandler = { monsters in
-            for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
+            for _ in 0 ..< monsterDTOs.count {
+                XCTFail("There shouldn't be any monsters.")
             }
         }
         
