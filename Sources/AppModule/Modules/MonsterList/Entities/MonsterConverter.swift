@@ -23,12 +23,10 @@ public final class MonsterConverter {
     // MARK: Other Public Methods
 
     public func convertEntityToItem(entity: MonsterEntity) async -> MonsterItem {
-        guard let icon = try? await imageCacheManager.cacheImage(imageUrl: entity.iconUrl)
-        else {
+        guard let icon = try? await imageCacheManager.cacheImage(imageUrl: entity.iconUrl) else {
             fatalError("Fail to load icon.")
         }
-        guard let dancingImage = imageCacheManager.cacheGIFImage(imageUrl: entity.dancingUrl)
-        else {
+        guard let dancingImage = imageCacheManager.cacheGIFImage(imageUrl: entity.dancingUrl) else {
             fatalError("Fail to load dancing image.")
         }
 
