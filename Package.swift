@@ -86,7 +86,7 @@ let package = Package(
                 "ImageLoader",
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags),
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
@@ -98,14 +98,14 @@ let package = Package(
                 "ImageLoader",
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags)
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags)
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
@@ -121,7 +121,7 @@ let package = Package(
             dependencies: [
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags),
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
@@ -129,7 +129,7 @@ let package = Package(
             dependencies: [
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags),
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .binaryTarget(
