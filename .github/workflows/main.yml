@@ -54,7 +54,7 @@ jobs:
         retention-days: 14
 
   test:
-  name: test for ${{ matrix.name }}
+    name: test for ${{ matrix.name }}
     runs-on: macos-11
     strategy:
       matrix:
