@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
 		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
-		4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -34,7 +32,6 @@
 		792E8F4F278C4B2D000F3902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F47278C4B2D000F3902 /* AppDelegate.swift */; };
 		792E8F50278C4B2D000F3902 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F48278C4B2D000F3902 /* SceneDelegate.swift */; };
 		792E8F5A278C4C8E000F3902 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792E8F58278C4C8E000F3902 /* Stickers.xcassets */; };
-		792E8F61278C5D17000F3902 /* MockResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F60278C5D17000F3902 /* MockResults.swift */; };
 		792E8F8D278C6532000F3902 /* MonsterConfigurableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */; };
 		792E8F8E278C6532000F3902 /* UhooiPicBookWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */; };
 		792E8F97278C67F1000F3902 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792E8F95278C67F1000F3902 /* IntentHandler.swift */; };
@@ -49,12 +46,9 @@
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
-		AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */; };
 		ED23EF346F55E2E02F461F16 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D686A013EAD76B19604C9 /* PageProtocol.swift */; };
-		F52BB729600886030E41D991 /* MonsterDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */; };
 		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
-		FB293019EEFEB445EF5EA56A /* UserDefaultsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +116,6 @@
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
 		5FC40872E7A32ADB0B8AE3D7 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestore.xcframework; path = Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework; sourceTree = "<group>"; };
-		60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailInteractorTests.swift; sourceTree = "<group>"; };
 		64FA23DFA00E386CF2DBCE63 /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
 		792E8EE6278C430A000F3902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/WidgetsConfiguration.intentdefinition; sourceTree = "<group>"; };
 		792E8EE7278C430A000F3902 /* MonsterIntentObject+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MonsterIntentObject+Convert.swift"; sourceTree = "<group>"; };
@@ -138,7 +131,6 @@
 		792E8F51278C4B5E000F3902 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		792E8F58278C4C8E000F3902 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		792E8F59278C4C8E000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		792E8F60278C5D17000F3902 /* MockResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockResults.swift; sourceTree = "<group>"; };
 		792E8F88278C6532000F3902 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792E8F8A278C6532000F3902 /* MonsterConfigurableWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterConfigurableWidget.swift; sourceTree = "<group>"; };
 		792E8F8B278C6532000F3902 /* UhooiPicBookWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UhooiPicBookWidgets.swift; sourceTree = "<group>"; };
@@ -155,12 +147,9 @@
 		8BA1D60203EDBC076FFF5642 /* FirebaseMessaging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseMessaging.xcframework; path = Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework; sourceTree = "<group>"; };
 		8F94607B0325642C330CD793 /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework; sourceTree = "<group>"; };
 		988A97043A06E226C6868588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPresenterTests.swift; sourceTree = "<group>"; };
 		AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UhooiPicBookWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE841A10BB74D787FB068BD6 /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
-		AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClientTests.swift; sourceTree = "<group>"; };
 		B121E1EC2442F244D11C5380 /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/PromisesObjC.xcframework; sourceTree = "<group>"; };
-		B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailPresenterTests.swift; sourceTree = "<group>"; };
 		B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListPage.swift; sourceTree = "<group>"; };
 		B2A9349AFF95EFE00FCADA23 /* FirebaseCrashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCrashlytics.xcframework; path = Frameworks/Firebase/FirebaseCrashlytics/FirebaseCrashlytics.xcframework; sourceTree = "<group>"; };
 		B3034A14E3F41394DEB55A62 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
@@ -176,7 +165,6 @@
 		E4EA4C797239C728014E8BCC /* UhooiPicBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UhooiPicBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C25BE3139AF9A212CCC8F0 /* gRPC-C++.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "gRPC-C++.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/gRPC-C++.xcframework"; sourceTree = "<group>"; };
 		E93FC0F13B863F9E5F5D500D /* abseil.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = abseil.xcframework; path = Frameworks/Firebase/FirebaseFirestore/abseil.xcframework; sourceTree = "<group>"; };
-		F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListInteractorTests.swift; sourceTree = "<group>"; };
 		F6868AB01C3AABA6F00D83C8 /* gRPC-Core.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "gRPC-Core.xcframework"; path = "Frameworks/Firebase/FirebaseFirestore/gRPC-Core.xcframework"; sourceTree = "<group>"; };
 		F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UhooiPicBookUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,40 +212,6 @@
 				E4618659C63EB6D450468854 /* BundleStringTests.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		180F961DDBB1443BCBB3B9F2 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				40475B235A56CAA783484A7B /* MonsterDetail */,
-				D28B5AA035A5F48373BC57B2 /* MonsterList */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		209A8D03792A3E6A18E9B5C5 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				B1C09F4653FFD9F29FC6EB34 /* MonsterDetailPresenterTests.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
-		26D31D92E8FF63958D9EC9C9 /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				AFA9AA147A98899FFEEC437E /* UserDefaultsClientTests.swift */,
-			);
-			path = Temp;
-			sourceTree = "<group>";
-		};
-		40475B235A56CAA783484A7B /* MonsterDetail */ = {
-			isa = PBXGroup;
-			children = (
-				8A78E6C2274A653B6AE2D725 /* Interactors */,
-				209A8D03792A3E6A18E9B5C5 /* Presenters */,
-			);
-			path = MonsterDetail;
 			sourceTree = "<group>";
 		};
 		47C552D3546C641AB89783C1 = {
@@ -356,14 +310,6 @@
 			path = UhooiPicBookStickers;
 			sourceTree = "<group>";
 		};
-		792E8F5F278C5D17000F3902 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				792E8F60278C5D17000F3902 /* MockResults.swift */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
 		792E8F87278C6532000F3902 /* UhooiPicBookWidgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,30 +335,6 @@
 				792E8F95278C67F1000F3902 /* IntentHandler.swift */,
 			);
 			path = UhooiPicBookWidgetsConfigurableIntent;
-			sourceTree = "<group>";
-		};
-		893210394C6FBD9D4384A4D9 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				26D31D92E8FF63958D9EC9C9 /* Temp */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		8A78E6C2274A653B6AE2D725 /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				60031E1EE211FAA1E6261E76 /* MonsterDetailInteractorTests.swift */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
-		8BCCCCE4BA1185FD0D66E13B /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				F0EC389B8F8E2D56AEF9B677 /* MonsterListInteractorTests.swift */,
-			);
-			path = Interactors;
 			sourceTree = "<group>";
 		};
 		9D14FEE7DAB67CCFD61B333D /* TestCases */ = {
@@ -449,19 +371,8 @@
 			children = (
 				988A97043A06E226C6868588 /* Info.plist */,
 				9E07DDF4AF7D2B2926033FDC /* Extensions */,
-				792E8F5F278C5D17000F3902 /* Generated */,
-				180F961DDBB1443BCBB3B9F2 /* Modules */,
-				893210394C6FBD9D4384A4D9 /* Repository */,
 			);
 			path = UhooiPicBookTests;
-			sourceTree = "<group>";
-		};
-		BEFA3747E1D1E1F80EDBCA34 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				989FE385C7C827A30118FFC6 /* MonsterListPresenterTests.swift */,
-			);
-			path = Presenters;
 			sourceTree = "<group>";
 		};
 		C2B92E538C189F4941F7DAFE /* Resources */ = {
@@ -470,15 +381,6 @@
 				792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		D28B5AA035A5F48373BC57B2 /* MonsterList */ = {
-			isa = PBXGroup;
-			children = (
-				8BCCCCE4BA1185FD0D66E13B /* Interactors */,
-				BEFA3747E1D1E1F80EDBCA34 /* Presenters */,
-			);
-			path = MonsterList;
 			sourceTree = "<group>";
 		};
 		EB1BD4D1C82D8077591B0698 /* UhooiPicBookUITests */ = {
@@ -862,12 +764,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */,
-				F52BB729600886030E41D991 /* MonsterDetailInteractorTests.swift in Sources */,
-				AF875220702B5444D9DB350A /* MonsterDetailPresenterTests.swift in Sources */,
-				378B68CC54AE33EE1E6A3019 /* MonsterListInteractorTests.swift in Sources */,
-				4E83A60244CE0D379E0BF539 /* MonsterListPresenterTests.swift in Sources */,
-				792E8F61278C5D17000F3902 /* MockResults.swift in Sources */,
-				FB293019EEFEB445EF5EA56A /* UserDefaultsClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
