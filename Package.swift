@@ -49,7 +49,7 @@ let package = Package(
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "AppModule", targets: ["AppModule"]),
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
-        .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
+        .library(name: "MonstersRepository", targets: ["MonstersRepository"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
         .library(name: "ImageLoader", targets: ["ImageLoader"]), // FIXME: Remove later
     ],
@@ -73,7 +73,7 @@ let package = Package(
         .target(
             name: "AppModule",
             dependencies: [
-                "MonstersFirebaseClient",
+                "MonstersRepository",
                 "Shared",
                 "Logger",
                 "ImageLoader",
@@ -83,13 +83,13 @@ let package = Package(
             name: "MonsterWidgets",
             dependencies: [
                 "FirebaseSetup",
-                "MonstersFirebaseClient",
+                "MonstersRepository",
                 "Logger",
                 "ImageLoader",
             ]
         ),
         .target(
-            name: "MonstersFirebaseClient",
+            name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),

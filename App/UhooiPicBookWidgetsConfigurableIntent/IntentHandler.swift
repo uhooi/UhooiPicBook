@@ -7,7 +7,7 @@
 
 import Intents
 import FirebaseSetup
-import MonstersFirebaseClient
+import MonstersRepository
 
 final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
@@ -15,7 +15,7 @@ final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
     override init() {
         FirebaseSetup.configure()
-        self.repository = MonstersFirebaseClient.shared
+        self.repository = MonstersFirestoreClient.shared
         super.init()
     }
 

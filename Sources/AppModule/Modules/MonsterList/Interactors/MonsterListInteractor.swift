@@ -6,7 +6,7 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import MonstersFirebaseClient
+import MonstersRepository
 
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
@@ -28,7 +28,7 @@ final class MonsterListInteractor {
 
     init(
         spotlightRepository: SpotlightRepository,
-        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
+        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
         monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
     ) {
         self.spotlightRepository = spotlightRepository

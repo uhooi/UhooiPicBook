@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 import FirebaseSetup
-import MonstersFirebaseClient
+import MonstersRepository
 import ImageLoader
 import Logger
 
@@ -19,7 +19,7 @@ private struct MonsterProvider {
     private let logger: LoggerProtocol
 
     init(
-        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
+        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
         logger: LoggerProtocol = Logger.default
     ) {
         self.monstersRepository = monstersRepository

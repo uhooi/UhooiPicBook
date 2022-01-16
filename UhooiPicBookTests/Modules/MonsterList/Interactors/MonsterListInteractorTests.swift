@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import AppModule
-import MonstersFirebaseClient
+import MonstersRepository
 
 final class MonsterListInteractorTests: XCTestCase {
 

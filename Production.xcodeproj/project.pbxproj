@@ -17,6 +17,8 @@
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		791904CC2793F9DA00416F7D /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = 791904CB2793F9DA00416F7D /* ImageLoader */; };
+		791904D22794084800416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904D12794084800416F7D /* MonstersRepository */; };
+		791904D42794085600416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904D32794085600416F7D /* MonstersRepository */; };
 		7921EEF32785DDFE0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF22785DDFE0033DDEC /* Shared */; };
 		7921EEF52785DE040033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF42785DE040033DDEC /* Shared */; };
 		7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF82785E5E40033DDEC /* FirebaseSetup */; };
@@ -43,8 +45,6 @@
 		792E8FDB278C7B6F000F3902 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792E8FDA278C7B6F000F3902 /* Settings.bundle */; };
 		797ABFA9278A9BA5005B445B /* AppModule in Frameworks */ = {isa = PBXBuildFile; productRef = 797ABFA8278A9BA5005B445B /* AppModule */; };
 		7995BD302786F36A00B553DC /* FirebaseMessagingBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */; };
-		7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3927880A7900B553DC /* MonstersFirebaseClient */; };
-		7995BD3C27880A9800B553DC /* MonstersFirebaseClient in Frameworks */ = {isa = PBXBuildFile; productRef = 7995BD3B27880A9800B553DC /* MonstersFirebaseClient */; };
 		79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 79C193AA2789CF5200E7A58E /* MonsterWidgets */; };
 		7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B117974B5DFAEB1BA1DB35C /* MonsterDetailPage.swift */; };
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
@@ -198,7 +198,7 @@
 			files = (
 				7921EEF52785DE040033DDEC /* Shared in Frameworks */,
 				7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */,
-				7995BD3C27880A9800B553DC /* MonstersFirebaseClient in Frameworks */,
+				791904D42794085600416F7D /* MonstersRepository in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +209,9 @@
 				5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */,
 				791904CC2793F9DA00416F7D /* ImageLoader in Frameworks */,
 				F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */,
-				7995BD3A27880A7900B553DC /* MonstersFirebaseClient in Frameworks */,
 				7921EEF32785DDFE0033DDEC /* Shared in Frameworks */,
 				79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */,
+				791904D22794084800416F7D /* MonstersRepository in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,9 +542,9 @@
 			name = UhooiPicBookWidgets;
 			packageProductDependencies = (
 				7921EEF22785DDFE0033DDEC /* Shared */,
-				7995BD3927880A7900B553DC /* MonstersFirebaseClient */,
 				79C193AA2789CF5200E7A58E /* MonsterWidgets */,
 				791904CB2793F9DA00416F7D /* ImageLoader */,
+				791904D12794084800416F7D /* MonstersRepository */,
 			);
 			productName = UhooiPicBookWidgets;
 			productReference = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */;
@@ -598,7 +598,7 @@
 			packageProductDependencies = (
 				7921EEF42785DE040033DDEC /* Shared */,
 				7921EEFA2785E6290033DDEC /* FirebaseSetup */,
-				7995BD3B27880A9800B553DC /* MonstersFirebaseClient */,
+				791904D32794085600416F7D /* MonstersRepository */,
 			);
 			productName = UhooiPicBookWidgetsConfigurableIntent;
 			productReference = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */;
@@ -1481,6 +1481,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ImageLoader;
 		};
+		791904D12794084800416F7D /* MonstersRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MonstersRepository;
+		};
+		791904D32794085600416F7D /* MonstersRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MonstersRepository;
+		};
 		7921EEF22785DDFE0033DDEC /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Shared;
@@ -1504,14 +1512,6 @@
 		7995BD2F2786F36A00B553DC /* FirebaseMessagingBridge */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseMessagingBridge;
-		};
-		7995BD3927880A7900B553DC /* MonstersFirebaseClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MonstersFirebaseClient;
-		};
-		7995BD3B27880A9800B553DC /* MonstersFirebaseClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MonstersFirebaseClient;
 		};
 		79C193AA2789CF5200E7A58E /* MonsterWidgets */ = {
 			isa = XCSwiftPackageProductDependency;
