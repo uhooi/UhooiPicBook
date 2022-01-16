@@ -111,15 +111,15 @@ clean-cli-tools: # Delete build artifacts for CLI tools managed by SwiftPM
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
-	$(MAKE) build-develop-debug
+	$(MAKE) build-debug-develop
 	${CLI_TOOLS_PATH}/swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
-.PHONY: build-develop-debug
-build-develop-debug: # Xcode debug build for develop
+.PHONY: build-debug-develop
+build-debug-develop: # Xcode debug build for develop
 	$(MAKE) build-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
-.PHONY: build-production-debug
-build-production-debug: # Xcode debug build for production
+.PHONY: build-debug-production
+build-debug-production: # Xcode debug build for production
 	$(MAKE) build-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
 
 .PHONY: build-debug

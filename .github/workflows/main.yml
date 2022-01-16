@@ -40,7 +40,7 @@ jobs:
 
     # ビルド
     - name: Xcode build for ${{ matrix.environment }}
-      run: make build-${{ matrix.environment }}-debug
+      run: make build-debug-${{ matrix.environment }}
 
     # ビルドログのアップロード
     - name: Upload build log Artifact
