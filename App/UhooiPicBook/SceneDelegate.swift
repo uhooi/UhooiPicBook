@@ -91,7 +91,7 @@ extension SceneDelegate {
 
         nav.dismiss(animated: false)
         nav.popToRootViewController(animated: false)
-        
+
         let vc = MonsterDetailRouter.assembleModule(monster: MonsterItem(entity: monsterEntity))
         nav.pushViewController(vc, animated: true)
     }
