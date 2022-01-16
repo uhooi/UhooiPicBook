@@ -1,5 +1,5 @@
 //
-//  MonstersFirebaseClient.swift
+//  MonstersFirestoreClient.swift
 //  UhooiPicBook
 //
 //  Created by uhooi on 2020/02/28.
@@ -7,11 +7,11 @@
 
 import FirebaseFirestore
 
-public final class MonstersFirebaseClient {
+public final class MonstersFirestoreClient {
 
     // MARK: Stored Type Properties
 
-    public static let shared = MonstersFirebaseClient()
+    public static let shared = MonstersFirestoreClient()
 
     // MARK: Stored Instance Properties
 
@@ -22,7 +22,7 @@ public final class MonstersFirebaseClient {
     private init() {}
 }
 
-extension MonstersFirebaseClient: MonstersRepository {
+extension MonstersFirestoreClient: MonstersRepository {
     public func loadMonsters() async throws -> [MonsterDTO] {
         let monstersRef = firestore.collection("monsters")
         let querySnapshot = try await monstersRef.getDocuments()

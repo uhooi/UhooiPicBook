@@ -28,7 +28,7 @@ final class MonsterListInteractor {
 
     init(
         spotlightRepository: SpotlightRepository,
-        monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
+        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
         monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
     ) {
         self.spotlightRepository = spotlightRepository
