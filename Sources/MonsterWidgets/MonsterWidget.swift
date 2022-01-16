@@ -11,6 +11,7 @@ import FirebaseSetup
 import MonstersRepository
 import ImageLoader
 import Logger
+import Shared
 
 private struct MonsterProvider {
     typealias Entry = MonsterEntry
