@@ -490,8 +490,7 @@
 				EB9FF08BDED117C228729B0B /* Pages */,
 				9D14FEE7DAB67CCFD61B333D /* TestCases */,
 			);
-			name = UhooiPicBookUITests;
-			path = ../UhooiPicBookUITests;
+			path = UhooiPicBookUITests;
 			sourceTree = "<group>";
 		};
 		EB9FF08BDED117C228729B0B /* Pages */ = {
@@ -949,7 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ../UhooiPicBookUITests/Info.plist;
+				INFOPLIST_FILE = UhooiPicBookUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1101,7 +1100,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ../UhooiPicBookUITests/Info.plist;
+				INFOPLIST_FILE = UhooiPicBookUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
