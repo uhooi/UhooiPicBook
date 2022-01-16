@@ -37,6 +37,13 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
     "leveldb-library",
 ]
 
+let otherSwiftFlags: [String] = [
+    "-Xfrontend", "-warn-long-expression-type-checking=500",
+    "-Xfrontend", "-warn-long-function-bodies=500",
+    "-Xfrontend", "-warn-concurrency",
+    "-Xfrontend", "-enable-actor-data-race-checks",
+]
+
 let package = Package(
     name: "UhooiPicBookPackage",
     defaultLocalization: "ja",
@@ -77,6 +84,9 @@ let package = Package(
                 "Shared",
                 "Logger",
                 "ImageLoader",
+            ],
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
@@ -86,11 +96,17 @@ let package = Package(
                 "MonstersRepository",
                 "Logger",
                 "ImageLoader",
+            ],
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+            ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
@@ -103,11 +119,17 @@ let package = Package(
         .target(
             name: "Logger",
             dependencies: [
+            ],
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "ImageLoader",
             dependencies: [
+            ],
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .binaryTarget(
