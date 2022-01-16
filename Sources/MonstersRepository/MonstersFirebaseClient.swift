@@ -7,11 +7,6 @@
 
 import FirebaseFirestore
 
-/// @mockable
-public protocol MonstersRepository: AnyObject {
-    func loadMonsters() async throws -> [MonsterDTO]
-}
-
 public final class MonstersFirebaseClient {
 
     // MARK: Stored Type Properties
