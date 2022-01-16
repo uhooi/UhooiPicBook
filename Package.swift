@@ -104,6 +104,9 @@ let package = Package(
         .target(
             name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
+            swiftSettings: [
+                .unsafeFlags(otherSwiftFlags)
+            ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
