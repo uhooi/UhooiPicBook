@@ -5,22 +5,21 @@
 //  Created by uhooi on 2020/03/03.
 //
 
-import UIKit
+import UIKit.UIImage
 
-/// @mockable
-public protocol ImageCacheManagerProtocol: AnyObject {
+protocol ImageCacheManagerProtocol: AnyObject {
     func cacheImage(imageUrl: URL) async throws -> UIImage
     func cacheGIFImage(imageUrl: URL) -> UIImage?
 }
 
-public final class ImageCacheManager {
-    public static let imageCache = NSCache<AnyObject, AnyObject>()
+final class ImageCacheManager {
+    static let imageCache = NSCache<AnyObject, AnyObject>()
 
-    public init() {}
+    init() {}
 }
 
 extension ImageCacheManager: ImageCacheManagerProtocol {
-    public func cacheImage(imageUrl: URL) async throws -> UIImage {
+    func cacheImage(imageUrl: URL) async throws -> UIImage {
         if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
             return imageFromCache
         }
@@ -33,7 +32,7 @@ extension ImageCacheManager: ImageCacheManagerProtocol {
         return image
     }
 
-    public func cacheGIFImage(imageUrl: URL) -> UIImage? {
+    func cacheGIFImage(imageUrl: URL) -> UIImage? {
         if let imageFromCache = ImageCacheManager.imageCache.object(forKey: imageUrl as AnyObject) as? UIImage {
             return imageFromCache
         }

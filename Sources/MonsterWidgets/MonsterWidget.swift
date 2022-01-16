@@ -16,15 +16,12 @@ private struct MonsterProvider {
     typealias Entry = MonsterEntry
 
     private let monstersRepository: MonstersRepository
-    private let imageCacheManager: ImageCacheManagerProtocol
     private let logger: LoggerProtocol
 
     init(
-        imageCacheManager: ImageCacheManagerProtocol,
         monstersRepository: MonstersRepository = MonstersFirebaseClient.shared,
         logger: LoggerProtocol = Logger.default
     ) {
-        self.imageCacheManager = imageCacheManager
         self.monstersRepository = monstersRepository
         self.logger = logger
     }
@@ -34,9 +31,7 @@ public struct MonsterWidget: Widget {
     public var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: "Monster",
-            provider: MonsterProvider(
-                imageCacheManager: ImageCacheManager()
-            )
+            provider: MonsterProvider()
         ) { entry in
             MonsterEntryView(entry: entry)
         }
@@ -67,11 +62,12 @@ extension MonsterProvider: TimelineProvider {
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {
-                    guard let iconUrl = URL(string: monster.iconUrlString) else {
+                    guard let iconUrl = URL(string: monster.iconUrlString),
+                          let icon = await UIImage.create(url: iconUrl)
+                    else {
                         continue
                     }
 
-                    let icon = try await imageCacheManager.cacheImage(imageUrl: iconUrl)
                     guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else {
                         fatalError("Fail to unwrap `entryDate`. hourOffset: \(hourOffset), currentDate: \(currentDate)")
                     }
