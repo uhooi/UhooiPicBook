@@ -15,4 +15,7 @@ excluded:
   - UhooiPicBookTests
   - UhooiPicBookUITests
   - Tests
+  - SourcePackages
+  - Tools
+  - Generated
 
