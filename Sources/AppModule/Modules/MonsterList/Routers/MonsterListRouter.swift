@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ImageCache
 
 /// @mockable
 @MainActor
@@ -38,16 +37,12 @@ public final class MonsterListRouter {
 
     public static func assembleModule() -> MonsterListViewController {
         let view = R.Storyboard.MonsterList.instantiateInitialViewController()
-        let imageCacheManager: ImageCacheManagerProtocol = ImageCacheManager()
-        let interactor = MonsterListInteractor(
-            spotlightRepository: SpotlightClient(imageCacheManager: imageCacheManager)
-        )
+        let interactor = MonsterListInteractor(spotlightRepository: SpotlightClient())
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(
             view: view,
             interactor: interactor,
-            router: router,
-            imageCacheManager: imageCacheManager
+            router: router
         )
 
         let sections: [CollectionSectionProtocol] = [

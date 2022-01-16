@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageLoader
 
 /// @mockable
 @MainActor
@@ -84,11 +85,13 @@ public final class MonsterDetailViewController: UIViewController {
     }
 
     private func configureView() {
-        iconImageView.image = monster.icon
-        dancingImageView.image = monster.dancingImage
+        Task {
+            await iconImageView.loadImage(with: monster.iconUrl)
+        }
         nameLabel.text = monster.name
         descriptionLabel.text = monster.description
-        navigationController?.navigationBar.configureBackgroundColor(monster.baseColor)
+        navigationController?.navigationBar.configureBackgroundColor(UIColor(hex: monster.baseColorCode))
+        dancingImageView.loadGIFImage(with: monster.dancingUrl)
     }
 }
 
