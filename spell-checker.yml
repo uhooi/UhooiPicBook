@@ -28,6 +28,7 @@ whiteList:
   - leveldb
   - xcframework
   - nslocalizedstring
+  - xfrontend
 
   # Uhooi
   - theuhooi
