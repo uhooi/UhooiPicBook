@@ -9,7 +9,6 @@
 import CoreSpotlight
 import UIKit
 import AppModule
-import ImageCache
 
 @MainActor
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

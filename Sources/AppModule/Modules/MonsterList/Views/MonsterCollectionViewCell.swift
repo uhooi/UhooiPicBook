@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ImageCache
 
 @MainActor
 final class MonsterCollectionViewCell: UICollectionViewCell {
