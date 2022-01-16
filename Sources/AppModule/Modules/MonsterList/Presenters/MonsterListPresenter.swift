@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MonstersFirebaseClient
 
 @MainActor
 protocol MonsterListEventHandler: AnyObject {
@@ -57,10 +56,10 @@ extension MonsterListPresenter: MonsterListEventHandler {
     func viewDidLoad() async {
         do {
             view.startIndicator()
-            let monsters = try await interactor.fetchMonsters()
-            let monsterEntities = monsters
+            let monsterDTOs = try await interactor.fetchMonsters()
+            let monsterEntities = monsterDTOs
                 .sorted { $0.order < $1.order }
-                .map { convertDTOToEntity(dto: $0) }
+                .map { MonsterEntity(dto: $0) }
             self.monsters = monsterEntities
             let monsterItems = monsterEntities.map { MonsterItem(entity: $0) }
             view.showMonsters(monsterItems)
@@ -85,25 +84,6 @@ extension MonsterListPresenter: MonsterListEventHandler {
 
     func didTapAboutThisApp() {
         router.showAboutThisApp()
-    }
-
-    // MARK: Other Private Methods
-
-    private func convertDTOToEntity(dto: MonsterDTO) -> MonsterEntity {
-        guard let iconUrl = URL(string: dto.iconUrlString) else {
-            fatalError("Fail to load icon.")
-        }
-        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
-            fatalError("Fail to load dancing image.")
-        }
-
-        return MonsterEntity(
-            name: dto.name,
-            description: dto.description.replacingOccurrences(of: "\\n", with: "\n"),
-            baseColorCode: dto.baseColorCode,
-            iconUrl: iconUrl,
-            dancingUrl: dancingUrl
-        )
     }
 }
 

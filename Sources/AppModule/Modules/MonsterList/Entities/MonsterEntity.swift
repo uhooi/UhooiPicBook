@@ -7,6 +7,7 @@
 
 import Foundation
 import Shared
+import MonstersFirebaseClient
 
 public struct MonsterEntity {
     let name: String
@@ -14,6 +15,21 @@ public struct MonsterEntity {
     let baseColorCode: String
     let iconUrl: URL
     let dancingUrl: URL
+
+    public init(dto: MonsterDTO) {
+        guard let iconUrl = URL(string: dto.iconUrlString) else {
+            fatalError("Fail to load icon.")
+        }
+        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
+            fatalError("Fail to load dancing image.")
+        }
+
+        self.name = dto.name
+        self.description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
+        self.baseColorCode = dto.baseColorCode
+        self.iconUrl = iconUrl
+        self.dancingUrl = dancingUrl
+    }
 }
 
 extension MonsterEntity: Codable {} // For saving in UserDefaults
