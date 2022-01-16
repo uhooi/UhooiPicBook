@@ -126,7 +126,7 @@ jobs:
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
-        name: test-results
+        name: all-test-results
         path: |
           TestResults.xcresult
         if-no-files-found: warn
