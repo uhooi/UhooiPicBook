@@ -21,7 +21,7 @@ PRODUCTION_PROJECT_NAME := Production
 CLI_TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
 CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
 
-MOCK_FILE_PATH := ./UhooiPicbookTests/Generated/MockResults.swift
+MOCK_FILE_PATH := ./App/UhooiPicbookTests/Generated/MockResults.swift
 
 FIREBASE_VERSION := 8.6.0
 
