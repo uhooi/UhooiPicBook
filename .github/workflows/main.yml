@@ -48,7 +48,8 @@ jobs:
       if: failure()
       with:
         name: xcodebuild-logs
-        path: *_Build.log
+        path: |
+          *_Build.log
         if-no-files-found: ignore
         retention-days: 14
 
