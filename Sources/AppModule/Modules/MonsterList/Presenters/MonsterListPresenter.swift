@@ -8,7 +8,6 @@
 
 import Foundation
 import MonstersFirebaseClient
-import ImageCache
 
 @MainActor
 protocol MonsterListEventHandler: AnyObject {
@@ -39,8 +38,6 @@ final class MonsterListPresenter {
     private let interactor: MonsterListInteractorInput
     private let router: MonsterListRouterInput
 
-    private let monsterConverter: MonsterConverter
-
     private var monsters: [MonsterEntity] = []
 
     // MARK: Initializers
@@ -48,13 +45,11 @@ final class MonsterListPresenter {
     init(
         view: MonsterListUserInterface,
         interactor: MonsterListInteractorInput,
-        router: MonsterListRouterInput,
-        imageCacheManager: ImageCacheManagerProtocol
+        router: MonsterListRouterInput
     ) {
         self.view = view
         self.interactor = interactor
         self.router = router
-        self.monsterConverter = MonsterConverter(imageCacheManager: imageCacheManager)
     }
 }
 
@@ -67,7 +62,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
                 .sorted { $0.order < $1.order }
                 .map { convertDTOToEntity(dto: $0) }
             self.monsters = monsterEntities
-            let monsterItems = await convertEntitiesToItems(entities: monsterEntities)
+            let monsterItems = monsterEntities.map { MonsterItem(entity: $0) }
             view.showMonsters(monsterItems)
             view.stopIndicator()
         } catch {
@@ -110,33 +105,13 @@ extension MonsterListPresenter: MonsterListEventHandler {
             dancingUrl: dancingUrl
         )
     }
-
-    private func convertEntitiesToItems(entities: [MonsterEntity]) async -> [MonsterItem] {
-        await withTaskGroup(of: MonsterItem.self) { [weak self] group in
-            guard let self = self else {
-                return []
-            }
-
-            for entity in entities {
-                group.addTask {
-                    await self.monsterConverter.convertEntityToItem(entity: entity)
-                }
-            }
-
-            var items: [MonsterItem] = []
-            for await item in group {
-                items.append(item)
-            }
-            return items
-        }
-    }
 }
 
 extension MonsterListPresenter: MonsterSectionEventHandler {
     func didSelectMonsterAt(_ row: Int) async {
-        let monster = monsters[row]
-        router.showMonsterDetail(monster: await monsterConverter.convertEntityToItem(entity: monster))
-        await interactor.saveForSpotlight(monster)
+        let entity = monsters[row]
+        router.showMonsterDetail(monster: MonsterItem(entity: entity))
+        await interactor.saveForSpotlight(entity)
     }
 }
 

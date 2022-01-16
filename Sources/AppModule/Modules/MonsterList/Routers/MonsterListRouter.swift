@@ -46,8 +46,7 @@ public final class MonsterListRouter {
         let presenter = MonsterListPresenter(
             view: view,
             interactor: interactor,
-            router: router,
-            imageCacheManager: imageCacheManager
+            router: router
         )
 
         let sections: [CollectionSectionProtocol] = [

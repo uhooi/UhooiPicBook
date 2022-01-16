@@ -85,19 +85,15 @@ extension SceneDelegate {
 
     private func executeSpotlightActivity(_ userActivity: NSUserActivity) {
         guard let key = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
-              let monster = UserDefaultsClient.shared.loadMonster(key: key),
+              let monsterEntity = UserDefaultsClient.shared.loadMonster(key: key),
               let nav = window?.rootViewController as? UINavigationController else {
             return
         }
 
         nav.dismiss(animated: false)
         nav.popToRootViewController(animated: false)
-        Task {
-            let monsterConverter = MonsterConverter(imageCacheManager: ImageCacheManager())
-            let vc = MonsterDetailRouter.assembleModule(
-                monster: await monsterConverter.convertEntityToItem(entity: monster)
-            )
-            nav.pushViewController(vc, animated: true)
-        }
+        
+        let vc = MonsterDetailRouter.assembleModule(monster: MonsterItem(entity: monsterEntity))
+        nav.pushViewController(vc, animated: true)
     }
 }
