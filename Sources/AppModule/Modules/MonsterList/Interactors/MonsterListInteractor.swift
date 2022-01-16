@@ -6,7 +6,7 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import MonstersFirebaseClient
+import MonstersRepository
 
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {

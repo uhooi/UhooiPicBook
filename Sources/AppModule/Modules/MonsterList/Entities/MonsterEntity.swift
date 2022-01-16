@@ -7,7 +7,7 @@
 
 import Foundation
 import Shared
-import MonstersFirebaseClient
+import MonstersRepository
 
 public struct MonsterEntity {
     let name: String

@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 import MonsterWidgets
-import MonstersFirebaseClient
+import MonstersRepository
 import ImageLoader
 import Shared
 

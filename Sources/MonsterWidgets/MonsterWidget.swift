@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 import FirebaseSetup
-import MonstersFirebaseClient
+import MonstersRepository
 import ImageLoader
 import Logger
 

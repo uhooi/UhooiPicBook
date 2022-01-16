@@ -6,7 +6,7 @@
 //
 
 import Intents
-import MonstersFirebaseClient
+import MonstersRepository
 
 extension MonsterIntentObject {
     convenience init(monster: MonsterDTO) {
