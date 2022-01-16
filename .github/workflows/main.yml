@@ -115,22 +115,11 @@ jobs:
     - name: Merge test results
       run: make merge-xcresults
 
-    # テスト結果の表示
+    # テスト結果の表示とアップロード
     - uses: kishikawakatsumi/xcresulttool@v1
       if: success() || failure()
       with:
         path: TestResults.xcresult
-
-    # テスト結果のアップロード
-    - name: Upload test results Artifact
-      uses: actions/upload-artifact@v2
-      if: success() || failure()
-      with:
-        name: all-test-results
-        path: |
-          TestResults.xcresult
-        if-no-files-found: warn
-        retention-days: 14
 
   info:
     runs-on: macos-11
