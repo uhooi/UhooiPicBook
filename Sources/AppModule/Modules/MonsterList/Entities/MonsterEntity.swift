@@ -16,6 +16,21 @@ public struct MonsterEntity {
     let iconUrl: URL
     let dancingUrl: URL
 
+    // For unit tests
+    init(
+        name: String,
+        description: String,
+        baseColorCode: String,
+        iconUrl: URL,
+        dancingUrl: URL
+    ) {
+        self.name = name
+        self.description = description
+        self.baseColorCode = baseColorCode
+        self.iconUrl = iconUrl
+        self.dancingUrl = dancingUrl
+    }
+
     public init(dto: MonsterDTO) {
         guard let iconUrl = URL(string: dto.iconUrlString) else {
             fatalError("Fail to load icon.")

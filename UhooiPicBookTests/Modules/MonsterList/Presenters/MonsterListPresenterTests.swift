@@ -18,7 +18,6 @@ final class MonsterListPresenterTests: XCTestCase {
     private var viewMock: MonsterListUserInterfaceMock!
     private var interactorMock: MonsterListInteractorInputMock!
     private var routerMock: MonsterListRouterInputMock!
-    private var imageCacheManagerMock: ImageCacheManagerProtocolMock!
     
     private var presenter: MonsterListPresenter!
 
@@ -42,10 +41,6 @@ final class MonsterListPresenterTests: XCTestCase {
     func test_viewDidLoad_success_zero() async {
         let monsterDTOs: [MonsterDTO] = []
         interactorMock.fetchMonstersHandler = { monsterDTOs }
-        let icon = UIImage(systemName: "sun.max")!
-        imageCacheManagerMock.cacheImageHandler = { _ in icon }
-        let dancingImage = UIImage(systemName: "person")!
-        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
         viewMock.showMonstersHandler = { monsters in
             for _ in 0 ..< monsterDTOs.count {
                 XCTFail("There shouldn't be any monsters.")
@@ -66,17 +61,11 @@ final class MonsterListPresenterTests: XCTestCase {
         let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#999999", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         interactorMock.fetchMonstersHandler = { monsterDTOs }
-        let icon = UIImage(systemName: "sun.max")!
-        imageCacheManagerMock.cacheImageHandler = { _ in icon }
-        let dancingImage = UIImage(systemName: "person")!
-        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
-        viewMock.showMonstersHandler = { monsters in
+        viewMock.showMonstersHandler = { monsterItems in
             for index in 0 ..< monsterDTOs.count {
-                XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
-                XCTAssertEqual(monsters[index].description, monsterDTOs[index].description.replacingOccurrences(of: "\\n", with: "\n"))
-                XCTAssertEqual(monsters[index].baseColor, UIColor(hex: monsterDTOs[index].baseColorCode))
-                XCTAssertEqual(monsters[index].icon, icon)
-                XCTAssertEqual(monsters[index].dancingImage, dancingImage)
+                let actual = MonsterItem(entity: MonsterEntity(dto: monsterDTOs[index]))
+                let expected = monsterItems[index]
+                XCTAssertEqual(actual, expected)
             }
         }
         
@@ -111,10 +100,6 @@ final class MonsterListPresenterTests: XCTestCase {
                 order: 1
             )
             interactorMock.fetchMonstersHandler = { [monsterDTO] }
-            let icon = UIImage(systemName: "sun.max")!
-            imageCacheManagerMock.cacheImageHandler = { _ in icon }
-            let dancingImage = UIImage(systemName: "person")!
-            imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
             viewMock.showMonstersHandler = { monsters in
                 XCTAssertEqual(monsters[0].description, expected, line: line)
             }
@@ -192,10 +177,6 @@ final class MonsterListPresenterTests: XCTestCase {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let monsterDTOs = [uhooiDTO]
         interactorMock.fetchMonstersHandler = { monsterDTOs }
-        let icon = UIImage(systemName: "sun.max")!
-        imageCacheManagerMock.cacheImageHandler = { _ in icon }
-        let dancingImage = UIImage(systemName: "person")!
-        imageCacheManagerMock.cacheGIFImageHandler = { _ in dancingImage }
         viewMock.showMonstersHandler = { monsters in
             for index in 0 ..< monsterDTOs.count {
                 XCTAssertEqual(monsters[index].name, monsterDTOs[index].name)
@@ -217,12 +198,10 @@ final class MonsterListPresenterTests: XCTestCase {
         self.viewMock = MonsterListUserInterfaceMock()
         self.interactorMock = MonsterListInteractorInputMock()
         self.routerMock = MonsterListRouterInputMock()
-        self.imageCacheManagerMock = ImageCacheManagerProtocolMock()
         self.presenter = MonsterListPresenter(
             view: self.viewMock,
             interactor: self.interactorMock,
-            router: self.routerMock,
-            imageCacheManager: self.imageCacheManagerMock
+            router: self.routerMock
         )
     }
 
