@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import MonsterWidgets
 import MonstersFirebaseClient
-import ImageCache
+import ImageLoader
 import Shared
 
 private struct MonsterProvider {

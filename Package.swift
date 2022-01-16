@@ -51,7 +51,7 @@ let package = Package(
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
         .library(name: "MonstersFirebaseClient", targets: ["MonstersFirebaseClient"]), // FIXME: Remove later
         .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
-        .library(name: "ImageCache", targets: ["ImageCache"]), // FIXME: Remove later
+        .library(name: "ImageLoader", targets: ["ImageLoader"]), // FIXME: Remove later
     ],
     dependencies: [
     ],
@@ -76,7 +76,7 @@ let package = Package(
                 "MonstersFirebaseClient",
                 "Shared",
                 "Logger",
-                "ImageCache",
+                "ImageLoader",
             ]
         ),
         .target(
@@ -85,7 +85,7 @@ let package = Package(
                 "FirebaseSetup",
                 "MonstersFirebaseClient",
                 "Logger",
-                "ImageCache",
+                "ImageLoader",
             ]
         ),
         .target(
@@ -106,7 +106,7 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ImageCache",
+            name: "ImageLoader",
             dependencies: [
             ]
         ),

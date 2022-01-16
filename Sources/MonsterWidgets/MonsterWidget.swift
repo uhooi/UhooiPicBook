@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import FirebaseSetup
 import MonstersFirebaseClient
-import ImageCache
+import ImageLoader
 import Logger
 
 private struct MonsterProvider {

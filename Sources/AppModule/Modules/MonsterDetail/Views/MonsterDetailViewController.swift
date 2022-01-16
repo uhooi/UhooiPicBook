@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ImageCache
+import ImageLoader
 
 /// @mockable
 @MainActor
