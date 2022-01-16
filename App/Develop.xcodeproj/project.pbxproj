@@ -453,8 +453,7 @@
 				180F961DDBB1443BCBB3B9F2 /* Modules */,
 				893210394C6FBD9D4384A4D9 /* Repository */,
 			);
-			name = UhooiPicBookTests;
-			path = ../UhooiPicBookTests;
+			path = UhooiPicBookTests;
 			sourceTree = "<group>";
 		};
 		BEFA3747E1D1E1F80EDBCA34 /* Presenters */ = {
@@ -968,7 +967,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ../UhooiPicBookTests/Info.plist;
+				INFOPLIST_FILE = UhooiPicBookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1318,7 +1317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ../UhooiPicBookTests/Info.plist;
+				INFOPLIST_FILE = UhooiPicBookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
