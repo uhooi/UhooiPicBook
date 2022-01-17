@@ -108,7 +108,7 @@ build-debug:
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
-| tee '${REPORTS_PATH}/${PRODUCT_NAME}_${PROJECT_NAME}_Build.log' \
+| tee ${REPORTS_PATH}/${PRODUCT_NAME}_${PROJECT_NAME}_Build.log \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
 .PHONY: test-debug-develop
@@ -147,7 +147,7 @@ xcodebuild \
 -resultBundlePath '${REPORTS_PATH}/${XCRESULT_NAME}.xcresult' \
 clean test \
 2>&1 \
-| tee '${REPORTS_PATH}/${LOG_NAME}_Test.log' \
+| tee ${REPORTS_PATH}/${LOG_NAME}_Test.log \
 | ${CLI_TOOLS_PATH}/xcbeautify --is-ci
 
 .PHONY: merge-test-results
