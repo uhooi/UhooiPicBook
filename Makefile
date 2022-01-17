@@ -150,11 +150,11 @@ test-debug-project:
 
 .PHONY: test-debug-app-module
 test-debug-app-module: # Xcode debug test for AppModule
-	$(MAKE) test-debug-package PACKAGE_NAME='AppModuleTests'
+	$(MAKE) test-debug-target TEST_TARGET_NAME='AppModuleTests'
 
-.PHONY: test-debug-package
-test-debug-package:
-	$(MAKE) test-debug SCHEME_NAME='${PACKAGE_NAME}' XCRESULT_NAME='${PACKAGE_NAME}' LOG_NAME=${PACKAGE_NAME}
+.PHONY: test-debug-target
+test-debug-target:
+	$(MAKE) test-debug SCHEME_NAME='${TEST_TARGET_NAME}' XCRESULT_NAME='${TEST_TARGET_NAME}' LOG_NAME=${TEST_TARGET_NAME}
 
 .PHONY: test-debug
 test-debug:
