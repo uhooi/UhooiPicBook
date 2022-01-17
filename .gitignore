@@ -103,16 +103,11 @@ com.mono0926.LicensePlist.plist
 # Firebase
 Frameworks/Firebase/
 
-# xcodebuild log
-*_Build.log
-*_Test.log
-
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache
 
 # Swift Package Manager
 SourcePackages/
 
-# Result Bundle
-*.xcresult/
-
+# Reports
+Reports/

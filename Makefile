@@ -21,6 +21,8 @@ MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
 FIREBASE_VERSION := 8.6.0
 
+REPORTS_PATH := ./Reports
+
 .DEFAULT_GOAL := help
 
 # Targets
@@ -58,7 +60,7 @@ download-firebase-sdk: # Download firebase-ios-sdk
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path lic-plist.yml
+	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path .lic-plist.yml
 
 .PHONY: generate-mocks
 generate-mocks: # Generate mocks with Mockolo
@@ -106,7 +108,7 @@ build-debug:
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
-| tee ./${PRODUCT_NAME}_${PROJECT_NAME}_Build.log \
+| tee ${REPORTS_PATH}/${PRODUCT_NAME}_${PROJECT_NAME}_Build.log \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
 .PHONY: test-debug-develop
@@ -131,7 +133,7 @@ test-debug-target:
 
 .PHONY: test-debug
 test-debug:
-	rm -rf ./${XCRESULT_NAME}.xcresult/
+	rm -rf ${REPORTS_PATH}/${XCRESULT_NAME}.xcresult/
 	set -o pipefail \
 && NSUnbufferedIO=YES \
 xcodebuild \
@@ -142,16 +144,16 @@ xcodebuild \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
--resultBundlePath '${XCRESULT_NAME}.xcresult' \
+-resultBundlePath '${REPORTS_PATH}/${XCRESULT_NAME}.xcresult' \
 clean test \
 2>&1 \
-| tee ./${LOG_NAME}_Test.log \
+| tee ${REPORTS_PATH}/${LOG_NAME}_Test.log \
 | ${CLI_TOOLS_PATH}/xcbeautify --is-ci
 
 .PHONY: merge-test-results
 merge-test-results: # Merge test results
-	rm -rf ./TestResults.xcresult/
-	xcrun xcresulttool merge ./${PRODUCT_NAME}_${DEVELOP_PROJECT_NAME}.xcresult ./AppModuleTests.xcresult --output-path ./TestResults.xcresult
+	rm -rf ${REPORTS_PATH}/TestResults.xcresult/
+	xcrun xcresulttool merge ${REPORTS_PATH}/${PRODUCT_NAME}_${DEVELOP_PROJECT_NAME}.xcresult ${REPORTS_PATH}/AppModuleTests.xcresult --output-path ${REPORTS_PATH}/TestResults.xcresult
 
 .PHONY: show-devices
 show-devices: # Show devices
