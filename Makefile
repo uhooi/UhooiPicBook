@@ -21,15 +21,13 @@ MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
 FIREBASE_VERSION := 8.6.0
 
-MODULE_TEMPLATE_NAME ?= uhooi_viper
-
 .DEFAULT_GOAL := help
 
 # Targets
 
 .PHONY: help
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":[^#]*? #| #"}; {printf "%-42s%s\n", $$1 $$3, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":[^#]*? #| #"}; {printf "%-36s%s\n", $$1 $$3, $$2}'
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
@@ -87,10 +85,6 @@ generate-licenses: # Generate licenses with LicensePlist
 generate-mocks: # Generate mocks with Mockolo
 	rm -f ${MOCK_FILE_PATH}
 	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --exclude-imports FirebaseMessaging --mock-final
-
-.PHONY: generate-module
-generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
-	bundle exec generamba gen ${MODULE_NAME} ${MODULE_TEMPLATE_NAME}
 
 .PHONY: open
 open: # Open workspace in Xcode

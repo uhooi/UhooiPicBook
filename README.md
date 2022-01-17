@@ -86,26 +86,25 @@ Run `make help` .
 
 ```shell
 $ make help
-setup                                      Install dependencies and prepared development configuration
-install-bundler                            Install Bundler dependencies
-update-bundler                             Update Bundler dependencies
-build-cli-tools                            Build CLI tools managed by SwiftPM
-install-templates                          Install Generamba templates
-download-firebase-sdk                      Download firebase-ios-sdk
-generate-licenses                          Generate licenses with LicensePlist
-generate-mocks                             Generate mocks with Mockolo
-generate-module MODULE_NAME=[module name]  Generate module with Generamba
-open                                       Open workspace in Xcode
-clean                                      Delete cache
-clean-cli-tools                            Delete build artifacts for CLI tools managed by SwiftPM
-analyze                                    Analyze with SwiftLint
-build-debug-develop                        Xcode debug build for develop
-build-debug-production                     Xcode debug build for production
-test-debug-develop                         Xcode debug test for develop
-test-debug-production                      Xcode debug test for production
-test-debug-app-module                      Xcode debug test for AppModule
-merge-test-results                         Merge test results
-show-devices                               Show devices
+setup                                Install dependencies and prepared development configuration
+install-bundler                      Install Bundler dependencies
+update-bundler                       Update Bundler dependencies
+build-cli-tools                      Build CLI tools managed by SwiftPM
+install-templates                    Install Generamba templates
+download-firebase-sdk                Download firebase-ios-sdk
+generate-licenses                    Generate licenses with LicensePlist
+generate-mocks                       Generate mocks with Mockolo
+open                                 Open workspace in Xcode
+clean                                Delete cache
+clean-cli-tools                      Delete build artifacts for CLI tools managed by SwiftPM
+analyze                              Analyze with SwiftLint
+build-debug-develop                  Xcode debug build for develop
+build-debug-production               Xcode debug build for production
+test-debug-develop                   Xcode debugtest for develop
+test-debug-production                Xcode debug test for production
+test-debug-app-module                Xcode debug test for AppModule
+merge-test-results                   Merge test results
+show-devices                         Show devices 
 ```
 
 ## Contribution
