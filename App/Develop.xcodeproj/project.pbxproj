@@ -646,7 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "git_path=/usr/local/bin/git\nfiles=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\nif (test -z $files) || (test ${#files[@]} -eq 0); then\n  echo \"no files changed.\"\n  exit 0\nfi\n\noptions=\"\"\nfor file in $files\ndo\n  options=\"$options $SRCROOT/../$file\"\ndone\n\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n../Tools/UhooiPicBookTools/.build/release/SpellChecker --yml $SRCROOT/../spell-checker.yml -- $options\n\n";
+			shellScript = "git_path=/usr/local/bin/git\nfiles=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\nif (test -z $files) || (test ${#files[@]} -eq 0); then\n  echo \"no files changed.\"\n  exit 0\nfi\n\noptions=\"\"\nfor file in $files\ndo\n  options=\"$options $SRCROOT/../$file\"\ndone\n\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n../Tools/UhooiPicBookTools/.build/release/SpellChecker --yml $SRCROOT/../.spell-checker.yml -- $options\n\n";
 		};
 		273E5548C378B1635B235E18 /* Run IBLinter */ = {
 			isa = PBXShellScriptBuildPhase;
