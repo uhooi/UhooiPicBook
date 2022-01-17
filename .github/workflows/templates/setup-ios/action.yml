@@ -9,20 +9,6 @@ runs:
     run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
     shell: bash
 
-  # Bundlerで管理しているライブラリのキャッシュ
-  - name: Cache Gems
-    uses: actions/cache@v2
-    with:
-      path: vendor/bundle
-      key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-      restore-keys: |
-        ${{ runner.os }}-gems-
-
-  # Bundlerで管理しているライブラリのインストール
-  - name: Install Bundled Gems
-    run: make install-bundler
-    shell: bash
-
   # SwiftPMで管理しているCLIツールのキャッシュ
   - name: Cache CLI tools managed by SwiftPM
     uses: actions/cache@v2
