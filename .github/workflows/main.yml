@@ -51,7 +51,7 @@ jobs:
       with:
         name: xcodebuild-logs
         path: |
-          Reports/*_Build.log
+          Reports/
         if-no-files-found: ignore
         retention-days: 14
 
@@ -79,26 +79,15 @@ jobs:
         mkdir Reports
         make test-debug-${{ matrix.name }}
 
-    # テスト結果のアップロード
-    - name: Upload test results Artifact
+    # 単体テストのログと結果のアップロード
+    - name: Upload test log and results Artifact
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
         name: test-results
         path: |
-          Reports/*.xcresult
+          Reports/
         if-no-files-found: error
-        retention-days: 14
-
-    # 単体テストログのアップロード
-    - name: Upload test log Artifact
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: xcodebuild-logs
-        path: |
-          Reports/*_Test.log
-        if-no-files-found: ignore
         retention-days: 14
 
   show-test-results:
