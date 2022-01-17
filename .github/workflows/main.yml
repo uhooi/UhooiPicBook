@@ -114,6 +114,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: test-results
+        path: Reports
 
     # テスト結果のマージ
     - name: Merge test results
