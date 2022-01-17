@@ -31,28 +31,11 @@ help:
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
-	$(MAKE) install-ruby
-	$(MAKE) install-bundler
-	$(MAKE) install-templates
 	$(MAKE) build-cli-tools
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
 	$(MAKE) generate-mocks
 	$(MAKE) open
-
-.PHONY: install-ruby
-install-ruby:
-	cat .ruby-version | xargs rbenv install --skip-existing
-
-.PHONY: install-bundler
-install-bundler: # Install Bundler dependencies
-	bundle config path vendor/bundle
-	bundle install --without=documentation --jobs 4 --retry 3
-
-.PHONY: update-bundler
-update-bundler: # Update Bundler dependencies
-	bundle config path vendor/bundle
-	bundle update --jobs 4 --retry 3
 
 .PHONY: build-cli-tools
 build-cli-tools: # Build CLI tools managed by SwiftPM
@@ -66,10 +49,6 @@ build-cli-tools: # Build CLI tools managed by SwiftPM
 .PHONY: build-cli-tool
 build-cli-tool:
 	swift build -c release --package-path ${CLI_TOOLS_PACKAGE_PATH} --product ${CLI_TOOL_NAME}
-
-.PHONY: install-templates
-install-templates: # Install Generamba templates
-	bundle exec generamba template install
 
 .PHONY: download-firebase-sdk
 download-firebase-sdk: # Download firebase-ios-sdk
