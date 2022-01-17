@@ -60,7 +60,7 @@ download-firebase-sdk: # Download firebase-ios-sdk
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path lic-plist.yml
+	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path .lic-plist.yml
 
 .PHONY: generate-mocks
 generate-mocks: # Generate mocks with Mockolo
