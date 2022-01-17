@@ -53,7 +53,6 @@ You can develop this project.
 ### Environment
 
 - [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.2.1
-- [rbenv](https://github.com/rbenv/rbenv): 1.2.0
 
 ### Configuration
 
