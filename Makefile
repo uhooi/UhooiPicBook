@@ -137,7 +137,7 @@ clean build \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
 .PHONY: test-debug-develop
-test-debug-develop: # Xcode debug test for debug
+test-debug-develop: # Xcode debug test for develop
 	$(MAKE) test-debug-project PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
 .PHONY: test-debug-production
