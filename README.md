@@ -104,7 +104,7 @@ build-debug-production                     Xcode debug build for production
 test-debug-develop                         Xcode debug test for develop
 test-debug-production                      Xcode debug test for production
 test-debug-app-module                      Xcode debug test for AppModule
-merge-xcresults                            Merge test results
+merge-test-results                         Merge test results
 show-devices                               Show devices
 ```
 

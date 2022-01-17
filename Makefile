@@ -175,8 +175,8 @@ clean test \
 | tee ./${LOG_NAME}_Test.log \
 | ${CLI_TOOLS_PATH}/xcbeautify --is-ci
 
-.PHONY: merge-xcresults
-merge-xcresults: # Merge test results
+.PHONY: merge-test-results
+merge-test-results: # Merge test results
 	rm -rf ./TestResults.xcresult/
 	xcrun xcresulttool merge ./${PRODUCT_NAME}_${DEVELOP_PROJECT_NAME}.xcresult ./AppModuleTests.xcresult --output-path ./TestResults.xcresult
 

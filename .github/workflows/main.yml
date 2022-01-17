@@ -113,7 +113,7 @@ jobs:
 
     # テスト結果のマージ
     - name: Merge test results
-      run: make merge-xcresults
+      run: make merge-test-results
 
     # テスト結果の表示とアップロード
     - uses: kishikawakatsumi/xcresulttool@v1
