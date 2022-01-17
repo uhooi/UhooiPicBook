@@ -60,10 +60,10 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F7174334A4963303CCEE4E61"
-            BuildableName = "UhooiPicBook.app"
-            BlueprintName = "UhooiPicBook"
-            ReferencedContainer = "container:Develop.xcodeproj">
+            BlueprintIdentifier = "AppModule"
+            BuildableName = "AppModule"
+            BlueprintName = "AppModule"
+            ReferencedContainer = "container:..">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
