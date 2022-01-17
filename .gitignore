@@ -92,15 +92,8 @@ iOSInjectionProject/
 # Project dependencies are resolved by the workspace
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
-# Genrated
+# Mockolo
 MockResults.swift
-
-# Bundler
-vendor/bundle/
-.bundle/
-
-# Generamba
-/Templates/
 
 # LicensePlist
 com.mono0926.LicensePlist/
@@ -116,10 +109,6 @@ Frameworks/Firebase/
 
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache
-
-# Slather
-xml_report/
-html_report/
 
 # Swift Package Manager
 SourcePackages/
