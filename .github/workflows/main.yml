@@ -49,7 +49,7 @@ jobs:
       with:
         name: xcodebuild-logs
         path: |
-          *_Build.log
+          Reports/*_Build.log
         if-no-files-found: ignore
         retention-days: 14
 
@@ -82,7 +82,7 @@ jobs:
       with:
         name: test-results
         path: |
-          *.xcresult
+          Reports/*.xcresult
         if-no-files-found: error
         retention-days: 14
 
@@ -93,7 +93,7 @@ jobs:
       with:
         name: xcodebuild-logs
         path: |
-          *_Test.log
+          Reports/*_Test.log
         if-no-files-found: ignore
         retention-days: 14
 
@@ -119,7 +119,7 @@ jobs:
     - uses: kishikawakatsumi/xcresulttool@v1
       if: success() || failure()
       with:
-        path: TestResults.xcresult
+        path: Reports/TestResults.xcresult
 
   info:
     runs-on: macos-11
