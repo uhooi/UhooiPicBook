@@ -111,7 +111,8 @@ com.mono0926.LicensePlist.plist
 Frameworks/Firebase/
 
 # xcodebuild log
-xcodebuild_*.log
+*_Build.log
+*_Test.log
 
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache

@@ -89,6 +89,12 @@ let package = Package(
                 .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
+        .testTarget(
+            name: "AppModuleTests",
+            dependencies: [
+                "AppModule",
+            ]
+        ),
         .target(
             name: "MonsterWidgets",
             dependencies: [

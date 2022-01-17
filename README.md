@@ -99,12 +99,12 @@ open                                       Open workspace in Xcode
 clean                                      Delete cache
 clean-cli-tools                            Delete build artifacts for CLI tools managed by SwiftPM
 analyze                                    Analyze with SwiftLint
-build-develop-debug                        Xcode debug build for develop
-build-production-debug                     Xcode debug build for production
-test-develop-debug                         Xcode debug test for develop
-test-production-debug                      Xcode debug test for production
-get-coverage-html                          Get code coverage for HTML
-get-coverage-cobertura                     Get code coverage for Cobertura
+build-debug-develop                        Xcode debug build for develop
+build-debug-production                     Xcode debug build for production
+test-debug-develop                         Xcode debug test for develop
+test-debug-production                      Xcode debug test for production
+test-debug-app-module                      Xcode debug test for AppModule
+merge-test-results                         Merge test results
 show-devices                               Show devices
 ```
 

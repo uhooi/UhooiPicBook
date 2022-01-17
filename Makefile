@@ -10,10 +10,6 @@ TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 13 Pro Max
 TEST_OS ?= 15.2
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
-COVERAGE_OUTPUT := html_report
-
-XCODEBUILD_BUILD_LOG_NAME := xcodebuild_build.log
-XCODEBUILD_TEST_LOG_NAME := xcodebuild_test.log
 
 DEVELOP_PROJECT_NAME := Develop
 PRODUCTION_PROJECT_NAME := Production
@@ -21,7 +17,7 @@ PRODUCTION_PROJECT_NAME := Production
 CLI_TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
 CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
 
-MOCK_FILE_PATH := ./UhooiPicbookTests/Generated/MockResults.swift
+MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
 FIREBASE_VERSION := 8.6.0
 
@@ -90,7 +86,7 @@ generate-licenses: # Generate licenses with LicensePlist
 .PHONY: generate-mocks
 generate-mocks: # Generate mocks with Mockolo
 	rm -f ${MOCK_FILE_PATH}
-	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --mock-final
+	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --exclude-imports FirebaseMessaging --mock-final
 
 .PHONY: generate-module
 generate-module: # Generate module with Generamba # MODULE_NAME=[module name]
@@ -115,15 +111,15 @@ clean-cli-tools: # Delete build artifacts for CLI tools managed by SwiftPM
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
-	$(MAKE) build-develop-debug
+	$(MAKE) build-debug-develop
 	${CLI_TOOLS_PATH}/swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
-.PHONY: build-develop-debug
-build-develop-debug: # Xcode debug build for develop
+.PHONY: build-debug-develop
+build-debug-develop: # Xcode debug build for develop
 	$(MAKE) build-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
-.PHONY: build-production-debug
-build-production-debug: # Xcode debug build for production
+.PHONY: build-debug-production
+build-debug-production: # Xcode debug build for production
 	$(MAKE) build-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
 
 .PHONY: build-debug
@@ -137,44 +133,52 @@ build-debug:
 -destination ${TEST_DESTINATION} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
-| tee ./${XCODEBUILD_BUILD_LOG_NAME} \
+| tee ./${PRODUCT_NAME}_${PROJECT_NAME}_Build.log \
 | ${CLI_TOOLS_PATH}/xcbeautify
 
-.PHONY: test-develop-debug
-test-develop-debug: # Xcode debug test for develop
-	rm -rf ./TestResults.xcresult/
-	$(MAKE) test-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}
+.PHONY: test-debug-develop
+test-debug-develop: # Xcode debug test for develop
+	$(MAKE) test-debug-project PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
-.PHONY: test-production-debug
-test-production-debug: # Xcode debug test for production
-	rm -rf ./TestResults.xcresult/
-	$(MAKE) test-debug PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+.PHONY: test-debug-production
+test-debug-production: # Xcode debug test for production
+	$(MAKE) test-debug-project PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
+
+.PHONY: test-debug-project
+test-debug-project:
+	$(MAKE) test-debug SCHEME_NAME='${PRODUCT_NAME} (${PROJECT_NAME} project)' XCRESULT_NAME=${PRODUCT_NAME}_${PROJECT_NAME} LOG_NAME=${PRODUCT_NAME}_${PROJECT_NAME}
+
+.PHONY: test-debug-app-module
+test-debug-app-module: # Xcode debug test for AppModule
+	$(MAKE) test-debug-target TEST_TARGET_NAME='AppModuleTests'
+
+.PHONY: test-debug-target
+test-debug-target:
+	$(MAKE) test-debug SCHEME_NAME='${TEST_TARGET_NAME}' XCRESULT_NAME='${TEST_TARGET_NAME}' LOG_NAME=${TEST_TARGET_NAME}
 
 .PHONY: test-debug
 test-debug:
+	rm -rf ./${XCRESULT_NAME}.xcresult/
 	set -o pipefail \
 && NSUnbufferedIO=YES \
 xcodebuild \
 -sdk ${TEST_SDK} \
 -configuration ${TEST_CONFIGURATION} \
 -workspace ${WORKSPACE_NAME} \
--scheme '${PRODUCT_NAME} (${PROJECT_NAME} project)' \
+-scheme '${SCHEME_NAME}' \
 -destination ${TEST_DESTINATION} \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
--resultBundlePath 'TestResults.xcresult' \
+-resultBundlePath '${XCRESULT_NAME}.xcresult' \
 clean test \
 2>&1 \
-| tee ./${XCODEBUILD_TEST_LOG_NAME} \
+| tee ./${LOG_NAME}_Test.log \
 | ${CLI_TOOLS_PATH}/xcbeautify --is-ci
 
-.PHONY: get-coverage-html
-get-coverage-html: # Get code coverage for HTML
-	bundle exec slather coverage --html --output-directory ${COVERAGE_OUTPUT}
-
-.PHONY: get-coverage-cobertura
-get-coverage-cobertura: # Get code coverage for Cobertura
-	bundle exec slather
+.PHONY: merge-test-results
+merge-test-results: # Merge test results
+	rm -rf ./TestResults.xcresult/
+	xcrun xcresulttool merge ./${PRODUCT_NAME}_${DEVELOP_PROJECT_NAME}.xcresult ./AppModuleTests.xcresult --output-path ./TestResults.xcresult
 
 .PHONY: show-devices
 show-devices: # Show devices
