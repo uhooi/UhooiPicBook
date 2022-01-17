@@ -58,7 +58,7 @@ jobs:
     runs-on: macos-11
     strategy:
       matrix:
-        name: ["develop", "app-module"]
+        name: ["develop", "production", "app-module"]
 
     steps:
     # チェックアウト
