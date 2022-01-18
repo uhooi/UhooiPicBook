@@ -110,4 +110,6 @@ Frameworks/Firebase/
 SourcePackages/
 
 # Reports
-Reports/
+Reports/*
+!Reports/.gitkeep
+
