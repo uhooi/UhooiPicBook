@@ -41,7 +41,6 @@ jobs:
     # ビルド
     - name: Xcode build for ${{ matrix.environment }}
       run: |
-        mkdir Reports
         make build-debug-${{ matrix.environment }}
 
     # ビルドログのアップロード
@@ -76,7 +75,6 @@ jobs:
     # 単体テストの実行
     - name: Xcode test
       run: |
-        mkdir Reports
         make test-debug-${{ matrix.name }}
 
     # テスト結果のアップロード
