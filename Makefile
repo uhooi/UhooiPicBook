@@ -73,11 +73,14 @@ open: # Open workspace in Xcode
 
 .PHONY: clean
 clean: # Delete cache
+	rm -rf ./.swiftpm
+	rm -rf ./.build
+	rm -rf ./SourcePackages
+	rm -rf ./Reports
+	rm -rf ./.swiftlint
+	rm -rf ./App/.swiftlint
 	rm -rf ./${CLI_TOOLS_PACKAGE_PATH}/.swiftpm
 	rm -rf ./${CLI_TOOLS_PACKAGE_PATH}/.build
-	rm -rf ./vendor/bundle
-	rm -rf ./SourcePackages
-	rm -rf ./Templates
 	xcodebuild clean -alltargets
 
 .PHONY: clean-cli-tools
