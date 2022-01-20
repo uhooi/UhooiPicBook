@@ -35,9 +35,9 @@ public enum R { // swiftlint:disable:this type_name
 
         // MARK: Other Private Type Methods
 
-        private static func createUIImage(named name: String, line: UInt = #line) -> UIImage {
+        private static func createUIImage(named name: String) -> UIImage {
             guard let image = UIImage(named: name, in: .module, with: nil) else {
-                fatalError("Fail to load '\(name)' image.", line: line)
+                fatalError("Fail to load '\(name)' image.")
             }
             return image
         }
