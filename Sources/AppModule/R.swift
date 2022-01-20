@@ -51,9 +51,9 @@ enum R { // swiftlint:disable:this type_name
 
         // MARK: Other Private Type Methods
 
-        private static func createUIColor(named name: String, line: UInt = #line) -> UIColor {
+        private static func createUIColor(named name: String) -> UIColor {
             guard let color = UIColor(named: name, in: .module, compatibleWith: nil) else {
-                fatalError("Fail to load '\(name)' color.", line: line)
+                fatalError("Fail to load '\(name)' color.")
             }
             return color
         }
