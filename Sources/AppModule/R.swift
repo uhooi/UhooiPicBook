@@ -90,7 +90,7 @@ enum R { // swiftlint:disable:this type_name
 
         private static func instantiateInitialViewController<T: UIViewController>(_ name: String) -> T {
             guard let vc = createUIStoryboard(name: name).instantiateInitialViewController() as? T else {
-                fatalError("Fail to load ViewController from '\(name)' Storyboard.")
+                fatalError("Fail to load \(T.self) from '\(name)' Storyboard.")
             }
             return vc
         }
