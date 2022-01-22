@@ -47,11 +47,11 @@ enum R { // swiftlint:disable:this type_name
 
         // MARK: Internal Stored Type Properties
 
-        static let navigationBar = createUIColor(named: "NavigationBar")
+        static let navigationBar = uiColor(named: "NavigationBar")
 
         // MARK: Other Private Type Methods
 
-        private static func createUIColor(named name: String) -> UIColor {
+        private static func uiColor(named name: String) -> UIColor {
             guard let color = UIColor(named: name, in: .module, compatibleWith: nil) else {
                 fatalError("Fail to load '\(name)' color.")
             }
