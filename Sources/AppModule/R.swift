@@ -89,13 +89,13 @@ enum R { // swiftlint:disable:this type_name
         // MARK: Other Private Type Methods
 
         private static func instantiateInitialViewController<T: UIViewController>(_ name: String) -> T {
-            guard let vc = createUIStoryboard(name: name).instantiateInitialViewController() as? T else {
+            guard let vc = uiStoryboard(name: name).instantiateInitialViewController() as? T else {
                 fatalError("Fail to load \(T.self) from '\(name)' Storyboard.")
             }
             return vc
         }
 
-        private static func createUIStoryboard(name: String) -> UIStoryboard {
+        private static func uiStoryboard(name: String) -> UIStoryboard {
             UIStoryboard(name: name, bundle: .module)
         }
     }
