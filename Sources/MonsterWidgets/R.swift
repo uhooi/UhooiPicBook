@@ -31,11 +31,11 @@ public enum R { // swiftlint:disable:this type_name
 
         // MARK: Internal Stored Type Properties
 
-        static let uhooiIcon = createUIImage(named: "Uhooi")
+        static let uhooiIcon = uiImage(named: "Uhooi")
 
         // MARK: Other Private Type Methods
 
-        private static func createUIImage(named name: String) -> UIImage {
+        private static func uiImage(named name: String) -> UIImage {
             guard let image = UIImage(named: name, in: .module, with: nil) else {
                 fatalError("Fail to load '\(name)' image.")
             }
