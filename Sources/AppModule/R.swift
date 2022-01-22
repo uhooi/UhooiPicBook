@@ -66,29 +66,29 @@ enum R { // swiftlint:disable:this type_name
         // swiftlint:disable nesting
         enum MonsterList {
             static func instantiateInitialViewController() -> MonsterListViewController {
-                Storyboard.instantiateInitialViewController("MonsterList")
+                Storyboard.instantiateInitialViewController(with: "MonsterList")
             }
         }
         enum MonsterDetail {
             static func instantiateInitialViewController() -> MonsterDetailViewController {
-                Storyboard.instantiateInitialViewController("MonsterDetail")
+                Storyboard.instantiateInitialViewController(with: "MonsterDetail")
             }
         }
         enum ImagePopup {
             static func instantiateInitialViewController() -> ImagePopupViewController {
-                Storyboard.instantiateInitialViewController("ImagePopup")
+                Storyboard.instantiateInitialViewController(with: "ImagePopup")
             }
         }
         enum InAppWebBrowser {
             static func instantiateInitialViewController() -> InAppWebBrowserViewController {
-                Storyboard.instantiateInitialViewController("InAppWebBrowser")
+                Storyboard.instantiateInitialViewController(with: "InAppWebBrowser")
             }
         }
         // swiftlint:enable nesting
 
         // MARK: Other Private Type Methods
 
-        private static func instantiateInitialViewController<T: UIViewController>(_ name: String) -> T {
+        private static func instantiateInitialViewController<T: UIViewController>(with name: String) -> T {
             guard let vc = uiStoryboard(name: name).instantiateInitialViewController() as? T else {
                 fatalError("Fail to load \(T.self) from '\(name)' Storyboard.")
             }
