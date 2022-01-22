@@ -104,11 +104,11 @@ enum R { // swiftlint:disable:this type_name
 
         // MARK: Internal Stored Type Properties
 
-        static let monsterCollectionViewCell = createNib(name: "MonsterCollectionViewCell")
+        static let monsterCollectionViewCell = uiNib(name: "MonsterCollectionViewCell")
 
         // MARK: Other Private Type Methods
 
-        private static func createNib(name: String) -> UINib {
+        private static func uiNib(name: String) -> UINib {
             UINib(nibName: name, bundle: .module)
         }
     }
