@@ -14,7 +14,7 @@ public struct MonsterEntity {
     let description: String
     let baseColorCode: String
     let iconURL: URL
-    let dancingUrl: URL
+    let dancingURL: URL
 
     // For unit tests
     init(
@@ -28,7 +28,7 @@ public struct MonsterEntity {
         self.description = description
         self.baseColorCode = baseColorCode
         self.iconURL = iconUrl
-        self.dancingUrl = dancingUrl
+        self.dancingURL = dancingUrl
     }
 
     public init(dto: MonsterDTO) {
@@ -43,7 +43,7 @@ public struct MonsterEntity {
         self.description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
         self.baseColorCode = dto.baseColorCode
         self.iconURL = iconUrl
-        self.dancingUrl = dancingUrl
+        self.dancingURL = dancingUrl
     }
 }
 
