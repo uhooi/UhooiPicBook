@@ -35,7 +35,7 @@ public struct MonsterEntity {
         guard let iconURL = URL(string: dto.iconURLString) else {
             fatalError("Fail to load icon.")
         }
-        guard let dancingURL = URL(string: dto.dancingUrlString) else {
+        guard let dancingURL = URL(string: dto.dancingURLString) else {
             fatalError("Fail to load dancing image.")
         }
 

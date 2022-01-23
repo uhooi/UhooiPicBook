@@ -10,7 +10,7 @@ public struct MonsterDTO {
     public let description: String
     public let baseColorCode: String
     public let iconURLString: String
-    public let dancingUrlString: String
+    public let dancingURLString: String
     public let order: Int
 
     public init(
@@ -25,7 +25,7 @@ public struct MonsterDTO {
         self.description = description
         self.baseColorCode = baseColorCode
         self.iconURLString = iconUrlString
-        self.dancingUrlString = dancingUrlString
+        self.dancingURLString = dancingUrlString
         self.order = order
     }
 }
