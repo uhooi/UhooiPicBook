@@ -9,11 +9,11 @@ import UIKit.UIImage
 
 @MainActor
 extension UIImage {
-    public static func create(url: URL) async -> UIImage? {
+    public static func create(with url: URL) async -> UIImage? {
         try? await ImageCacheManager().cacheImage(with: url)
     }
 
-    static func createGIF(url: URL) -> UIImage? {
+    static func createGIF(with url: URL) -> UIImage? {
         ImageCacheManager().cacheGIFImage(with: url)
     }
 }

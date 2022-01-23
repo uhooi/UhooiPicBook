@@ -32,7 +32,7 @@ final class SpotlightClient {
 
 extension SpotlightClient: SpotlightRepository {
     func saveMonster(_ monster: MonsterEntity, forKey key: String) async {
-        guard let icon = await UIImage.create(url: monster.iconURL) else {
+        guard let icon = await UIImage.create(with: monster.iconURL) else {
             return
         }
         let thumbnailData = icon.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
