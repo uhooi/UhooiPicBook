@@ -23,8 +23,8 @@ extension MonsterIntentObject {
         guard let name = name,
               let description = body,
               let baseColorCode = baseColorCode,
-              let iconUrl = iconUrl,
-              let dancingUrlString = dancingUrlString,
+              let iconURL = iconUrl,
+              let dancingURLString = dancingUrlString,
               let order = order
         else {
             return nil
@@ -33,8 +33,8 @@ extension MonsterIntentObject {
             name: name,
             description: description,
             baseColorCode: baseColorCode,
-            iconUrlString: iconUrl.absoluteString,
-            dancingUrlString: dancingUrlString,
+            iconURLString: iconURL.absoluteString,
+            dancingURLString: dancingURLString,
             order: order.intValue
         )
     }

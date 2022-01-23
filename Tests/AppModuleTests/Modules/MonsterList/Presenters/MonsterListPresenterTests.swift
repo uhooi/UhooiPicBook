@@ -56,9 +56,9 @@ final class MonsterListPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad_success_three() async {
-        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
-        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#000000", iconUrlString: "https://theuhooi.com/ayausa", dancingUrlString: "https://theuhooi.com/ayausa-dancing", order: 2)
-        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#999999", iconUrlString: "https://theuhooi.com/chibird", dancingUrlString: "https://theuhooi.com/chibird-dancing", order: 3)
+        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconURLString: "https://theuhooi.com/uhooi", dancingURLString: "https://theuhooi.com/uhooi-dancing", order: 1)
+        let ayausaDTO = MonsterDTO(name: "ayausa", description: "ayausa's description", baseColorCode: "#000000", iconURLString: "https://theuhooi.com/ayausa", dancingURLString: "https://theuhooi.com/ayausa-dancing", order: 2)
+        let chibirdDTO = MonsterDTO(name: "chibird", description: "chibird's description", baseColorCode: "#999999", iconURLString: "https://theuhooi.com/chibird", dancingURLString: "https://theuhooi.com/chibird-dancing", order: 3)
         let monsterDTOs = [uhooiDTO, ayausaDTO, chibirdDTO]
         interactorMock.fetchMonstersHandler = { monsterDTOs }
         viewMock.showMonstersHandler = { monsterItems in
@@ -95,8 +95,8 @@ final class MonsterListPresenterTests: XCTestCase {
                 name: "monster's name",
                 description: description,
                 baseColorCode: "#FFFFFF",
-                iconUrlString: "https://theuhooi.com/monster",
-                dancingUrlString: "https://theuhooi.com/monster-dancing",
+                iconURLString: "https://theuhooi.com/monster",
+                dancingURLString: "https://theuhooi.com/monster-dancing",
                 order: 1
             )
             interactorMock.fetchMonstersHandler = { [monsterDTO] }
@@ -174,7 +174,7 @@ final class MonsterListPresenterTests: XCTestCase {
     // MARK: didSelectMonsterAt()
     
     func test_didSelectMonsterAt() async {
-        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconUrlString: "https://theuhooi.com/uhooi", dancingUrlString: "https://theuhooi.com/uhooi-dancing", order: 1)
+        let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconURLString: "https://theuhooi.com/uhooi", dancingURLString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let monsterDTOs = [uhooiDTO]
         interactorMock.fetchMonstersHandler = { monsterDTOs }
         viewMock.showMonstersHandler = { monsters in

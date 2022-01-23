@@ -17,15 +17,15 @@ public struct MonsterDTO {
         name: String,
         description: String,
         baseColorCode: String,
-        iconUrlString: String,
-        dancingUrlString: String,
+        iconURLString: String,
+        dancingURLString: String,
         order: Int
     ) {
         self.name = name
         self.description = description
         self.baseColorCode = baseColorCode
-        self.iconURLString = iconUrlString
-        self.dancingURLString = dancingUrlString
+        self.iconURLString = iconURLString
+        self.dancingURLString = dancingURLString
         self.order = order
     }
 }
