@@ -50,7 +50,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        let logRow = createLogRowString(message, file: file, function: function, line: line, column: column)
+        let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.debug("\(logRow, privacy: .public)")
     }
 
@@ -61,7 +61,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        let logRow = createLogRowString(message, file: file, function: function, line: line, column: column)
+        let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.info("\(logRow, privacy: .public)")
     }
 
@@ -72,7 +72,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        let logRow = createLogRowString(message, file: file, function: function, line: line, column: column)
+        let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.notice("\(logRow, privacy: .public)")
     }
 
@@ -83,7 +83,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        let logRow = createLogRowString(message, file: file, function: function, line: line, column: column)
+        let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.error("\(logRow, privacy: .public)")
     }
 
@@ -94,7 +94,7 @@ extension Logger: LoggerProtocol {
         line: Int = #line,
         column: Int = #column
     ) {
-        let logRow = createLogRowString(message, file: file, function: function, line: line, column: column)
+        let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.fault("\(logRow, privacy: .public)")
     }
 
@@ -110,7 +110,7 @@ extension Logger: LoggerProtocol {
 
     // MARK: Other Private Methods
 
-    private func createLogRowString(
+    private func logRow(
         _ message: String,
         file: String,
         function: String,
