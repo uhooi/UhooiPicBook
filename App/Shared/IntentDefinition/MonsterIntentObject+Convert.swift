@@ -14,7 +14,7 @@ extension MonsterIntentObject {
         self.name = monster.name
         self.body = monster.description // The `description` is a reserved word.
         self.baseColorCode = monster.baseColorCode
-        self.iconUrl = URL(string: monster.iconUrlString)
+        self.iconUrl = URL(string: monster.iconURLString)
         self.dancingUrlString = monster.dancingUrlString
         self.order = monster.order as NSNumber
     }

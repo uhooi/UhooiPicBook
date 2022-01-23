@@ -51,7 +51,7 @@ extension MonsterProvider: IntentTimelineProvider {
 
     private func convertDTOToEntry(dto: MonsterDTO?) async -> Entry? {
         guard let dto = dto,
-              let iconURL = URL(string: dto.iconUrlString),
+              let iconURL = URL(string: dto.iconURLString),
               let icon = await UIImage.create(url: iconURL)
         else {
             return nil
