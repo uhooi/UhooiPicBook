@@ -19,7 +19,7 @@ public struct MonsterItem {
         self.name = entity.name
         self.description = entity.description
         self.baseColorCode = entity.baseColorCode
-        self.iconURL = entity.iconUrl
+        self.iconURL = entity.iconURL
         self.dancingURL = entity.dancingUrl
     }
 }
