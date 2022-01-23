@@ -21,14 +21,14 @@ public struct MonsterEntity {
         name: String,
         description: String,
         baseColorCode: String,
-        iconUrl: URL,
-        dancingUrl: URL
+        iconURL: URL,
+        dancingURL: URL
     ) {
         self.name = name
         self.description = description
         self.baseColorCode = baseColorCode
-        self.iconURL = iconUrl
-        self.dancingURL = dancingUrl
+        self.iconURL = iconURL
+        self.dancingURL = dancingURL
     }
 
     public init(dto: MonsterDTO) {

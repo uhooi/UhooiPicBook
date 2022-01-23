@@ -26,7 +26,7 @@ final class UserDefaultsClientTests: XCTestCase {
     // MARK: - Test Methods
     
     func test_monster() {
-        var uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
+        var uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         let key = "spotlight_\(uhooiEntity.name)"
         
         XCTContext.runActivity(named: "Unsaved") { _ in
@@ -38,7 +38,7 @@ final class UserDefaultsClientTests: XCTestCase {
             XCTAssertEqual(uhooiEntity, userDefaults.loadMonster(key: key))
         }
         
-        uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#000000", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
+        uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#000000", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         XCTContext.runActivity(named: "Update") { _ in
             userDefaults.saveMonster(uhooiEntity, forKey: key)
             XCTAssertEqual(uhooiEntity, userDefaults.loadMonster(key: key))
