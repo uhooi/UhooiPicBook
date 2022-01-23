@@ -32,18 +32,18 @@ public struct MonsterEntity {
     }
 
     public init(dto: MonsterDTO) {
-        guard let iconUrl = URL(string: dto.iconUrlString) else {
+        guard let iconURL = URL(string: dto.iconUrlString) else {
             fatalError("Fail to load icon.")
         }
-        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
+        guard let dancingURL = URL(string: dto.dancingUrlString) else {
             fatalError("Fail to load dancing image.")
         }
 
         self.name = dto.name
         self.description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
         self.baseColorCode = dto.baseColorCode
-        self.iconURL = iconUrl
-        self.dancingURL = dancingUrl
+        self.iconURL = iconURL
+        self.dancingURL = dancingURL
     }
 }
 
