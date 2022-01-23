@@ -63,8 +63,8 @@ extension MonsterProvider: TimelineProvider {
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {
-                    guard let iconUrl = URL(string: monster.iconURLString),
-                          let icon = await UIImage.create(url: iconUrl)
+                    guard let iconURL = URL(string: monster.iconURLString),
+                          let icon = await UIImage.create(url: iconURL)
                     else {
                         continue
                     }
