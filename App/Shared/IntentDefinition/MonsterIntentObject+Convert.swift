@@ -14,8 +14,8 @@ extension MonsterIntentObject {
         self.name = monster.name
         self.body = monster.description // The `description` is a reserved word.
         self.baseColorCode = monster.baseColorCode
-        self.iconUrl = URL(string: monster.iconURLString)
-        self.dancingUrlString = monster.dancingURLString
+        self.iconURL = URL(string: monster.iconURLString)
+        self.dancingURLString = monster.dancingURLString
         self.order = monster.order as NSNumber
     }
 
@@ -23,8 +23,8 @@ extension MonsterIntentObject {
         guard let name = name,
               let description = body,
               let baseColorCode = baseColorCode,
-              let iconURL = iconUrl,
-              let dancingURLString = dancingUrlString,
+              let iconURL = iconURL,
+              let dancingURLString = dancingURLString,
               let order = order
         else {
             return nil

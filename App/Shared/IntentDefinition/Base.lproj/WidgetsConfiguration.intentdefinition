@@ -9,11 +9,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>uWBxEI</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>20B29</string>
+	<string>20G165</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>12B45b</string>
+	<string>13C100</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>12.2</string>
+	<string>13.2.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -214,13 +214,13 @@
 				</dict>
 				<dict>
 					<key>INTypePropertyDisplayName</key>
-					<string>Icon Url</string>
+					<string>Icon URL</string>
 					<key>INTypePropertyDisplayNameID</key>
 					<string>LDC0ih</string>
 					<key>INTypePropertyDisplayPriority</key>
 					<integer>8</integer>
 					<key>INTypePropertyName</key>
-					<string>iconUrl</string>
+					<string>iconURL</string>
 					<key>INTypePropertyTag</key>
 					<integer>104</integer>
 					<key>INTypePropertyType</key>
@@ -228,13 +228,13 @@
 				</dict>
 				<dict>
 					<key>INTypePropertyDisplayName</key>
-					<string>Dancing Url String</string>
+					<string>Dancing URL String</string>
 					<key>INTypePropertyDisplayNameID</key>
 					<string>mlnQMc</string>
 					<key>INTypePropertyDisplayPriority</key>
 					<integer>9</integer>
 					<key>INTypePropertyName</key>
-					<string>dancingUrlString</string>
+					<string>dancingURLString</string>
 					<key>INTypePropertyTag</key>
 					<integer>106</integer>
 					<key>INTypePropertyType</key>
