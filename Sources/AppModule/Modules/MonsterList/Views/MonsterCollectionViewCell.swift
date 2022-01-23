@@ -39,11 +39,11 @@ final class MonsterCollectionViewCell: UICollectionViewCell {
 
     // MARK: Other Internal Methods
 
-    func setup(name: String, iconUrl: URL, elevation: Double) {
+    func setup(name: String, iconURL: URL, elevation: Double) {
         nameLabel.text = name
         baseView.elevate(elevation: elevation)
         Task {
-            await iconImageView.loadImage(with: iconUrl)
+            await iconImageView.loadImage(with: iconURL)
         }
     }
 }
