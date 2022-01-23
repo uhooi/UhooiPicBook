@@ -62,26 +62,26 @@ extension MonsterListRouter: MonsterListRouterInput {
     }
 
     func showContactUs() {
-        guard let contactUsUrl = URL(string: R.LocalizedString.contactUsURL) else {
+        guard let contactUsURL = URL(string: R.LocalizedString.contactUsURL) else {
             fatalError("Fail to initialize contact us URL.")
         }
-        InAppWebBrowserRouter.show(viewController, url: contactUsUrl)
+        InAppWebBrowserRouter.show(viewController, url: contactUsURL)
     }
 
     func showPrivacyPolicy() {
-        guard let privacyPolicyUrl = URL(string: R.LocalizedString.privacyPolicyURL) else {
+        guard let privacyPolicyURL = URL(string: R.LocalizedString.privacyPolicyURL) else {
             fatalError("Fail to initialize privacy policy URL.")
         }
-        UIApplication.shared.open(privacyPolicyUrl)
+        UIApplication.shared.open(privacyPolicyURL)
     }
 
     func showSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
-              UIApplication.shared.canOpenURL(settingsUrl)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString),
+              UIApplication.shared.canOpenURL(settingsURL)
         else {
             fatalError("Fail to open Settings URL.")
         }
-        UIApplication.shared.open(settingsUrl)
+        UIApplication.shared.open(settingsURL)
     }
 
     func showAboutThisApp() {
