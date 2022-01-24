@@ -80,17 +80,17 @@ struct MonsterEntryView_Previews: PreviewProvider {
 
     private static var previewEntryViewGroup: some View {
         Group {
-            MonsterEntryView(entry: .createDefault())
+            MonsterEntryView(entry: .placeholder())
                 .redacted(reason: .placeholder)
-            MonsterEntryView(entry: .createDefault())
-            MonsterEntryView(entry: .createDefault())
+            MonsterEntryView(entry: .placeholder())
+            MonsterEntryView(entry: .placeholder())
                 .environment(\.colorScheme, .dark)
-            MonsterEntryView(entry: createShortEntry())
-            MonsterEntryView(entry: createLongEntry())
+            MonsterEntryView(entry: shortEntry())
+            MonsterEntryView(entry: longEntry())
         }
     }
 
-    private static func createShortEntry() -> Entry {
+    private static func shortEntry() -> Entry {
         .init(
             date: Date(),
             name: "1",
@@ -99,7 +99,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
         )
     }
 
-    private static func createLongEntry() -> Entry {
+    private static func longEntry() -> Entry {
         .init(
             date: Date(),
             name: "123456789012345678901234567890",

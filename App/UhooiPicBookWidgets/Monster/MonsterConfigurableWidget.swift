@@ -34,17 +34,17 @@ struct MonsterConfigurableWidget: Widget {
 
 extension MonsterProvider: IntentTimelineProvider {
     func placeholder(in context: Context) -> Entry {
-        .createDefault()
+        .placeholder()
     }
 
     func getSnapshot(for intent: Intent, in context: Context, completion: @escaping (Entry) -> Void) {
-        completion(.createDefault())
+        completion(.placeholder())
     }
 
     func getTimeline(for intent: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
             let entry = await convertDTOToEntry(dto: intent.monster?.convertToDTO())
-            let entries = [entry ?? .createDefault()]
+            let entries = [entry ?? .placeholder()]
             completion(Timeline(entries: entries, policy: .never))
         }
     }

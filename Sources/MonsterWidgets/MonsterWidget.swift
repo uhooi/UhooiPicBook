@@ -48,11 +48,11 @@ public struct MonsterWidget: Widget {
 
 extension MonsterProvider: TimelineProvider {
     func placeholder(in context: Context) -> Entry {
-        .createDefault()
+        .placeholder()
     }
 
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
-        completion(.createDefault())
+        completion(.placeholder())
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {

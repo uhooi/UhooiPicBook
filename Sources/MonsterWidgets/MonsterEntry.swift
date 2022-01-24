@@ -26,7 +26,7 @@ public struct MonsterEntry: TimelineEntry {
         self.icon = icon
     }
 
-    public static func createDefault() -> Self {
+    public static func placeholder() -> Self {
         .init(
             date: Date(),
             name: "uhooi",
