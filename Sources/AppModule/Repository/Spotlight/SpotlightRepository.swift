@@ -39,7 +39,7 @@ extension SpotlightClient: SpotlightRepository {
         let item = CSSearchableItem(
             uniqueIdentifier: key,
             domainIdentifier: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
-            attributeSet: createAttributeSet(
+            attributeSet: attributeSet(
                 title: monster.name,
                 contentDescription: monster.description,
                 thumbnailData: thumbnailData
@@ -56,7 +56,7 @@ extension SpotlightClient: SpotlightRepository {
 
     // MARK: Other Private Methods
 
-    private func createAttributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
+    private func attributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
         let attributeSet = CSSearchableItemAttributeSet(contentType: .data)
         attributeSet.title = title
         attributeSet.contentDescription = contentDescription
