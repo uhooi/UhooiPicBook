@@ -23,6 +23,7 @@ public final class UserDefaultsClient {
 
     // MARK: Other Internal Methods
 
+    // For unit tests
     func removeAll() {
         userDefaults.dictionaryRepresentation().keys.forEach { userDefaults.removeObject(forKey: $0) }
     }
