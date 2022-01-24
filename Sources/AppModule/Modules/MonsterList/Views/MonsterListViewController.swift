@@ -47,7 +47,7 @@ public final class MonsterListViewController: UIViewController {
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
         let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, MonsterItem>(
             cellNib: R.Nib.monsterCollectionViewCell) { cell, _, monster in
-            cell.setup(name: monster.name, iconURL: monster.iconURL, elevation: 1.0)
+            cell.setupWith(name: monster.name, iconURL: monster.iconURL, elevation: 1.0)
         }
 
         return .init(collectionView: monstersCollectionView) { collectionView, indexPath, item in
