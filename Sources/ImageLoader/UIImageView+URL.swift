@@ -10,10 +10,10 @@ import UIKit.UIImageView
 @MainActor
 public extension UIImageView {
     func loadImage(with url: URL) async {
-        image = await UIImage.object(with: url)
+        image = await UIImage.create(with: url)
     }
 
     func loadGIFImage(with url: URL) {
-        image = UIImage.gifObject(with: url)
+        image = UIImage.createGIF(with: url)
     }
 }
