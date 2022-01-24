@@ -56,7 +56,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
     func viewDidLoad() async {
         do {
             view.startIndicator()
-            let monsterDTOs = try await interactor.fetchMonsters()
+            let monsterDTOs = try await interactor.monsters()
             let monsterEntities = monsterDTOs
                 .sorted { $0.order < $1.order }
                 .map { MonsterEntity(dto: $0) }

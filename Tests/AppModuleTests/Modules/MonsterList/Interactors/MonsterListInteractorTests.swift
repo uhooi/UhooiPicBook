@@ -34,14 +34,14 @@ final class MonsterListInteractorTests: XCTestCase {
 
     // MARK: MonsterListInteractorInput
     
-    // MARK: fetchMonsters()
+    // MARK: monsters()
     
-    func test_fetchMonsters_success() async {
+    func test_monsters_success() async {
         let monsterDTOs: [MonsterDTO] = []
         monstersRepositoryMock.monstersHandler = { monsterDTOs }
         
         do {
-            let monsters = try await interactor.fetchMonsters()
+            let monsters = try await interactor.monsters()
             XCTAssertEqual(monsters, monsterDTOs)
         } catch {
             XCTFail("Error: \(error)")
@@ -49,12 +49,12 @@ final class MonsterListInteractorTests: XCTestCase {
         XCTAssertEqual(monstersRepositoryMock.monstersCallCount, 1)
     }
     
-    func test_fetchMonsters_failure() async {
+    func test_monsters_failure() async {
         struct TestError: Error {}
         monstersRepositoryMock.monstersHandler = { throw TestError() }
         
         do {
-            let monsters = try await interactor.fetchMonsters()
+            let monsters = try await interactor.monsters()
             XCTFail("Monsters: \(monsters)")
         } catch {
             XCTAssertTrue(error is TestError)
