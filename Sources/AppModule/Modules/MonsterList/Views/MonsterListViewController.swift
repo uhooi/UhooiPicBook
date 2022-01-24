@@ -146,7 +146,7 @@ public final class MonsterListViewController: UIViewController {
 
 extension MonsterListViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        sections[indexPath.section].didSelectItemAt(indexPath.row)
+        sections[indexPath.section].didSelectItem(at: indexPath.row)
     }
 }
 
