@@ -171,9 +171,9 @@ final class MonsterListPresenterTests: XCTestCase {
 
     // MARK: MonsterSectionEventHandler
     
-    // MARK: didSelectMonsterAt()
+    // MARK: didSelectMonster()
     
-    func test_didSelectMonsterAt() async {
+    func test_didSelectMonster() async {
         let uhooiDTO = MonsterDTO(name: "uhooi", description: "uhooi's description", baseColorCode: "#FFFFFF", iconURLString: "https://theuhooi.com/uhooi", dancingURLString: "https://theuhooi.com/uhooi-dancing", order: 1)
         let monsterDTOs = [uhooiDTO]
         interactorMock.monstersHandler = { monsterDTOs }
@@ -184,7 +184,7 @@ final class MonsterListPresenterTests: XCTestCase {
         }
         await presenter.viewDidLoad()
         
-        await presenter.didSelectMonsterAt(0)
+        await presenter.didSelectMonster(at: 0)
         
         XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
         XCTAssertEqual(interactorMock.saveMonsterInSpotlightCallCount, 1)

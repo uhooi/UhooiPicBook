@@ -21,7 +21,7 @@ protocol MonsterListEventHandler: AnyObject {
 
 @MainActor
 protocol MonsterSectionEventHandler: AnyObject {
-    func didSelectMonsterAt(_ row: Int) async
+    func didSelectMonster(at row: Int) async
 }
 
 /// @mockable
@@ -88,7 +88,7 @@ extension MonsterListPresenter: MonsterListEventHandler {
 }
 
 extension MonsterListPresenter: MonsterSectionEventHandler {
-    func didSelectMonsterAt(_ row: Int) async {
+    func didSelectMonster(at row: Int) async {
         let entity = monsters[row]
         router.showMonsterDetail(monster: MonsterItem(entity: entity))
         await interactor.saveMonsterInSpotlight(entity)
