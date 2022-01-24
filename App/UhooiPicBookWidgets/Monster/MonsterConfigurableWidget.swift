@@ -43,13 +43,13 @@ extension MonsterProvider: IntentTimelineProvider {
 
     func getTimeline(for intent: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
-            let entry = await convertDTOToEntry(dto: intent.monster?.convertToDTO())
+            let entry = await entry(dto: intent.monster?.convertToDTO())
             let entries = [entry ?? .placeholder()]
             completion(Timeline(entries: entries, policy: .never))
         }
     }
 
-    private func convertDTOToEntry(dto: MonsterDTO?) async -> Entry? {
+    private func entry(dto: MonsterDTO?) async -> Entry? {
         guard let dto = dto,
               let iconURL = URL(string: dto.iconURLString),
               let icon = await UIImage.create(with: iconURL)
