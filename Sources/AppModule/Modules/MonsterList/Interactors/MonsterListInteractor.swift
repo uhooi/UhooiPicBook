@@ -11,7 +11,7 @@ import MonstersRepository
 /// @mockable
 protocol MonsterListInteractorInput: AnyObject {
     func monsters() async throws -> [MonsterDTO]
-    func saveForSpotlight(_ monster: MonsterEntity) async
+    func saveMonsterInSpotlight(_ monster: MonsterEntity) async
 }
 
 final class MonsterListInteractor {
@@ -42,7 +42,7 @@ extension MonsterListInteractor: MonsterListInteractorInput {
         try await monstersRepository.monsters()
     }
 
-    func saveForSpotlight(_ monster: MonsterEntity) async {
+    func saveMonsterInSpotlight(_ monster: MonsterEntity) async {
         let key = "spotlight_\(monster.name)"
         monstersTempRepository.saveMonster(monster, forKey: key)
         await spotlightRepository.saveMonster(monster, forKey: key)

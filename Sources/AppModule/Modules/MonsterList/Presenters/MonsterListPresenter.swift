@@ -91,7 +91,7 @@ extension MonsterListPresenter: MonsterSectionEventHandler {
     func didSelectMonsterAt(_ row: Int) async {
         let entity = monsters[row]
         router.showMonsterDetail(monster: MonsterItem(entity: entity))
-        await interactor.saveForSpotlight(entity)
+        await interactor.saveMonsterInSpotlight(entity)
     }
 }
 

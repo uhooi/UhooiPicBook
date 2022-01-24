@@ -187,7 +187,7 @@ final class MonsterListPresenterTests: XCTestCase {
         await presenter.didSelectMonsterAt(0)
         
         XCTAssertEqual(routerMock.showMonsterDetailCallCount, 1)
-        XCTAssertEqual(interactorMock.saveForSpotlightCallCount, 1)
+        XCTAssertEqual(interactorMock.saveMonsterInSpotlightCallCount, 1)
     }
     
     // MARK: MonsterListInteractorOutput

@@ -62,12 +62,12 @@ final class MonsterListInteractorTests: XCTestCase {
         XCTAssertEqual(monstersRepositoryMock.monstersCallCount, 1)
     }
     
-    // saveForSpotlight()
+    // saveMonsterInSpotlight()
     
-    func test_saveForSpotlight() async {
+    func test_saveMonsterInSpotlight() async {
         let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         
-        await interactor.saveForSpotlight(uhooiEntity)
+        await interactor.saveMonsterInSpotlight(uhooiEntity)
         
         XCTAssertEqual(monstersTempRepositoryMock.saveMonsterCallCount, 1)
         XCTAssertEqual(spotlightRepositoryMock.saveMonsterCallCount, 1)
