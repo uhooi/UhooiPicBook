@@ -19,7 +19,7 @@ extension MonsterIntentObject {
         self.order = monster.order as NSNumber
     }
 
-    func convertToDTO() -> MonsterDTO? {
+    func dto() -> MonsterDTO? {
         guard let name = name,
               let description = body,
               let baseColorCode = baseColorCode,
