@@ -133,7 +133,7 @@ public final class MonsterListViewController: UIViewController {
         ])
     }
 
-    private func applyDataSource(monsters: [MonsterItem]) {
+    private func applyToDataSource(monsters: [MonsterItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections(Section.allCases)
 
@@ -152,7 +152,7 @@ extension MonsterListViewController: UICollectionViewDelegate {
 
 extension MonsterListViewController: MonsterListUserInterface {
     func showMonsters(_ monsters: [MonsterItem]) {
-        applyDataSource(monsters: monsters)
+        applyToDataSource(monsters: monsters)
         monstersCollectionView.executeCellSlideUpAnimation()
     }
 
