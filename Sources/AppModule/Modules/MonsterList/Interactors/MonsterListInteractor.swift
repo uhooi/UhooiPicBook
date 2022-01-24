@@ -39,7 +39,7 @@ final class MonsterListInteractor {
 
 extension MonsterListInteractor: MonsterListInteractorInput {
     func fetchMonsters() async throws -> [MonsterDTO] {
-        try await monstersRepository.loadMonsters()
+        try await monstersRepository.monsters()
     }
 
     func saveForSpotlight(_ monster: MonsterEntity) async {

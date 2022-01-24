@@ -59,7 +59,7 @@ extension MonsterProvider: TimelineProvider {
         Task {
             var entries: [Entry] = []
             do {
-                let monsters = try await monstersRepository.loadMonsters()
+                let monsters = try await monstersRepository.monsters()
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {

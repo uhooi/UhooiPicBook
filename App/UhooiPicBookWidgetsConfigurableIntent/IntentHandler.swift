@@ -24,7 +24,7 @@ final class IntentHandler: INExtension, SelectMonsterIntentHandling {
         with completion: @escaping (INObjectCollection<MonsterIntentObject>?, Error?) -> Void) {
         Task {
             do {
-                let monsters = try await repository.loadMonsters()
+                let monsters = try await repository.monsters()
                 let monsterIntentObject = monsters
                     .sorted { $0.order < $1.order }
                     .map(MonsterIntentObject.init)
