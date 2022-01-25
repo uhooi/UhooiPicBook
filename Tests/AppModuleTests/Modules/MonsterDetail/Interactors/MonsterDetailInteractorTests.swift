@@ -35,6 +35,6 @@ final class MonsterDetailInteractorTests: XCTestCase {
     private func reset() {
         self.presenterMock = MonsterDetailInteractorOutputMock()
         self.interactor = MonsterDetailInteractor()
-        self.interactor.presenter = self.presenterMock
+        self.interactor.inject(presenter: self.presenterMock)
     }
 }

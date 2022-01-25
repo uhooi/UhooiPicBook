@@ -40,7 +40,7 @@ public final class MonsterDetailRouter {
             presenter: presenter,
             monster: monster
         )
-        interactor.presenter = presenter
+        interactor.inject(presenter: presenter)
 
         return view
     }

@@ -14,11 +14,17 @@ final class MonsterDetailInteractor {
 
     // MARK: Stored Instance Properties
 
-    weak var presenter: MonsterDetailInteractorOutput!
+    private weak var presenter: MonsterDetailInteractorOutput!
 
     // MARK: Initializer
 
     init() {
+    }
+    
+    // MARK: Other Internal Methods
+
+    func inject(presenter: MonsterDetailInteractorOutput) {
+        self.presenter = presenter
     }
 }
 
