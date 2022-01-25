@@ -18,7 +18,7 @@ final class MonsterListInteractor {
 
     // MARK: Stored Instance Properties
 
-    weak var presenter: MonsterListInteractorOutput!
+    private weak var presenter: MonsterListInteractorOutput!
 
     private let monstersRepository: MonstersRepository
     private let monstersTempRepository: MonstersTempRepository
@@ -34,6 +34,12 @@ final class MonsterListInteractor {
         self.spotlightRepository = spotlightRepository
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
+    }
+    
+    // MARK: Other Internal Methods
+
+    func inject(presenter: MonsterListInteractorOutput) {
+        self.presenter = presenter
     }
 }
 
