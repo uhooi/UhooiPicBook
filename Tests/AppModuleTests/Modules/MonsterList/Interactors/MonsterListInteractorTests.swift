@@ -85,6 +85,6 @@ final class MonsterListInteractorTests: XCTestCase {
             monstersRepository: self.monstersRepositoryMock,
             monstersTempRepository: self.monstersTempRepositoryMock
         )
-        self.interactor.presenter = self.presenterMock
+        self.interactor.inject(presenter: self.presenterMock)
     }
 }
