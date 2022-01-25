@@ -49,7 +49,7 @@ public final class MonsterListRouter {
             MonsterCollectionSection(presenter: presenter)
         ]
         view.inject(sections: sections, presenter: presenter)
-        interactor.presenter = presenter
+        interactor.inject(presenter: presenter)
 
         return view
     }
