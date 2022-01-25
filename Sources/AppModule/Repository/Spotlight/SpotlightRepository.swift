@@ -32,14 +32,14 @@ final class SpotlightClient {
 
 extension SpotlightClient: SpotlightRepository {
     func saveMonster(_ monster: MonsterEntity, forKey key: String) async {
-        guard let icon = await UIImage.create(url: monster.iconUrl) else {
+        guard let icon = await UIImage.create(with: monster.iconURL) else {
             return
         }
         let thumbnailData = icon.resize(CGSize(width: 180.0, height: 180.0))?.pngData()
         let item = CSSearchableItem(
             uniqueIdentifier: key,
             domainIdentifier: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
-            attributeSet: createAttributeSet(
+            attributeSet: attributeSet(
                 title: monster.name,
                 contentDescription: monster.description,
                 thumbnailData: thumbnailData
@@ -56,7 +56,7 @@ extension SpotlightClient: SpotlightRepository {
 
     // MARK: Other Private Methods
 
-    private func createAttributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
+    private func attributeSet(title: String, contentDescription: String, thumbnailData: Data?) -> CSSearchableItemAttributeSet {
         let attributeSet = CSSearchableItemAttributeSet(contentType: .data)
         attributeSet.title = title
         attributeSet.contentDescription = contentDescription

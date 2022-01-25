@@ -48,23 +48,23 @@ public struct MonsterWidget: Widget {
 
 extension MonsterProvider: TimelineProvider {
     func placeholder(in context: Context) -> Entry {
-        .createDefault()
+        .placeholder()
     }
 
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
-        completion(.createDefault())
+        completion(.placeholder())
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
             var entries: [Entry] = []
             do {
-                let monsters = try await monstersRepository.loadMonsters()
+                let monsters = try await monstersRepository.monsters()
                 let currentDate = Date()
                 var hourOffset = 0
                 for monster in monsters.sorted(by: { $0.order < $1.order }) {
-                    guard let iconUrl = URL(string: monster.iconUrlString),
-                          let icon = await UIImage.create(url: iconUrl)
+                    guard let iconURL = URL(string: monster.iconURLString),
+                          let icon = await UIImage.create(with: iconURL)
                     else {
                         continue
                     }

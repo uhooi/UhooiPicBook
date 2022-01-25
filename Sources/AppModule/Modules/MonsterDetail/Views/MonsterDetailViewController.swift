@@ -86,12 +86,12 @@ public final class MonsterDetailViewController: UIViewController {
 
     private func configureView() {
         Task {
-            await iconImageView.loadImage(with: monster.iconUrl)
+            await iconImageView.loadImage(with: monster.iconURL)
         }
         nameLabel.text = monster.name
         descriptionLabel.text = monster.description
         navigationController?.navigationBar.configureBackgroundColor(UIColor(hex: monster.baseColorCode))
-        dancingImageView.loadGIFImage(with: monster.dancingUrl)
+        dancingImageView.loadGIFImage(with: monster.dancingURL)
     }
 }
 

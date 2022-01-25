@@ -13,37 +13,37 @@ public struct MonsterEntity {
     let name: String
     let description: String
     let baseColorCode: String
-    let iconUrl: URL
-    let dancingUrl: URL
+    let iconURL: URL
+    let dancingURL: URL
 
     // For unit tests
     init(
         name: String,
         description: String,
         baseColorCode: String,
-        iconUrl: URL,
-        dancingUrl: URL
+        iconURL: URL,
+        dancingURL: URL
     ) {
         self.name = name
         self.description = description
         self.baseColorCode = baseColorCode
-        self.iconUrl = iconUrl
-        self.dancingUrl = dancingUrl
+        self.iconURL = iconURL
+        self.dancingURL = dancingURL
     }
 
     public init(dto: MonsterDTO) {
-        guard let iconUrl = URL(string: dto.iconUrlString) else {
+        guard let iconURL = URL(string: dto.iconURLString) else {
             fatalError("Fail to load icon.")
         }
-        guard let dancingUrl = URL(string: dto.dancingUrlString) else {
+        guard let dancingURL = URL(string: dto.dancingURLString) else {
             fatalError("Fail to load dancing image.")
         }
 
         self.name = dto.name
         self.description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
         self.baseColorCode = dto.baseColorCode
-        self.iconUrl = iconUrl
-        self.dancingUrl = dancingUrl
+        self.iconURL = iconURL
+        self.dancingURL = dancingURL
     }
 }
 

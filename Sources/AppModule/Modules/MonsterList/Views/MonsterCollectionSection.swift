@@ -36,9 +36,9 @@ extension MonsterCollectionSection: CollectionSectionProtocol {
         return section
     }
 
-    func didSelectItemAt(_ row: Int) {
+    func didSelectItem(at row: Int) {
         Task {
-            await presenter.didSelectMonsterAt(row)
+            await presenter.didSelectMonster(at: row)
         }
     }
 }

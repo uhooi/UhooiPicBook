@@ -34,40 +34,40 @@ final class MonsterListInteractorTests: XCTestCase {
 
     // MARK: MonsterListInteractorInput
     
-    // MARK: fetchMonsters()
+    // MARK: monsters()
     
-    func test_fetchMonsters_success() async {
+    func test_monsters_success() async {
         let monsterDTOs: [MonsterDTO] = []
-        monstersRepositoryMock.loadMonstersHandler = { monsterDTOs }
+        monstersRepositoryMock.monstersHandler = { monsterDTOs }
         
         do {
-            let monsters = try await interactor.fetchMonsters()
+            let monsters = try await interactor.monsters()
             XCTAssertEqual(monsters, monsterDTOs)
         } catch {
             XCTFail("Error: \(error)")
         }
-        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
+        XCTAssertEqual(monstersRepositoryMock.monstersCallCount, 1)
     }
     
-    func test_fetchMonsters_failure() async {
+    func test_monsters_failure() async {
         struct TestError: Error {}
-        monstersRepositoryMock.loadMonstersHandler = { throw TestError() }
+        monstersRepositoryMock.monstersHandler = { throw TestError() }
         
         do {
-            let monsters = try await interactor.fetchMonsters()
+            let monsters = try await interactor.monsters()
             XCTFail("Monsters: \(monsters)")
         } catch {
             XCTAssertTrue(error is TestError)
         }
-        XCTAssertEqual(monstersRepositoryMock.loadMonstersCallCount, 1)
+        XCTAssertEqual(monstersRepositoryMock.monstersCallCount, 1)
     }
     
-    // saveForSpotlight()
+    // saveMonsterInSpotlight()
     
-    func test_saveForSpotlight() async {
-        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconUrl: URL(string: "https://theuhooi.com/uhooi")!, dancingUrl: URL(string: "https://theuhooi.com/uhooi-dancing")!)
+    func test_saveMonsterInSpotlight() async {
+        let uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         
-        await interactor.saveForSpotlight(uhooiEntity)
+        await interactor.saveMonsterInSpotlight(uhooiEntity)
         
         XCTAssertEqual(monstersTempRepositoryMock.saveMonsterCallCount, 1)
         XCTAssertEqual(spotlightRepositoryMock.saveMonsterCallCount, 1)

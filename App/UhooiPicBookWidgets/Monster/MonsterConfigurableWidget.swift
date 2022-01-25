@@ -34,25 +34,25 @@ struct MonsterConfigurableWidget: Widget {
 
 extension MonsterProvider: IntentTimelineProvider {
     func placeholder(in context: Context) -> Entry {
-        .createDefault()
+        .placeholder()
     }
 
     func getSnapshot(for intent: Intent, in context: Context, completion: @escaping (Entry) -> Void) {
-        completion(.createDefault())
+        completion(.placeholder())
     }
 
     func getTimeline(for intent: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         Task {
-            let entry = await convertDTOToEntry(dto: intent.monster?.convertToDTO())
-            let entries = [entry ?? .createDefault()]
+            let entry = await entry(dto: intent.monster?.dto())
+            let entries = [entry ?? .placeholder()]
             completion(Timeline(entries: entries, policy: .never))
         }
     }
 
-    private func convertDTOToEntry(dto: MonsterDTO?) async -> Entry? {
+    private func entry(dto: MonsterDTO?) async -> Entry? {
         guard let dto = dto,
-              let iconUrl = URL(string: dto.iconUrlString),
-              let icon = await UIImage.create(url: iconUrl)
+              let iconURL = URL(string: dto.iconURLString),
+              let icon = await UIImage.create(with: iconURL)
         else {
             return nil
         }

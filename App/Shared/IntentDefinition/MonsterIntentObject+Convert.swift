@@ -14,17 +14,17 @@ extension MonsterIntentObject {
         self.name = monster.name
         self.body = monster.description // The `description` is a reserved word.
         self.baseColorCode = monster.baseColorCode
-        self.iconUrl = URL(string: monster.iconUrlString)
-        self.dancingUrlString = monster.dancingUrlString
+        self.iconURL = URL(string: monster.iconURLString)
+        self.dancingURLString = monster.dancingURLString
         self.order = monster.order as NSNumber
     }
 
-    func convertToDTO() -> MonsterDTO? {
+    func dto() -> MonsterDTO? {
         guard let name = name,
               let description = body,
               let baseColorCode = baseColorCode,
-              let iconUrl = iconUrl,
-              let dancingUrlString = dancingUrlString,
+              let iconURL = iconURL,
+              let dancingURLString = dancingURLString,
               let order = order
         else {
             return nil
@@ -33,8 +33,8 @@ extension MonsterIntentObject {
             name: name,
             description: description,
             baseColorCode: baseColorCode,
-            iconUrlString: iconUrl.absoluteString,
-            dancingUrlString: dancingUrlString,
+            iconURLString: iconURL.absoluteString,
+            dancingURLString: dancingURLString,
             order: order.intValue
         )
     }

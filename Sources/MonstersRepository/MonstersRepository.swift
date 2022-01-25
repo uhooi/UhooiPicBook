@@ -7,5 +7,5 @@
 
 /// @mockable
 public protocol MonstersRepository: AnyObject {
-    func loadMonsters() async throws -> [MonsterDTO]
+    func monsters() async throws -> [MonsterDTO]
 }

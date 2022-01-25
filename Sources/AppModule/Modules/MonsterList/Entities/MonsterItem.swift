@@ -12,15 +12,15 @@ public struct MonsterItem {
     let name: String
     let description: String
     let baseColorCode: String
-    let iconUrl: URL
-    let dancingUrl: URL
+    let iconURL: URL
+    let dancingURL: URL
 
     public init(entity: MonsterEntity) {
         self.name = entity.name
         self.description = entity.description
         self.baseColorCode = entity.baseColorCode
-        self.iconUrl = entity.iconUrl
-        self.dancingUrl = entity.dancingUrl
+        self.iconURL = entity.iconURL
+        self.dancingURL = entity.dancingURL
     }
 }
 

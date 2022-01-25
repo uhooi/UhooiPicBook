@@ -13,16 +13,16 @@ public enum R { // swiftlint:disable:this type_name
 
         // MARK: Public Stored Type Properties
 
-        public static let configurationDisplayName = createNSLocalizedString("Configuration display name")
-        public static let configurableDescription = createNSLocalizedString("Configurable description")
+        public static let configurationDisplayName = nsLocalizedString("Configuration display name")
+        public static let configurableDescription = nsLocalizedString("Configurable description")
 
         // MARK: Internal Stored Type Properties
 
-        static let description = createNSLocalizedString("Description")
+        static let description = nsLocalizedString("Description")
 
         // MARK: Other Private Type Methods
 
-        private static func createNSLocalizedString(_ key: String) -> String {
+        private static func nsLocalizedString(_ key: String) -> String {
             NSLocalizedString(key, bundle: .module, comment: key) // swiftlint:disable:this nslocalizedstring_key
         }
     }
@@ -31,11 +31,11 @@ public enum R { // swiftlint:disable:this type_name
 
         // MARK: Internal Stored Type Properties
 
-        static let uhooiIcon = createUIImage(named: "Uhooi")
+        static let uhooiIcon = uiImage(named: "Uhooi")
 
         // MARK: Other Private Type Methods
 
-        private static func createUIImage(named name: String) -> UIImage {
+        private static func uiImage(named name: String) -> UIImage {
             guard let image = UIImage(named: name, in: .module, with: nil) else {
                 fatalError("Fail to load '\(name)' image.")
             }

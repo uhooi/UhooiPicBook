@@ -47,7 +47,7 @@ public final class MonsterListViewController: UIViewController {
     private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Item> = {
         let monsterCellRegistration = UICollectionView.CellRegistration<MonsterCollectionViewCell, MonsterItem>(
             cellNib: R.Nib.monsterCollectionViewCell) { cell, _, monster in
-            cell.setup(name: monster.name, iconUrl: monster.iconUrl, elevation: 1.0)
+            cell.setupWith(name: monster.name, iconURL: monster.iconURL, elevation: 1.0)
         }
 
         return .init(collectionView: monstersCollectionView) { collectionView, indexPath, item in
@@ -133,7 +133,7 @@ public final class MonsterListViewController: UIViewController {
         ])
     }
 
-    private func applyDataSource(monsters: [MonsterItem]) {
+    private func applyToDataSource(monsters: [MonsterItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections(Section.allCases)
 
@@ -146,13 +146,13 @@ public final class MonsterListViewController: UIViewController {
 
 extension MonsterListViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        sections[indexPath.section].didSelectItemAt(indexPath.row)
+        sections[indexPath.section].didSelectItem(at: indexPath.row)
     }
 }
 
 extension MonsterListViewController: MonsterListUserInterface {
     func showMonsters(_ monsters: [MonsterItem]) {
-        applyDataSource(monsters: monsters)
+        applyToDataSource(monsters: monsters)
         monstersCollectionView.executeCellSlideUpAnimation()
     }
 

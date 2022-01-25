@@ -23,7 +23,7 @@ public final class MonstersFirestoreClient {
 }
 
 extension MonstersFirestoreClient: MonstersRepository {
-    public func loadMonsters() async throws -> [MonsterDTO] {
+    public func monsters() async throws -> [MonsterDTO] {
         let monstersRef = firestore.collection("monsters")
         let querySnapshot = try await monstersRef.getDocuments()
 
@@ -33,8 +33,8 @@ extension MonstersFirestoreClient: MonstersRepository {
             guard let name = monster["name"] as? String,
                   let description = monster["description"] as? String,
                   let baseColorCode = monster["base_color"] as? String,
-                  let iconUrlString = monster["icon_url"] as? String,
-                  let dancingUrlString = monster["dancing_url"] as? String,
+                  let iconURLString = monster["icon_url"] as? String,
+                  let dancingURLString = monster["dancing_url"] as? String,
                   let order = monster["order"] as? Int else {
                 continue
             }
@@ -43,8 +43,8 @@ extension MonstersFirestoreClient: MonstersRepository {
                 name: name,
                 description: description,
                 baseColorCode: baseColorCode,
-                iconUrlString: iconUrlString,
-                dancingUrlString: dancingUrlString,
+                iconURLString: iconURLString,
+                dancingURLString: dancingURLString,
                 order: order
             ))
         }

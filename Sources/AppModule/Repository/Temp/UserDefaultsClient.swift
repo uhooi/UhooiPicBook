@@ -23,28 +23,23 @@ public final class UserDefaultsClient {
 
     // MARK: Other Internal Methods
 
+    // For unit tests
     func removeAll() {
         userDefaults.dictionaryRepresentation().keys.forEach { userDefaults.removeObject(forKey: $0) }
     }
 }
 
 extension UserDefaultsClient: MonstersTempRepository {
-    public func loadMonster(key: String) -> MonsterEntity? {
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-
+    public func monster(key: String) -> MonsterEntity? {
         guard let data = userDefaults.data(forKey: key),
-              let monster = try? jsonDecoder.decode(MonsterEntity.self, from: data) else {
+              let monster = try? JSONDecoder().decode(MonsterEntity.self, from: data) else {
             return nil
         }
         return monster
     }
 
     func saveMonster(_ monster: MonsterEntity, forKey key: String) {
-        let jsonEncoder = JSONEncoder()
-        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
-
-        guard let data = try? jsonEncoder.encode(monster) else {
+        guard let data = try? JSONEncoder().encode(monster) else {
             return
         }
         userDefaults.set(data, forKey: key)
