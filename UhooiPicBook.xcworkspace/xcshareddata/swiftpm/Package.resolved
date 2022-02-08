@@ -192,11 +192,11 @@
       },
       {
         "package": "xcbeautify",
-        "repositoryURL": "https://github.com/thii/xcbeautify",
+        "repositoryURL": "https://github.com/tuist/xcbeautify",
         "state": {
           "branch": null,
-          "revision": "6e24f64e068f31d4514335e66b2804e02f3480a6",
-          "version": "0.10.1"
+          "revision": "b14660cc03d96889d2144265fbca471ea0076e40",
+          "version": "0.11.0"
         }
       },
       {
@@ -206,6 +206,15 @@
           "branch": null,
           "revision": "680db38d06462f9242a789d529a3e2a75c882365",
           "version": "2.3.0"
+        }
+      },
+      {
+        "package": "XMLCoder",
+        "repositoryURL": "https://github.com/MaxDesiatov/XMLCoder.git",
+        "state": {
+          "branch": null,
+          "revision": "f30119af03996939cc4f54e0bf0dda9f88a84da5",
+          "version": "0.13.1"
         }
       },
       {
