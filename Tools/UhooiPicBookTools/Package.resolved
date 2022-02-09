@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/mono0926/LicensePlist",
         "state": {
           "branch": null,
-          "revision": "22d5de3a45008f5c366bea25e5279e49d3a3f3fd",
-          "version": "3.14.4"
+          "revision": "3d365e4ab943774171a75d64da9a71bb2ff7dfa2",
+          "version": "3.17.0"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/uber/mockolo",
         "state": {
           "branch": null,
-          "revision": "f9110ced9267927600e415034499ae0e63d47f7b",
-          "version": "1.6.2"
+          "revision": "61d4fb9c10eacf78b63c9473ce792b2772c0ad0d",
+          "version": "1.6.3"
         }
       },
       {
@@ -192,11 +192,11 @@
       },
       {
         "package": "xcbeautify",
-        "repositoryURL": "https://github.com/thii/xcbeautify",
+        "repositoryURL": "https://github.com/tuist/xcbeautify",
         "state": {
           "branch": null,
-          "revision": "6e24f64e068f31d4514335e66b2804e02f3480a6",
-          "version": "0.10.1"
+          "revision": "b14660cc03d96889d2144265fbca471ea0076e40",
+          "version": "0.11.0"
         }
       },
       {
@@ -206,6 +206,15 @@
           "branch": null,
           "revision": "1fc861d368831f751341f804298e78ebb789592e",
           "version": "2.2.0"
+        }
+      },
+      {
+        "package": "XMLCoder",
+        "repositoryURL": "https://github.com/MaxDesiatov/XMLCoder.git",
+        "state": {
+          "branch": null,
+          "revision": "f30119af03996939cc4f54e0bf0dda9f88a84da5",
+          "version": "0.13.1"
         }
       },
       {

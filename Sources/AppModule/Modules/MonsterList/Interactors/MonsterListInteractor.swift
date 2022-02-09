@@ -35,7 +35,7 @@ final class MonsterListInteractor {
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
     }
-    
+
     // MARK: Other Internal Methods
 
     func inject(presenter: MonsterListInteractorOutput) {
