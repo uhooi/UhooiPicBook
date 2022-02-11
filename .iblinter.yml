@@ -17,6 +17,7 @@ enabled_rules:
   - reuse_identifier
   - color_resources
   - use_trait_collections
+  #- hides_bottom_bar # [Hide Bottom Bar on Push]はデフォルトOFFのため
 
 included:
   - Shared
