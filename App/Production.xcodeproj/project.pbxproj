@@ -139,6 +139,7 @@
 		792E8F9B278C6933000F3902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = UhooiPicBook/Production/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		792E8FA1278C6A56000F3902 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Shared/Production/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		792E8FDA278C7B6F000F3902 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		7955D06327B94B730061AE99 /* Production.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Production.xctestplan; sourceTree = "<group>"; };
 		7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePopupPage.swift; sourceTree = "<group>"; };
 		83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UhooiPicBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E4ADEF286CCE96A2942A1A /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/FirebaseCore.xcframework; sourceTree = "<group>"; };
@@ -217,6 +218,7 @@
 		47C552D3546C641AB89783C1 = {
 			isa = PBXGroup;
 			children = (
+				7955D06327B94B730061AE99 /* Production.xctestplan */,
 				781042549E5A01519EFED671 /* Shared */,
 				792E8F3A278C4B2D000F3902 /* UhooiPicBook */,
 				792E8F57278C4C8E000F3902 /* UhooiPicBookStickers */,
