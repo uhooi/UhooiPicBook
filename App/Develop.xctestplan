@@ -1,0 +1,65 @@
+{
+  "configurations" : [
+    {
+      "id" : "7B68A168-81D0-4EE9-BA66-24D2FAD70C02",
+      "name" : "English",
+      "options" : {
+        "language" : "en",
+        "locationScenario" : {
+          "identifier" : "New York, NY, USA",
+          "referenceType" : "built-in"
+        },
+        "region" : "US"
+      }
+    },
+    {
+      "id" : "5051C0FC-3449-46DE-81DB-96132ADFFC25",
+      "name" : "Japanese",
+      "options" : {
+        "language" : "ja",
+        "locationScenario" : {
+          "identifier" : "Tokyo, Japan",
+          "referenceType" : "built-in"
+        },
+        "region" : "JP"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:..",
+          "identifier" : "AppModule",
+          "name" : "AppModule"
+        }
+      ]
+    },
+    "defaultTestExecutionTimeAllowance" : 60,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Develop.xcodeproj",
+      "identifier" : "F7174334A4963303CCEE4E61",
+      "name" : "UhooiPicBook"
+    },
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Develop.xcodeproj",
+        "identifier" : "4677FBF8E3C5D8691051D106",
+        "name" : "UhooiPicBookTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Develop.xcodeproj",
+        "identifier" : "AD5F2C9896C8C0CAC68E089A",
+        "name" : "UhooiPicBookUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

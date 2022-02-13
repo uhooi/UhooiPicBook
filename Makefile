@@ -124,7 +124,7 @@ test-debug-production: # Xcode debug test for production
 
 .PHONY: test-debug-project
 test-debug-project:
-	$(MAKE) test-debug SCHEME_NAME='${PRODUCT_NAME} (${PROJECT_NAME} project)' XCRESULT_NAME=${PRODUCT_NAME}_${PROJECT_NAME} LOG_NAME=${PRODUCT_NAME}_${PROJECT_NAME}
+	$(MAKE) test-debug SCHEME_NAME='${PRODUCT_NAME} (${PROJECT_NAME} project)' TEST_PLAN_NAME='${PROJECT_NAME}' XCRESULT_NAME=${PRODUCT_NAME}_${PROJECT_NAME} LOG_NAME=${PRODUCT_NAME}_${PROJECT_NAME}
 
 .PHONY: test-debug-app-module
 test-debug-app-module: # Xcode debug test for AppModule
@@ -132,7 +132,7 @@ test-debug-app-module: # Xcode debug test for AppModule
 
 .PHONY: test-debug-target
 test-debug-target:
-	$(MAKE) test-debug SCHEME_NAME='${TEST_TARGET_NAME}' XCRESULT_NAME='${TEST_TARGET_NAME}' LOG_NAME=${TEST_TARGET_NAME}
+	$(MAKE) test-debug SCHEME_NAME='${TEST_TARGET_NAME}' TEST_PLAN_NAME='${TEST_TARGET_NAME}' XCRESULT_NAME='${TEST_TARGET_NAME}' LOG_NAME=${TEST_TARGET_NAME}
 
 .PHONY: test-debug
 test-debug:
@@ -145,6 +145,7 @@ xcodebuild \
 -workspace ${WORKSPACE_NAME} \
 -scheme '${SCHEME_NAME}' \
 -destination ${TEST_DESTINATION} \
+-testPlan '${TEST_PLAN_NAME}' \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
 -resultBundlePath '${REPORTS_PATH}/${XCRESULT_NAME}.xcresult' \
