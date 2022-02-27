@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbX-Hh-jGA" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="584"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="573"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="biE-jY-aJ2">
                                                 <rect key="frame" x="87" y="56" width="240" height="240"/>
@@ -31,16 +31,16 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPl-m6-n0S">
-                                                <rect key="frame" x="77" y="487" width="260" height="41"/>
+                                                <rect key="frame" x="100" y="481" width="214.5" height="36"/>
                                                 <string key="text">ゆかいな　みどりの　せいぶつ。
 わるそうに　みえるが　むがい。</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uhooi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kR-5g-AHA">
-                                                <rect key="frame" x="160" y="380" width="94" height="43"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                <rect key="frame" x="170" y="380" width="74.5" height="37"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
