@@ -1,5 +1,5 @@
 github:
   - owner: firebase
     name: firebase-ios-sdk
-    version: 8.6.0
+    version: v8.12.1
 
