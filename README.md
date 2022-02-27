@@ -22,11 +22,11 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--:|:--:|:--:|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/ImagePopup_English.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/ImagePopup_English.png" width="207">|
 
 |Menu opened in MonsterList|Spotlight|iMessage|
 |:--:|:--:|:--:|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--:|
@@ -36,11 +36,11 @@ UhooiPicBook-iOS is Uhooi's character book for iOS.
 
 |MonsterList|MonsterDetail|ImagePopup|
 |:--:|:--:|:--:|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/ImagePopup_English.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/ImagePopup_English.png" width="207">|
 
 |Menu opened in MonsterList|Spotlight|iMessage|
 |:--:|:--:|:--:|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
 
 |Widgets|
 |:--:|
