@@ -45,7 +45,7 @@ jobs:
 
     # ビルドログのアップロード
     - name: Upload build log Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: failure()
       with:
         name: xcodebuild-logs
@@ -79,7 +79,7 @@ jobs:
 
     # テスト結果のアップロード
     - name: Upload test results Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: success() || failure()
       with:
         name: test-results
@@ -90,7 +90,7 @@ jobs:
 
     # 単体テストログのアップロード
     - name: Upload test log Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: failure()
       with:
         name: xcodebuild-logs
@@ -109,7 +109,7 @@ jobs:
 
     # テスト結果のダウンロード
     - name: Download test results artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: test-results
         path: Reports
