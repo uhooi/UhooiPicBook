@@ -18,18 +18,18 @@ final class MonsterListInteractor {
 
     // MARK: Stored Instance Properties
 
-    private weak var presenter: MonsterListInteractorOutput!
+    private weak var presenter: (any MonsterListInteractorOutput)!
 
-    private let monstersRepository: MonstersRepository
-    private let monstersTempRepository: MonstersTempRepository
-    private let spotlightRepository: SpotlightRepository
+    private let monstersRepository: any MonstersRepository
+    private let monstersTempRepository: any MonstersTempRepository
+    private let spotlightRepository: any SpotlightRepository
 
     // MARK: Initializer
 
     init(
-        spotlightRepository: SpotlightRepository,
-        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
-        monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
+        spotlightRepository: any SpotlightRepository,
+        monstersRepository: any MonstersRepository = MonstersFirestoreClient.shared,
+        monstersTempRepository: any MonstersTempRepository = UserDefaultsClient.shared
     ) {
         self.spotlightRepository = spotlightRepository
         self.monstersRepository = monstersRepository
@@ -38,7 +38,7 @@ final class MonsterListInteractor {
 
     // MARK: Other Internal Methods
 
-    func inject(presenter: MonsterListInteractorOutput) {
+    func inject(presenter: any MonsterListInteractorOutput) {
         self.presenter = presenter
     }
 }

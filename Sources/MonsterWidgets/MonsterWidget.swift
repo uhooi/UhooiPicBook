@@ -16,12 +16,12 @@ import Shared
 private struct MonsterProvider {
     typealias Entry = MonsterEntry
 
-    private let monstersRepository: MonstersRepository
-    private let logger: LoggerProtocol
+    private let monstersRepository: any MonstersRepository
+    private let logger: any LoggerProtocol
 
     init(
-        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
-        logger: LoggerProtocol = Logger.default
+        monstersRepository: any MonstersRepository = MonstersFirestoreClient.shared,
+        logger: any LoggerProtocol = Logger.default
     ) {
         self.monstersRepository = monstersRepository
         self.logger = logger

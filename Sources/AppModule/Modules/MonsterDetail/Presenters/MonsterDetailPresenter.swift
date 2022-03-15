@@ -24,13 +24,13 @@ final class MonsterDetailPresenter {
 
     // MARK: Stored Instance Properties
 
-    private unowned let view: MonsterDetailUserInterface
-    private let interactor: MonsterDetailInteractorInput
-    private let router: MonsterDetailRouterInput
+    private unowned let view: any MonsterDetailUserInterface
+    private let interactor: any MonsterDetailInteractorInput
+    private let router: any MonsterDetailRouterInput
 
     // MARK: Initializers
 
-    init(view: MonsterDetailUserInterface, interactor: MonsterDetailInteractorInput, router: MonsterDetailRouterInput) {
+    init(view: MonsterDetailUserInterface, interactor: any MonsterDetailInteractorInput, router: any MonsterDetailRouterInput) {
         self.view = view
         self.interactor = interactor
         self.router = router

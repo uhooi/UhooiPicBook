@@ -21,11 +21,11 @@ final class SpotlightClient {
     // MARK: Stored Instance Properties
 
     private let searchableIndex = CSSearchableIndex.default()
-    private let logger: LoggerProtocol
+    private let logger: any LoggerProtocol
 
     // MARK: Initializer
 
-    init(logger: LoggerProtocol = Logger.default) {
+    init(logger: any LoggerProtocol = Logger.default) {
         self.logger = logger
     }
 }

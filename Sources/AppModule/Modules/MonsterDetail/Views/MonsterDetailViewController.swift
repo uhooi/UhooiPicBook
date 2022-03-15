@@ -19,7 +19,7 @@ public final class MonsterDetailViewController: UIViewController {
 
     // MARK: Stored Instance Properties
 
-    private var presenter: MonsterDetailEventHandler!
+    private var presenter: (any MonsterDetailEventHandler)!
 
     private var monster: MonsterItem!
 
@@ -70,7 +70,7 @@ public final class MonsterDetailViewController: UIViewController {
     // MARK: Other Internal Methods
 
     func inject(
-        presenter: MonsterDetailEventHandler,
+        presenter: any MonsterDetailEventHandler,
         monster: MonsterItem
     ) {
         self.presenter = presenter

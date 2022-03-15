@@ -33,18 +33,18 @@ final class MonsterListPresenter {
 
     // MARK: Stored Instance Properties
 
-    private unowned let view: MonsterListUserInterface
-    private let interactor: MonsterListInteractorInput
-    private let router: MonsterListRouterInput
+    private unowned let view: any MonsterListUserInterface
+    private let interactor: any MonsterListInteractorInput
+    private let router: any MonsterListRouterInput
 
     private var monsters: [MonsterEntity] = []
 
     // MARK: Initializers
 
     init(
-        view: MonsterListUserInterface,
-        interactor: MonsterListInteractorInput,
-        router: MonsterListRouterInput
+        view: any MonsterListUserInterface,
+        interactor: any MonsterListInteractorInput,
+        router: any MonsterListRouterInput
     ) {
         self.view = view
         self.interactor = interactor

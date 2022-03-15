@@ -11,7 +11,7 @@ import MonstersRepository
 
 final class IntentHandler: INExtension, SelectMonsterIntentHandling {
 
-    private let repository: MonstersRepository
+    private let repository: any MonstersRepository
 
     override init() {
         FirebaseSetup.configure()

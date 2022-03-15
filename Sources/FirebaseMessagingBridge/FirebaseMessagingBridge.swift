@@ -13,7 +13,7 @@ public protocol MessagingBridgeDelegate: AnyObject {
 
 @MainActor
 public final class FirebaseMessagingBridge: NSObject {
-    public weak var delegate: MessagingBridgeDelegate?
+    public weak var delegate: (any MessagingBridgeDelegate)?
 
     override public init() {
         super.init()
