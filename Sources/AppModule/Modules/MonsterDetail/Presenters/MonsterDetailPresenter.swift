@@ -30,7 +30,7 @@ final class MonsterDetailPresenter {
 
     // MARK: Initializers
 
-    init(view: MonsterDetailUserInterface, interactor: any MonsterDetailInteractorInput, router: any MonsterDetailRouterInput) {
+    init(view: any MonsterDetailUserInterface, interactor: any MonsterDetailInteractorInput, router: any MonsterDetailRouterInput) {
         self.view = view
         self.interactor = interactor
         self.router = router
