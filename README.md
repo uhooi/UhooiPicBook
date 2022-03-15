@@ -52,7 +52,7 @@ You can develop this project.
 
 ### Environment
 
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.2.1
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.3
 
 ### Configuration
 
