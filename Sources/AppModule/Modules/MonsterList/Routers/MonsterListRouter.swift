@@ -45,7 +45,7 @@ public final class MonsterListRouter {
             router: router
         )
 
-        let sections: [CollectionSectionProtocol] = [
+        let sections: [any CollectionSectionProtocol] = [
             MonsterCollectionSection(presenter: presenter)
         ]
         view.inject(sections: sections, presenter: presenter)
