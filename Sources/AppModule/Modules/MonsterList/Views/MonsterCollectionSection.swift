@@ -11,7 +11,7 @@ import UIKit
 final class MonsterCollectionSection {
     private unowned let presenter: any MonsterSectionEventHandler
 
-    init(presenter: any MonsterSectionEventHandler) {
+    init<P: MonsterSectionEventHandler>(presenter: P) {
         self.presenter = presenter
     }
 }

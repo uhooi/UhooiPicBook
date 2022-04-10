@@ -26,8 +26,8 @@ final class MonsterListInteractor {
 
     // MARK: Initializer
 
-    init(
-        spotlightRepository: any SpotlightRepository,
+    init<SR: SpotlightRepository>(
+        spotlightRepository: SR,
         monstersRepository: any MonstersRepository = MonstersFirestoreClient.shared,
         monstersTempRepository: any MonstersTempRepository = UserDefaultsClient.shared
     ) {
@@ -38,7 +38,7 @@ final class MonsterListInteractor {
 
     // MARK: Other Internal Methods
 
-    func inject(presenter: any MonsterListInteractorOutput) {
+    func inject<P: MonsterListInteractorOutput>(presenter: P) {
         self.presenter = presenter
     }
 }

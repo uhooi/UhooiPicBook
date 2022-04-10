@@ -41,11 +41,7 @@ final class MonsterListPresenter {
 
     // MARK: Initializers
 
-    init(
-        view: any MonsterListUserInterface,
-        interactor: any MonsterListInteractorInput,
-        router: any MonsterListRouterInput
-    ) {
+    init<V: MonsterListUserInterface, I: MonsterListInteractorInput, R: MonsterListRouterInput>(view: V, interactor: I, router: R) {
         self.view = view
         self.interactor = interactor
         self.router = router
