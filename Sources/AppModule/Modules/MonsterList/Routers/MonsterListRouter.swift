@@ -38,10 +38,12 @@ public final class MonsterListRouter {
 
     public static func assembleModule() -> MonsterListViewController {
         let view = R.Storyboard.MonsterList.instantiateInitialViewController()
+        typealias SC = SpotlightClient // swiftlint:disable:this type_name
         let interactor = MonsterListInteractor<
+            SC,
             MonstersFirestoreClient,
             UserDefaultsClient
-        >(spotlightRepository: SpotlightClient())
+        >(spotlightRepository: SC())
         let router = MonsterListRouter(viewController: view)
         let presenter = MonsterListPresenter(
             view: view,
