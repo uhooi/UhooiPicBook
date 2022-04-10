@@ -8,10 +8,10 @@
 import UIKit
 
 @MainActor
-final class MonsterCollectionSection {
-    private unowned let presenter: any MonsterSectionEventHandler
+final class MonsterCollectionSection<P: MonsterSectionEventHandler> {
+    private unowned let presenter: P
 
-    init<P: MonsterSectionEventHandler>(presenter: P) {
+    init(presenter: P) {
         self.presenter = presenter
     }
 }
