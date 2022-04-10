@@ -7,5 +7,6 @@
 
 /// @mockable
 public protocol MonstersRepository: AnyObject {
+    static var shared: Self { get }
     func monsters() async throws -> [MonsterDTO]
 }

@@ -9,10 +9,6 @@ import FirebaseFirestore
 
 public final class MonstersFirestoreClient {
 
-    // MARK: Stored Type Properties
-
-    public static let shared = MonstersFirestoreClient()
-
     // MARK: Stored Instance Properties
 
     private let firestore = Firestore.firestore()
@@ -23,6 +19,8 @@ public final class MonstersFirestoreClient {
 }
 
 extension MonstersFirestoreClient: MonstersRepository {
+    public static let shared = MonstersFirestoreClient()
+
     public func monsters() async throws -> [MonsterDTO] {
         let monstersRef = firestore.collection("monsters")
         let querySnapshot = try await monstersRef.getDocuments()

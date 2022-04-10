@@ -14,13 +14,13 @@ protocol MonsterListInteractorInput: AnyObject {
     func saveMonsterInSpotlight(_ monster: MonsterEntity) async
 }
 
-final class MonsterListInteractor {
+final class MonsterListInteractor<MR: MonstersRepository> {
 
     // MARK: Stored Instance Properties
 
     private weak var presenter: (any MonsterListInteractorOutput)!
 
-    private let monstersRepository: any MonstersRepository
+    private let monstersRepository: MR
     private let monstersTempRepository: any MonstersTempRepository
     private let spotlightRepository: any SpotlightRepository
 
@@ -28,7 +28,7 @@ final class MonsterListInteractor {
 
     init<SR: SpotlightRepository>(
         spotlightRepository: SR,
-        monstersRepository: any MonstersRepository = MonstersFirestoreClient.shared,
+        monstersRepository: MR = MR.shared,
         monstersTempRepository: any MonstersTempRepository = UserDefaultsClient.shared
     ) {
         self.spotlightRepository = spotlightRepository
