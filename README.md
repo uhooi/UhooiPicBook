@@ -53,7 +53,7 @@ You can develop this project.
 ### Environment
 
 - macOS: 12.0+
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.3
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.3.1
 
 ### Configuration
 
