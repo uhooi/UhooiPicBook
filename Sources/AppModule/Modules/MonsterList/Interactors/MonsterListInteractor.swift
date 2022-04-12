@@ -26,14 +26,23 @@ final class MonsterListInteractor<SR: SpotlightRepository, MR: MonstersRepositor
 
     // MARK: Initializer
 
+    // No `private` for unit tests
     init(
         spotlightRepository: SR,
-        monstersRepository: MR = MR.shared,
-        monstersTempRepository: MTR = MTR.shared
+        monstersRepository: MR,
+        monstersTempRepository: MTR
     ) {
         self.spotlightRepository = spotlightRepository
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
+    }
+
+    convenience init(spotlightRepository: SR) where MR == MonstersFirestoreClient, MTR == UserDefaultsClient {
+        self.init(
+            spotlightRepository: spotlightRepository,
+            monstersRepository: MonstersFirestoreClient.shared,
+            monstersTempRepository: UserDefaultsClient.shared
+        )
     }
 
     // MARK: Other Internal Methods

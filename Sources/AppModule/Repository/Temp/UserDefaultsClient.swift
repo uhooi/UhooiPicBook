@@ -9,6 +9,10 @@ import Foundation
 
 public final class UserDefaultsClient {
 
+    // MARK: Stored Type Properties
+
+    public static let shared = UserDefaultsClient()
+
     // MARK: Stored Instance Properties
 
     private let userDefaults = UserDefaults.standard
@@ -26,8 +30,6 @@ public final class UserDefaultsClient {
 }
 
 extension UserDefaultsClient: MonstersTempRepository {
-    public static let shared = UserDefaultsClient()
-
     public func monster(key: String) -> MonsterEntity? {
         guard let data = userDefaults.data(forKey: key),
               let monster = try? JSONDecoder().decode(MonsterEntity.self, from: data) else {
