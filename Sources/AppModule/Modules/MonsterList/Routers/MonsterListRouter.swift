@@ -50,7 +50,7 @@ public final class MonsterListRouter {
         let sections: [any CollectionSectionProtocol] = [
             MonsterCollectionSection(presenter: presenter)
         ]
-        view.inject(sections: sections, presenter: presenter)
+        view.inject(presenter: presenter, sections: sections)
         interactor.inject(presenter: presenter)
 
         return view
