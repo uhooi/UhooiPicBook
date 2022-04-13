@@ -40,8 +40,8 @@ final class MonsterListInteractor<SR: SpotlightRepository, MR: MonstersRepositor
     convenience init(spotlightRepository: SR) where MR == MonstersFirestoreClient, MTR == UserDefaultsClient {
         self.init(
             spotlightRepository: spotlightRepository,
-            monstersRepository: MonstersFirestoreClient.shared,
-            monstersTempRepository: UserDefaultsClient.shared
+            monstersRepository: .shared,
+            monstersTempRepository: .shared
         )
     }
 
