@@ -23,7 +23,7 @@ final class MonsterDetailInteractor {
 
     // MARK: Other Internal Methods
 
-    func inject<P: MonsterDetailInteractorOutput>(presenter: P) {
+    func inject<Presenter: MonsterDetailInteractorOutput>(presenter: Presenter) {
         self.presenter = presenter
     }
 }

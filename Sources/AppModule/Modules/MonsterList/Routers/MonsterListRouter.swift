@@ -45,11 +45,7 @@ public final class MonsterListRouter {
             UserDefaultsClient
         >(spotlightRepository: SC())
         let router = MonsterListRouter(viewController: view)
-        let presenter = MonsterListPresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
+        let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
         let sections: [any CollectionSectionProtocol] = [
             MonsterCollectionSection(presenter: presenter)

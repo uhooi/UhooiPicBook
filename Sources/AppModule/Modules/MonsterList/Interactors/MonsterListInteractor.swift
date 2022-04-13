@@ -47,7 +47,7 @@ final class MonsterListInteractor<SR: SpotlightRepository, MR: MonstersRepositor
 
     // MARK: Other Internal Methods
 
-    func inject<P: MonsterListInteractorOutput>(presenter: P) {
+    func inject<Presenter: MonsterListInteractorOutput>(presenter: Presenter) {
         self.presenter = presenter
     }
 }
