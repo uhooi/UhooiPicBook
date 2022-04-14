@@ -18,7 +18,12 @@ final class MonsterListInteractorTests: XCTestCase {
     private var monstersRepositoryMock: MonstersRepositoryMock!
     private var monstersTempRepositoryMock: MonstersTempRepositoryMock!
     private var spotlightRepositoryMock: SpotlightRepositoryMock!
-    private var interactor: MonsterListInteractor<SpotlightRepositoryMock, MonstersRepositoryMock, MonstersTempRepositoryMock>!
+
+    private var interactor: MonsterListInteractor<
+        SpotlightRepositoryMock,
+        MonstersRepositoryMock,
+        MonstersTempRepositoryMock
+    >!
 
     // MARK: TestCase Life-Cycle Methods
 

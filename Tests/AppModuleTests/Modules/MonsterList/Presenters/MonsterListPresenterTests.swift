@@ -19,7 +19,11 @@ final class MonsterListPresenterTests: XCTestCase {
     private var interactorMock: MonsterListInteractorInputMock!
     private var routerMock: MonsterListRouterInputMock!
     
-    private var presenter: MonsterListPresenter!
+    private var presenter: MonsterListPresenter<
+        MonsterListUserInterfaceMock,
+        MonsterListInteractorInputMock,
+        MonsterListRouterInputMock
+    >!
 
     // MARK: TestCase Life-Cycle Methods
 
