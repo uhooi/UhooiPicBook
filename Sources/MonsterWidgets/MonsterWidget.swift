@@ -13,18 +13,19 @@ import ImageLoader
 import Logger
 import Shared
 
-private struct MonsterProvider {
+private struct MonsterProvider<MR: MonstersRepository, LP: LoggerProtocol> {
     typealias Entry = MonsterEntry
 
-    private let monstersRepository: any MonstersRepository
-    private let logger: any LoggerProtocol
+    private let monstersRepository: MR
+    private let logger: LP
 
-    init(
-        monstersRepository: any MonstersRepository = MonstersFirestoreClient.shared,
-        logger: any LoggerProtocol = Logger.default
-    ) {
+    private init(monstersRepository: MR, logger: LP) {
         self.monstersRepository = monstersRepository
         self.logger = logger
+    }
+
+    init() where MR == MonstersFirestoreClient, LP == Logger {
+        self.init(monstersRepository: .shared, logger: .default)
     }
 }
 
