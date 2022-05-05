@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "commandant",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Carthage/Commandant.git",
+      "state" : {
+        "revision" : "ab68611013dec67413628ac87c1f29e8427bc8e4",
+        "version" : "0.17.0"
+      }
+    },
+    {
       "identity" : "heliumlogger",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/HeliumLogger.git",
@@ -30,19 +39,19 @@
     {
       "identity" : "ibdecodable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uhooi/IBDecodable.git",
+      "location" : "https://github.com/IBDecodable/IBDecodable.git",
       "state" : {
-        "revision" : "2586e34f42b4ccb4c605bfb78b768aa98a031d8b",
+        "revision" : "64247d1342ef7c9c0f47b2805f8c2da9474d5417",
         "version" : "0.6.0"
       }
     },
     {
       "identity" : "iblinter",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uhooi/IBLinter",
+      "location" : "https://github.com/IBDecodable/IBLinter",
       "state" : {
-        "revision" : "872b7042160dab90bfd0033e80f75e71de596d3c",
-        "version" : "0.6.0"
+        "revision" : "d6294281badfe3a655c7db7694ea409041e5d507",
+        "version" : "0.5.0"
       }
     },
     {
@@ -70,6 +79,24 @@
       "state" : {
         "revision" : "90001b16b348ae632192d5d331610b0c18a8f12a",
         "version" : "1.7.0"
+      }
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+        "version" : "8.1.2"
+      }
+    },
+    {
+      "identity" : "quick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Quick.git",
+      "state" : {
+        "revision" : "09b3becb37cb2163919a3842a4c5fa6ec7130792",
+        "version" : "2.2.1"
       }
     },
     {
