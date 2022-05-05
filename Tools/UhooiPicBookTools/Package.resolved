@@ -167,8 +167,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/SwiftLint",
       "state" : {
-        "revision" : "95349376fdba465a6cd1b21b4ea65ffd5fdb14b4",
-        "version" : "0.45.1"
+        "revision" : "17779cbfd41bf075a7f57c0c786fef41284e9bec",
+        "version" : "0.46.0"
       }
     },
     {
