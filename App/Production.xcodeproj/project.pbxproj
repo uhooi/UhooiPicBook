@@ -665,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n../Tools/UhooiPicBookTools/.build/release/iblinter lint --path $SRCROOT/.. --config $SRCROOT/../.iblinter.yml\n\n";
+			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n../Tools/UhooiPicBookTools/.build/release/iblinter lint --path $SRCROOT/.. --configuration-file $SRCROOT/../.iblinter.yml\n\n";
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
