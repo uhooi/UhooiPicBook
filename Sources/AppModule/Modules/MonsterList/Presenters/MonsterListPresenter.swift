@@ -6,8 +6,6 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import Foundation
-
 @MainActor
 protocol MonsterListEventHandler: AnyObject {
     func viewDidLoad() async
