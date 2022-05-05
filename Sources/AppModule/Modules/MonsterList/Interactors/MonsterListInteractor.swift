@@ -14,31 +14,40 @@ protocol MonsterListInteractorInput: AnyObject {
     func saveMonsterInSpotlight(_ monster: MonsterEntity) async
 }
 
-final class MonsterListInteractor {
+final class MonsterListInteractor<SR: SpotlightRepository, MR: MonstersRepository, MTR: MonstersTempRepository> {
 
     // MARK: Stored Instance Properties
 
-    private weak var presenter: MonsterListInteractorOutput!
+    private weak var presenter: (any MonsterListInteractorOutput)!
 
-    private let monstersRepository: MonstersRepository
-    private let monstersTempRepository: MonstersTempRepository
-    private let spotlightRepository: SpotlightRepository
+    private let spotlightRepository: SR
+    private let monstersRepository: MR
+    private let monstersTempRepository: MTR
 
     // MARK: Initializer
 
+    // No `private` for unit tests
     init(
-        spotlightRepository: SpotlightRepository,
-        monstersRepository: MonstersRepository = MonstersFirestoreClient.shared,
-        monstersTempRepository: MonstersTempRepository = UserDefaultsClient.shared
+        spotlightRepository: SR,
+        monstersRepository: MR,
+        monstersTempRepository: MTR
     ) {
         self.spotlightRepository = spotlightRepository
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
     }
 
+    convenience init(spotlightRepository: SR) where MR == MonstersFirestoreClient, MTR == UserDefaultsClient {
+        self.init(
+            spotlightRepository: spotlightRepository,
+            monstersRepository: .shared,
+            monstersTempRepository: .shared
+        )
+    }
+
     // MARK: Other Internal Methods
 
-    func inject(presenter: MonsterListInteractorOutput) {
+    func inject<Presenter: MonsterListInteractorOutput>(presenter: Presenter) {
         self.presenter = presenter
     }
 }

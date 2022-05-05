@@ -17,7 +17,12 @@ final class MonsterDetailPresenterTests: XCTestCase {
     private var viewMock: MonsterDetailUserInterfaceMock!
     private var interactorMock: MonsterDetailInteractorInputMock!
     private var routerMock: MonsterDetailRouterInputMock!
-    private var presenter: MonsterDetailPresenter!
+
+    private var presenter: MonsterDetailPresenter<
+        MonsterDetailUserInterfaceMock,
+        MonsterDetailInteractorInputMock,
+        MonsterDetailRouterInputMock
+    >!
 
     // MARK: TestCase Life-Cycle Methods
 

@@ -16,17 +16,21 @@ protocol SpotlightRepository: AnyObject { // swiftlint:disable:this file_types_o
     func saveMonster(_ monster: MonsterEntity, forKey key: String) async
 }
 
-final class SpotlightClient {
+final class SpotlightClient<LP: LoggerProtocol> {
 
     // MARK: Stored Instance Properties
 
     private let searchableIndex = CSSearchableIndex.default()
-    private let logger: LoggerProtocol
+    private let logger: LP
 
     // MARK: Initializer
 
-    init(logger: LoggerProtocol = Logger.default) {
+    private init(logger: LP) {
         self.logger = logger
+    }
+
+    convenience init() where LP == Logger {
+        self.init(logger: .default)
     }
 }
 

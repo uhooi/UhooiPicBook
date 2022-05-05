@@ -20,17 +20,21 @@ protocol MonsterDetailInteractorOutput: AnyObject {
 }
 
 @MainActor
-final class MonsterDetailPresenter {
+final class MonsterDetailPresenter<
+    View: MonsterDetailUserInterface,
+    Interactor: MonsterDetailInteractorInput,
+    Router: MonsterDetailRouterInput
+> {
 
     // MARK: Stored Instance Properties
 
-    private unowned let view: MonsterDetailUserInterface
-    private let interactor: MonsterDetailInteractorInput
-    private let router: MonsterDetailRouterInput
+    private unowned let view: View
+    private let interactor: Interactor
+    private let router: Router
 
     // MARK: Initializers
 
-    init(view: MonsterDetailUserInterface, interactor: MonsterDetailInteractorInput, router: MonsterDetailRouterInput) {
+    init(view: View, interactor: Interactor, router: Router) {
         self.view = view
         self.interactor = interactor
         self.router = router

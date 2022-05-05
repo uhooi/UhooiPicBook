@@ -31,9 +31,9 @@ public final class MonsterListViewController: UIViewController {
 
     // MARK: Stored Instance Properties
 
-    private var presenter: MonsterListEventHandler!
+    private var presenter: (any MonsterListEventHandler)!
 
-    private var sections: [CollectionSectionProtocol]!
+    private var sections: [any CollectionSectionProtocol]!
 
     private lazy var monstersCollectionView: UICollectionView = {
         let layout = UICollectionViewCompositionalLayout { [weak self] section, _ in
@@ -109,12 +109,12 @@ public final class MonsterListViewController: UIViewController {
 
     // MARK: Other Internal Methods
 
-    func inject(
-        sections: [CollectionSectionProtocol],
-        presenter: MonsterListEventHandler
+    func inject<Presenter: MonsterListEventHandler>(
+        presenter: Presenter,
+        sections: [any CollectionSectionProtocol]
     ) {
-        self.sections = sections
         self.presenter = presenter
+        self.sections = sections
     }
 
     // MARK: Other Private Methods

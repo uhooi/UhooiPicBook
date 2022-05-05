@@ -14,6 +14,7 @@ final class MonsterDetailInteractorTests: XCTestCase {
     // MARK: Stored Instance Properties
 
     private var presenterMock: MonsterDetailInteractorOutputMock!
+
     private var interactor: MonsterDetailInteractor!
 
     // MARK: TestCase Life-Cycle Methods

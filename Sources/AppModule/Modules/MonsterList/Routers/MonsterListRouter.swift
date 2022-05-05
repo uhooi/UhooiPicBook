@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MonstersRepository
 
 /// @mockable
 @MainActor
@@ -37,18 +38,19 @@ public final class MonsterListRouter {
 
     public static func assembleModule() -> MonsterListViewController {
         let view = R.Storyboard.MonsterList.instantiateInitialViewController()
-        let interactor = MonsterListInteractor(spotlightRepository: SpotlightClient())
+        typealias SC = SpotlightClient // swiftlint:disable:this type_name
+        let interactor = MonsterListInteractor<
+            SC,
+            MonstersFirestoreClient,
+            UserDefaultsClient
+        >(spotlightRepository: SC())
         let router = MonsterListRouter(viewController: view)
-        let presenter = MonsterListPresenter(
-            view: view,
-            interactor: interactor,
-            router: router
-        )
+        let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
-        let sections: [CollectionSectionProtocol] = [
+        let sections: [any CollectionSectionProtocol] = [
             MonsterCollectionSection(presenter: presenter)
         ]
-        view.inject(sections: sections, presenter: presenter)
+        view.inject(presenter: presenter, sections: sections)
         interactor.inject(presenter: presenter)
 
         return view

@@ -36,10 +36,7 @@ public final class MonsterDetailRouter {
         let router = MonsterDetailRouter(viewController: view)
         let presenter = MonsterDetailPresenter(view: view, interactor: interactor, router: router)
 
-        view.inject(
-            presenter: presenter,
-            monster: monster
-        )
+        view.inject(presenter: presenter, monster: monster)
         interactor.inject(presenter: presenter)
 
         return view

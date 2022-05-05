@@ -1,241 +1,239 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "APIKit",
-        "repositoryURL": "https://github.com/ishkawa/APIKit.git",
-        "state": {
-          "branch": null,
-          "revision": "4e7f42d93afb787b0bc502171f9b5c12cf49d0ca",
-          "version": "5.3.0"
-        }
-      },
-      {
-        "package": "Colorizer",
-        "repositoryURL": "https://github.com/getGuaka/Colorizer.git",
-        "state": {
-          "branch": null,
-          "revision": "2ccc99bf1715e73c4139e8d40b6e6b30be975586",
-          "version": "0.2.1"
-        }
-      },
-      {
-        "package": "Commandant",
-        "repositoryURL": "https://github.com/Carthage/Commandant.git",
-        "state": {
-          "branch": null,
-          "revision": "ab68611013dec67413628ac87c1f29e8427bc8e4",
-          "version": "0.17.0"
-        }
-      },
-      {
-        "package": "HeliumLogger",
-        "repositoryURL": "https://github.com/Kitura/HeliumLogger.git",
-        "state": {
-          "branch": null,
-          "revision": "55fd2f0b70793017acee853c53cfcf8da0bd8d8d",
-          "version": "1.9.200"
-        }
-      },
-      {
-        "package": "IBDecodable",
-        "repositoryURL": "https://github.com/IBDecodable/IBDecodable.git",
-        "state": {
-          "branch": null,
-          "revision": "d36937a8ba23252d2ffab48472605935c9c65477",
-          "version": "0.5.0"
-        }
-      },
-      {
-        "package": "IBLinter",
-        "repositoryURL": "https://github.com/IBDecodable/IBLinter",
-        "state": {
-          "branch": null,
-          "revision": "d6294281badfe3a655c7db7694ea409041e5d507",
-          "version": "0.5.0"
-        }
-      },
-      {
-        "package": "LicensePlist",
-        "repositoryURL": "https://github.com/mono0926/LicensePlist",
-        "state": {
-          "branch": null,
-          "revision": "b6929adffb31749a9930fdb295f79e4027a18e25",
-          "version": "3.19.1"
-        }
-      },
-      {
-        "package": "LoggerAPI",
-        "repositoryURL": "https://github.com/Kitura/LoggerAPI.git",
-        "state": {
-          "branch": null,
-          "revision": "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
-          "version": "1.9.200"
-        }
-      },
-      {
-        "package": "Mockolo",
-        "repositoryURL": "https://github.com/uber/mockolo",
-        "state": {
-          "branch": null,
-          "revision": "61d4fb9c10eacf78b63c9473ce792b2772c0ad0d",
-          "version": "1.6.3"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-          "version": "8.1.2"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
-          "version": "2.2.1"
-        }
-      },
-      {
-        "package": "SourceKitten",
-        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
-        "state": {
-          "branch": null,
-          "revision": "558628392eb31d37cb251cfe626c53eafd330df6",
-          "version": "0.31.1"
-        }
-      },
-      {
-        "package": "SpellChecker",
-        "repositoryURL": "https://github.com/fromkk/SpellChecker",
-        "state": {
-          "branch": null,
-          "revision": "d1ffdd96acf9c117b7eefcb93b5b60aa1b0a4db9",
-          "version": "0.1.0"
-        }
-      },
-      {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
-        "state": {
-          "branch": null,
-          "revision": "e1465042f195f374b94f915ba8ca49de24300a0d",
-          "version": "1.0.2"
-        }
-      },
-      {
-        "package": "HTMLEntities",
-        "repositoryURL": "https://github.com/Kitura/swift-html-entities.git",
-        "state": {
-          "branch": null,
-          "revision": "2b14531d0c36dbb7c1c45a4d38db9c2e7898a307",
-          "version": "3.0.200"
-        }
-      },
-      {
-        "package": "swift-log",
-        "repositoryURL": "https://github.com/apple/swift-log.git",
-        "state": {
-          "branch": null,
-          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
-          "version": "1.4.2"
-        }
-      },
-      {
-        "package": "SwiftSyntax",
-        "repositoryURL": "https://github.com/apple/swift-syntax.git",
-        "state": {
-          "branch": null,
-          "revision": "75e60475d9d8fd5bbc16a12e0eaa2cb01b0c322e",
-          "version": "0.50500.0"
-        }
-      },
-      {
-        "package": "swift-tools-support-core",
-        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
-        "state": {
-          "branch": null,
-          "revision": "3b6b97d612b56e25d80d0807f5bc38ea08b7bdf3",
-          "version": "0.2.3"
-        }
-      },
-      {
-        "package": "SwiftLint",
-        "repositoryURL": "https://github.com/realm/SwiftLint",
-        "state": {
-          "branch": null,
-          "revision": "99465e659fb91facab5b1d3c0f9229176d086bf1",
-          "version": "0.45.0"
-        }
-      },
-      {
-        "package": "SwiftyTextTable",
-        "repositoryURL": "https://github.com/scottrhoyt/SwiftyTextTable.git",
-        "state": {
-          "branch": null,
-          "revision": "c6df6cf533d120716bff38f8ff9885e1ce2a4ac3",
-          "version": "0.9.0"
-        }
-      },
-      {
-        "package": "SWXMLHash",
-        "repositoryURL": "https://github.com/drmohundro/SWXMLHash.git",
-        "state": {
-          "branch": null,
-          "revision": "9183170d20857753d4f331b0ca63f73c60764bf3",
-          "version": "5.0.2"
-        }
-      },
-      {
-        "package": "xcbeautify",
-        "repositoryURL": "https://github.com/tuist/xcbeautify",
-        "state": {
-          "branch": null,
-          "revision": "b14660cc03d96889d2144265fbca471ea0076e40",
-          "version": "0.11.0"
-        }
-      },
-      {
-        "package": "XcodeProjKit",
-        "repositoryURL": "https://github.com/phimage/XcodeProjKit.git",
-        "state": {
-          "branch": null,
-          "revision": "680db38d06462f9242a789d529a3e2a75c882365",
-          "version": "2.3.0"
-        }
-      },
-      {
-        "package": "XMLCoder",
-        "repositoryURL": "https://github.com/MaxDesiatov/XMLCoder.git",
-        "state": {
-          "branch": null,
-          "revision": "f30119af03996939cc4f54e0bf0dda9f88a84da5",
-          "version": "0.13.1"
-        }
-      },
-      {
-        "package": "Yaml",
-        "repositoryURL": "https://github.com/behrang/YamlSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "287f5cab7da0d92eb947b5fd8151b203ae04a9a3",
-          "version": "3.4.4"
-        }
-      },
-      {
-        "package": "Yams",
-        "repositoryURL": "https://github.com/jpsim/Yams.git",
-        "state": {
-          "branch": null,
-          "revision": "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
-          "version": "4.0.6"
-        }
+  "pins" : [
+    {
+      "identity" : "apikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ishkawa/APIKit.git",
+      "state" : {
+        "revision" : "4e7f42d93afb787b0bc502171f9b5c12cf49d0ca",
+        "version" : "5.3.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "colorizer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getGuaka/Colorizer.git",
+      "state" : {
+        "revision" : "2ccc99bf1715e73c4139e8d40b6e6b30be975586",
+        "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "commandant",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Carthage/Commandant.git",
+      "state" : {
+        "revision" : "ab68611013dec67413628ac87c1f29e8427bc8e4",
+        "version" : "0.17.0"
+      }
+    },
+    {
+      "identity" : "heliumlogger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/HeliumLogger.git",
+      "state" : {
+        "revision" : "55fd2f0b70793017acee853c53cfcf8da0bd8d8d",
+        "version" : "1.9.200"
+      }
+    },
+    {
+      "identity" : "ibdecodable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/IBDecodable/IBDecodable.git",
+      "state" : {
+        "revision" : "d36937a8ba23252d2ffab48472605935c9c65477",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "iblinter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/IBDecodable/IBLinter",
+      "state" : {
+        "revision" : "d6294281badfe3a655c7db7694ea409041e5d507",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "licenseplist",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mono0926/LicensePlist",
+      "state" : {
+        "revision" : "b6929adffb31749a9930fdb295f79e4027a18e25",
+        "version" : "3.19.1"
+      }
+    },
+    {
+      "identity" : "loggerapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/LoggerAPI.git",
+      "state" : {
+        "revision" : "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
+        "version" : "1.9.200"
+      }
+    },
+    {
+      "identity" : "mockolo",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/uber/mockolo",
+      "state" : {
+        "revision" : "90001b16b348ae632192d5d331610b0c18a8f12a",
+        "version" : "1.7.0"
+      }
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+        "version" : "8.1.2"
+      }
+    },
+    {
+      "identity" : "quick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Quick.git",
+      "state" : {
+        "revision" : "09b3becb37cb2163919a3842a4c5fa6ec7130792",
+        "version" : "2.2.1"
+      }
+    },
+    {
+      "identity" : "sourcekitten",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/SourceKitten.git",
+      "state" : {
+        "revision" : "558628392eb31d37cb251cfe626c53eafd330df6",
+        "version" : "0.31.1"
+      }
+    },
+    {
+      "identity" : "spellchecker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fromkk/SpellChecker",
+      "state" : {
+        "revision" : "d1ffdd96acf9c117b7eefcb93b5b60aa1b0a4db9",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "e1465042f195f374b94f915ba8ca49de24300a0d",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swift-html-entities",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kitura/swift-html-entities.git",
+      "state" : {
+        "revision" : "2b14531d0c36dbb7c1c45a4d38db9c2e7898a307",
+        "version" : "3.0.200"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+        "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "0b6c22b97f8e9320bca62e82cdbee601cf37ad3f",
+        "version" : "0.50600.1"
+      }
+    },
+    {
+      "identity" : "swift-tools-support-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-tools-support-core.git",
+      "state" : {
+        "revision" : "3b6b97d612b56e25d80d0807f5bc38ea08b7bdf3",
+        "version" : "0.2.3"
+      }
+    },
+    {
+      "identity" : "swiftlint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/SwiftLint",
+      "state" : {
+        "revision" : "99465e659fb91facab5b1d3c0f9229176d086bf1",
+        "version" : "0.45.0"
+      }
+    },
+    {
+      "identity" : "swiftytexttable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scottrhoyt/SwiftyTextTable.git",
+      "state" : {
+        "revision" : "c6df6cf533d120716bff38f8ff9885e1ce2a4ac3",
+        "version" : "0.9.0"
+      }
+    },
+    {
+      "identity" : "swxmlhash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/drmohundro/SWXMLHash.git",
+      "state" : {
+        "revision" : "9183170d20857753d4f331b0ca63f73c60764bf3",
+        "version" : "5.0.2"
+      }
+    },
+    {
+      "identity" : "xcbeautify",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tuist/xcbeautify",
+      "state" : {
+        "revision" : "b14660cc03d96889d2144265fbca471ea0076e40",
+        "version" : "0.11.0"
+      }
+    },
+    {
+      "identity" : "xcodeprojkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phimage/XcodeProjKit.git",
+      "state" : {
+        "revision" : "680db38d06462f9242a789d529a3e2a75c882365",
+        "version" : "2.3.0"
+      }
+    },
+    {
+      "identity" : "xmlcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MaxDesiatov/XMLCoder.git",
+      "state" : {
+        "revision" : "f30119af03996939cc4f54e0bf0dda9f88a84da5",
+        "version" : "0.13.1"
+      }
+    },
+    {
+      "identity" : "yamlswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/behrang/YamlSwift.git",
+      "state" : {
+        "revision" : "287f5cab7da0d92eb947b5fd8151b203ae04a9a3",
+        "version" : "3.4.4"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams.git",
+      "state" : {
+        "revision" : "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
+        "version" : "4.0.6"
+      }
+    }
+  ],
+  "version" : 2
 }
