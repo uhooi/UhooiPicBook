@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "commandant",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Carthage/Commandant.git",
-      "state" : {
-        "revision" : "ab68611013dec67413628ac87c1f29e8427bc8e4",
-        "version" : "0.17.0"
-      }
-    },
-    {
       "identity" : "heliumlogger",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/HeliumLogger.git",
@@ -39,19 +30,19 @@
     {
       "identity" : "ibdecodable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/IBDecodable/IBDecodable.git",
+      "location" : "https://github.com/uhooi/IBDecodable.git",
       "state" : {
-        "revision" : "d36937a8ba23252d2ffab48472605935c9c65477",
-        "version" : "0.5.0"
+        "revision" : "2586e34f42b4ccb4c605bfb78b768aa98a031d8b",
+        "version" : "0.6.0"
       }
     },
     {
       "identity" : "iblinter",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/IBDecodable/IBLinter",
+      "location" : "https://github.com/uhooi/IBLinter",
       "state" : {
-        "revision" : "d6294281badfe3a655c7db7694ea409041e5d507",
-        "version" : "0.5.0"
+        "revision" : "872b7042160dab90bfd0033e80f75e71de596d3c",
+        "version" : "0.6.0"
       }
     },
     {
@@ -82,30 +73,12 @@
       }
     },
     {
-      "identity" : "nimble",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Nimble.git",
-      "state" : {
-        "revision" : "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-        "version" : "8.1.2"
-      }
-    },
-    {
-      "identity" : "quick",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Quick.git",
-      "state" : {
-        "revision" : "09b3becb37cb2163919a3842a4c5fa6ec7130792",
-        "version" : "2.2.1"
-      }
-    },
-    {
       "identity" : "sourcekitten",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/SourceKitten.git",
       "state" : {
-        "revision" : "558628392eb31d37cb251cfe626c53eafd330df6",
-        "version" : "0.31.1"
+        "revision" : "817dfa6f2e09b0476f3a6c9dbc035991f02f0241",
+        "version" : "0.32.0"
       }
     },
     {
@@ -122,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
-        "revision" : "d2930e8fcf9c33162b9fcc1d522bc975e2d4179b",
-        "version" : "1.0.1"
+        "revision" : "e394bf350e38cb100b6bc4172834770ede1b7232",
+        "version" : "1.0.3"
       }
     },
     {
@@ -167,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/SwiftLint",
       "state" : {
-        "revision" : "e8ef21fef61f12536964c4e3cf6d5a6e3ad81e49",
-        "version" : "0.46.5"
+        "revision" : "e5791ec16ccc1560840c46ed57122c888167d740",
+        "version" : "0.47.0"
       }
     },
     {
@@ -185,8 +158,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/drmohundro/SWXMLHash.git",
       "state" : {
-        "revision" : "9183170d20857753d4f331b0ca63f73c60764bf3",
-        "version" : "5.0.2"
+        "revision" : "6469881a3f30417c5bb02404ea4b69207f297592",
+        "version" : "6.0.0"
       }
     },
     {
@@ -203,8 +176,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/phimage/XcodeProjKit.git",
       "state" : {
-        "revision" : "1fc861d368831f751341f804298e78ebb789592e",
-        "version" : "2.2.0"
+        "revision" : "680db38d06462f9242a789d529a3e2a75c882365",
+        "version" : "2.3.0"
       }
     },
     {
