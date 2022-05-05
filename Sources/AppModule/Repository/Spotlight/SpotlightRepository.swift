@@ -30,7 +30,7 @@ final class SpotlightClient<LP: LoggerProtocol> {
     }
 
     convenience init() where LP == Logger {
-        self.init(logger: Logger.default)
+        self.init(logger: .default)
     }
 }
 
