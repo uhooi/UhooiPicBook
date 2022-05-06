@@ -16,8 +16,6 @@ runs:
     with:
       path: Tools/UhooiPicBookTools/.build
       key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-      restore-keys: |
-        ${{ runner.os }}-spm-
 
   # SwiftPMで管理しているCLIツールのビルド
   - name: Build CLI tools managed by SwiftPM
@@ -40,7 +38,5 @@ runs:
     uses: actions/cache@v3
     with:
       path: SourcePackages
-      key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-      restore-keys: |
-        ${{ runner.os }}-swiftpm-
+      key: ${{ runner.os }}-spm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
 
