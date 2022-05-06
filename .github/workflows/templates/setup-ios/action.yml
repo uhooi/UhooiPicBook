@@ -11,7 +11,7 @@ runs:
 
   # SwiftPMで管理しているCLIツールのキャッシュ
   - name: Cache CLI tools managed by SwiftPM
-    uses: actions/cache@v2
+    uses: actions/cache@v3
     id: cli-tools-cache
     with:
       path: Tools/UhooiPicBookTools/.build
@@ -37,7 +37,7 @@ runs:
 
   # SwiftPMで管理しているライブラリのキャッシュ
   - name: Cache libraries managed by SwiftPM
-    uses: actions/cache@v2
+    uses: actions/cache@v3
     with:
       path: SourcePackages
       key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
