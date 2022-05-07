@@ -9,15 +9,19 @@ runs:
     run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
     shell: bash
 
+  # コマンドラインツールのインストール（Xcode 13.3.1でビルドエラーが発生するワークアラウンド）
+  # ref: https://developer.apple.com/forums/thread/703233
+  - name: Install Command Line Tools for Xcode
+    run: sudo xcode-select -s /Library/Developer/CommandLineTools
+    shell: bash
+
   # SwiftPMで管理しているCLIツールのキャッシュ
   - name: Cache CLI tools managed by SwiftPM
-    uses: actions/cache@v2
+    uses: actions/cache@v3
     id: cli-tools-cache
     with:
       path: Tools/UhooiPicBookTools/.build
       key: ${{ runner.os }}-spm-${{ hashFiles('**/Tools/UhooiPicBookTools/Package.resolved') }}
-      restore-keys: |
-        ${{ runner.os }}-spm-
 
   # SwiftPMで管理しているCLIツールのビルド
   - name: Build CLI tools managed by SwiftPM
@@ -37,10 +41,8 @@ runs:
 
   # SwiftPMで管理しているライブラリのキャッシュ
   - name: Cache libraries managed by SwiftPM
-    uses: actions/cache@v2
+    uses: actions/cache@v3
     with:
       path: SourcePackages
-      key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-      restore-keys: |
-        ${{ runner.os }}-swiftpm-
+      key: ${{ runner.os }}-spm-${{ hashFiles('**/UhooiPicBook.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
 

@@ -49,6 +49,7 @@ public struct MonsterEntryView: View {
         Image(uiImage: entry.icon)
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .accessibilityLabel(Text(entry.name))
     }
 
     private var name: some View {

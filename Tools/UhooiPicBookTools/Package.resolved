@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/IBDecodable/IBDecodable.git",
       "state" : {
-        "revision" : "d36937a8ba23252d2ffab48472605935c9c65477",
-        "version" : "0.5.0"
+        "revision" : "64247d1342ef7c9c0f47b2805f8c2da9474d5417",
+        "version" : "0.6.0"
       }
     },
     {
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/SourceKitten.git",
       "state" : {
-        "revision" : "558628392eb31d37cb251cfe626c53eafd330df6",
-        "version" : "0.31.1"
+        "revision" : "817dfa6f2e09b0476f3a6c9dbc035991f02f0241",
+        "version" : "0.32.0"
       }
     },
     {
@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
-        "revision" : "d2930e8fcf9c33162b9fcc1d522bc975e2d4179b",
-        "version" : "1.0.1"
+        "revision" : "e394bf350e38cb100b6bc4172834770ede1b7232",
+        "version" : "1.0.3"
       }
     },
     {
@@ -167,8 +167,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/SwiftLint",
       "state" : {
-        "revision" : "99465e659fb91facab5b1d3c0f9229176d086bf1",
-        "version" : "0.45.0"
+        "revision" : "e497f1f5b161af96ba439049d21970c6204d06c6",
+        "version" : "0.47.1"
       }
     },
     {
@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/drmohundro/SWXMLHash.git",
       "state" : {
-        "revision" : "9183170d20857753d4f331b0ca63f73c60764bf3",
-        "version" : "5.0.2"
+        "revision" : "6469881a3f30417c5bb02404ea4b69207f297592",
+        "version" : "6.0.0"
       }
     },
     {
@@ -203,8 +203,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/phimage/XcodeProjKit.git",
       "state" : {
-        "revision" : "1fc861d368831f751341f804298e78ebb789592e",
-        "version" : "2.2.0"
+        "revision" : "680db38d06462f9242a789d529a3e2a75c882365",
+        "version" : "2.3.0"
       }
     },
     {

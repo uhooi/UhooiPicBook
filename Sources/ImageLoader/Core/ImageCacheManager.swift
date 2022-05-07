@@ -11,7 +11,7 @@ final class ImageCacheManager {
     static let imageCache = NSCache<AnyObject, AnyObject>()
 
     func cacheImage(with url: URL) async throws -> UIImage {
-        if let imageFromCache = ImageCacheManager.imageCache.object(forKey: url as AnyObject) as? UIImage {
+        if let imageFromCache = Self.imageCache.object(forKey: url as AnyObject) as? UIImage {
             return imageFromCache
         }
 
@@ -19,12 +19,12 @@ final class ImageCacheManager {
         guard let image = UIImage(data: data) else {
             throw ImageCacheError.loadingFailure
         }
-        ImageCacheManager.imageCache.setObject(image, forKey: url as AnyObject)
+        Self.imageCache.setObject(image, forKey: url as AnyObject)
         return image
     }
 
     func cacheGIFImage(with url: URL) -> UIImage? {
-        if let imageFromCache = ImageCacheManager.imageCache.object(forKey: url as AnyObject) as? UIImage {
+        if let imageFromCache = Self.imageCache.object(forKey: url as AnyObject) as? UIImage {
             return imageFromCache
         }
 
@@ -32,7 +32,7 @@ final class ImageCacheManager {
             return nil
         }
 
-        ImageCacheManager.imageCache.setObject(imageToCache, forKey: url as AnyObject)
+        Self.imageCache.setObject(imageToCache, forKey: url as AnyObject)
 
         return imageToCache
     }
