@@ -44,5 +44,5 @@ runs:
     uses: actions/cache@v3
     with:
       path: SourcePackages
-      key: ${{ runner.os }}-spm-${{ hashFiles('**/UhooiPicBook.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+      key: ${{ runner.os }}-spm-${{ hashFiles('**/UhooiPicBook.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
 
