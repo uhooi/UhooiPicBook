@@ -6,12 +6,13 @@ let firebaseAnalyticsDependencies: [Target.Dependency] = [
     "FirebaseAnalytics",
     "FirebaseCore",
     "FirebaseCoreDiagnostics",
+    "FirebaseCoreInternal",
     "FirebaseInstallations",
     "GoogleAppMeasurement",
     "GoogleDataTransport",
     "GoogleUtilities",
-    "nanopb",
     "PromisesObjC",
+    "nanopb",
 ]
 
 let firebaseCrashlyticsDependencies: [Target.Dependency] = [
@@ -31,6 +32,7 @@ let firebaseMessagingDependencies: [Target.Dependency] = [
 let firebaseFirestoreDependencies: [Target.Dependency] = [
     "BoringSSL-GRPC",
     "FirebaseFirestore",
+    "Libuv-gRPC",
     "abseil",
     "gRPC-C++",
     "gRPC-Core",
@@ -151,6 +153,10 @@ let package = Package(
             path: "./Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreDiagnostics.xcframework"
         ),
         .binaryTarget(
+            name: "FirebaseCoreInternal",
+            path: "./Frameworks/Firebase/FirebaseAnalytics/FirebaseCoreInternal.xcframework"
+        ),
+        .binaryTarget(
             name: "FirebaseInstallations",
             path: "./Frameworks/Firebase/FirebaseAnalytics/FirebaseInstallations.xcframework"
         ),
@@ -167,12 +173,12 @@ let package = Package(
             path: "./Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework"
         ),
         .binaryTarget(
-            name: "nanopb",
-            path: "./Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework"
-        ),
-        .binaryTarget(
             name: "PromisesObjC",
             path: "./Frameworks/Firebase/FirebaseAnalytics/PromisesObjC.xcframework"
+        ),
+        .binaryTarget(
+            name: "nanopb",
+            path: "./Frameworks/Firebase/FirebaseAnalytics/nanopb.xcframework"
         ),
         .binaryTarget(
             name: "FirebaseCrashlytics",
@@ -193,6 +199,10 @@ let package = Package(
         .binaryTarget(
             name: "FirebaseMessaging",
             path: "./Frameworks/Firebase/FirebaseMessaging/FirebaseMessaging.xcframework"
+        ),
+        .binaryTarget(
+            name: "Libuv-gRPC",
+            path: "./Frameworks/Firebase/FirebaseFirestore/Libuv-gRPC.xcframework"
         ),
         .binaryTarget(
             name: "abseil",
