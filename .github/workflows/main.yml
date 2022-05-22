@@ -9,16 +9,15 @@ on:
       - Docs/**
       - README.md
       - LICENSE
-      - Rambafile
   pull_request:
-    branches:
-      # - !main
-      - develop
     paths-ignore:
       - Docs/**
       - README.md
       - LICENSE
-      - Rambafile
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.3.1.app
@@ -28,6 +27,7 @@ jobs:
     name: build for ${{ matrix.environment }}
     runs-on: macos-12
     strategy:
+      fail-fast: false
       matrix:
         environment: ["develop", "production"]
 
@@ -58,6 +58,7 @@ jobs:
     name: test for ${{ matrix.name }}
     runs-on: macos-12
     strategy:
+      fail-fast: false
       matrix:
         name: ["develop", "production", "app-module"]
 
@@ -101,6 +102,8 @@ jobs:
 
   show-test-results:
     runs-on: macos-12
+    permissions:
+      checks: write
     needs: test
 
     steps:

@@ -7,8 +7,11 @@ on:
       - '.swiftlint.yml'
       - '**/*.swift'
 
+permissions:
+  contents: read
+
 jobs:
-  SwiftLint:
+  swiftlint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
