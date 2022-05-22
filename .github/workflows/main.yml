@@ -9,13 +9,11 @@ on:
       - Docs/**
       - README.md
       - LICENSE
-      - Rambafile
   pull_request:
     paths-ignore:
       - Docs/**
       - README.md
       - LICENSE
-      - Rambafile
   workflow_dispatch:
 
 env:
