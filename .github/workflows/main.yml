@@ -102,6 +102,8 @@ jobs:
 
   show-test-results:
     runs-on: macos-12
+    permissions:
+      checks: write
     needs: test
 
     steps:
