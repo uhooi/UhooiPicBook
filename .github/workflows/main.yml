@@ -16,6 +16,7 @@ on:
       - README.md
       - LICENSE
       - Rambafile
+  workflow_dispatch:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.3.1.app
