@@ -6,7 +6,7 @@ on:
       - opened
 
 permissions:
-  issues: read
+  issues: write
 
 jobs:
   comment:
