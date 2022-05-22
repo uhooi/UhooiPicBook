@@ -11,9 +11,6 @@ on:
       - LICENSE
       - Rambafile
   pull_request:
-    branches:
-      # - !main
-      - develop
     paths-ignore:
       - Docs/**
       - README.md
