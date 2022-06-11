@@ -49,7 +49,7 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func observeWebView() {
-        estimatedProgressObservation = webView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
+        estimatedProgressObservation = webView.observe(\.estimatedProgress, options: [.new]) { @MainActor [weak self] webView, _ in
             guard let self = self else {
                 return
             }
