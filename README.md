@@ -52,8 +52,8 @@ You can develop this project.
 
 ### Environment
 
-- macOS: 12.0+
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.4.1
+- macOS: 12.4+
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 14.0
 
 ### Configuration
 

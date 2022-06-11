@@ -8,7 +8,7 @@ TEST_SDK := iphonesimulator
 TEST_CONFIGURATION := Debug
 TEST_PLATFORM := iOS Simulator
 TEST_DEVICE ?= iPhone 13 Pro Max
-TEST_OS ?= 15.5
+TEST_OS ?= 16.0
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 
 DEVELOP_PROJECT_NAME := Develop
