@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77956692405C61E8D8C04B5 /* UhooiPicBookUITests.swift */; };
-		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
-		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		791904CA2793F9CB00416F7D /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = 791904C92793F9CB00416F7D /* ImageLoader */; };
 		791904CE2794082700416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904CD2794082700416F7D /* MonstersRepository */; };
 		791904D02794083500416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904CF2794083500416F7D /* MonstersRepository */; };
@@ -47,7 +47,7 @@
 		A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */; };
 		A6BE80E8825B6DA6ACE56D06 /* BundleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4618659C63EB6D450468854 /* BundleStringTests.swift */; };
 		ED23EF346F55E2E02F461F16 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D686A013EAD76B19604C9 /* PageProtocol.swift */; };
-		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE659249AE186390141063EE /* UhooiPicBookWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3678749154206AA2C7DE69F6 /* WidgetKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,17 +90,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4224260094675C4E9D31B589 /* Embed App Extensions */ = {
+		4224260094675C4E9D31B589 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed App Extensions */,
-				F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed App Extensions */,
-				3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed App Extensions */,
+				745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed Foundation Extensions */,
+				F84FC678215D503C49D26C58 /* UhooiPicBookWidgets.appex in Embed Foundation Extensions */,
+				3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -514,7 +514,7 @@
 				0FA2530C0E3D86880E87A1B6 /* Run SpellChecker */,
 				37FBDE35DD42D3CF137E6A2B /* Resources */,
 				6986B5ACA2E569F81163AE24 /* Frameworks */,
-				4224260094675C4E9D31B589 /* Embed App Extensions */,
+				4224260094675C4E9D31B589 /* Embed Foundation Extensions */,
 				CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */,
 			);
 			buildRules = (
@@ -540,7 +540,7 @@
 		8F21FB9F02C54BE4076B12F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					0E1AD029696068D4B516B255 = {
 						DevelopmentTeam = 47E56DYP3N;
