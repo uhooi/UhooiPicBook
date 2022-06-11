@@ -12,7 +12,7 @@ extension URLSession {
     func data(from url: URL) async throws -> (Data, URLResponse) {
         try await withCheckedThrowingContinuation { continuation in
             self.dataTask(with: url) { data, response, error in
-                if let error = error {
+                if let error {
                     return continuation.resume(throwing: error)
                 }
                 guard let data = data, let response = response else {
