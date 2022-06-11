@@ -15,7 +15,7 @@ extension URLSession {
                 if let error {
                     return continuation.resume(throwing: error)
                 }
-                guard let data = data, let response = response else {
+                guard let data, let response else {
                     return continuation.resume(throwing: URLError(.badServerResponse))
                 }
                 continuation.resume(returning: (data, response))

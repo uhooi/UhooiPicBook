@@ -46,17 +46,17 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
     }
 
     func didTapDancingImageView(dancingImage: UIImage?) {
-        guard let dancingImage = dancingImage else {
+        guard let dancingImage else {
             return
         }
         router.popupDancingImage(dancingImage)
     }
 
     func didTapShareButton(_ senderView: UIView?, name: String?, description: String?, icon: UIImage?) {
-        guard let senderView = senderView,
-              let name = name,
-              let description = description,
-              let icon = icon
+        guard let senderView,
+              let name,
+              let description,
+              let icon
         else {
             return // TODO: エラーハンドリング
         }

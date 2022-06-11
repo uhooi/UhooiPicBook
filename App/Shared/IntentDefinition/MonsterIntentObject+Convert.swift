@@ -20,18 +20,18 @@ extension MonsterIntentObject {
     }
 
     func dto() -> MonsterDTO? {
-        guard let name = name,
-              let description = body,
-              let baseColorCode = baseColorCode,
-              let iconURL = iconURL,
-              let dancingURLString = dancingURLString,
-              let order = order
+        guard let name,
+              let body,
+              let baseColorCode,
+              let iconURL,
+              let dancingURLString,
+              let order
         else {
             return nil
         }
         return MonsterDTO(
             name: name,
-            description: description,
+            description: body,
             baseColorCode: baseColorCode,
             iconURLString: iconURL.absoluteString,
             dancingURLString: dancingURLString,
