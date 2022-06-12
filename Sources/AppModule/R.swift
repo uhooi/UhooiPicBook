@@ -59,26 +59,31 @@ enum R { // swiftlint:disable:this type_name
         }
     }
 
+    @MainActor
     enum Storyboard {
 
         // MARK: Enums
 
         // swiftlint:disable nesting
+        @MainActor
         enum MonsterList {
             static func instantiateInitialViewController() -> MonsterListViewController {
                 Storyboard.instantiateInitialViewController(named: "MonsterList")
             }
         }
+        @MainActor
         enum MonsterDetail {
             static func instantiateInitialViewController() -> MonsterDetailViewController {
                 Storyboard.instantiateInitialViewController(named: "MonsterDetail")
             }
         }
+        @MainActor
         enum ImagePopup {
             static func instantiateInitialViewController() -> ImagePopupViewController {
                 Storyboard.instantiateInitialViewController(named: "ImagePopup")
             }
         }
+        @MainActor
         enum InAppWebBrowser {
             static func instantiateInitialViewController() -> InAppWebBrowserViewController {
                 Storyboard.instantiateInitialViewController(named: "InAppWebBrowser")
@@ -100,6 +105,7 @@ enum R { // swiftlint:disable:this type_name
         }
     }
 
+    @MainActor
     enum Nib {
 
         // MARK: Internal Stored Type Properties
