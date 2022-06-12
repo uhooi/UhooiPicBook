@@ -25,12 +25,8 @@ final class SpotlightClient<LP: LoggerProtocol> {
 
     // MARK: Initializer
 
-    private init(logger: LP) {
+    init(logger: LP = Logger.default) {
         self.logger = logger
-    }
-
-    convenience init() where LP == Logger {
-        self.init(logger: .default)
     }
 }
 
