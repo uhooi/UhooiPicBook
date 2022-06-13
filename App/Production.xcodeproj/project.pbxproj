@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -633,6 +633,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0FA2530C0E3D86880E87A1B6 /* Run SpellChecker */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -651,6 +652,7 @@
 		};
 		273E5548C378B1635B235E18 /* Run IBLinter */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -669,6 +671,7 @@
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -687,6 +690,7 @@
 		};
 		CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -706,6 +710,7 @@
 		};
 		ED5C992B9082C440532A022E /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
