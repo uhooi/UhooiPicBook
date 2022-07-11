@@ -52,8 +52,9 @@ You can develop this project.
 
 ### Environment
 
+- Swift: 5.6.1
+- Xcode: 13.4.1
 - macOS: 12.0+
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.4.1
 
 ### Configuration
 
