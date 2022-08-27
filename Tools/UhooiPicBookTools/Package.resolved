@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/uber/mockolo",
       "state" : {
-        "revision" : "90001b16b348ae632192d5d331610b0c18a8f12a",
-        "version" : "1.7.0"
+        "revision" : "421fade55ae1636df0a28033938bfac345748374",
+        "version" : "1.7.1"
       }
     },
     {
@@ -154,12 +154,21 @@
       }
     },
     {
+      "identity" : "swift-system",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-system.git",
+      "state" : {
+        "revision" : "836bc4557b74fe6d2660218d56e3ce96aff76574",
+        "version" : "1.1.1"
+      }
+    },
+    {
       "identity" : "swift-tools-support-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-tools-support-core.git",
       "state" : {
-        "revision" : "3b6b97d612b56e25d80d0807f5bc38ea08b7bdf3",
-        "version" : "0.2.3"
+        "revision" : "4f07be3dc201f6e2ee85b6942d0c220a16926811",
+        "version" : "0.2.7"
       }
     },
     {
