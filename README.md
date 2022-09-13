@@ -52,7 +52,7 @@ You can develop this project.
 
 ### Environment
 
-- macOS: 12.4+
+- macOS: 12.5+
 - Xcode: 14.0
 - Swift: 5.7
 
