@@ -40,6 +40,9 @@ public struct MonsterEntryView: View {
             }
         case .systemLarge, .systemExtraLarge:
             EmptyView()
+        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
+            // TODO: Implement for the Lock Screen.
+            EmptyView()
         @unknown default:
             EmptyView()
         }
