@@ -11,7 +11,6 @@ import FirebaseSetup
 import MonstersRepository
 import ImageLoader
 import Logger
-import Shared
 
 private struct MonsterProvider<MR: MonstersRepository, LP: LoggerProtocol> {
     typealias Entry = MonsterEntry

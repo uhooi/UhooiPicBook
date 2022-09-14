@@ -10,7 +10,6 @@ import SwiftUI
 import MonsterWidgets
 import MonstersRepository
 import ImageLoader
-import Shared
 
 private struct MonsterProvider {
     typealias Entry = MonsterEntry

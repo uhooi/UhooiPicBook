@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Shared
 
 public struct MonsterItem {
     let name: String
