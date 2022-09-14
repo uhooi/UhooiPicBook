@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol MaterialView {
     func elevate(elevation: Double)
 }

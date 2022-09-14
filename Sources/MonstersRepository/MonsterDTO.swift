@@ -30,4 +30,6 @@ public struct MonsterDTO {
     }
 }
 
+extension MonsterDTO: Sendable {}
+
 extension MonsterDTO: Equatable {} // For unit tests

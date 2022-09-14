@@ -26,28 +26,19 @@ final class MonsterListInteractor<SR: SpotlightRepository, MR: MonstersRepositor
 
     // MARK: Initializer
 
-    // No `private` for unit tests
     init(
         spotlightRepository: SR,
-        monstersRepository: MR,
-        monstersTempRepository: MTR
+        monstersRepository: MR = MonstersFirestoreClient.shared,
+        monstersTempRepository: MTR = UserDefaultsClient.shared
     ) {
         self.spotlightRepository = spotlightRepository
         self.monstersRepository = monstersRepository
         self.monstersTempRepository = monstersTempRepository
     }
 
-    convenience init(spotlightRepository: SR) where MR == MonstersFirestoreClient, MTR == UserDefaultsClient {
-        self.init(
-            spotlightRepository: spotlightRepository,
-            monstersRepository: .shared,
-            monstersTempRepository: .shared
-        )
-    }
-
     // MARK: Other Internal Methods
 
-    func inject<Presenter: MonsterListInteractorOutput>(presenter: Presenter) {
+    func inject(presenter: some MonsterListInteractorOutput) {
         self.presenter = presenter
     }
 }

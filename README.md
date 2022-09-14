@@ -52,9 +52,9 @@ You can develop this project.
 
 ### Environment
 
-- Swift: 5.6.1
-- Xcode: 13.4.1
-- macOS: 12.0+
+- macOS: 12.5+
+- Xcode: 14.0
+- Swift: 5.7
 
 ### Configuration
 

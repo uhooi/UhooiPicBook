@@ -11,7 +11,6 @@ import FirebaseSetup
 import MonstersRepository
 import ImageLoader
 import Logger
-import Shared
 
 private struct MonsterProvider<MR: MonstersRepository, LP: LoggerProtocol> {
     typealias Entry = MonsterEntry
@@ -19,13 +18,12 @@ private struct MonsterProvider<MR: MonstersRepository, LP: LoggerProtocol> {
     private let monstersRepository: MR
     private let logger: LP
 
-    private init(monstersRepository: MR, logger: LP) {
+    init(
+        monstersRepository: MR = MonstersFirestoreClient.shared,
+        logger: LP = Logger.default
+    ) {
         self.monstersRepository = monstersRepository
         self.logger = logger
-    }
-
-    init() where MR == MonstersFirestoreClient, LP == Logger {
-        self.init(monstersRepository: .shared, logger: .default)
     }
 }
 

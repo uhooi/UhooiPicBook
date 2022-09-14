@@ -59,7 +59,6 @@ let package = Package(
         .library(name: "AppModule", targets: ["AppModule"]),
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
         .library(name: "MonstersRepository", targets: ["MonstersRepository"]), // FIXME: Remove later
-        .library(name: "Shared", targets: ["Shared"]), // FIXME: Remove later
         .library(name: "ImageLoader", targets: ["ImageLoader"]), // FIXME: Remove later
     ],
     dependencies: [
@@ -83,7 +82,6 @@ let package = Package(
             name: "AppModule",
             dependencies: [
                 "MonstersRepository",
-                "Shared",
                 "Logger",
                 "ImageLoader",
             ],
@@ -117,11 +115,6 @@ let package = Package(
             ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
-            ]
-        ),
-        .target(
-            name: "Shared",
-            dependencies: [
             ]
         ),
         .target(

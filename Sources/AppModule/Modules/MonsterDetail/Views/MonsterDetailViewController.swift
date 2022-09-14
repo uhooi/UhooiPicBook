@@ -69,8 +69,8 @@ public final class MonsterDetailViewController: UIViewController {
 
     // MARK: Other Internal Methods
 
-    func inject<Presenter: MonsterDetailEventHandler>(
-        presenter: Presenter,
+    func inject(
+        presenter: some MonsterDetailEventHandler,
         monster: MonsterItem
     ) {
         self.presenter = presenter

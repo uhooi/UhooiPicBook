@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,6 @@
 		791904CC2793F9DA00416F7D /* ImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = 791904CB2793F9DA00416F7D /* ImageLoader */; };
 		791904D22794084800416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904D12794084800416F7D /* MonstersRepository */; };
 		791904D42794085600416F7D /* MonstersRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 791904D32794085600416F7D /* MonstersRepository */; };
-		7921EEF32785DDFE0033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF22785DDFE0033DDEC /* Shared */; };
-		7921EEF52785DE040033DDEC /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF42785DE040033DDEC /* Shared */; };
 		7921EEF92785E5E40033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEF82785E5E40033DDEC /* FirebaseSetup */; };
 		7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */ = {isa = PBXBuildFile; productRef = 7921EEFA2785E6290033DDEC /* FirebaseSetup */; };
 		792E8EEB278C430A000F3902 /* WidgetsConfiguration.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 792E8EE5278C430A000F3902 /* WidgetsConfiguration.intentdefinition */; };
@@ -185,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7921EEF52785DE040033DDEC /* Shared in Frameworks */,
 				7921EEFB2785E6290033DDEC /* FirebaseSetup in Frameworks */,
 				791904D42794085600416F7D /* MonstersRepository in Frameworks */,
 			);
@@ -198,7 +195,6 @@
 				5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */,
 				791904CC2793F9DA00416F7D /* ImageLoader in Frameworks */,
 				F8BBF148F1591E57471509B2 /* WidgetKit.framework in Frameworks */,
-				7921EEF32785DDFE0033DDEC /* Shared in Frameworks */,
 				79C193AB2789CF5200E7A58E /* MonsterWidgets in Frameworks */,
 				791904D22794084800416F7D /* MonstersRepository in Frameworks */,
 			);
@@ -441,7 +437,6 @@
 			);
 			name = UhooiPicBookWidgets;
 			packageProductDependencies = (
-				7921EEF22785DDFE0033DDEC /* Shared */,
 				79C193AA2789CF5200E7A58E /* MonsterWidgets */,
 				791904CB2793F9DA00416F7D /* ImageLoader */,
 				791904D12794084800416F7D /* MonstersRepository */,
@@ -496,7 +491,6 @@
 			);
 			name = UhooiPicBookWidgetsConfigurableIntent;
 			packageProductDependencies = (
-				7921EEF42785DE040033DDEC /* Shared */,
 				7921EEFA2785E6290033DDEC /* FirebaseSetup */,
 				791904D32794085600416F7D /* MonstersRepository */,
 			);
@@ -633,6 +627,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0FA2530C0E3D86880E87A1B6 /* Run SpellChecker */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -651,6 +646,7 @@
 		};
 		273E5548C378B1635B235E18 /* Run IBLinter */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -669,6 +665,7 @@
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -687,6 +684,7 @@
 		};
 		CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -706,6 +704,7 @@
 		};
 		ED5C992B9082C440532A022E /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1338,14 +1337,6 @@
 		791904D32794085600416F7D /* MonstersRepository */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MonstersRepository;
-		};
-		7921EEF22785DDFE0033DDEC /* Shared */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Shared;
-		};
-		7921EEF42785DE040033DDEC /* Shared */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Shared;
 		};
 		7921EEF82785E5E40033DDEC /* FirebaseSetup */ = {
 			isa = XCSwiftPackageProductDependency;

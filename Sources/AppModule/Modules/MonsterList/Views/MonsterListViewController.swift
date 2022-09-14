@@ -109,8 +109,8 @@ public final class MonsterListViewController: UIViewController {
 
     // MARK: Other Internal Methods
 
-    func inject<Presenter: MonsterListEventHandler>(
-        presenter: Presenter,
+    func inject(
+        presenter: some MonsterListEventHandler,
         sections: [any CollectionSectionProtocol]
     ) {
         self.presenter = presenter

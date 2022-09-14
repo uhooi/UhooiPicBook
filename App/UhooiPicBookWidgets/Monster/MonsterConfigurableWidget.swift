@@ -10,7 +10,6 @@ import SwiftUI
 import MonsterWidgets
 import MonstersRepository
 import ImageLoader
-import Shared
 
 private struct MonsterProvider {
     typealias Entry = MonsterEntry
@@ -50,7 +49,7 @@ extension MonsterProvider: IntentTimelineProvider {
     }
 
     private func entry(dto: MonsterDTO?) async -> Entry? {
-        guard let dto = dto,
+        guard let dto,
               let iconURL = URL(string: dto.iconURLString),
               let icon = await UIImage.create(with: iconURL)
         else {

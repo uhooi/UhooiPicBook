@@ -49,20 +49,17 @@ final class InAppWebBrowserViewController: UIViewController {
     }
 
     private func observeWebView() {
-        estimatedProgressObservation = webView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
-            guard let self = self else {
-                return
+        estimatedProgressObservation = webView.observe(\.estimatedProgress, options: [.new]) { @MainActor [weak self] webView, _ in
+            UIView.animate(withDuration: 0.33) { [weak self] in
+                self?.progressView.alpha = 1.0
             }
-            UIView.animate(withDuration: 0.33) {
-                self.progressView.alpha = 1.0
-            }
-            self.progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+            self?.progressView.setProgress(Float(webView.estimatedProgress), animated: true)
 
             if webView.estimatedProgress >= 1.0 {
-                UIView.animate(withDuration: 0.33) {
-                    self.progressView.alpha = 0.0
-                } completion: { _ in
-                    self.progressView.setProgress(0.0, animated: false)
+                UIView.animate(withDuration: 0.33) { [weak self] in
+                    self?.progressView.alpha = 0.0
+                } completion: { [weak self] _ in
+                    self?.progressView.setProgress(0.0, animated: false)
                 }
             }
         }
@@ -70,6 +67,6 @@ final class InAppWebBrowserViewController: UIViewController {
 
     private func loadWebView() {
         let request = URLRequest(url: url)
-        webView.load(request)
+        _ = webView.load(request)
     }
 }
