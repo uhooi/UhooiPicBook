@@ -67,6 +67,6 @@ final class InAppWebBrowserViewController: UIViewController {
 
     private func loadWebView() {
         let request = URLRequest(url: url)
-        webView.load(request)
+        _ = webView.load(request)
     }
 }
