@@ -42,8 +42,8 @@ setup: # Install dependencies and prepared development configuration
 .PHONY: build-cli-tools
 build-cli-tools: # Build CLI tools managed by SwiftPM
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
+#	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
+#	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
 	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
