@@ -56,6 +56,7 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 
 - macOS 12.5+
 - Xcode 14.0 (Swift 5.7)
+- Make
 
 ### 構成
 
