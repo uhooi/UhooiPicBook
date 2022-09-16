@@ -30,7 +30,7 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 |:--:|:--:|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
-|Widgets|
+|ウィジェット|
 |:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Widgets_English.png" width="207">|
 
