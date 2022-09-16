@@ -106,7 +106,7 @@ show-devices                         Show devices
 
 ## 貢献
 
-貢献していただけると嬉しいです :)
+貢献をお待ちしています :relaxed:
 
 - [新しいイシュー](https://github.com/uhooi/UhooiPicBook/issues/new)
 - [新しいプルリクエスト](https://github.com/uhooi/UhooiPicBook/compare)
