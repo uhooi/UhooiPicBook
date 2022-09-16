@@ -1,4 +1,4 @@
-English / [Japanese](./README.ja.md)
+[英語](./README.md) / 日本語
 
 # UhooiPicBook-iOS
 
@@ -7,83 +7,83 @@ English / [Japanese](./README.ja.md)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)](https://github.com/uhooi/UhooiPicBook)
 [![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
-|Branch|CI|Code coverage|
+|ブランチ|CI|コードカバレッジ|
 |:--|:--:|:--:|
 |[main](https://github.com/uhooi/UhooiPicBook/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|-|
 |[develop](https://github.com/uhooi/UhooiPicBook/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|-|
 
 ![Logo](./Docs/Logo.png)
 
-UhooiPicBook-iOS is Uhooi's character book for iOS.
+UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 
 [![Download_on_the_App_Store_Badge](./Docs/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/jp/app/id1501657213)
 
-## Screenshots
+## スクリーンショット
 
-### Light
+### ライト
 
-|MonsterList|MonsterDetail|ImagePopup|
+|モンスター一覧|モンスター詳細|画像ポップアップ|
 |:--:|:--:|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/ImagePopup_English.png" width="207">|
 
-|Menu opened in MonsterList|Spotlight|iMessage|
+|モンスター一覧で開いたメニュー|Spotlight|iMessage|
 |:--:|:--:|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
-|Widgets|
+|ウィジェット|
 |:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Widgets_English.png" width="207">|
 
-### Dark
+### ダーク
 
-|MonsterList|MonsterDetail|ImagePopup|
+|モンスター一覧|モンスター詳細|画像ポップアップ|
 |:--:|:--:|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/ImagePopup_English.png" width="207">|
 
-|Menu opened in MonsterList|Spotlight|iMessage|
+|モンスター一覧で開いたメニュー|Spotlight|iMessage|
 |:--:|:--:|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
 
-|Widgets|
+|ウィジェット|
 |:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Widgets_English.png" width="207">|
 
-## Development
+## 開発
 
-You can develop this project.
+誰でもこのプロジェクトを開発できます。
 
-### Environment
+### 必要条件
 
 - macOS 12.5+
 - Xcode 14.0 (Swift 5.7)
 - Make
 
-### Configuration
+### 構成
 
-- UI implementation: Storyboard + XIB
-- Architecture: VIPER
-- UITesting architecture: Page Object Pattern
-- Branching model: Git-flow
+- UIの実装: Storyboard + XIB
+- アーキテクチャ: VIPER
+- UIテストのアーキテクチャ: Page Object Pattern
+- ブランチモデル: Git-flow
 
-### Setup
+### セットアップ
 
-1. Clone the project.  
+1. このプロジェクトをクローンします。  
     ```shell
     $ git clone https://github.com/uhooi/UhooiPicBook.git
     $ cd UhooiPicBook
     ```
 
-2. Enable faster builds for Swift projects. (Optional)  
+2. Swiftプロジェクトの高速ビルドを有効にします。（任意）  
     ```shell
     $ defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
     ```
 
-3. Run `make setup` .  
-After setup is complete, Workspace automatically opens in Xcode.
+3. `make setup` を実行します。  
+セットアップが完了すると、自動的にXcodeでワークスペースが開きます。
 
-### Help
+### ヘルプ
 
-Run `make help` .
+`make help` を実行します。
 
 ```shell
 $ make help
@@ -105,13 +105,13 @@ merge-test-results                   Merge test results
 show-devices                         Show devices
 ```
 
-## Contribution
+## 貢献
 
-I would be happy if you contribute :)
+貢献をお待ちしています :relaxed:
 
-- [New issue](https://github.com/uhooi/UhooiPicBook/issues/new)
-- [New pull request](https://github.com/uhooi/UhooiPicBook/compare)
+- [新しいイシュー](https://github.com/uhooi/UhooiPicBook/issues/new)
+- [新しいプルリクエスト](https://github.com/uhooi/UhooiPicBook/compare)
 
-## Stats
+## スタッツ
 
 [![Stats](https://repobeats.axiom.co/api/embed/1c29e1d49c64b444ae3a829603069d4fcfcf7596.svg "Repobeats analytics image")](https://github.com/uhooi/UhooiPicBook)

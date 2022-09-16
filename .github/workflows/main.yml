@@ -8,11 +8,13 @@ on:
     paths-ignore:
       - Docs/**
       - README.md
+      - README.ja.md
       - LICENSE
   pull_request:
     paths-ignore:
       - Docs/**
       - README.md
+      - README.ja.md
       - LICENSE
   workflow_dispatch:
 
