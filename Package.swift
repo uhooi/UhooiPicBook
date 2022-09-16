@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -58,8 +58,8 @@ let package = Package(
         .library(name: "FirebaseMessagingBridge", targets: ["FirebaseMessagingBridge"]),
         .library(name: "AppModule", targets: ["AppModule"]),
         .library(name: "MonsterWidgets", targets: ["MonsterWidgets"]),
-        .library(name: "MonstersRepository", targets: ["MonstersRepository"]), // FIXME: Remove later
-        .library(name: "ImageLoader", targets: ["ImageLoader"]), // FIXME: Remove later
+        .library(name: "MonstersRepository", targets: ["MonstersRepository"]), // TODO: Remove later
+        .library(name: "ImageLoader", targets: ["ImageLoader"]), // TODO: Remove later
     ],
     dependencies: [
     ],
