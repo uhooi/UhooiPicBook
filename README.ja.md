@@ -108,8 +108,8 @@ show-devices                         Show devices
 
 貢献していただけると嬉しいです :)
 
-- [New issue](https://github.com/uhooi/UhooiPicBook/issues/new)
-- [New pull request](https://github.com/uhooi/UhooiPicBook/compare)
+- [新しいイシュー](https://github.com/uhooi/UhooiPicBook/issues/new)
+- [新しいプルリクエスト](https://github.com/uhooi/UhooiPicBook/compare)
 
 ## スタッツ
 
