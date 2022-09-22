@@ -661,7 +661,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#../Tools/UhooiPicBookTools/.build/release/iblinter lint --path $SRCROOT/.. --config $SRCROOT/../.iblinter.yml\n\n";
+			shellScript = "#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#IBLINTER_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/iblinter\n#if [ -f $IBLINTER_PATH ]; then\n#  $IBLINTER_PATH lint --path $SRCROOT/.. --config $SRCROOT/../.iblinter.yml\n#else\n#  echo \"warning: IBLinter not installed, please run \\`make setup\\` .\"\n#fi\n\n";
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -680,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n../Tools/UhooiPicBookTools/.build/release/swiftlint --config $SRCROOT/../.swiftlint.yml --fix --format\n../Tools/UhooiPicBookTools/.build/release/swiftlint --config $SRCROOT/../.swiftlint.yml\n\n";
+			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nSWIFTLINT_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/swiftlint\nif [ -f $SWIFTLINT_PATH ]; then\n  $SWIFTLINT_PATH --config $SRCROOT/../.swiftlint.yml --fix --format\n  $SWIFTLINT_PATH --config $SRCROOT/../.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, please run \\`make setup\\` .\"\nfi\n\n";
 		};
 		CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
