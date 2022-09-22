@@ -642,7 +642,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#git_path=/usr/local/bin/git\n#files=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\n#if (test -z $files) || (test ${#files[@]} -eq 0); then\n#  echo \"no files changed.\"\n#  exit 0\n#fi\n#\n#options=\"\"\n#for file in $files\n#do\n#  options=\"$options $SRCROOT/../$file\"\n#done\n#\n#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#Tools/UhooiPicBookTools/.build/release/SpellChecker --yml $SRCROOT/../.spell-checker.yml -- $options\n\n";
+			shellScript = "#git_path=/usr/local/bin/git\n#files=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\n#if (test -z $files) || (test ${#files[@]} -eq 0); then\n#  echo \"no files changed.\"\n#  exit 0\n#fi\n#\n#options=\"\"\n#for file in $files\n#do\n#  options=\"$options $SRCROOT/../$file\"\n#done\n#\n#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#SPELLCHECKER_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/SpellChecker\n#if [ -f $SPELLCHECKER_PATH ]; then\n#  $SPELLCHECKER_PATH --yml $SRCROOT/../.spell-checker.yml -- $options\n#else\n#  echo \"warning: SpellChecker not installed, please run \\`make setup\\` .\"\n#fi\n\n";
 		};
 		273E5548C378B1635B235E18 /* Run IBLinter */ = {
 			isa = PBXShellScriptBuildPhase;
