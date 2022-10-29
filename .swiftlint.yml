@@ -8,7 +8,7 @@ custom_rules:
     included: 
       - ".*\\.swift"
     name: "`if let` shorthand for shadowing an existing optional variable"
-    regex: '(if|guard)\s+let\s+(.+?)\s*=\s*(\2)'
+    regex: '(if|guard)\s+let\s+(.+?)\s*=\s*(\2)(\s+|{)'
     message: "Use `if let` shorthand."
     severity: warning
 
