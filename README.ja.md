@@ -16,7 +16,7 @@
 
 UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 
-[![Download_on_the_App_Store_Badge](./Docs/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/jp/app/id1501657213)
+<a href="https://apps.apple.com/jp/app/ウホーイ図鑑/id1501657213?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83&amp;releaseDate=1593561600&h=677db0edc6468189c03bb124fb940956" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
 ## 目次
 
