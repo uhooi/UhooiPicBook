@@ -27,6 +27,8 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 
 ## スクリーンショット
 
+<details><summary>スクリーンショット</summary>
+
 ### ライト
 
 |モンスター一覧|モンスター詳細|画像ポップアップ|
@@ -54,6 +56,8 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 |ウィジェット|
 |:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Widgets_English.png" width="207">|
+
+</details>
 
 ## 開発
 
