@@ -5,7 +5,8 @@
 //  Created by uhooi on 2022/01/16.
 //
 
-import UIKit.UIImage
+import Foundation
+import class UIKit.UIImage
 
 @MainActor
 extension UIImage {

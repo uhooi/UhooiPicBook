@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit.UIImage
+import class UIKit.UIImage
 
 public enum R { // swiftlint:disable:this type_name
     public enum LocalizedString {

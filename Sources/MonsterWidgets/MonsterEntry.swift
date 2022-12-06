@@ -5,7 +5,7 @@
 //  Created by uhooi on 2020/12/14.
 //
 
-import UIKit.UIImage
+import class UIKit.UIImage
 import WidgetKit
 
 public struct MonsterEntry: TimelineEntry {

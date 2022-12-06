@@ -5,7 +5,7 @@
 //  Created by Tomosuke Okada on 2020/05/11.
 //
 
-import UIKit.UIImage
+import class UIKit.UIImage
 import CoreGraphics.CGGeometry
 import CoreSpotlight
 import ImageLoader
