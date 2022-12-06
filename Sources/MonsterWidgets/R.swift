@@ -13,17 +13,17 @@ public enum R { // swiftlint:disable:this type_name
 
         // MARK: Public Stored Type Properties
 
-        public static let configurationDisplayName = nsLocalizedString("Configuration display name")
-        public static let configurableDescription = nsLocalizedString("Configurable description")
+        public static let configurationDisplayName = string(localized: "Configuration display name")
+        public static let configurableDescription = string(localized: "Configurable description")
 
         // MARK: Internal Stored Type Properties
 
-        static let description = nsLocalizedString("Description")
+        static let description = string(localized: "Description")
 
         // MARK: Other Private Type Methods
 
-        private static func nsLocalizedString(_ key: String) -> String {
-            NSLocalizedString(key, bundle: .module, comment: key) // swiftlint:disable:this nslocalizedstring_key
+        private static func string(localized keyAndValue: String.LocalizationValue) -> String {
+            String(localized: keyAndValue, bundle: .module)
         }
     }
 
