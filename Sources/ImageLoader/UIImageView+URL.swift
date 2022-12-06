@@ -5,7 +5,9 @@
 //  Created by uhooi on 2022/01/14.
 //
 
-import UIKit.UIImageView
+import Foundation
+import class UIKit.UIImage
+import class UIKit.UIImageView
 
 @MainActor
 public extension UIImageView {

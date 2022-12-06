@@ -6,7 +6,8 @@
 //  Copyright © 2020 THE Uhooi. All rights reserved.
 //
 
-import UIKit.UIImage
+import class UIKit.UIView
+import class UIKit.UIImage
 
 @MainActor
 protocol MonsterDetailEventHandler: AnyObject {

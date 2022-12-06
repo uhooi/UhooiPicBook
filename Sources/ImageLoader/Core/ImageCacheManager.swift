@@ -5,7 +5,8 @@
 //  Created by uhooi on 2020/03/03.
 //
 
-import UIKit.UIImage
+import Foundation
+import class UIKit.UIImage
 
 final class ImageCacheManager {
     static let imageCache = NSCache<AnyObject, AnyObject>()
