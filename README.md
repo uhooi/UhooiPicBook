@@ -66,7 +66,7 @@ You can develop this project.
 ### Environment
 
 - macOS 12.5+
-- Xcode 14.0 (Swift 5.7)
+- Xcode 14.1 (Swift 5.7.1)
 - Make
 
 ### Configuration
