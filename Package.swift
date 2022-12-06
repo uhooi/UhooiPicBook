@@ -50,7 +50,7 @@ let package = Package(
     name: "UhooiPicBookPackage",
     defaultLocalization: "ja",
     platforms: [
-        .iOS(.v14),
+        .iOS(.v15),
         .macOS(.v10_15),
     ],
     products: [

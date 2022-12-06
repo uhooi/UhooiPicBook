@@ -13,33 +13,33 @@ enum R { // swiftlint:disable:this type_name
         // MARK: Internal Stored Type Properties
 
         // Monster detail
-        static let uhooiPicBookHashtag = nsLocalizedString("UhooiPicBook hashtag")
+        static let uhooiPicBookHashtag = string(localized: "UhooiPicBook hashtag")
 
         // Menu
-        static let contactUs = nsLocalizedString("Contact us")
-        static let privacyPolicy = nsLocalizedString("Privacy policy")
-        static let licenses = nsLocalizedString("Licenses")
-        static let aboutThisApp = nsLocalizedString("About this app")
+        static let contactUs = string(localized: "Contact us")
+        static let privacyPolicy = string(localized: "Privacy policy")
+        static let licenses = string(localized: "Licenses")
+        static let aboutThisApp = string(localized: "About this app")
 
         // Contact us
-        static let contactUsURL = nsLocalizedString("Contact us URL")
+        static let contactUsURL = string(localized: "Contact us URL")
 
         // Privacy policy
-        static let privacyPolicyURL = nsLocalizedString("Privacy policy URL")
+        static let privacyPolicyURL = string(localized: "Privacy policy URL")
 
         // About this app
-        static let thisAppIsOpenSourceSoftware = nsLocalizedString("This app is open source software")
-        static let uhooiPicBookGitHubURL = nsLocalizedString("UhooiPicBook GitHub URL")
-        static let version = nsLocalizedString("Version")
-        static let copyright = nsLocalizedString("Copyright")
+        static let thisAppIsOpenSourceSoftware = string(localized: "This app is open source software")
+        static let uhooiPicBookGitHubURL = string(localized: "UhooiPicBook GitHub URL")
+        static let version = string(localized: "Version")
+        static let copyright = string(localized: "Copyright")
 
         // Alert
-        static let oK = nsLocalizedString("OK")
+        static let oK = string(localized: "OK")
 
         // MARK: Other Private Type Methods
 
-        private static func nsLocalizedString(_ key: String) -> String {
-            NSLocalizedString(key, bundle: .module, comment: key) // swiftlint:disable:this nslocalizedstring_key
+        private static func string(localized keyAndValue: String.LocalizationValue) -> String {
+            String(localized: keyAndValue, bundle: .module)
         }
     }
 
