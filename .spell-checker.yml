@@ -1,0 +1,43 @@
+whiteList:
+  # Common
+  - codable
+  - autoclosure
+  - lhs
+  - rhs
+  - dto
+  - dtos
+  - interactor
+  - swiftlint
+  - bannzai
+  - gedatsu
+  - json
+  - hashable
+  - iterable
+  - diffable
+  - fcm
+  - github
+  - thii
+  - xcbeautify
+  - yonaskolb
+  - fromkk
+  - uber
+  - mockolo
+  - crashlytics
+  - firestore
+  - nanopb
+  - leveldb
+  - xcframework
+  - nslocalizedstring
+  - xfrontend
+
+  # Uhooi
+  - theuhooi
+  - uhooi
+  - nuhooi
+  - ayausa
+  - chibird
+  - tomosuke
+  - okada
+  - takehito
+  - koshimizu
+

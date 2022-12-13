@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VO7-ZU-5oB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monster List View Controller-->
+        <scene sceneID="tU6-vw-UeP">
+            <objects>
+                <viewController id="VO7-ZU-5oB" customClass="MonsterListViewController" customModule="AppModule" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbz-wc-vx5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DUo-oL-Oos">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QCB-zG-Slj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="monsterList"/>
+                        <constraints>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="trailing" secondItem="DUo-oL-Oos" secondAttribute="trailing" id="AGQ-mI-AxG"/>
+                            <constraint firstItem="QCB-zG-Slj" firstAttribute="bottom" secondItem="DUo-oL-Oos" secondAttribute="bottom" id="dvY-U2-Vbm"/>
+                            <constraint firstItem="DUo-oL-Oos" firstAttribute="leading" secondItem="QCB-zG-Slj" secondAttribute="leading" id="g0J-rM-oeZ"/>
+                            <constraint firstItem="DUo-oL-Oos" firstAttribute="top" secondItem="QCB-zG-Slj" secondAttribute="top" id="lyh-8U-yE3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vQ9-6f-oxf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="m4P-2c-2Rv"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="DUo-oL-Oos" id="nIi-qO-Sx7"/>
+                        <outlet property="menuButton" destination="m4P-2c-2Rv" id="0vc-yW-vnb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Um6-RH-5QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="152.67857142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

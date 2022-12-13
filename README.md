@@ -1,3 +1,5 @@
+English / [Japanese](./README.ja.md)
+
 # UhooiPicBook-iOS
 
 [![Release](https://img.shields.io/github/v/release/uhooi/UhooiPicBook)](https://github.com/uhooi/UhooiPicBook/releases/latest)
@@ -6,45 +8,56 @@
 [![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
 |Branch|CI|Code coverage|
-|:--|:--|:--|
-|[main](https://github.com/uhooi/UhooiPicBook/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/main/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
-|[develop](https://github.com/uhooi/UhooiPicBook/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook/branch/develop/graph/badge.svg?token=4HTK2YK2FG)](https://codecov.io/gh/uhooi/UhooiPicBook)|
+|:--|:--:|:--:|
+|[main](https://github.com/uhooi/UhooiPicBook/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|-|
+|[develop](https://github.com/uhooi/UhooiPicBook/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook/actions/workflows/main.yml)|-|
 
 ![Logo](./Docs/Logo.png)
 
 UhooiPicBook-iOS is Uhooi's character book for iOS.
 
-[![Download_on_the_App_Store_Badge](./Docs/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/jp/app/id1501657213)
+<a href="https://apps.apple.com/jp/app/ウホーイ図鑑/id1501657213?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1593561600&h=b17e195bc020808628890cbe7fcde25f" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+
+## Table of Contents
+
+- [Screenshots](#screenshots)
+- [Development](#development)
+- [Contribution](#contribution)
+- [Stats](#stats)
 
 ## Screenshots
+
+<details><summary>Screenshots</summary>
 
 ### Light
 
 |MonsterList|MonsterDetail|ImagePopup|
-|:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/ImagePopup_English.png" width="207">|
+|:--:|:--:|:--:|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/ImagePopup_English.png" width="207">|
 
 |Menu opened in MonsterList|Spotlight|iMessage|
-|:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
+|:--:|:--:|:--:|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Light/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/iMessage_English.png" width="207">|
 
 |Widgets|
-|:--|
+|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Light/Widgets_English.png" width="207">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|ImagePopup|
-|:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/ImagePopup_English.png" width="207">|
+|:--:|:--:|:--:|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterList.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MonsterDetail_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/ImagePopup_English.png" width="207">|
 
 |Menu opened in MonsterList|Spotlight|iMessage|
-|:--|:--|:--|
-|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
+|:--:|:--:|:--:|
+|<img src="./Docs/Screenshots/iPhone11ProMax/iOS15_2/Dark/MenuOpenedInMonsterList_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Spotlight_English.png" width="207">|<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/iMessage_English.png" width="207">|
 
 |Widgets|
-|:--|
+|:--:|
 |<img src="./Docs/Screenshots/iPhone11ProMax/iOS14_3/Dark/Widgets_English.png" width="207">|
+
+</details>
 
 ## Development
 
@@ -52,8 +65,9 @@ You can develop this project.
 
 ### Environment
 
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835): 13.0
-- [rbenv](https://github.com/rbenv/rbenv): 1.1.2
+- macOS 12.5+
+- Xcode 14.1 (Swift 5.7.1)
+- Make
 
 ### Configuration
 
@@ -64,14 +78,18 @@ You can develop this project.
 
 ### Setup
 
-1. Clone the project.
+1. Clone the project.  
+    ```shell
+    $ git clone https://github.com/uhooi/UhooiPicBook.git
+    $ cd UhooiPicBook
+    ```
 
-```shell
-$ git clone https://github.com/uhooi/UhooiPicBook.git
-$ cd UhooiPicBook
-```
+2. Enable faster builds for Swift projects. (Optional)  
+    ```shell
+    $ defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+    ```
 
-2. Run `make setup` .  
+3. Run `make setup` .  
 After setup is complete, Workspace automatically opens in Xcode.
 
 ### Help
@@ -80,26 +98,22 @@ Run `make help` .
 
 ```shell
 $ make help
-setup                                      Install dependencies and prepared development configuration
-install-bundler                            Install Bundler dependencies
-update-bundler                             Update Bundler dependencies
-build-cli-tools                            Build CLI tools managed by SwiftPM
-install-templates                          Install Generamba templates
-download-firebase-sdk                      Download firebase-ios-sdk
-generate-licenses                          Generate licenses with LicensePlist
-generate-module MODULE_NAME=[module name]  Generate module with Generamba
-generate-xcodeproj-develop                 Generate project with XcodeGen for develop
-generate-xcodeproj-production              Generate project with XcodeGen for production
-open                                       Open project in Xcode
-clean                                      Delete cache
-clean-cli-tools                            Delete build artifacts for CLI tools managed by SwiftPM
-analyze                                    Analyze with SwiftLint
-build-debug                                Xcode build for debug
-test TEST_DEVICE=[device] TEST_OS=[OS]     Xcode test
-get-coverage-html                          Get code coverage for HTML
-get-coverage-cobertura                     Get code coverage for Cobertura
-upload-coverage                            Upload code coverage to Codecov
-show-devices                               Show devices
+setup                                Install dependencies and prepared development configuration
+build-cli-tools                      Build CLI tools managed by SwiftPM
+download-firebase-sdk                Download firebase-ios-sdk
+generate-licenses                    Generate licenses with LicensePlist
+generate-mocks                       Generate mocks with Mockolo
+open                                 Open workspace in Xcode
+clean                                Delete cache
+clean-cli-tools                      Delete build artifacts for CLI tools managed by SwiftPM
+analyze                              Analyze with SwiftLint
+build-debug-develop                  Xcode debug build for develop
+build-debug-production               Xcode debug build for production
+test-debug-develop                   Xcode debug test for develop
+test-debug-production                Xcode debug test for production
+test-debug-app-module                Xcode debug test for AppModule
+merge-test-results                   Merge test results
+show-devices                         Show devices
 ```
 
 ## Contribution
@@ -108,3 +122,7 @@ I would be happy if you contribute :)
 
 - [New issue](https://github.com/uhooi/UhooiPicBook/issues/new)
 - [New pull request](https://github.com/uhooi/UhooiPicBook/compare)
+
+## Stats
+
+[![Stats](https://repobeats.axiom.co/api/embed/1c29e1d49c64b444ae3a829603069d4fcfcf7596.svg "Repobeats analytics image")](https://github.com/uhooi/UhooiPicBook)
