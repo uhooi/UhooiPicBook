@@ -19,7 +19,7 @@ CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
 
 MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
-FIREBASE_VERSION := 9.0.0
+FIREBASE_VERSION := 10.3.0
 
 REPORTS_PATH := ./Reports
 
