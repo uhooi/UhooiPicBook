@@ -18,6 +18,7 @@ runs:
   # Mintのインストール
   - name: Install Mint
     run: brew install mint
+    shell: bash
 
   # Mintで管理しているCLIツールのキャッシュ
   - name: Cache CLI tools managed by Mint
