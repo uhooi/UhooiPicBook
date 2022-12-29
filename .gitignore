@@ -92,6 +92,9 @@ iOSInjectionProject/
 # Project dependencies are resolved by the workspace
 *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
+# Mint
+.mint/
+
 # Mockolo
 MockResults.swift
 
