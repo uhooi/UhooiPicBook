@@ -23,6 +23,8 @@ permissions:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_14.1.app
+  MINT_PATH: .mint/lib
+  MINT_LINK_PATH: .mint/bin
 
 jobs:
   build:

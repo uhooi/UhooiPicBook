@@ -643,7 +643,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#git_path=/usr/local/bin/git\n#files=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\n#if (test -z $files) || (test ${#files[@]} -eq 0); then\n#  echo \"no files changed.\"\n#  exit 0\n#fi\n#\n#options=\"\"\n#for file in $files\n#do\n#  options=\"$options $SRCROOT/../$file\"\n#done\n#\n#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#SPELLCHECKER_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/SpellChecker\n#if [ -f $SPELLCHECKER_PATH ]; then\n#  $SPELLCHECKER_PATH --yml $SRCROOT/../.spell-checker.yml -- $options\n#else\n#  echo \"warning: SpellChecker not installed, please run \\`make setup\\` .\"\n#fi\n\n";
+			shellScript = "cd $SRCROOT/..\ngit_path=/usr/local/bin/git\nfiles=$($git_path diff --diff-filter=d --name-only -- \"*.swift\" \"*.h\" \"*.m\")\nif (test -z $files) || (test ${#files[@]} -eq 0); then\n  echo \"no files changed.\"\n  exit 0\nfi\n\noptions=\"\"\nfor file in $files\ndo\n  options=\"$options $SRCROOT/../$file\"\ndone\n\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nexport MINT_PATH=.mint/lib\nexport MINT_LINK_PATH=.mint/bin\n\n# M1 Mac\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n  export HOMEBREW_HOME=/opt/homebrew\n# Intel Mac\nelse\n  export HOMEBREW_HOME=/usr/local\nfi\nif [ -d \"${HOMEBREW_HOME}\" ]; then\n  export PATH=\"${HOMEBREW_HOME}/bin:$PATH\"\nfi\n\nif which mint >/dev/null; then\n  mint run fromkk/SpellChecker SpellChecker --yml $SRCROOT/.spell-checker.yml -- $options\nelse\n  echo \"warning: Mint not installed, please run \\`brew install mint\\` .\"\nfi\n";
 		};
 		273E5548C378B1635B235E18 /* Run IBLinter */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -662,7 +662,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n#IBLINTER_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/iblinter\n#if [ -f $IBLINTER_PATH ]; then\n#  $IBLINTER_PATH lint --path $SRCROOT/.. --config $SRCROOT/../.iblinter.yml\n#else\n#  echo \"warning: IBLinter not installed, please run \\`make setup\\` .\"\n#fi\n\n";
+			shellScript = "cd $SRCROOT/..\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nexport MINT_PATH=.mint/lib\nexport MINT_LINK_PATH=.mint/bin\n\n# M1 Mac\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n  export HOMEBREW_HOME=/opt/homebrew\n# Intel Mac\nelse\n  export HOMEBREW_HOME=/usr/local\nfi\nif [ -d \"${HOMEBREW_HOME}\" ]; then\n  export PATH=\"${HOMEBREW_HOME}/bin:$PATH\"\nfi\n\nif which mint >/dev/null; then\n  mint run IBDecodable/IBLinter iblinter lint\nelse\n  echo \"warning: Mint not installed, please run \\`brew install mint\\` .\"\nfi\n";
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -681,7 +681,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nSWIFTLINT_PATH=$SRCROOT/../Tools/UhooiPicBookTools/.build/release/swiftlint\nif [ -f $SWIFTLINT_PATH ]; then\n  $SWIFTLINT_PATH --config $SRCROOT/../.swiftlint.yml --fix --format\n  $SWIFTLINT_PATH --config $SRCROOT/../.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, please run \\`make setup\\` .\"\nfi\n\n";
+			shellScript = "cd $SRCROOT/..\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nexport MINT_PATH=.mint/lib\nexport MINT_LINK_PATH=.mint/bin\n\n# M1 Mac\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n  export HOMEBREW_HOME=/opt/homebrew\n# Intel Mac\nelse\n  export HOMEBREW_HOME=/usr/local\nfi\nif [ -d \"${HOMEBREW_HOME}\" ]; then\n  export PATH=\"${HOMEBREW_HOME}/bin:$PATH\"\nfi\n\nif which mint >/dev/null; then\n  mint run realm/SwiftLint swiftlint --fix --format\n  mint run realm/SwiftLint swiftlint\nelse\n  echo \"warning: Mint not installed, please run \\`brew install mint\\` .\"\nfi\n";
 		};
 		CE0A4BD6818C7BDE485094F6 /* Run Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;

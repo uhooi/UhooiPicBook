@@ -67,6 +67,7 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 
 - macOS 12.5+
 - Xcode 14.1 (Swift 5.7.1)
+- Mint
 - Make
 
 ### 構成
@@ -99,13 +100,12 @@ UhooiPicBook-iOSは、ウホーイのiOS用キャラクター図鑑です。
 ```shell
 $ make help
 setup                                Install dependencies and prepared development configuration
-build-cli-tools                      Build CLI tools managed by SwiftPM
+install-mint-dependencies            Install Mint dependencies
 download-firebase-sdk                Download firebase-ios-sdk
 generate-licenses                    Generate licenses with LicensePlist
 generate-mocks                       Generate mocks with Mockolo
 open                                 Open workspace in Xcode
 clean                                Delete cache
-clean-cli-tools                      Delete build artifacts for CLI tools managed by SwiftPM
 analyze                              Analyze with SwiftLint
 build-debug-develop                  Xcode debug build for develop
 build-debug-production               Xcode debug build for production
