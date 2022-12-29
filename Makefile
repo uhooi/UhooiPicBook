@@ -14,8 +14,8 @@ TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}
 DEVELOP_PROJECT_NAME := Develop
 PRODUCTION_PROJECT_NAME := Production
 
-CLI_TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
-CLI_TOOLS_PATH := ${CLI_TOOLS_PACKAGE_PATH}/.build/release
+MINT_PATH := .mint/lib
+MINT_LINK_PATH := .mint/bin
 
 MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
@@ -33,24 +33,15 @@ help:
 
 .PHONY: setup
 setup: # Install dependencies and prepared development configuration
-	$(MAKE) build-cli-tools
+	$(MAKE) install-mint-dependencies
 	$(MAKE) download-firebase-sdk
 	$(MAKE) generate-licenses
 	$(MAKE) generate-mocks
 	$(MAKE) open
 
-.PHONY: build-cli-tools
-build-cli-tools: # Build CLI tools managed by SwiftPM
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=swiftlint
-#	$(MAKE) build-cli-tool CLI_TOOL_NAME=iblinter
-#	$(MAKE) build-cli-tool CLI_TOOL_NAME=SpellChecker
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=mockolo
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=license-plist
-	$(MAKE) build-cli-tool CLI_TOOL_NAME=xcbeautify
-
-.PHONY: build-cli-tool
-build-cli-tool:
-	swift build -c release --package-path ${CLI_TOOLS_PACKAGE_PATH} --product ${CLI_TOOL_NAME}
+.PHONY: install-mint-dependencies
+install-mint-dependencies: # Install Mint dependencies
+	mint bootstrap --overwrite y
 
 .PHONY: download-firebase-sdk
 download-firebase-sdk: # Download firebase-ios-sdk
@@ -60,12 +51,12 @@ download-firebase-sdk: # Download firebase-ios-sdk
 
 .PHONY: generate-licenses
 generate-licenses: # Generate licenses with LicensePlist
-	${CLI_TOOLS_PATH}/license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path .lic-plist.yml
+	mint run mono0926/LicensePlist license-plist --output-path App/${PRODUCT_NAME}/Resources/Settings.bundle --add-version-numbers --config-path .lic-plist.yml
 
 .PHONY: generate-mocks
 generate-mocks: # Generate mocks with Mockolo
 	rm -f ${MOCK_FILE_PATH}
-	${CLI_TOOLS_PATH}/mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --exclude-imports FirebaseMessaging --mock-final
+	mint run uber/mockolo mockolo --sourcedirs ./Sources --destination ${MOCK_FILE_PATH} --testable-imports AppModule --exclude-imports FirebaseMessaging --mock-final
 
 .PHONY: open
 open: # Open workspace in Xcode
@@ -79,18 +70,13 @@ clean: # Delete cache
 	rm -rf ./Reports
 	rm -rf ./.swiftlint
 	rm -rf ./App/.swiftlint
-	rm -rf ./${CLI_TOOLS_PACKAGE_PATH}/.swiftpm
-	rm -rf ./${CLI_TOOLS_PACKAGE_PATH}/.build
+	rm -rf ./.mint
 	xcodebuild clean -alltargets
-
-.PHONY: clean-cli-tools
-clean-cli-tools: # Delete build artifacts for CLI tools managed by SwiftPM
-	swift package --package-path ${CLI_TOOLS_PACKAGE_PATH} clean
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug-develop
-	${CLI_TOOLS_PATH}/swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
+	mint run realm/SwiftLint swiftlint analyze --autocorrect --compiler-log-path ./${XCODEBUILD_BUILD_LOG_NAME}
 
 .PHONY: build-debug-develop
 build-debug-develop: # Xcode debug build for develop
@@ -112,7 +98,7 @@ build-debug:
 -clonedSourcePackagesDirPath './SourcePackages' \
 clean build \
 | tee ${REPORTS_PATH}/${PRODUCT_NAME}_${PROJECT_NAME}_Build.log \
-| ${CLI_TOOLS_PATH}/xcbeautify
+| mint run tuist/xcbeautify xcbeautify
 
 .PHONY: test-debug-develop
 test-debug-develop: # Xcode debug test for develop
@@ -152,7 +138,7 @@ xcodebuild \
 clean test \
 2>&1 \
 | tee ${REPORTS_PATH}/${LOG_NAME}_Test.log \
-| ${CLI_TOOLS_PATH}/xcbeautify --is-ci
+| mint run tuist/xcbeautify xcbeautify --is-ci
 
 .PHONY: merge-test-results
 merge-test-results: # Merge test results
