@@ -33,7 +33,7 @@ public final class MonsterDetailRouter {
     public static func assembleModule(monster: MonsterItem) -> MonsterDetailViewController {
         let view = R.Storyboard.MonsterDetail.instantiateInitialViewController()
         let interactor = MonsterDetailInteractor()
-        let router = MonsterDetailRouter(viewController: view)
+        let router = Self(viewController: view)
         let presenter = MonsterDetailPresenter(view: view, interactor: interactor, router: router)
 
         view.inject(presenter: presenter, monster: monster)
