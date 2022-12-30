@@ -1,16 +1,7 @@
-parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/v1.10.0/uhooi-base-swiftlint-config.yml
+parent_config: https://raw.githubusercontent.com/uhooi/SwiftLint-Config/v1.11.0/uhooi-base-swiftlint-config.yml
 
 disabled_rules:
   - missing_docs
-
-custom_rules:
-  if_let_shorthand:
-    included: 
-      - ".*\\.swift"
-    name: "`if let` shorthand for shadowing an existing optional variable"
-    regex: '(if|guard)\s+let\s+(.+?)\s*=\s*(\2)(\s+|\{)'
-    message: "Use `if let` shorthand."
-    severity: warning
 
 included:
   - Shared

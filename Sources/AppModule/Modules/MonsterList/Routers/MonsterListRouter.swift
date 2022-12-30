@@ -44,7 +44,7 @@ public final class MonsterListRouter {
             MonstersFirestoreClient,
             UserDefaultsClient
         >(spotlightRepository: SC())
-        let router = MonsterListRouter(viewController: view)
+        let router = Self(viewController: view)
         let presenter = MonsterListPresenter(view: view, interactor: interactor, router: router)
 
         let sections: [any CollectionSectionProtocol] = [
