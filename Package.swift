@@ -45,7 +45,7 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
 let otherSwiftFlags: [String] = [
     "-Xfrontend", "-warn-long-expression-type-checking=500",
     "-Xfrontend", "-warn-long-function-bodies=500",
-    "-Xfrontend", "-warn-concurrency",
+    "-Xfrontend", "-strict-concurrency=complete",
     "-Xfrontend", "-enable-actor-data-race-checks",
 ]
 
