@@ -106,7 +106,10 @@ generate-licenses                    Generate licenses with LicensePlist
 generate-mocks                       Generate mocks with Mockolo
 open                                 Open workspace in Xcode
 clean                                Delete cache
+lint                                 Lint with SwiftLint
+fix                                  Fix with SwiftLint
 analyze                              Analyze with SwiftLint
+lint-ib                              Lint with IBLinter
 build-debug-develop                  Xcode debug build for develop
 build-debug-production               Xcode debug build for production
 test-debug-develop                   Xcode debug test for develop
