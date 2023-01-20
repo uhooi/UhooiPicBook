@@ -14,8 +14,8 @@ TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}
 DEVELOP_PROJECT_NAME := Develop
 PRODUCTION_PROJECT_NAME := Production
 
-MINT_PATH := .mint/lib
-MINT_LINK_PATH := .mint/bin
+export MINT_PATH := .mint/lib
+export MINT_LINK_PATH := .mint/bin
 
 MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
@@ -72,6 +72,14 @@ clean: # Delete cache
 	rm -rf ./App/.swiftlint
 	rm -rf ./.mint
 	xcodebuild clean -alltargets
+
+.PHONY: lint
+lint: # Lint with SwiftLint
+	mint run realm/SwiftLint swiftlint
+
+.PHONY: fix
+fix: # Fix with SwiftLint
+	mint run realm/SwiftLint swiftlint --fix --format
 
 .PHONY: analyze
 analyze: # Analyze with SwiftLint
