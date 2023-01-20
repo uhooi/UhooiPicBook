@@ -86,6 +86,10 @@ analyze: # Analyze with SwiftLint
 	$(MAKE) build-debug-develop
 	mint run realm/SwiftLint swiftlint analyze --fix --compiler-log-path ${REPORTS_PATH}/${PRODUCT_NAME}_${PROJECT_NAME}_Build.log
 
+.PHONY: lint-ib
+lint-ib: # Lint with IBLinter
+	mint run IBDecodable/IBLinter iblinter lint
+
 .PHONY: build-debug-develop
 build-debug-develop: # Xcode debug build for develop
 	$(MAKE) build-debug PROJECT_NAME=${DEVELOP_PROJECT_NAME}

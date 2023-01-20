@@ -662,7 +662,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd $SRCROOT/..\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nexport MINT_PATH=.mint/lib\nexport MINT_LINK_PATH=.mint/bin\n\n# M1 Mac\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n  export HOMEBREW_HOME=/opt/homebrew\n# Intel Mac\nelse\n  export HOMEBREW_HOME=/usr/local\nfi\nif [ -d \"${HOMEBREW_HOME}\" ]; then\n  export PATH=\"${HOMEBREW_HOME}/bin:$PATH\"\nfi\n\nif which mint >/dev/null; then\n  mint run IBDecodable/IBLinter iblinter lint\nelse\n  echo \"warning: Mint not installed, please run \\`brew install mint\\` .\"\nfi\n";
+			shellScript = "cd $SRCROOT/..\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n\n# M1 Mac\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n  export HOMEBREW_HOME=/opt/homebrew\n# Intel Mac\nelse\n  export HOMEBREW_HOME=/usr/local\nfi\nif [ -d \"${HOMEBREW_HOME}\" ]; then\n  export PATH=\"${HOMEBREW_HOME}/bin:$PATH\"\nfi\n\nif which mint >/dev/null; then\n  make lint-ib\nelse\n  echo \"warning: Mint not installed, please run \\`brew install mint\\` .\"\nfi\n";
 		};
 		3E2EB7F4463B4E5B0378F12C /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
