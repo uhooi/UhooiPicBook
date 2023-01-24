@@ -42,11 +42,11 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
     "leveldb-library",
 ]
 
-let otherSwiftFlags: [String] = [
+let debugOtherSwiftFlags = [
     "-Xfrontend", "-warn-long-expression-type-checking=500",
     "-Xfrontend", "-warn-long-function-bodies=500",
-    "-Xfrontend", "-strict-concurrency=complete",
-    "-Xfrontend", "-enable-actor-data-race-checks",
+    "-strict-concurrency=complete",
+    "-enable-actor-data-race-checks",
 ]
 
 let package = Package(
@@ -89,7 +89,7 @@ let package = Package(
                 "ImageLoader",
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .testTarget(
@@ -107,14 +107,14 @@ let package = Package(
                 "ImageLoader",
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
@@ -125,7 +125,7 @@ let package = Package(
             dependencies: [
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
@@ -133,7 +133,7 @@ let package = Package(
             dependencies: [
             ],
             swiftSettings: [
-                .unsafeFlags(otherSwiftFlags, .when(configuration: .debug)),
+                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .binaryTarget(
