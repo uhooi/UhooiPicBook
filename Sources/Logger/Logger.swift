@@ -69,32 +69,32 @@ public final class Logger {
 }
 
 extension Logger: LoggerProtocol {
-    public func debug(_ message: String, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func debug(_ message: String, file: String, function: String, line: Int, column: Int) {
         let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.debug("\(logRow, privacy: .public)")
     }
 
-    public func info(_ message: String, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func info(_ message: String, file: String, function: String, line: Int, column: Int) {
         let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.info("\(logRow, privacy: .public)")
     }
 
-    public func notice(_ message: String, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func notice(_ message: String, file: String, function: String, line: Int, column: Int) {
         let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.notice("\(logRow, privacy: .public)")
     }
 
-    public func error(_ message: String, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func error(_ message: String, file: String, function: String, line: Int, column: Int) {
         let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.error("\(logRow, privacy: .public)")
     }
 
-    public func fault(_ message: String, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func fault(_ message: String, file: String, function: String, line: Int, column: Int) {
         let logRow = logRow(message, file: file, function: function, line: line, column: column)
         logger.fault("\(logRow, privacy: .public)")
     }
 
-    public func exception(_ error: Error, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func exception(_ error: Error, file: String, function: String, line: Int, column: Int) {
         self.error(error.localizedDescription, file: file, function: function, line: line, column: column)
     }
 
