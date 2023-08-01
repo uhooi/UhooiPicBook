@@ -49,7 +49,7 @@ extension SpotlightClient: SpotlightRepository {
             try await searchableIndex.indexSearchableItems([item])
         } catch {
             // No need for error handling, as there is no need to give the user feedback on save failures for Spotlight search.
-            logger.exception(error, file: #file, function: #function, line: #line, column: #column)
+            logger.exception(error)
             return
         }
     }
