@@ -77,7 +77,7 @@ extension MonsterProvider: TimelineProvider {
                     hourOffset += 1
                 }
             } catch {
-                logger.exception(error, file: #file, function: #function, line: #line, column: #column)
+                logger.exception(error)
             }
             completion(Timeline(entries: entries, policy: .atEnd))
         }
