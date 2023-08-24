@@ -48,27 +48,33 @@ public struct MonsterEntryView: View {
         }
     }
 
-    private var icon: some View {
+    public init(entry: MonsterEntry) {
+        self.entry = entry
+    }
+}
+
+// MARK: - Privates
+
+private extension MonsterEntryView {
+    var icon: some View {
         Image(uiImage: entry.icon)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .accessibilityLabel(Text(entry.name))
     }
 
-    private var name: some View {
+    var name: some View {
         Text(entry.name)
             .font(.headline)
     }
 
-    private var description: some View {
+    var description: some View {
         Text(entry.description)
             .font(.body)
     }
-
-    public init(entry: MonsterEntry) {
-        self.entry = entry
-    }
 }
+
+// MARK: - Previews
 
 struct MonsterEntryView_Previews: PreviewProvider {
     typealias Entry = MonsterEntry
