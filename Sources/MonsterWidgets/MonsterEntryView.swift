@@ -59,7 +59,7 @@ private extension MonsterEntryView {
     var icon: some View {
         Image(uiImage: entry.icon)
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .scaledToFit()
             .accessibilityLabel(Text(entry.name))
     }
 
