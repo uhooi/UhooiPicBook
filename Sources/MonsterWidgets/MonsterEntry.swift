@@ -28,7 +28,7 @@ public struct MonsterEntry: TimelineEntry {
 
     public static func placeholder() -> Self {
         .init(
-            date: Date(),
+            date: .now,
             name: "uhooi",
             description: "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
             icon: R.Image.uhooiIcon

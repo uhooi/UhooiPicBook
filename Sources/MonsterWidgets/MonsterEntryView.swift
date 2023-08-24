@@ -96,7 +96,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
 
     private static func shortEntry() -> Entry {
         .init(
-            date: Date(),
+            date: .now,
             name: "1",
             description: "1",
             icon: R.Image.uhooiIcon
@@ -105,7 +105,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
 
     private static func longEntry() -> Entry {
         .init(
-            date: Date(),
+            date: .now,
             name: "123456789012345678901234567890",
             description: "12345678901234567890\n12345678901234567890\n12345678901234567890",
             icon: R.Image.uhooiIcon

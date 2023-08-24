@@ -56,6 +56,6 @@ extension MonsterProvider: IntentTimelineProvider {
             return nil
         }
         let description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
-        return Entry(date: Date(), name: dto.name, description: description, icon: icon)
+        return Entry(date: .now, name: dto.name, description: description, icon: icon)
     }
 }
