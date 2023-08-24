@@ -17,22 +17,14 @@ public struct MonsterEntryView: View {
         case .systemSmall:
             ZStack {
                 Color(.systemBackground)
-                VStack {
-                    icon
-                    Spacer(minLength: 8.0)
-                    name
-                }
-                .padding()
+                iconAndName
+                    .padding()
             }
         case .systemMedium:
             ZStack {
                 Color(.systemBackground)
                 HStack {
-                    VStack {
-                        icon
-                        Spacer(minLength: 8.0)
-                        name
-                    }
+                    iconAndName
                     Spacer(minLength: 16.0)
                     description
                 }
@@ -56,6 +48,14 @@ public struct MonsterEntryView: View {
 // MARK: - Privates
 
 private extension MonsterEntryView {
+    var iconAndName: some View {
+        VStack {
+            icon
+            Spacer(minLength: 8.0)
+            name
+        }
+    }
+
     var icon: some View {
         Image(uiImage: entry.icon)
             .resizable()
