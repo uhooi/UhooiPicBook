@@ -65,8 +65,8 @@ You can develop this project.
 
 ### Environment
 
-- macOS 12.5+
-- Xcode 14.2 (Swift 5.7.2)
+- macOS 13.5+
+- Xcode 15.0 (Swift 5.9)
 - Mint
 - Make
 
