@@ -104,7 +104,7 @@ public final class MonsterListViewController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.navigationBar.configureBackgroundColor(R.Color.navigationBar)
+        navigationController?.navigationBar.configureBackgroundColor(UIColor(resource: .navigationBar))
     }
 
     // MARK: Other Internal Methods

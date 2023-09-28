@@ -26,20 +26,4 @@ public enum R { // swiftlint:disable:this type_name
             String(localized: keyAndValue, bundle: .module)
         }
     }
-
-    enum Image {
-
-        // MARK: Internal Stored Type Properties
-
-        static let uhooiIcon = uiImage(named: "Uhooi")
-
-        // MARK: Other Private Type Methods
-
-        private static func uiImage(named name: String) -> UIImage {
-            guard let image = UIImage(named: name, in: .module, with: nil) else {
-                fatalError("Fail to load '\(name)' image.")
-            }
-            return image
-        }
-    }
 }
