@@ -19,7 +19,7 @@ public protocol LoggerProtocol {
     func notice(_ message: String, file: String, function: String, line: Int, column: Int)
     func error(_ message: String, file: String, function: String, line: Int, column: Int)
     func fault(_ message: String, file: String, function: String, line: Int, column: Int)
-    func exception(_ error: Error, file: String, function: String, line: Int, column: Int)
+    func exception(_ error: some Error, file: String, function: String, line: Int, column: Int)
 }
 
 extension LoggerProtocol { // swiftlint:disable:this file_types_order
@@ -43,7 +43,7 @@ extension LoggerProtocol { // swiftlint:disable:this file_types_order
         fault(message, file: file, function: function, line: line, column: column)
     }
 
-    public func exception(_ error: Error, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
+    public func exception(_ error: some Error, file: String = #file, function: String = #function, line: Int = #line, column: Int = #column) {
         exception(error, file: file, function: function, line: line, column: column)
     }
 }
@@ -94,7 +94,7 @@ extension Logger: LoggerProtocol {
         logger.fault("\(logRow, privacy: .public)")
     }
 
-    public func exception(_ error: Error, file: String, function: String, line: Int, column: Int) {
+    public func exception(_ error: some Error, file: String, function: String, line: Int, column: Int) {
         self.error(error.localizedDescription, file: file, function: function, line: line, column: column)
     }
 
