@@ -53,7 +53,7 @@ public final class MonsterListViewController: UIViewController {
         return .init(collectionView: monstersCollectionView) { collectionView, indexPath, item in
             switch item {
             case let .monster(monster):
-                return collectionView.dequeueConfiguredReusableCell(
+                collectionView.dequeueConfiguredReusableCell(
                     using: monsterCellRegistration,
                     for: indexPath,
                     item: monster
