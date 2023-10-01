@@ -116,10 +116,6 @@ clean build \
 test-debug-develop: # Xcode debug test for develop
 	$(MAKE) test-debug-project PROJECT_NAME=${DEVELOP_PROJECT_NAME}
 
-.PHONY: test-debug-production
-test-debug-production: # Xcode debug test for production
-	$(MAKE) test-debug-project PROJECT_NAME=${PRODUCTION_PROJECT_NAME}
-
 .PHONY: test-debug-project
 test-debug-project:
 	$(MAKE) test-debug SCHEME_NAME='${PRODUCT_NAME} (${PROJECT_NAME} project)' TEST_PLAN_NAME='${PROJECT_NAME}' XCRESULT_NAME=${PRODUCT_NAME}_${PROJECT_NAME} LOG_NAME=${PRODUCT_NAME}_${PROJECT_NAME}

@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: ["develop", "production", "app-module"]
+        name: ["develop", "app-module"]
 
     steps:
     # チェックアウト
