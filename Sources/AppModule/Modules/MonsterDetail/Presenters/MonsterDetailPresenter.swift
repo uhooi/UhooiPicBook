@@ -61,7 +61,7 @@ extension MonsterDetailPresenter: MonsterDetailEventHandler {
         else {
             return // TODO: エラーハンドリング
         }
-        let text = "\(name)\n\(description)\n\(R.LocalizedString.uhooiPicBookHashtag)"
+        let text = "\(name)\n\(description)\n\(String(localized: "UhooiPicBook hashtag", bundle: .module))"
         router.showActivity(senderView, text: text, icon: icon)
     }
 }
