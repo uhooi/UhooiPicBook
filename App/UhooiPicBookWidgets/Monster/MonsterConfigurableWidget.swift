@@ -11,10 +11,7 @@ import MonsterWidgets
 import MonstersRepository
 import ImageLoader
 
-private struct MonsterProvider {
-    typealias Entry = MonsterEntry
-    typealias Intent = SelectMonsterIntent
-}
+// MARK: MonsterConfigurableWidget
 
 struct MonsterConfigurableWidget: Widget {
     var body: some WidgetConfiguration {
@@ -29,6 +26,13 @@ struct MonsterConfigurableWidget: Widget {
         .description(R.LocalizedString.configurableDescription)
         .supportedFamilies([.systemSmall, .systemMedium])
     }
+}
+
+// MARK: - MonsterProvider
+
+private struct MonsterProvider {
+    typealias Entry = MonsterEntry
+    typealias Intent = SelectMonsterIntent
 }
 
 extension MonsterProvider: IntentTimelineProvider {
@@ -56,6 +60,6 @@ extension MonsterProvider: IntentTimelineProvider {
             return nil
         }
         let description = dto.description.replacingOccurrences(of: "\\n", with: "\n")
-        return Entry(date: Date(), name: dto.name, description: description, icon: icon)
+        return Entry(date: .now, name: dto.name, description: description, icon: icon)
     }
 }

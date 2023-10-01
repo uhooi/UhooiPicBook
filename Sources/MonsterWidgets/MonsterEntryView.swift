@@ -15,29 +15,14 @@ public struct MonsterEntryView: View {
     public var body: some View {
         switch family {
         case .systemSmall:
-            ZStack {
-                Color(.systemBackground)
-                VStack {
-                    icon
-                    Spacer(minLength: 8.0)
-                    name
-                }
+            iconAndNameView
                 .padding()
-            }
         case .systemMedium:
-            ZStack {
-                Color(.systemBackground)
-                HStack {
-                    VStack {
-                        icon
-                        Spacer(minLength: 8.0)
-                        name
-                    }
-                    Spacer(minLength: 16.0)
-                    description
-                }
-                .padding()
+            HStack(spacing: 16) {
+                iconAndNameView
+                descriptionText
             }
+            .padding()
         case .systemLarge, .systemExtraLarge:
             EmptyView()
         case .accessoryCircular, .accessoryRectangular, .accessoryInline:
@@ -48,35 +33,48 @@ public struct MonsterEntryView: View {
         }
     }
 
-    private var icon: some View {
-        Image(uiImage: entry.icon)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .accessibilityLabel(Text(entry.name))
-    }
-
-    private var name: some View {
-        Text(entry.name)
-            .font(.headline)
-    }
-
-    private var description: some View {
-        Text(entry.description)
-            .font(.body)
-    }
-
     public init(entry: MonsterEntry) {
         self.entry = entry
     }
 }
 
+// MARK: - Privates
+
+private extension MonsterEntryView {
+    var iconAndNameView: some View {
+        VStack(spacing: 8) {
+            iconImage
+            nameText
+        }
+    }
+
+    var iconImage: some View {
+        Image(uiImage: entry.icon)
+            .resizable()
+            .scaledToFit()
+            .accessibilityLabel(Text(entry.name))
+    }
+
+    var nameText: some View {
+        Text(entry.name)
+            .font(.headline)
+    }
+
+    var descriptionText: some View {
+        Text(entry.description)
+            .font(.body)
+    }
+}
+
+// MARK: - Previews
+
 struct MonsterEntryView_Previews: PreviewProvider {
     typealias Entry = MonsterEntry
 
     static var previews: some View {
-        ForEach(0..<families.count, id: \.self) { index in
+        ForEach(families, id: \.self) { family in
             previewEntryViewGroup
-                .previewContext(WidgetPreviewContext(family: families[index]))
+                .previewContext(WidgetPreviewContext(family: family))
         }
     }
 
@@ -96,7 +94,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
 
     private static func shortEntry() -> Entry {
         .init(
-            date: Date(),
+            date: .now,
             name: "1",
             description: "1",
             icon: UIImage(resource: .uhooi)
@@ -105,7 +103,7 @@ struct MonsterEntryView_Previews: PreviewProvider {
 
     private static func longEntry() -> Entry {
         .init(
-            date: Date(),
+            date: .now,
             name: "123456789012345678901234567890",
             description: "12345678901234567890\n12345678901234567890\n12345678901234567890",
             icon: UIImage(resource: .uhooi)
