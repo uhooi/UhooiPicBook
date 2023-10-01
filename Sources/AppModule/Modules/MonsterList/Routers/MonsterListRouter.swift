@@ -64,16 +64,12 @@ extension MonsterListRouter: MonsterListRouterInput {
     }
 
     func showContactUs() {
-        guard let contactUsURL = URL(string: String(localized: "Contact us URL", bundle: .module)) else {
-            fatalError("Fail to initialize contact us URL.")
-        }
+        let contactUsURL = URL(string: String(localized: "Contact us URL", bundle: .module))!
         InAppWebBrowserRouter.show(viewController, url: contactUsURL)
     }
 
     func showPrivacyPolicy() {
-        guard let privacyPolicyURL = URL(string: String(localized: "Privacy policy URL", bundle: .module)) else {
-            fatalError("Fail to initialize privacy policy URL.")
-        }
+        let privacyPolicyURL = URL(string: String(localized: "Privacy policy URL", bundle: .module))!
         UIApplication.shared.open(privacyPolicyURL)
     }
 
