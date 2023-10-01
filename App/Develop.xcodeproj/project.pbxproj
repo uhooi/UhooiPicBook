@@ -11,6 +11,8 @@
 		3784E43C6F9862BB2E871B15 /* UhooiPicBookWidgetsConfigurableIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D3A28FF132F9DB6448EAC23F /* UhooiPicBookWidgetsConfigurableIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
+		4B0CB3952AC9C2DC0025FA52 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = 4B0CB3942AC9C2DC0025FA52 /* Testing */; };
+		4B0CB3972AC9C30E0025FA52 /* Scaffolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0CB3962AC9C30E0025FA52 /* Scaffolding.swift */; };
 		4BBA93DC2AC9440300C022FD /* Scaffolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA93DB2AC9440300C022FD /* Scaffolding.swift */; };
 		4BBB00272AC9A1BA002C12E2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBB00262AC9A1BA002C12E2 /* Testing */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
@@ -114,6 +116,7 @@
 		33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3678749154206AA2C7DE69F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		39F4CD1686D945CFB87141CE /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = Frameworks/Firebase/FirebaseAnalytics/GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		4B0CB3962AC9C30E0025FA52 /* Scaffolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffolding.swift; sourceTree = "<group>"; };
 		4BBA93DB2AC9440300C022FD /* Scaffolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffolding.swift; sourceTree = "<group>"; };
 		541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
 		5FC40872E7A32ADB0B8AE3D7 /* FirebaseFirestore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseFirestore.xcframework; path = Frameworks/Firebase/FirebaseFirestore/FirebaseFirestore.xcframework; sourceTree = "<group>"; };
@@ -172,6 +175,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B0CB3932AC9C2D50025FA52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B0CB3952AC9C2DC0025FA52 /* Testing in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BBB00242AC9A172002C12E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +412,7 @@
 				541427EC2F900D49CD247CB2 /* XCUIElement+Ex.swift */,
 				EB9FF08BDED117C228729B0B /* Pages */,
 				9D14FEE7DAB67CCFD61B333D /* TestCases */,
+				4B0CB3962AC9C30E0025FA52 /* Scaffolding.swift */,
 			);
 			path = UhooiPicBookUITests;
 			sourceTree = "<group>";
@@ -482,6 +494,7 @@
 			buildConfigurationList = 5336812240FABFFCD289F94B /* Build configuration list for PBXNativeTarget "UhooiPicBookUITests" */;
 			buildPhases = (
 				22070DEEFB8F99971EC40231 /* Sources */,
+				4B0CB3932AC9C2D50025FA52 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +502,9 @@
 				BB72275143FEBC036B69BC5C /* PBXTargetDependency */,
 			);
 			name = UhooiPicBookUITests;
+			packageProductDependencies = (
+				4B0CB3942AC9C2DC0025FA52 /* Testing */,
+			);
 			productName = UhooiPicBookUITests;
 			productReference = 83C280827AC1AC8CDC771EC4 /* UhooiPicBookUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -762,6 +778,7 @@
 				3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */,
 				7B7002A645C43EBB624D82D8 /* MonsterDetailPage.swift in Sources */,
 				522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */,
+				4B0CB3972AC9C30E0025FA52 /* Scaffolding.swift in Sources */,
 				ED23EF346F55E2E02F461F16 /* PageProtocol.swift in Sources */,
 				2AB9187FB6C6F195BDFA0AEA /* UhooiPicBookUITests.swift in Sources */,
 				A1713DA74A4AE73B34351622 /* XCUIElement+Ex.swift in Sources */,
@@ -1360,6 +1377,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4B0CB3942AC9C2DC0025FA52 /* Testing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBB00252AC9A1A3002C12E2 /* XCRemoteSwiftPackageReference "swift-testing" */;
+			productName = Testing;
+		};
 		4BBB00262AC9A1BA002C12E2 /* Testing */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BBB00252AC9A1A3002C12E2 /* XCRemoteSwiftPackageReference "swift-testing" */;
