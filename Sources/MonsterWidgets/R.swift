@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import class UIKit.UIImage
 
 public enum R { // swiftlint:disable:this type_name
     public enum LocalizedString {
@@ -15,10 +14,6 @@ public enum R { // swiftlint:disable:this type_name
 
         public static let configurationDisplayName = string(localized: "Configuration display name")
         public static let configurableDescription = string(localized: "Configurable description")
-
-        // MARK: Internal Stored Type Properties
-
-        static let description = string(localized: "Description")
 
         // MARK: Other Private Type Methods
 

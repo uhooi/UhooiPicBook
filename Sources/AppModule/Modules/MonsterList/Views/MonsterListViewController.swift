@@ -69,16 +69,16 @@ public final class MonsterListViewController: UIViewController {
             newValue.menu = UIMenu(
                 title: "",
                 children: [
-                    UIAction(title: R.LocalizedString.contactUs) { [weak self] _ in
+                    UIAction(title: String(localized: "Contact us", bundle: .module)) { [weak self] _ in
                         self?.presenter.didTapContactUs()
                     },
-                    UIAction(title: R.LocalizedString.privacyPolicy) { [weak self] _ in
+                    UIAction(title: String(localized: "Privacy policy", bundle: .module)) { [weak self] _ in
                         self?.presenter.didTapPrivacyPolicy()
                     },
-                    UIAction(title: R.LocalizedString.licenses) { [weak self] _ in
+                    UIAction(title: String(localized: "Licenses", bundle: .module)) { [weak self] _ in
                         self?.presenter.didTapLicenses()
                     },
-                    UIAction(title: R.LocalizedString.aboutThisApp) { [weak self] _ in
+                    UIAction(title: String(localized: "About this app", bundle: .module)) { [weak self] _ in
                         self?.presenter.didTapAboutThisApp()
                     }
                 ]
