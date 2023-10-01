@@ -2,7 +2,6 @@
   "sourceLanguage" : "ja",
   "strings" : {
     "Configurable description" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -19,8 +18,6 @@
       }
     },
     "Configuration display name" : {
-      "comment" : "Localizable.strings\n  UhooiPicBook\n\n  Created by uhooi on 2020/11/09.",
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -37,7 +34,6 @@
       }
     },
     "Description" : {
-      "extractionState" : "migrated",
       "localizations" : {
         "en" : {
           "stringUnit" : {
