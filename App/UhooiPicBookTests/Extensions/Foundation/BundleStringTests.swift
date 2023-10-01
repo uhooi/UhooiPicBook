@@ -1,5 +1,5 @@
 //
-//  BundleVersionTests.swift
+//  BundleStringTests.swift
 //  UhooiPicBookTests
 //
 //  Created by uhooi on 2021/02/25.
