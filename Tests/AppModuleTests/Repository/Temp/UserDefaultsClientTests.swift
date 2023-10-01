@@ -28,6 +28,8 @@ struct UserDefaultsClientTests {
         var uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         let key = "spotlight_\(uhooiEntity.name)"
         
+        // TODO: Use `XCTContext.runActivity(named:)` .
+        // ref: https://github.com/apple/swift-testing/issues/42
         // Unsaved
         #expect(userDefaults.monster(key: key) == nil)
 

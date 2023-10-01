@@ -79,7 +79,7 @@ let package = Package(
         .library(name: "ImageLoader", targets: ["ImageLoader"]), // TODO: Remove later
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-testing.git", branch: "main"),
+        .package(url: "https://github.com/apple/swift-testing.git", branch: "main"), // TODO: Use stable
     ],
     targets: [
         .target(
