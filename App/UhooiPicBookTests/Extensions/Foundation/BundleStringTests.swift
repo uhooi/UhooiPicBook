@@ -26,7 +26,7 @@ struct BundleStringTests {
             return
         }
 
-        let expected = switch Locale(identifier: language).languageCode {
+        let expected = switch Locale(identifier: language).language.languageCode?.identifier {
         case "en": "UhooiPicBook"
         default: "ウホーイ図鑑"
         }
