@@ -12,6 +12,7 @@
 		3ED6158022DE90CA4AA73905 /* ImagePopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5239C3163F47164ECE33E8 /* ImagePopupPage.swift */; };
 		478286982E492B33E65E682B /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC591FA4C18A058784472F /* ActivityPage.swift */; };
 		4BBA93DC2AC9440300C022FD /* Scaffolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA93DB2AC9440300C022FD /* Scaffolding.swift */; };
+		4BBB00272AC9A1BA002C12E2 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBB00262AC9A1BA002C12E2 /* Testing */; };
 		5022F0F1F72B5341C9486B7A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B49E10FB3AFB3745B0AEF4 /* SwiftUI.framework */; };
 		522896F9FC51ED2221060387 /* MonsterListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F0F147EB90FE7EAF86DB2 /* MonsterListPage.swift */; };
 		745EB4E9574D57EB307F2AB9 /* UhooiPicBookStickers.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D97430DE3B018D83FA30BA3F /* UhooiPicBookStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -171,6 +172,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4BBB00242AC9A172002C12E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BBB00272AC9A1BA002C12E2 /* Testing in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6986B5ACA2E569F81163AE24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +462,7 @@
 			buildConfigurationList = 1FF40AA4CFE5087652123EAD /* Build configuration list for PBXNativeTarget "UhooiPicBookTests" */;
 			buildPhases = (
 				4FE41A7B35B5E5FAA407F3FA /* Sources */,
+				4BBB00242AC9A172002C12E2 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,6 +470,9 @@
 				4DAF6BC74EE9AEF3E06A50D2 /* PBXTargetDependency */,
 			);
 			name = UhooiPicBookTests;
+			packageProductDependencies = (
+				4BBB00262AC9A1BA002C12E2 /* Testing */,
+			);
 			productName = UhooiPicBookTests;
 			productReference = BA21C3023C46CC6151A43886 /* UhooiPicBookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -575,6 +588,7 @@
 			);
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
+				4BBB00252AC9A1A3002C12E2 /* XCRemoteSwiftPackageReference "swift-testing" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1334,7 +1348,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		4BBB00252AC9A1A3002C12E2 /* XCRemoteSwiftPackageReference "swift-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-testing";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		4BBB00262AC9A1BA002C12E2 /* Testing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBB00252AC9A1A3002C12E2 /* XCRemoteSwiftPackageReference "swift-testing" */;
+			productName = Testing;
+		};
 		791904C92793F9CB00416F7D /* ImageLoader */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ImageLoader;
