@@ -15,21 +15,14 @@ public struct MonsterEntryView: View {
     public var body: some View {
         switch family {
         case .systemSmall:
-            ZStack {
-                Color(.systemBackground)
-                iconAndNameView
-                    .padding()
-            }
-        case .systemMedium:
-            ZStack {
-                Color(.systemBackground)
-                HStack {
-                    iconAndNameView
-                    Spacer(minLength: 16.0)
-                    descriptionText
-                }
+            iconAndNameView
                 .padding()
+        case .systemMedium:
+            HStack(spacing: 16) {
+                iconAndNameView
+                descriptionText
             }
+            .padding()
         case .systemLarge, .systemExtraLarge:
             EmptyView()
         case .accessoryCircular, .accessoryRectangular, .accessoryInline:
@@ -49,9 +42,8 @@ public struct MonsterEntryView: View {
 
 private extension MonsterEntryView {
     var iconAndNameView: some View {
-        VStack {
+        VStack(spacing: 8) {
             iconImage
-            Spacer(minLength: 8.0)
             nameText
         }
     }
