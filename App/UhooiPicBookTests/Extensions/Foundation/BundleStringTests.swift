@@ -29,12 +29,9 @@ final class BundleStringTests: XCTestCase {
             return
         }
 
-        var expected = ""
-        switch Locale(identifier: language).languageCode {
-        case "en":
-            expected = "UhooiPicBook"
-        default:
-            expected = "ウホーイ図鑑"
+        let expected = switch Locale(identifier: language).languageCode {
+        case "en": "UhooiPicBook"
+        default: "ウホーイ図鑑"
         }
         XCTAssertEqual(Bundle.main.displayName, expected)
     }

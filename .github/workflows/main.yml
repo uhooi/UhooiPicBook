@@ -22,14 +22,14 @@ permissions:
   contents: read
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_14.2.app
+  DEVELOPER_DIR: /Applications/Xcode_15.0.app
   MINT_PATH: .mint/lib
   MINT_LINK_PATH: .mint/bin
 
 jobs:
   build:
     name: build for ${{ matrix.environment }}
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       fail-fast: false
       matrix:
@@ -60,7 +60,7 @@ jobs:
 
   test:
     name: test for ${{ matrix.name }}
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       fail-fast: false
       matrix:
@@ -105,7 +105,7 @@ jobs:
         retention-days: 14
 
   show-test-results:
-    runs-on: macos-12
+    runs-on: macos-13
     permissions:
       checks: write
     needs: test
@@ -132,7 +132,7 @@ jobs:
         path: Reports/TestResults.xcresult
 
   info:
-    runs-on: macos-12
+    runs-on: macos-13
 
     steps:
     # チェックアウト

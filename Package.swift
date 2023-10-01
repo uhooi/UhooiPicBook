@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 
 import PackageDescription
 
@@ -49,6 +49,16 @@ let debugOtherSwiftFlags = [
     "-enable-actor-data-race-checks",
 ]
 
+let debugSwiftSettings: [PackageDescription.SwiftSetting] = [
+    .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
+    .enableUpcomingFeature("ConciseMagicFile", .when(configuration: .debug)), // SE-0274
+    .enableUpcomingFeature("ForwardTrailingClosures", .when(configuration: .debug)), // SE-0286
+    .enableUpcomingFeature("ExistentialAny", .when(configuration: .debug)), // SE-0335
+    .enableUpcomingFeature("BareSlashRegexLiterals", .when(configuration: .debug)), // SE-0354
+    .enableUpcomingFeature("ImportObjcForwardDeclarations", .when(configuration: .debug)), // SE-0384
+    .enableUpcomingFeature("DisableOutwardActorInference", .when(configuration: .debug)), // SE-0401
+]
+
 let package = Package(
     name: "UhooiPicBookPackage",
     defaultLocalization: "ja",
@@ -87,9 +97,6 @@ let package = Package(
                 "MonstersRepository",
                 "Logger",
                 "ImageLoader",
-            ],
-            swiftSettings: [
-                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .testTarget(
@@ -105,17 +112,11 @@ let package = Package(
                 "MonstersRepository",
                 "Logger",
                 "ImageLoader",
-            ],
-            swiftSettings: [
-                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "MonstersRepository",
             dependencies: firebaseFirestoreDependencies + firebaseAnalyticsDependencies,
-            swiftSettings: [
-                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
-            ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]
@@ -123,17 +124,11 @@ let package = Package(
         .target(
             name: "Logger",
             dependencies: [
-            ],
-            swiftSettings: [
-                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .target(
             name: "ImageLoader",
             dependencies: [
-            ],
-            swiftSettings: [
-                .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
             ]
         ),
         .binaryTarget(
@@ -242,3 +237,9 @@ let package = Package(
         ),
     ]
 )
+
+for target in package.targets {
+    if [.regular, .test].contains(target.type) {
+        target.swiftSettings = debugSwiftSettings
+    }
+}

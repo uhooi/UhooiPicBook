@@ -64,14 +64,14 @@ extension MonsterListRouter: MonsterListRouterInput {
     }
 
     func showContactUs() {
-        guard let contactUsURL = URL(string: R.LocalizedString.contactUsURL) else {
+        guard let contactUsURL = URL(string: String(localized: "Contact us URL", bundle: .module)) else {
             fatalError("Fail to initialize contact us URL.")
         }
         InAppWebBrowserRouter.show(viewController, url: contactUsURL)
     }
 
     func showPrivacyPolicy() {
-        guard let privacyPolicyURL = URL(string: R.LocalizedString.privacyPolicyURL) else {
+        guard let privacyPolicyURL = URL(string: String(localized: "Privacy policy URL", bundle: .module)) else {
             fatalError("Fail to initialize privacy policy URL.")
         }
         UIApplication.shared.open(privacyPolicyURL)
@@ -89,13 +89,13 @@ extension MonsterListRouter: MonsterListRouterInput {
     func showAboutThisApp() {
         let title = Bundle.main.displayName
         let message = """
-\(R.LocalizedString.thisAppIsOpenSourceSoftware)
-\(R.LocalizedString.uhooiPicBookGitHubURL)
+\(String(localized: "This app is open source software", bundle: .module))
+\(String(localized: "UhooiPicBook GitHub URL", bundle: .module))
 
-\(R.LocalizedString.version) \(Bundle.main.version) (\(Bundle.main.build))
-\(R.LocalizedString.copyright)
+\(String(localized: "Version", bundle: .module)) \(Bundle.main.version) (\(Bundle.main.build))
+\(String(localized: "Copyright", bundle: .module))
 """
-        let okAction = UIAlertAction(title: R.LocalizedString.oK, style: .default) { _ in }
+        let okAction = UIAlertAction(title: String(localized: "OK", bundle: .module), style: .default) { _ in }
         viewController.showAlert(title: title, message: message, actions: [okAction])
     }
 }

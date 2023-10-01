@@ -8,57 +8,6 @@
 import UIKit
 
 enum R { // swiftlint:disable:this type_name
-    enum LocalizedString {
-
-        // MARK: Internal Stored Type Properties
-
-        // Monster detail
-        static let uhooiPicBookHashtag = string(localized: "UhooiPicBook hashtag")
-
-        // Menu
-        static let contactUs = string(localized: "Contact us")
-        static let privacyPolicy = string(localized: "Privacy policy")
-        static let licenses = string(localized: "Licenses")
-        static let aboutThisApp = string(localized: "About this app")
-
-        // Contact us
-        static let contactUsURL = string(localized: "Contact us URL")
-
-        // Privacy policy
-        static let privacyPolicyURL = string(localized: "Privacy policy URL")
-
-        // About this app
-        static let thisAppIsOpenSourceSoftware = string(localized: "This app is open source software")
-        static let uhooiPicBookGitHubURL = string(localized: "UhooiPicBook GitHub URL")
-        static let version = string(localized: "Version")
-        static let copyright = string(localized: "Copyright")
-
-        // Alert
-        static let oK = string(localized: "OK")
-
-        // MARK: Other Private Type Methods
-
-        private static func string(localized keyAndValue: String.LocalizationValue) -> String {
-            String(localized: keyAndValue, bundle: .module)
-        }
-    }
-
-    enum Color {
-
-        // MARK: Internal Stored Type Properties
-
-        static let navigationBar = uiColor(named: "NavigationBar")
-
-        // MARK: Other Private Type Methods
-
-        private static func uiColor(named name: String) -> UIColor {
-            guard let color = UIColor(named: name, in: .module, compatibleWith: nil) else {
-                fatalError("Fail to load '\(name)' color.")
-            }
-            return color
-        }
-    }
-
     @MainActor
     enum Storyboard {
 

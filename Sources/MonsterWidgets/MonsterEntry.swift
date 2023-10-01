@@ -31,7 +31,7 @@ public struct MonsterEntry: TimelineEntry {
             date: Date(),
             name: "uhooi",
             description: "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
-            icon: R.Image.uhooiIcon
+            icon: UIImage(resource: .uhooi)
         )
     }
 }

@@ -1,0 +1,54 @@
+{
+  "sourceLanguage" : "ja",
+  "strings" : {
+    "Configurable description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose your favorite character in the \"Edit Widget\" section."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「ウィジェットを編集」で好きなキャラクターを選択しましょう。"
+          }
+        }
+      }
+    },
+    "Configuration display name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Character's info"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター情報"
+          }
+        }
+      }
+    },
+    "Description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See character's info. Every hour it updates to the next character's info."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャラクター情報を表示します。1時間ごとに次のキャラクターの情報に更新します。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
