@@ -575,7 +575,6 @@
 			);
 			mainGroup = 47C552D3546C641AB89783C1;
 			packageReferences = (
-				4BBA93DA2AC93FBC00C022FD /* XCRemoteSwiftPackageReference "swift-testing" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -1334,17 +1333,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4BBA93DA2AC93FBC00C022FD /* XCRemoteSwiftPackageReference "swift-testing" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-testing.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		791904C92793F9CB00416F7D /* ImageLoader */ = {
