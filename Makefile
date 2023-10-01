@@ -142,6 +142,7 @@ xcodebuild \
 -testPlan '${TEST_PLAN_NAME}' \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 -clonedSourcePackagesDirPath './SourcePackages' \
+-skipPackagePluginValidation \
 -resultBundlePath '${REPORTS_PATH}/${XCRESULT_NAME}.xcresult' \
 clean test \
 2>&1 \
