@@ -8,24 +8,9 @@
 import Foundation
 
 extension Bundle {
-    var displayName: String {
-        guard let displayName = object(forInfoDictionaryKey: "CFBundleDisplayName") as? String else {
-            fatalError("Fail to load Display Name.")
-        }
-        return displayName
-    }
-
-    var version: String {
-        guard let version = object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
-            fatalError("Fail to load Version.")
-        }
-        return version
-    }
-
-    var build: String {
-        guard let build = object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
-            fatalError("Fail to load Build.")
-        }
-        return build
-    }
+    // swiftlint:disable force_cast
+    var displayName: String { object(forInfoDictionaryKey: "CFBundleDisplayName") as! String }
+    var version: String { object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String }
+    var build: String { object(forInfoDictionaryKey: "CFBundleVersion") as! String }
+    // swiftlint:enable force_cast
 }
