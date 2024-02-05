@@ -6,9 +6,10 @@
 //
 
 import XCTest
+import Testing
 @testable import AppModule
 
-final class UserDefaultsClientTests: XCTestCase {
+struct UserDefaultsClientTests {
 
     // MARK: Stored Instance Properties
     
@@ -16,43 +17,33 @@ final class UserDefaultsClientTests: XCTestCase {
     
     // MARK: TestCase Life-Cycle Methods
     
-    override func setUpWithError() throws {
-        reset()
-    }
-
-    override func tearDownWithError() throws {
+    init() {
+        userDefaults.removeAll()
     }
     
     // MARK: - Test Methods
     
-    func test_monster() {
+    @Test
+    func monster() {
         var uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#FFFFFF", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
         let key = "spotlight_\(uhooiEntity.name)"
         
-        XCTContext.runActivity(named: "Unsaved") { _ in
-            XCTAssertNil(userDefaults.monster(key: key))
-        }
+        // TODO: Use `XCTContext.runActivity(named:)` .
+        // ref: https://github.com/apple/swift-testing/issues/42
+        // Unsaved
+        #expect(userDefaults.monster(key: key) == nil)
 
-        XCTContext.runActivity(named: "Add") { _ in
-            userDefaults.saveMonster(uhooiEntity, forKey: key)
-            XCTAssertEqual(uhooiEntity, userDefaults.monster(key: key))
-        }
+        // Add
+        userDefaults.saveMonster(uhooiEntity, forKey: key)
+        #expect(uhooiEntity == userDefaults.monster(key: key))
         
+        // Update
         uhooiEntity = MonsterEntity(name: "uhooi", description: "uhooi's description\nuhooi", baseColorCode: "#000000", iconURL: URL(string: "https://theuhooi.com/uhooi")!, dancingURL: URL(string: "https://theuhooi.com/uhooi-dancing")!)
-        XCTContext.runActivity(named: "Update") { _ in
-            userDefaults.saveMonster(uhooiEntity, forKey: key)
-            XCTAssertEqual(uhooiEntity, userDefaults.monster(key: key))
-        }
+        userDefaults.saveMonster(uhooiEntity, forKey: key)
+        #expect(uhooiEntity == userDefaults.monster(key: key))
         
-        XCTContext.runActivity(named: "Remove") { _ in
-            userDefaults.removeAll()
-            XCTAssertNil(userDefaults.monster(key: key))
-        }
-    }
-
-    // MARK: - Other Private Methods
-    
-    private func reset() {
+        // Remove
         userDefaults.removeAll()
+        #expect(userDefaults.monster(key: key) == nil)
     }
 }

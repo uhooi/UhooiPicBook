@@ -15,14 +15,14 @@ final class MonsterListPage: Page {
     
     // MARK: Computed Instance Properties
     
-    private var view: XCUIElement { self.app.otherElements["monsterList"] }
-    private var monstersCollectionViewFirstCell: XCUIElement { self.view.collectionViews.cells.element(boundBy: 0) }
+    private var view: XCUIElement { app.otherElements["monsterList"] }
+    private var monstersCollectionViewFirstCell: XCUIElement { view.collectionViews.cells.element(boundBy: 0) }
     
     // MARK: Initializers
     
     init(app: XCUIApplication, timeout: TimeInterval) {
         self.app = app
-        guard self.view.waitForExistence(timeout: timeout) else {
+        guard view.waitForExistence(timeout: timeout) else {
             fatalError("Fail to load MonsterListPage.")
         }
     }
@@ -30,21 +30,17 @@ final class MonsterListPage: Page {
     // MARK: Other Internal Methods
     
     func swipeUpMonstersCollectionViewFirstCell() -> MonsterListPage {
-        self.monstersCollectionViewFirstCell.swipeUp()
+        monstersCollectionViewFirstCell.swipeUp()
         return self
     }
     
     func swipeDownMonstersCollectionViewFirstCell() -> MonsterListPage {
-        self.monstersCollectionViewFirstCell.swipeDown()
+        monstersCollectionViewFirstCell.swipeDown()
         return self
     }
 
     func tapMonstersCollectionViewFirstCell() -> MonsterDetailPage {
-        self.monstersCollectionViewFirstCell.tap()
-        return MonsterDetailPage(app: self.app, timeout: 1.0)
+        monstersCollectionViewFirstCell.tap()
+        return MonsterDetailPage(app: app, timeout: 1.0)
     }
-    
-    // MARK: Other Private Methods
-
 }
-

@@ -2,6 +2,10 @@
 
 import PackageDescription
 
+private extension PackageDescription.Target.Dependency {
+    static let testing: Self = .product(name: "Testing", package: "swift-testing")
+}
+
 let firebaseAnalyticsDependencies: [Target.Dependency] = [
     "FBLPromises",
     "FirebaseAnalytics",
@@ -63,8 +67,8 @@ let package = Package(
     name: "UhooiPicBookPackage",
     defaultLocalization: "ja",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v10_15),
+        .iOS(.v16),
+        .macOS(.v13),
     ],
     products: [
         .library(name: "FirebaseSetup", targets: ["FirebaseSetup"]),
@@ -75,6 +79,7 @@ let package = Package(
         .library(name: "ImageLoader", targets: ["ImageLoader"]), // TODO: Remove later
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-testing.git", branch: "main"), // TODO: Use stable
     ],
     targets: [
         .target(
@@ -103,6 +108,7 @@ let package = Package(
             name: "AppModuleTests",
             dependencies: [
                 "AppModule",
+                .testing,
             ]
         ),
         .target(
