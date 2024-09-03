@@ -116,7 +116,7 @@ jobs:
 
     # テスト結果のダウンロード
     - name: Download test results artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: test-results
         path: Reports
