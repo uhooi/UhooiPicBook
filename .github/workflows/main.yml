@@ -22,14 +22,16 @@ permissions:
   contents: read
 
 env:
-  DEVELOPER_DIR: /Applications/Xcode_15.2.app
+  DEVELOPER_DIR: /Applications/Xcode_26.2.app
   MINT_PATH: .mint/lib
   MINT_LINK_PATH: .mint/bin
+  TEST_DEVICE: iPhone 17 Pro Max
+  TEST_OS: 26.2
 
 jobs:
   build:
     name: build for ${{ matrix.environment }}
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
@@ -60,7 +62,7 @@ jobs:
 
   test:
     name: test for ${{ matrix.name }}
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
@@ -105,7 +107,7 @@ jobs:
         retention-days: 14
 
   show-test-results:
-    runs-on: macos-14
+    runs-on: macos-15
     permissions:
       checks: write
     needs: test
@@ -129,12 +131,13 @@ jobs:
     # テスト結果の表示とアップロード
     - uses: kishikawakatsumi/xcresulttool@v1
       if: success() || failure()
+      continue-on-error: true
       with:
         path: Reports/TestResults.xcresult
         upload-bundles: never
 
   info:
-    runs-on: macos-14
+    runs-on: macos-15
 
     steps:
     # チェックアウト

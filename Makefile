@@ -19,7 +19,7 @@ export MINT_LINK_PATH := .mint/bin
 
 MOCK_FILE_PATH := ./Tests/AppModuleTests/Generated/MockResults.swift
 
-FIREBASE_VERSION := 10.3.0
+FIREBASE_VERSION := 12.16.0
 
 REPORTS_PATH := ./Reports
 
@@ -46,6 +46,7 @@ install-mint-dependencies: # Install Mint dependencies
 .PHONY: download-firebase-sdk
 download-firebase-sdk: # Download firebase-ios-sdk
 	curl -OL https://github.com/firebase/firebase-ios-sdk/releases/download/${FIREBASE_VERSION}/Firebase.zip
+	rm -rf ./Frameworks/Firebase
 	unzip -o Firebase.zip -d Frameworks/
 	rm -f Firebase.zip
 
@@ -160,4 +161,3 @@ merge-test-results: # Merge test results
 .PHONY: show-devices
 show-devices: # Show devices
 	xcrun xctrace list devices
-
