@@ -49,10 +49,10 @@ jobs:
 
     # ビルドログのアップロード
     - name: Upload build log Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: xcodebuild-logs
+        name: xcodebuild-logs-${{ matrix.environment }}
         path: |
           Reports/*_Build.log
         if-no-files-found: ignore
@@ -84,10 +84,10 @@ jobs:
 
     # テスト結果のアップロード
     - name: Upload test results Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: success() || failure()
       with:
-        name: test-results
+        name: test-results-${{ matrix.name }}
         path: |
           Reports/*.xcresult
         if-no-files-found: error
@@ -95,10 +95,10 @@ jobs:
 
     # 単体テストログのアップロード
     - name: Upload test log Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: xcodebuild-logs
+        name: xcodebuild-logs-${{ matrix.name }}
         path: |
           Reports/*_Test.log
         if-no-files-found: ignore
@@ -116,10 +116,11 @@ jobs:
 
     # テスト結果のダウンロード
     - name: Download test results artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
-        name: test-results
+        pattern: test-results-*
         path: Reports
+        merge-multiple: true
 
     # テスト結果のマージ
     - name: Merge test results
@@ -130,6 +131,7 @@ jobs:
       if: success() || failure()
       with:
         path: Reports/TestResults.xcresult
+        upload-bundles: never
 
   info:
     runs-on: macos-14
@@ -140,4 +142,3 @@ jobs:
 
     # 情報の出力
     - uses: ./.github/workflows/templates/output-info
-
