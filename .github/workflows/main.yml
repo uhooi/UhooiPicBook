@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: xcodebuild-logs
+        name: xcodebuild-logs-${{ matrix.environment }}
         path: |
           Reports/*_Build.log
         if-no-files-found: ignore
@@ -87,7 +87,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: success() || failure()
       with:
-        name: test-results
+        name: test-results-${{ matrix.name }}
         path: |
           Reports/*.xcresult
         if-no-files-found: error
@@ -98,7 +98,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: failure()
       with:
-        name: xcodebuild-logs
+        name: xcodebuild-logs-${{ matrix.name }}
         path: |
           Reports/*_Test.log
         if-no-files-found: ignore
@@ -118,8 +118,9 @@ jobs:
     - name: Download test results artifact
       uses: actions/download-artifact@v4
       with:
-        name: test-results
+        pattern: test-results-*
         path: Reports
+        merge-multiple: true
 
     # テスト結果のマージ
     - name: Merge test results
