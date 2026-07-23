@@ -131,6 +131,7 @@ jobs:
       if: success() || failure()
       with:
         path: Reports/TestResults.xcresult
+        upload-bundles: never
 
   info:
     runs-on: macos-14
