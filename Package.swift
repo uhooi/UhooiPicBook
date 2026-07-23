@@ -34,6 +34,29 @@ let firebasePerformanceDependencies: [Target.Dependency] = [
     "Promises",
 ]
 
+let firebaseSetupDependencies: [Target.Dependency] = [
+    "GoogleDataTransport",
+    "FirebaseCoreExtension",
+    "FirebaseCrashlytics",
+    "FirebaseRemoteConfigInterop",
+    "FirebaseSessions",
+    "Promises",
+    "FirebaseABTesting",
+    "FirebasePerformance",
+    "FirebaseRemoteConfig",
+    "FirebaseSharedSwift",
+    "FBLPromises",
+    "FirebaseAnalytics",
+    "FirebaseCore",
+    "FirebaseCoreInternal",
+    "FirebaseInstallations",
+    "GoogleAdsOnDeviceConversion",
+    "GoogleAppMeasurement",
+    "GoogleAppMeasurementIdentitySupport",
+    "GoogleUtilities",
+    "nanopb",
+]
+
 let firebaseMessagingDependencies: [Target.Dependency] = [
     "FirebaseMessaging",
 ]
@@ -88,7 +111,7 @@ let package = Package(
     targets: [
         .target(
             name: "FirebaseSetup",
-            dependencies: ["GoogleDataTransport"] + firebaseCrashlyticsDependencies + firebasePerformanceDependencies + firebaseAnalyticsDependencies,
+            dependencies: firebaseSetupDependencies,
             linkerSettings: [
                 .unsafeFlags(["-ObjC"]),
             ]

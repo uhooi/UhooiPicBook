@@ -15,6 +15,16 @@ runs:
     run: sudo xcode-select -s /Library/Developer/CommandLineTools
     shell: bash
 
+  # CI用シミュレータの作成
+  - name: Create simulator for CI
+    if: env.TEST_DEVICE != '' && env.TEST_OS != ''
+    run: |
+      runtime_id="com.apple.CoreSimulator.SimRuntime.iOS-${TEST_OS//./-}"
+      if ! xcrun simctl list devices available -j | jq -e --arg runtime "$runtime_id" --arg name "$TEST_DEVICE" '.devices[$runtime] // [] | any(.name == $name)' > /dev/null; then
+        xcrun simctl create "$TEST_DEVICE" "$TEST_DEVICE" "$runtime_id"
+      fi
+    shell: bash
+
   # Mintのインストール
   - name: Install Mint
     run: brew install mint
@@ -45,4 +55,3 @@ runs:
     with:
       path: SourcePackages
       key: ${{ runner.os }}-spm-${{ hashFiles('**/UhooiPicBook.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-
