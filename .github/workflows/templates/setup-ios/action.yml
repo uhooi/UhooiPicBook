@@ -9,6 +9,11 @@ runs:
     run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
     shell: bash
 
+  # Mint/SwiftPMが利用する bare repository を許可
+  - name: Allow bare Git repositories
+    run: git config --global safe.bareRepository all
+    shell: bash
+
   # コマンドラインツールのインストール（Xcode 13.3.1でビルドエラーが発生するワークアラウンド）
   # ref: https://developer.apple.com/forums/thread/703233
   - name: Install Command Line Tools for Xcode
