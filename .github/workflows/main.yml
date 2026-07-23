@@ -131,6 +131,7 @@ jobs:
     # テスト結果の表示とアップロード
     - uses: kishikawakatsumi/xcresulttool@v1
       if: success() || failure()
+      continue-on-error: true
       with:
         path: Reports/TestResults.xcresult
         upload-bundles: never
