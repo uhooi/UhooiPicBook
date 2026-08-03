@@ -15,16 +15,16 @@ final class MonsterDetailPage: Page {
     
     // MARK: Computed Instance Properties
     
-    private var view: XCUIElement { self.app.otherElements["monsterDetail"] }
-    private var dancingImage: XCUIElement { self.view.images["monsterDetail_dancing_image"] }
-    private var backButton: XCUIElement { self.app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Back"] }
-    private var shareButton: XCUIElement { self.app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Share"] }
+    private var view: XCUIElement { app.otherElements["monsterDetail"] }
+    private var dancingImage: XCUIElement { view.images["monsterDetail_dancing_image"] }
+    private var backButton: XCUIElement { app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Back"] }
+    private var shareButton: XCUIElement { app.navigationBars["UhooiPicBook.MonsterDetailView"].buttons["Share"] }
     
     // MARK: Initializers
     
     init(app: XCUIApplication, timeout: TimeInterval) {
         self.app = app
-        guard self.view.waitForExistence(timeout: timeout) else {
+        guard view.waitForExistence(timeout: timeout) else {
             fatalError("Fail to load MonsterDetailPage.")
         }
     }
@@ -32,18 +32,17 @@ final class MonsterDetailPage: Page {
     // MARK: Other Internal Methods
     
     func tapDancingImage() -> ImagePopupPage {
-        self.dancingImage.tap()
-        return ImagePopupPage(app: self.app, timeout: 1.0)
+        dancingImage.tap()
+        return ImagePopupPage(app: app, timeout: 1.0)
     }
     
     func tapBackButton() -> MonsterListPage {
-        self.backButton.tap()
-        return MonsterListPage(app: self.app, timeout: 1.0)
+        backButton.tap()
+        return MonsterListPage(app: app, timeout: 1.0)
     }
     
     func tapShareButton() -> ActivityPage {
-        self.shareButton.tap()
-        return ActivityPage(app: self.app, timeout: 1.0)
+        shareButton.tap()
+        return ActivityPage(app: app, timeout: 1.0)
     }
-
 }

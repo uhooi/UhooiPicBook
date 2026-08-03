@@ -15,14 +15,14 @@ final class ImagePopupPage: Page {
     
     // MARK: Computed Instance Properties
     
-    private var view: XCUIElement { self.app.otherElements["imagePopup"] }
-    private var closeButton: XCUIElement { self.view.buttons["imagePopup_close_button"] }
+    private var view: XCUIElement { app.otherElements["imagePopup"] }
+    private var closeButton: XCUIElement { view.buttons["imagePopup_close_button"] }
     
     // MARK: Initializers
     
     init(app: XCUIApplication, timeout: TimeInterval) {
         self.app = app
-        guard self.view.waitForExistence(timeout: timeout) else {
+        guard view.waitForExistence(timeout: timeout) else {
             fatalError("Fail to load ImagePopupPage.")
         }
     }
@@ -30,8 +30,7 @@ final class ImagePopupPage: Page {
     // MARK: Other Internal Methods
     
     func tapCloseButton() -> MonsterDetailPage {
-        self.closeButton.tap()
-        return MonsterDetailPage(app: self.app, timeout: 1.0)
+        closeButton.tap()
+        return MonsterDetailPage(app: app, timeout: 1.0)
     }
-
 }

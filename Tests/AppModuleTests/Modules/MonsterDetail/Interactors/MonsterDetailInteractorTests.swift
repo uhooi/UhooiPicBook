@@ -7,35 +7,26 @@
 //
 
 import XCTest
+import Testing
 @testable import AppModule
 
-final class MonsterDetailInteractorTests: XCTestCase {
+struct MonsterDetailInteractorTests {
 
     // MARK: Stored Instance Properties
 
-    private var presenterMock: MonsterDetailInteractorOutputMock!
+    private let presenterMock: MonsterDetailInteractorOutputMock
 
-    private var interactor: MonsterDetailInteractor!
+    private let interactor: MonsterDetailInteractor
 
     // MARK: TestCase Life-Cycle Methods
 
-    override func setUpWithError() throws {
-        reset()
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    init() {
+        self.presenterMock = MonsterDetailInteractorOutputMock()
+        self.interactor = MonsterDetailInteractor()
+        self.interactor.inject(presenter: self.presenterMock)
     }
 
     // MARK: - Test Methods
 
     // MARK: MonsterDetailInteractorInput
-
-    // MARK: - Other Private Methods
-
-    private func reset() {
-        self.presenterMock = MonsterDetailInteractorOutputMock()
-        self.interactor = MonsterDetailInteractor()
-        self.interactor.inject(presenter: self.presenterMock)
-    }
 }
